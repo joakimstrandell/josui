@@ -30,6 +30,7 @@
     "tailwind-merge": "^3.0.0"
   },
   "devDependencies": {
+    "@josui/eslint-config": "workspace:*",
     "@josui/tailwind-config": "workspace:*",
     "@josui/tokens": "workspace:*",
     "@vitejs/plugin-vue": "^5.2.0",

@@ -10,6 +10,7 @@ A multi-framework design system monorepo built with Turborepo and pnpm.
 | `@josui/tailwind-config` | Tailwind CSS v4 configuration with shared theme |
 | `@josui/react` | React component library |
 | `@josui/vue` | Vue 3 component library |
+| `@josui/eslint-config` | Shared ESLint configs for React and Vue (internal) |
 
 ## Components
 
@@ -136,6 +137,7 @@ josui/
 ├── packages/
 │   ├── tokens/             # Design tokens
 │   ├── tailwind-config/    # Tailwind v4 config
+│   ├── eslint-config/      # Shared ESLint configs
 │   ├── react/              # React components
 │   └── vue/                # Vue components
 ├── turbo.json              # Build orchestration
@@ -149,6 +151,7 @@ josui/
 - [Style Dictionary](https://styledictionary.com/) v5 — Token transformation
 - [Tailwind CSS](https://tailwindcss.com/) v4 — Utility-first CSS
 - [Storybook](https://storybook.js.org/) — Component documentation
+- [ESLint](https://eslint.org/) v9 — Linting with flat config
 - [tsup](https://tsup.egoist.dev/) — TypeScript bundler
 - [Changesets](https://github.com/changesets/changesets) — Version management
 
@@ -163,6 +166,9 @@ pnpm build
 
 # Run all dev servers
 pnpm dev
+
+# Lint all packages
+pnpm lint
 
 # Create a changeset for publishing
 pnpm changeset
