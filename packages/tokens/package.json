@@ -1,0 +1,28 @@
+{
+  "name": "@josui/tokens",
+  "version": "0.0.0",
+  "type": "module",
+  "main": "./dist/js/index.js",
+  "module": "./dist/js/index.js",
+  "types": "./dist/js/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/js/index.d.ts",
+      "import": "./dist/js/index.js"
+    },
+    "./css": "./dist/css/variables.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "style-dictionary build --config style-dictionary.config.ts",
+    "clean": "rm -rf dist"
+  },
+  "devDependencies": {
+    "style-dictionary": "^5.1.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

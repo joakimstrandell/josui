@@ -1,0 +1,173 @@
+{
+  "color": {
+    "$type": "color",
+    "primary": {
+      "50": {
+        "$value": "oklch(0.97 0.02 250)",
+        "$description": "Lightest primary shade"
+      },
+      "100": {
+        "$value": "oklch(0.93 0.05 250)",
+        "$description": "Very light primary"
+      },
+      "200": {
+        "$value": "oklch(0.86 0.09 250)",
+        "$description": "Light primary"
+      },
+      "300": {
+        "$value": "oklch(0.76 0.13 250)",
+        "$description": "Medium light primary"
+      },
+      "400": {
+        "$value": "oklch(0.65 0.16 250)",
+        "$description": "Medium primary"
+      },
+      "500": {
+        "$value": "oklch(0.53 0.19 250)",
+        "$description": "Primary brand color"
+      },
+      "600": {
+        "$value": "oklch(0.46 0.17 250)",
+        "$description": "Dark primary"
+      },
+      "700": {
+        "$value": "oklch(0.39 0.14 250)",
+        "$description": "Darker primary"
+      },
+      "800": {
+        "$value": "oklch(0.32 0.11 250)",
+        "$description": "Very dark primary"
+      },
+      "900": {
+        "$value": "oklch(0.26 0.08 250)",
+        "$description": "Darkest primary"
+      },
+      "950": {
+        "$value": "oklch(0.20 0.06 250)",
+        "$description": "Near black primary"
+      }
+    },
+    "gray": {
+      "50": {
+        "$value": "oklch(0.98 0 0)",
+        "$description": "Lightest gray"
+      },
+      "100": {
+        "$value": "oklch(0.95 0 0)",
+        "$description": "Very light gray"
+      },
+      "200": {
+        "$value": "oklch(0.90 0 0)",
+        "$description": "Light gray"
+      },
+      "300": {
+        "$value": "oklch(0.82 0 0)",
+        "$description": "Medium light gray"
+      },
+      "400": {
+        "$value": "oklch(0.70 0 0)",
+        "$description": "Medium gray"
+      },
+      "500": {
+        "$value": "oklch(0.55 0 0)",
+        "$description": "Gray"
+      },
+      "600": {
+        "$value": "oklch(0.45 0 0)",
+        "$description": "Dark gray"
+      },
+      "700": {
+        "$value": "oklch(0.35 0 0)",
+        "$description": "Darker gray"
+      },
+      "800": {
+        "$value": "oklch(0.25 0 0)",
+        "$description": "Very dark gray"
+      },
+      "900": {
+        "$value": "oklch(0.18 0 0)",
+        "$description": "Darkest gray"
+      },
+      "950": {
+        "$value": "oklch(0.10 0 0)",
+        "$description": "Near black"
+      }
+    },
+    "success": {
+      "50": {
+        "$value": "oklch(0.97 0.03 145)",
+        "$description": "Lightest success"
+      },
+      "500": {
+        "$value": "oklch(0.60 0.18 145)",
+        "$description": "Success color"
+      },
+      "700": {
+        "$value": "oklch(0.45 0.14 145)",
+        "$description": "Dark success"
+      }
+    },
+    "warning": {
+      "50": {
+        "$value": "oklch(0.98 0.03 85)",
+        "$description": "Lightest warning"
+      },
+      "500": {
+        "$value": "oklch(0.75 0.16 85)",
+        "$description": "Warning color"
+      },
+      "700": {
+        "$value": "oklch(0.55 0.14 55)",
+        "$description": "Dark warning"
+      }
+    },
+    "error": {
+      "50": {
+        "$value": "oklch(0.97 0.02 25)",
+        "$description": "Lightest error"
+      },
+      "500": {
+        "$value": "oklch(0.55 0.20 25)",
+        "$description": "Error color"
+      },
+      "700": {
+        "$value": "oklch(0.42 0.16 25)",
+        "$description": "Dark error"
+      }
+    },
+    "info": {
+      "50": {
+        "$value": "oklch(0.97 0.02 230)",
+        "$description": "Lightest info"
+      },
+      "500": {
+        "$value": "oklch(0.58 0.15 230)",
+        "$description": "Info color"
+      },
+      "700": {
+        "$value": "oklch(0.45 0.12 230)",
+        "$description": "Dark info"
+      }
+    },
+    "background": {
+      "$value": "oklch(1 0 0)",
+      "$description": "Default background"
+    },
+    "foreground": {
+      "$value": "oklch(0.15 0 0)",
+      "$description": "Default foreground text"
+    },
+    "muted": {
+      "$value": "oklch(0.96 0 0)",
+      "$description": "Muted background"
+    },
+    "muted-foreground": {
+      "$value": "oklch(0.50 0 0)",
+      "$description": "Muted text color"
+    },
+    "border": {
+      "$value": "oklch(0.88 0 0)",
+      "$description": "Default border color"
+    }
+  }
+}

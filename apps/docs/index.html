@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Josui Design System</title>
+    <meta name="description" content="A multi-framework design system with React and Vue components, built with Tailwind CSS and design tokens." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <div class="min-h-screen bg-background">
+      <!-- Hero Section -->
+      <header class="relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-primary-50 via-background to-primary-100 opacity-50"></div>
+        <nav class="relative mx-auto max-w-7xl px-6 py-6">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary-500 text-white font-bold text-lg">J</div>
+              <span class="text-xl font-semibold text-gray-900">Josui</span>
+            </div>
+            <div class="flex items-center gap-6">
+              <a href="#features" class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">Features</a>
+              <a href="#components" class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">Components</a>
+              <a href="#installation" class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">Installation</a>
+              <a href="https://github.com" target="_blank" class="inline-flex items-center gap-2 rounded-lg bg-gray-900 px-4 py-2 text-sm font-medium text-white hover:bg-gray-800 transition-colors">
+                <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                GitHub
+              </a>
+            </div>
+          </div>
+        </nav>
+
+        <div class="relative mx-auto max-w-7xl px-6 py-24 text-center">
+          <div class="inline-flex items-center gap-2 rounded-full bg-primary-100 px-4 py-1.5 text-sm font-medium text-primary-700 mb-6">
+            <span class="relative flex h-2 w-2">
+              <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary-400 opacity-75"></span>
+              <span class="relative inline-flex h-2 w-2 rounded-full bg-primary-500"></span>
+            </span>
+            Multi-Framework Design System
+          </div>
+          <h1 class="text-5xl font-bold tracking-tight text-gray-900 sm:text-6xl lg:text-7xl">
+            Build beautiful UIs<br />
+            <span class="text-primary-500">faster than ever</span>
+          </h1>
+          <p class="mx-auto mt-6 max-w-2xl text-lg text-gray-600">
+            A comprehensive design system with React and Vue components, powered by design tokens and Tailwind CSS. Consistent, accessible, and customizable.
+          </p>
+          <div class="mt-10 flex items-center justify-center gap-4">
+            <a href="#installation" class="inline-flex items-center gap-2 rounded-lg bg-primary-500 px-6 py-3 text-base font-semibold text-white shadow-lg shadow-primary-500/30 hover:bg-primary-600 transition-all hover:shadow-xl hover:shadow-primary-500/40">
+              Get Started
+              <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
+            </a>
+            <a href="#" class="inline-flex items-center gap-2 rounded-lg border border-gray-300 bg-white px-6 py-3 text-base font-semibold text-gray-700 hover:bg-gray-50 transition-colors">
+              View Storybook
+            </a>
+          </div>
+        </div>
+      </header>
+
+      <!-- Features Section -->
+      <section id="features" class="mx-auto max-w-7xl px-6 py-24">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl">Everything you need</h2>
+          <p class="mt-4 text-lg text-gray-600">A complete toolkit for building modern applications</p>
+        </div>
+        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div class="rounded-xl border border-gray-200 bg-white p-8 shadow-sm hover:shadow-md transition-shadow">
+            <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary-100 text-primary-600">
+              <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path></svg>
+            </div>
+            <h3 class="mt-6 text-lg font-semibold text-gray-900">Design Tokens</h3>
+            <p class="mt-2 text-gray-600">Centralized design decisions using DTCG format. Colors, typography, spacing, and more.</p>
+          </div>
+          <div class="rounded-xl border border-gray-200 bg-white p-8 shadow-sm hover:shadow-md transition-shadow">
+            <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary-100 text-primary-600">
+              <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path></svg>
+            </div>
+            <h3 class="mt-6 text-lg font-semibold text-gray-900">Multi-Framework</h3>
+            <p class="mt-2 text-gray-600">React and Vue components with identical APIs. Use the same design system across projects.</p>
+          </div>
+          <div class="rounded-xl border border-gray-200 bg-white p-8 shadow-sm hover:shadow-md transition-shadow">
+            <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary-100 text-primary-600">
+              <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+            </div>
+            <h3 class="mt-6 text-lg font-semibold text-gray-900">Tailwind CSS v4</h3>
+            <p class="mt-2 text-gray-600">Built on Tailwind CSS v4 with the Oxide engine for lightning-fast builds.</p>
+          </div>
+          <div class="rounded-xl border border-gray-200 bg-white p-8 shadow-sm hover:shadow-md transition-shadow">
+            <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary-100 text-primary-600">
+              <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+            </div>
+            <h3 class="mt-6 text-lg font-semibold text-gray-900">Type-Safe</h3>
+            <p class="mt-2 text-gray-600">Full TypeScript support with exported types for components and tokens.</p>
+          </div>
+          <div class="rounded-xl border border-gray-200 bg-white p-8 shadow-sm hover:shadow-md transition-shadow">
+            <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary-100 text-primary-600">
+              <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
+            </div>
+            <h3 class="mt-6 text-lg font-semibold text-gray-900">Customizable</h3>
+            <p class="mt-2 text-gray-600">Easily customize tokens and extend components to match your brand.</p>
+          </div>
+          <div class="rounded-xl border border-gray-200 bg-white p-8 shadow-sm hover:shadow-md transition-shadow">
+            <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-primary-100 text-primary-600">
+              <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+            </div>
+            <h3 class="mt-6 text-lg font-semibold text-gray-900">Documented</h3>
+            <p class="mt-2 text-gray-600">Interactive Storybook documentation for both React and Vue components.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Components Section -->
+      <section id="components" class="bg-gray-50 py-24">
+        <div class="mx-auto max-w-7xl px-6">
+          <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl">Core Components</h2>
+            <p class="mt-4 text-lg text-gray-600">Essential building blocks for your application</p>
+          </div>
+          <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            <div class="rounded-lg bg-white p-6 shadow-sm border border-gray-200">
+              <div class="text-lg font-semibold text-gray-900">Button</div>
+              <p class="text-sm text-gray-600 mt-1">5 variants, 3 sizes, loading state</p>
+            </div>
+            <div class="rounded-lg bg-white p-6 shadow-sm border border-gray-200">
+              <div class="text-lg font-semibold text-gray-900">Input</div>
+              <p class="text-sm text-gray-600 mt-1">Labels, hints, error states, addons</p>
+            </div>
+            <div class="rounded-lg bg-white p-6 shadow-sm border border-gray-200">
+              <div class="text-lg font-semibold text-gray-900">Card</div>
+              <p class="text-sm text-gray-600 mt-1">3 variants, flexible composition</p>
+            </div>
+            <div class="rounded-lg bg-white p-6 shadow-sm border border-gray-200">
+              <div class="text-lg font-semibold text-gray-900">Badge</div>
+              <p class="text-sm text-gray-600 mt-1">5 variants, 3 sizes</p>
+            </div>
+            <div class="rounded-lg bg-white p-6 shadow-sm border border-gray-200">
+              <div class="text-lg font-semibold text-gray-900">Typography</div>
+              <p class="text-sm text-gray-600 mt-1">Headings, body text, captions</p>
+            </div>
+            <div class="rounded-lg bg-white p-6 shadow-sm border border-gray-200">
+              <div class="text-lg font-semibold text-gray-900">Avatar</div>
+              <p class="text-sm text-gray-600 mt-1">Image, fallback, 4 sizes</p>
+            </div>
+            <div class="rounded-lg bg-white p-6 shadow-sm border border-gray-200">
+              <div class="text-lg font-semibold text-gray-900">Spinner</div>
+              <p class="text-sm text-gray-600 mt-1">3 sizes, 3 colors</p>
+            </div>
+            <div class="rounded-lg bg-white p-6 shadow-sm border border-gray-200">
+              <div class="text-lg font-semibold text-gray-900">Alert</div>
+              <p class="text-sm text-gray-600 mt-1">4 variants, dismissible</p>
+            </div>
+          </div>
+          <div class="mt-12 flex justify-center gap-4">
+            <a href="#" class="inline-flex items-center gap-2 rounded-lg border border-gray-300 bg-white px-6 py-3 text-base font-semibold text-gray-700 hover:bg-gray-50 transition-colors">
+              <svg class="h-5 w-5 text-[#61DAFB]" viewBox="0 0 24 24" fill="currentColor"><path d="M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0 0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.41 0-.783.093-1.106.278-1.375.793-1.683 3.264-.973 6.365C1.98 8.917 0 10.42 0 12.004c0 1.59 1.99 3.097 5.043 4.03-.704 3.113-.39 5.588.988 6.38.32.187.69.275 1.102.275 1.345 0 3.107-.96 4.888-2.624 1.78 1.654 3.542 2.603 4.887 2.603.41 0 .783-.09 1.106-.275 1.374-.792 1.683-3.263.973-6.365C22.02 15.096 24 13.59 24 12.004c0-1.59-1.99-3.097-5.043-4.032.704-3.11.39-5.587-.988-6.38-.318-.184-.688-.277-1.092-.278zm-.005 1.09v.006c.225 0 .406.044.558.127.666.382.955 1.835.73 3.704-.054.46-.142.945-.25 1.44-.96-.236-2.006-.417-3.107-.534-.66-.905-1.345-1.727-2.035-2.447 1.592-1.48 3.087-2.292 4.105-2.295zm-9.77.02c1.012 0 2.514.808 4.11 2.28-.686.72-1.37 1.537-2.02 2.442-1.107.117-2.154.298-3.113.538-.112-.49-.195-.964-.254-1.42-.23-1.868.054-3.32.714-3.707.19-.09.4-.127.563-.132zm4.882 3.05c.455.468.91.992 1.36 1.564-.44-.02-.89-.034-1.345-.034-.46 0-.915.01-1.36.034.44-.572.895-1.096 1.345-1.565zM12 8.1c.74 0 1.477.034 2.202.093.406.582.802 1.203 1.183 1.86.372.64.71 1.29 1.018 1.946-.308.655-.646 1.31-1.013 1.95-.38.66-.773 1.288-1.18 1.87-.728.063-1.466.098-2.21.098-.74 0-1.477-.035-2.202-.093-.406-.582-.802-1.204-1.183-1.86-.372-.64-.71-1.29-1.018-1.946.303-.657.646-1.313 1.013-1.954.38-.66.773-1.286 1.18-1.868.728-.064 1.466-.098 2.21-.098zm-3.635.254c-.24.377-.48.763-.704 1.16-.225.39-.435.782-.635 1.174-.265-.656-.49-1.31-.676-1.947.64-.15 1.315-.283 2.015-.386zm7.26 0c.695.103 1.365.23 2.006.387-.18.632-.405 1.282-.66 1.933-.2-.39-.41-.783-.64-1.174-.225-.392-.465-.774-.705-1.146zm3.063.675c.484.15.944.317 1.375.498 1.732.74 2.852 1.708 2.852 2.476-.005.768-1.125 1.74-2.857 2.475-.42.18-.88.342-1.355.493-.28-.958-.646-1.956-1.1-2.98.45-1.017.81-2.01 1.085-2.964zm-13.395.004c.278.96.645 1.957 1.1 2.98-.45 1.017-.812 2.01-1.086 2.964-.484-.15-.944-.318-1.37-.5-1.732-.737-2.852-1.706-2.852-2.474 0-.768 1.12-1.742 2.852-2.476.42-.18.88-.342 1.356-.494zm11.678 4.28c.265.657.49 1.312.676 1.948-.64.157-1.316.29-2.016.39.24-.375.48-.762.705-1.158.225-.39.435-.788.636-1.18zm-9.945.02c.2.392.41.783.64 1.175.23.39.465.772.705 1.143-.695-.102-1.365-.23-2.006-.386.18-.63.406-1.282.66-1.933zM17.92 16.32c.112.493.2.968.254 1.423.23 1.868-.054 3.32-.714 3.708-.147.09-.338.128-.563.128-1.012 0-2.514-.807-4.11-2.28.686-.72 1.37-1.536 2.02-2.44 1.107-.118 2.154-.3 3.113-.54zm-11.83.01c.96.234 2.006.415 3.107.532.66.905 1.345 1.727 2.035 2.446-1.595 1.483-3.092 2.295-4.11 2.295-.22-.005-.406-.05-.553-.132-.666-.38-.955-1.834-.73-3.703.054-.46.142-.944.25-1.438zm4.56.64c.44.02.89.034 1.345.034.46 0 .915-.01 1.36-.034-.44.572-.895 1.095-1.345 1.565-.455-.47-.91-.993-1.36-1.565z"/></svg>
+              React Storybook
+            </a>
+            <a href="#" class="inline-flex items-center gap-2 rounded-lg border border-gray-300 bg-white px-6 py-3 text-base font-semibold text-gray-700 hover:bg-gray-50 transition-colors">
+              <svg class="h-5 w-5 text-[#4FC08D]" viewBox="0 0 24 24" fill="currentColor"><path d="M24,1.61H14.06L12,5.16,9.94,1.61H0L12,22.39ZM12,14.08,5.16,2.23H9.59L12,6.41l2.41-4.18h4.43Z"/></svg>
+              Vue Storybook
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Installation Section -->
+      <section id="installation" class="py-24">
+        <div class="mx-auto max-w-4xl px-6">
+          <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl">Quick Start</h2>
+            <p class="mt-4 text-lg text-gray-600">Get up and running in minutes</p>
+          </div>
+
+          <div class="space-y-8">
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900 mb-4">1. Install packages</h3>
+              <div class="rounded-lg bg-gray-900 p-4 overflow-x-auto">
+                <code class="text-sm text-gray-100 font-mono">
+                  <span class="text-gray-500"># For React projects</span><br />
+                  npm install @josui/react @josui/tailwind-config<br /><br />
+                  <span class="text-gray-500"># For Vue projects</span><br />
+                  npm install @josui/vue @josui/tailwind-config
+                </code>
+              </div>
+            </div>
+
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900 mb-4">2. Import styles</h3>
+              <div class="rounded-lg bg-gray-900 p-4 overflow-x-auto">
+                <code class="text-sm text-gray-100 font-mono">
+                  <span class="text-gray-500">// In your main CSS file or entry point</span><br />
+                  <span class="text-primary-400">import</span> <span class="text-yellow-300">'@josui/tailwind-config/styles.css'</span>;
+                </code>
+              </div>
+            </div>
+
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900 mb-4">3. Use components</h3>
+              <div class="grid gap-4 md:grid-cols-2">
+                <div>
+                  <div class="text-sm font-medium text-gray-500 mb-2">React</div>
+                  <div class="rounded-lg bg-gray-900 p-4 overflow-x-auto">
+                    <code class="text-sm text-gray-100 font-mono whitespace-pre"><span class="text-primary-400">import</span> { Button } <span class="text-primary-400">from</span> <span class="text-yellow-300">'@josui/react'</span>;
+
+<span class="text-primary-400">function</span> <span class="text-blue-400">App</span>() {
+  <span class="text-primary-400">return</span> (
+    &lt;<span class="text-green-400">Button</span> <span class="text-yellow-300">variant</span>=<span class="text-yellow-300">"primary"</span>&gt;
+      Click me
+    &lt;/<span class="text-green-400">Button</span>&gt;
+  );
+}</code>
+                  </div>
+                </div>
+                <div>
+                  <div class="text-sm font-medium text-gray-500 mb-2">Vue</div>
+                  <div class="rounded-lg bg-gray-900 p-4 overflow-x-auto">
+                    <code class="text-sm text-gray-100 font-mono whitespace-pre">&lt;<span class="text-green-400">script</span> <span class="text-yellow-300">setup</span>&gt;
+<span class="text-primary-400">import</span> { Button } <span class="text-primary-400">from</span> <span class="text-yellow-300">'@josui/vue'</span>;
+&lt;/<span class="text-green-400">script</span>&gt;
+
+&lt;<span class="text-green-400">template</span>&gt;
+  &lt;<span class="text-green-400">Button</span> <span class="text-yellow-300">variant</span>=<span class="text-yellow-300">"primary"</span>&gt;
+    Click me
+  &lt;/<span class="text-green-400">Button</span>&gt;
+&lt;/<span class="text-green-400">template</span>&gt;</code>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="border-t border-gray-200 bg-white">
+        <div class="mx-auto max-w-7xl px-6 py-12">
+          <div class="flex flex-col items-center justify-between gap-4 md:flex-row">
+            <div class="flex items-center gap-2">
+              <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary-500 text-white font-bold text-sm">J</div>
+              <span class="font-semibold text-gray-900">Josui</span>
+            </div>
+            <p class="text-sm text-gray-500">
+              Built with Turborepo, Tailwind CSS, and Style Dictionary.
+            </p>
+            <div class="flex gap-4">
+              <a href="#" class="text-gray-400 hover:text-gray-600 transition-colors">
+                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
