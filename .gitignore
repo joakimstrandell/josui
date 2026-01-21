@@ -13,7 +13,6 @@ storybook-static/
 
 # IDE
 .idea/
-.vscode/
 *.swp
 *.swo
 
