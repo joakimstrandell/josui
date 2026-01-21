@@ -1,12 +1,22 @@
 import StyleDictionary, { type Config } from 'style-dictionary';
 
+interface ShadowValue {
+  offsetX: string;
+  offsetY: string;
+  blur: string;
+  spread: string;
+  color: string;
+}
+
+type TokenValue = string | number | ShadowValue | ShadowValue[] | string[];
+
 // Helper to flatten token path for CSS variable names
 const cssVarName = (token: { path: string[] }) => {
   return `--${token.path.join('-')}`;
 };
 
 // Helper to format shadow value
-const formatShadow = (value: any): string => {
+const formatShadow = (value: ShadowValue | ShadowValue[]): string => {
   if (Array.isArray(value)) {
     return value.map(formatShadow).join(', ');
   }
@@ -14,7 +24,7 @@ const formatShadow = (value: any): string => {
 };
 
 // Helper to format font family
-const formatFontFamily = (value: any): string => {
+const formatFontFamily = (value: string | string[]): string => {
   if (Array.isArray(value)) {
     return value.map((f: string) => (f.includes(' ') ? `"${f}"` : f)).join(', ');
   }
@@ -48,7 +58,7 @@ StyleDictionary.registerFormat({
 StyleDictionary.registerFormat({
   name: 'javascript/esm-custom',
   format: ({ dictionary }) => {
-    const tokens: Record<string, any> = {};
+    const tokens: Record<string, TokenValue> = {};
 
     dictionary.allTokens.forEach((token) => {
       const key = token.path.join('-');
