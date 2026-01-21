@@ -1,4 +1,4 @@
-import baseConfig from './index.js';
+import baseConfig from './index.ts';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 

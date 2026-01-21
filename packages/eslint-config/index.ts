@@ -12,6 +12,9 @@ export default [
         ...globals.browser,
         ...globals.node,
       },
+      parserOptions: {
+        projectService: true,
+      },
     },
   },
   {

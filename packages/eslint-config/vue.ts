@@ -15,6 +15,9 @@ export default [
         ...globals.browser,
         ...globals.node,
       },
+      parserOptions: {
+        projectService: true,
+      },
     },
   },
   {
@@ -24,6 +27,8 @@ export default [
       parserOptions: {
         parser: tseslint.parser,
         sourceType: 'module',
+        projectService: true,
+        extraFileExtensions: ['.vue'],
       },
     },
   },
