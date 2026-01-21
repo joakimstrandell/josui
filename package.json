@@ -11,12 +11,15 @@
     "format": "prettier --write \"**/*.{ts,tsx,vue,md,json}\"",
     "changeset": "changeset",
     "version-packages": "changeset version",
-    "release": "turbo build --filter=./packages/* && changeset publish"
+    "release": "turbo build --filter=./packages/* && changeset publish",
+    "prepare": "husky"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.0",
     "@josui/eslint-config": "workspace:*",
     "eslint": "^9.39.2",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
     "prettier": "^3.4.0",
     "turbo": "^2.7.0",
     "typescript": "^5.7.0"
@@ -24,5 +27,18 @@
   "packageManager": "pnpm@9.15.0",
   "engines": {
     "node": ">=20"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.vue": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,css}": [
+      "prettier --write"
+    ]
   }
 }
