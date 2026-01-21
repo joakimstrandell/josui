@@ -3,11 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "main": "./index.js",
+  "main": "./index.ts",
   "exports": {
-    ".": "./index.js",
-    "./react": "./react.js",
-    "./vue": "./vue.js"
+    ".": "./index.ts",
+    "./react": "./react.ts",
+    "./vue": "./vue.ts"
   },
   "dependencies": {
     "@eslint/js": "^9.39.2",
