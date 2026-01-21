@@ -210,9 +210,6 @@ importers:
         specifier: ^3.0.0
         version: 3.4.0
     devDependencies:
-      '@josui/eslint-config':
-        specifier: workspace:*
-        version: link:../eslint-config
       '@josui/tailwind-config':
         specifier: workspace:*
         version: link:../tailwind-config
@@ -266,9 +263,6 @@ importers:
         specifier: ^3.0.0
         version: 3.4.0
     devDependencies:
-      '@josui/eslint-config':
-        specifier: workspace:*
-        version: link:../eslint-config
       '@josui/tailwind-config':
         specifier: workspace:*
         version: link:../tailwind-config

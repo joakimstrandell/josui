@@ -30,7 +30,6 @@
     "tailwind-merge": "^3.0.0"
   },
   "devDependencies": {
-    "@josui/eslint-config": "workspace:*",
     "@josui/tailwind-config": "workspace:*",
     "@josui/tokens": "workspace:*",
     "@types/react": "^18.3.0",
