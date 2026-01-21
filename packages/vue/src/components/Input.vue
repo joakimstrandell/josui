@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, useAttrs } from 'vue';
+import { computed } from 'vue';
 import { cn } from '../utils/cn';
 
 export interface InputProps {
@@ -30,8 +30,6 @@ const emit = defineEmits<{
   'update:modelValue': [value: string];
 }>();
 
-const attrs = useAttrs();
-
 const sizeStyles = {
   sm: 'h-8 px-3 text-sm',
   md: 'h-10 px-3 text-sm',
@@ -46,8 +44,6 @@ const stateStyles = {
 
 const inputId = computed(() => props.id || props.label?.toLowerCase().replace(/\s+/g, '-'));
 const effectiveState = computed(() => (props.error ? 'error' : props.state));
-const hasLeftAddon = computed(() => !!attrs['left-addon'] || false);
-const hasRightAddon = computed(() => !!attrs['right-addon'] || false);
 
 const inputClasses = computed(() =>
   cn(

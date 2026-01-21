@@ -17,7 +17,8 @@
   ],
   "scripts": {
     "build": "style-dictionary build --config style-dictionary.config.ts",
-    "clean": "rm -rf dist"
+    "clean": "rm -rf dist",
+    "lint": "eslint ."
   },
   "devDependencies": {
     "style-dictionary": "^5.1.0"
