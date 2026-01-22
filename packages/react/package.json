@@ -37,6 +37,7 @@
     "@josui/tailwind-config": "workspace:*",
     "@josui/tokens": "workspace:*",
     "@josui/typescript-config": "workspace:*",
+    "@storybook/react": "^8.5.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.1.0",
     "@testing-library/user-event": "^14.6.0",

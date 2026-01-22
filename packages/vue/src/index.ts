@@ -2,26 +2,28 @@
 export { cn } from './utils/cn';
 
 // Components
-export { default as Button } from './components/Button.vue';
-export { default as Input } from './components/Input.vue';
-export { default as Card } from './components/Card.vue';
-export { default as CardHeader } from './components/CardHeader.vue';
-export { default as CardTitle } from './components/CardTitle.vue';
-export { default as CardDescription } from './components/CardDescription.vue';
-export { default as CardContent } from './components/CardContent.vue';
-export { default as CardFooter } from './components/CardFooter.vue';
-export { default as Badge } from './components/Badge.vue';
-export { default as Typography } from './components/Typography.vue';
-export { default as Avatar } from './components/Avatar.vue';
-export { default as Spinner } from './components/Spinner.vue';
-export { default as Alert } from './components/Alert.vue';
+export { Button } from './components/Button';
+export { Input } from './components/Input';
+export {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  CardFooter,
+} from './components/Card';
+export { Badge } from './components/Badge';
+export { Typography } from './components/Typography';
+export { Avatar } from './components/Avatar';
+export { Spinner } from './components/Spinner';
+export { Alert } from './components/Alert';
 
 // Types
-export type { ButtonProps } from './components/Button.vue';
-export type { InputProps } from './components/Input.vue';
-export type { CardProps } from './components/Card.vue';
-export type { BadgeProps } from './components/Badge.vue';
-export type { TypographyProps } from './components/Typography.vue';
-export type { AvatarProps } from './components/Avatar.vue';
-export type { SpinnerProps } from './components/Spinner.vue';
-export type { AlertProps } from './components/Alert.vue';
+export type { ButtonProps } from './components/Button';
+export type { InputProps } from './components/Input';
+export type { CardProps } from './components/Card';
+export type { BadgeProps } from './components/Badge';
+export type { TypographyProps } from './components/Typography';
+export type { AvatarProps } from './components/Avatar';
+export type { SpinnerProps } from './components/Spinner';
+export type { AlertProps } from './components/Alert';
