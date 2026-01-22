@@ -15,6 +15,7 @@ Uses Vite for bundling. Outputs ESM, CJS, and type definitions to `dist/`.
 Components live in `src/components/ComponentName/`. Each component folder contains:
 
 - `ComponentName.vue` — Component implementation (SFC)
+- `ComponentName.test.ts` — Unit tests
 - `ComponentName.stories.ts` — Storybook stories
 - `index.ts` — Barrel export
 
@@ -28,10 +29,11 @@ Components:
 ## Creating a Component
 
 1. Create `src/components/ComponentName/ComponentName.vue`
-2. Create `src/components/ComponentName/ComponentName.stories.ts`
-3. Create `src/components/ComponentName/index.ts` with exports
-4. Export from `src/index.ts`
-5. Create matching component in `@josui/react` with identical API
+2. Create `src/components/ComponentName/ComponentName.test.ts`
+3. Create `src/components/ComponentName/ComponentName.stories.ts`
+4. Create `src/components/ComponentName/index.ts` with exports
+5. Export from `src/index.ts`
+6. Create matching component in `@josui/react` with identical API
 
 ## Props Conventions
 
@@ -41,6 +43,17 @@ Components:
 - Use `withDefaults()` for default values
 
 ## Testing
+
+### Unit Tests
+
+```bash
+pnpm --filter @josui/vue test        # Run once
+pnpm --filter @josui/vue test:watch  # Watch mode
+```
+
+Uses Vitest with @testing-library/vue. Tests live alongside components.
+
+Note: Unlike React, Vue's `rerender()` doesn't update props. Use `it.each()` for testing multiple prop values.
 
 ### Storybook
 

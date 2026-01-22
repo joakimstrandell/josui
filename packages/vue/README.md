@@ -34,6 +34,14 @@ import { Button, Card, CardContent } from '@josui/vue';
 
 Button, Input, Card, Badge, Typography, Avatar, Spinner, Alert
 
+## Development
+
+```bash
+pnpm --filter @josui/vue build       # Build
+pnpm --filter @josui/vue test        # Run tests
+pnpm --filter @josui/vue test:watch  # Run tests in watch mode
+```
+
 ## Claude Code Integration
 
 ```bash

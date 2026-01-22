@@ -1,6 +1,15 @@
+<p align="center">
+  <img src="https://img.shields.io/badge/status-under%20development-8a2be2?style=for-the-badge" alt="Status: Under Development" />
+</p>
+<p align="center">
+  <strong>Under Development</strong> — expect breaking changes and rapid iteration.
+</p>
+
 # Josui Design System
 
-Multi-framework design system monorepo optimized for AI development.
+AI-native design system built on DTCG tokens.
+
+[![CI](https://github.com/joakimstrandell/josui/actions/workflows/ci.yml/badge.svg)](https://github.com/joakimstrandell/josui/actions/workflows/ci.yml)
 
 ## Packages
 
