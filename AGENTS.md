@@ -1,136 +1,63 @@
-# Josui Design System
+# Agent Instructions
 
-Multi-framework design system monorepo built with Turborepo + pnpm.
+This is a multi-framework design system monorepo. Follow these guidelines when working on this codebase.
 
-## Project Status
+## Before Making Changes
 
-**Completed** - All packages built successfully. Published to npm under `@josui/` scope.
+1. Run `pnpm install` if dependencies are missing
+2. Run `pnpm build` to ensure all packages build successfully
+3. Check which package you're working in — each has its own config
 
-## Architecture
+## Build Order
+
+Packages must build in this order due to dependencies:
 
 ```
-josui/
-├── apps/
-│   ├── storybook-react/     # React component docs (port 6006)
-│   ├── storybook-vue/       # Vue component docs (port 6007)
-│   └── docs/                # Landing page/portfolio
-├── packages/
-│   ├── tokens/              # @josui/tokens - Style Dictionary + DTCG
-│   ├── tailwind-config/     # @josui/tailwind-config - Tailwind v4
-│   ├── eslint-config/       # @josui/eslint-config - Shared ESLint configs (internal)
-│   ├── react/               # @josui/react - React 18/19 components
-│   └── vue/                 # @josui/vue - Vue 3.4+ components
-├── .husky/                  # Pre-commit hooks
-└── .vscode/                 # Editor settings
+tokens → tailwind-config → react/vue → storybook apps
 ```
 
-## Build Chain
+Always rebuild upstream packages if you modify them.
 
-`tokens → tailwind-config → react/vue → storybook apps`
+## Code Style
 
-## Components (8 total, identical API in React & Vue)
+- Use TypeScript for all code
+- Use named exports, not default exports
+- Prefer `const` over `let`
+- Use template literals for string interpolation
+- No semicolons (Prettier handles this)
+- Single quotes for strings
 
-- **Button** - primary, secondary, outline, ghost, destructive variants; sm/md/lg sizes; loading state
-- **Input** - label, error, hint, leftAddon, rightAddon; validation states
-- **Card** - default, bordered, elevated variants; CardHeader, CardTitle, CardDescription, CardContent, CardFooter
-- **Badge** - default, primary, success, warning, error variants
-- **Typography** - h1-h6, body, body-sm, caption; weight and color props
-- **Avatar** - image with fallback; sm/md/lg/xl sizes
-- **Spinner** - sm/md/lg sizes; primary/current/white colors
-- **Alert** - info, success, warning, error variants; dismissible
+## Component Development
 
-## Tech Stack
+When creating or modifying components:
 
-- Turborepo ^2.7.0
-- pnpm 9.15.0
-- Node.js 22+ (required for TypeScript configs)
-- Style Dictionary ^5.1.0 (DTCG format, TypeScript config)
-- Tailwind CSS ^4.0.0
-- Storybook ^8.5.0
-- ESLint ^9.39.2 (flat config with projectService)
-- Prettier ^3.4.0
-- Husky + lint-staged (pre-commit hooks)
-- tsup ^8.5.0 (React builds)
-- Vite ^6.0.0 (Vue builds, docs)
-- Changesets for publishing
+1. Implement in both `packages/react` and `packages/vue` with identical APIs
+2. Use Tailwind CSS classes from `@josui/tailwind-config`
+3. Support these common props: `variant`, `size`, `className`
+4. Export from the package's `src/index.ts`
 
-## Commands
+## Testing Changes
 
 ```bash
-pnpm install              # Install dependencies
-pnpm build                # Build all packages
-pnpm dev                  # Start dev servers
-pnpm lint                 # Lint all packages
-pnpm format               # Format all files with Prettier
-
-# Individual apps
-pnpm --filter @josui/storybook-react dev   # React Storybook :6006
-pnpm --filter @josui/storybook-vue dev     # Vue Storybook :6007
-pnpm --filter @josui/docs dev              # Landing page
-
-# Publishing
-pnpm changeset            # Create changeset
-pnpm version-packages     # Bump versions
-pnpm release              # Build & publish to npm
+pnpm lint                 # Must pass before committing
+pnpm build                # Must succeed
+pnpm --filter @josui/storybook-react dev  # Visual verification
+pnpm --filter @josui/storybook-vue dev    # Visual verification
 ```
 
-## ESLint Config (`@josui/eslint-config`)
+## Commit Guidelines
 
-Shared ESLint configs using flat config format (ESLint 9):
+- Commits are auto-linted via husky pre-commit hook
+- Write clear, concise commit messages
+- Use present tense ("Add feature" not "Added feature")
 
-- `@josui/eslint-config` - Base TypeScript config
-- `@josui/eslint-config/react` - React + React Hooks
-- `@josui/eslint-config/vue` - Vue 3 with vue-eslint-parser
+## Package-Specific Instructions
 
-Uses `projectService: true` for automatic tsconfig resolution in monorepo.
+Each package has its own `AGENTS.md` with specific guidance. The closest `AGENTS.md` to the file you're editing takes precedence.
 
-## Pre-commit Hooks
+## Common Pitfalls
 
-Husky + lint-staged runs on every commit:
-
-- `.ts`, `.tsx` files: ESLint fix + Prettier
-- `.vue` files: ESLint fix + Prettier
-- `.json`, `.md`, `.css` files: Prettier only
-
-## VSCode/Cursor Settings
-
-`.vscode/settings.json` configured for:
-
-- Format on save with Prettier
-- ESLint auto-fix on save
-- Recommended extensions: Prettier, ESLint, Volar, Tailwind CSS
-
-## Design Tokens (DTCG Format)
-
-Located in `packages/tokens/src/tokens/`:
-
-- colors.json - Primary (blue), gray, success, warning, error, info palettes (OKLCH)
-- typography.json - Font families (Inter, JetBrains Mono), sizes, weights, line-heights
-- spacing.json - 0-24 scale
-- radius.json - none to full
-- shadows.json - sm to xl
-
-Outputs:
-
-- CSS variables: `dist/css/variables.css`
-- JS/TS: `dist/js/index.js`, `index.d.ts`
-
-## Tailwind Config
-
-CSS-first configuration using `@theme` directive. Import via:
-
-```css
-@import '@josui/tailwind-config/styles.css';
-```
-
-## Publishing
-
-- Packages publish to npm under `@josui/` scope
-- Changesets configured with linked versioning
-- GitHub Actions CI/CD in `.github/workflows/ci.yml`
-- Requires `NPM_TOKEN` secret for automated publishing
-- Node 22 required in CI for TypeScript config support
-
-## GitHub Repository
-
-https://github.com/joakimstrandell/josui
+- **ESLint errors**: Each package has its own `eslint.config.ts` with `tsconfigRootDir`
+- **TypeScript errors**: Check that `tsconfig.json` extends the correct base config
+- **Build failures**: Ensure tokens are built first (`pnpm --filter @josui/tokens build`)
+- **Import errors**: Use workspace protocol (`workspace:*`) for internal dependencies
