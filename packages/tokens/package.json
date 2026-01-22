@@ -13,7 +13,8 @@
     "./css": "./dist/css/variables.css"
   },
   "files": [
-    "dist"
+    "dist",
+    "skills"
   ],
   "scripts": {
     "build": "style-dictionary build --config style-dictionary.config.ts",
