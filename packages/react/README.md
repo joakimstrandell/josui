@@ -1,37 +1,38 @@
 # @josui/react
 
-React components for josui.
+React component library for the Josui design system.
 
 ## Installation
 
 ```bash
-npm install @josui/react
+pnpm add @josui/react @josui/tailwind-config
+```
+
+## Setup
+
+```css
+@import '@josui/tailwind-config/styles.css';
 ```
 
 ## Usage
 
 ```tsx
-import { Button, Card } from '@josui/react';
-import '@josui/react/styles.css';
+import { Button, Card, CardContent } from '@josui/react';
 
-function App() {
-  return (
-    <Card>
-      <Button variant="primary">Click me</Button>
-    </Card>
-  );
-}
+<Card>
+  <CardContent>
+    <Button variant="primary">Click me</Button>
+  </CardContent>
+</Card>;
 ```
 
+## Components
+
+Button, Input, Card, Badge, Typography, Avatar, Spinner, Alert
+
 ## Claude Code Integration
-
-This package includes skills for Claude Code to help you use the components.
-
-To set up:
 
 ```bash
 mkdir -p .claude/skills
 cp -r node_modules/@josui/react/skills/* .claude/skills/
 ```
-
-The skills will help Claude understand how to use josui components in your project.

@@ -1,37 +1,42 @@
 # @josui/vue
 
-Vue components for josui.
+Vue 3 component library for the Josui design system.
 
 ## Installation
 
 ```bash
-npm install @josui/vue
+pnpm add @josui/vue @josui/tailwind-config
+```
+
+## Setup
+
+```css
+@import '@josui/tailwind-config/styles.css';
 ```
 
 ## Usage
 
 ```vue
 <script setup>
-import { Button, Card } from '@josui/vue';
-import '@josui/vue/styles.css';
+import { Button, Card, CardContent } from '@josui/vue';
 </script>
 
 <template>
   <Card>
-    <Button variant="primary">Click me</Button>
+    <CardContent>
+      <Button variant="primary">Click me</Button>
+    </CardContent>
   </Card>
 </template>
 ```
 
+## Components
+
+Button, Input, Card, Badge, Typography, Avatar, Spinner, Alert
+
 ## Claude Code Integration
-
-This package includes skills for Claude Code to help you use the components.
-
-To set up:
 
 ```bash
 mkdir -p .claude/skills
 cp -r node_modules/@josui/vue/skills/* .claude/skills/
 ```
-
-The skills will help Claude understand how to use josui components in your project.
