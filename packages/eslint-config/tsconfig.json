@@ -1,4 +1,4 @@
 {
-  "extends": "../../tsconfig.base.json",
+  "extends": "@josui/typescript-config/base.json",
   "include": ["*.ts"]
 }

@@ -21,6 +21,7 @@
     "lint": "eslint ."
   },
   "devDependencies": {
+    "@josui/typescript-config": "workspace:*",
     "style-dictionary": "^5.1.0"
   },
   "publishConfig": {

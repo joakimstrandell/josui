@@ -32,6 +32,7 @@
   "devDependencies": {
     "@josui/tailwind-config": "workspace:*",
     "@josui/tokens": "workspace:*",
+    "@josui/typescript-config": "workspace:*",
     "@vitejs/plugin-vue": "^5.2.0",
     "tailwindcss": "^4.0.0",
     "typescript": "^5.7.0",
