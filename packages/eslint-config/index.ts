@@ -2,8 +2,8 @@ import js from '@eslint/js';
 import tseslint from 'typescript-eslint';
 import globals from 'globals';
 
-/** Base ESLint config for all packages */
-export default [
+/** Base ESLint config array (without tsconfigRootDir) */
+export const baseConfig: object[] = [
   js.configs.recommended,
   ...tseslint.configs.recommended,
   {
@@ -36,3 +36,19 @@ export default [
     ],
   },
 ];
+
+/** Factory to create ESLint config with tsconfigRootDir */
+export function createConfig(tsconfigRootDir: string): object[] {
+  return [
+    ...baseConfig,
+    {
+      languageOptions: {
+        parserOptions: {
+          tsconfigRootDir,
+        },
+      },
+    },
+  ];
+}
+
+export default baseConfig;

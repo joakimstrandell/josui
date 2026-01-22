@@ -4,8 +4,8 @@ import globals from 'globals';
 import vue from 'eslint-plugin-vue';
 import vueParser from 'vue-eslint-parser';
 
-/** ESLint config for Vue packages */
-export default [
+/** ESLint config for Vue packages (raw array) */
+export const vueConfig: object[] = [
   js.configs.recommended,
   ...tseslint.configs.recommended,
   ...vue.configs['flat/recommended'],
@@ -16,7 +16,9 @@ export default [
         ...globals.node,
       },
       parserOptions: {
-        projectService: true,
+        projectService: {
+          allowDefaultProject: ['*.config.ts', '*.config.js'],
+        },
       },
     },
   },
@@ -47,6 +49,28 @@ export default [
     },
   },
   {
-    ignores: ['**/dist/**', '**/node_modules/**', '**/.storybook/**'],
+    ignores: [
+      '**/dist/**',
+      '**/node_modules/**',
+      '**/.storybook/**',
+      '**/storybook-static/**',
+      '**/coverage/**',
+    ],
   },
 ];
+
+/** Factory to create Vue ESLint config with tsconfigRootDir */
+export function createVueConfig(tsconfigRootDir: string): object[] {
+  return [
+    ...vueConfig,
+    {
+      languageOptions: {
+        parserOptions: {
+          tsconfigRootDir,
+        },
+      },
+    },
+  ];
+}
+
+export default vueConfig;

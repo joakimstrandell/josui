@@ -6,7 +6,7 @@
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
-    "lint": "turbo lint && eslint .",
+    "lint": "turbo lint && eslint *.ts scripts/**/*.ts",
     "clean": "turbo clean && rm -rf node_modules",
     "format": "prettier --write \"**/*.{ts,tsx,vue,md,json}\"",
     "changeset": "changeset",

@@ -1,5 +1,5 @@
 {
   "extends": "@josui/typescript-config/vue.json",
-  "include": ["src/**/*", ".storybook/**/*"],
+  "include": ["src/**/*", "*.ts", ".storybook/**/*"],
   "exclude": ["node_modules", "storybook-static"]
 }

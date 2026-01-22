@@ -2,8 +2,8 @@
   "extends": "@josui/typescript-config/vue.json",
   "compilerOptions": {
     "outDir": "dist",
-    "rootDir": "src"
+    "rootDir": "."
   },
-  "include": ["src/**/*", "src/**/*.vue"],
+  "include": ["src/**/*", "*.ts"],
   "exclude": ["node_modules", "dist"]
 }

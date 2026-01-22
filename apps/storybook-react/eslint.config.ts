@@ -1,3 +1,4 @@
-import reactConfig from '@josui/eslint-config/react';
+import { createReactConfig } from '@josui/eslint-config/react';
 
-export default reactConfig;
+const config: object[] = createReactConfig(import.meta.dirname);
+export default config;

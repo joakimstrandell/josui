@@ -1,8 +1,5 @@
-import baseConfig from '@josui/eslint-config';
+import { createConfig } from '@josui/eslint-config';
 
-export default [
-  {
-    ignores: ['apps/**', 'packages/**'],
-  },
-  ...baseConfig,
-];
+const config: object[] = createConfig(import.meta.dirname);
+
+export default config;

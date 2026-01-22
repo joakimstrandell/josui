@@ -1,3 +1,4 @@
-import vueConfig from '@josui/eslint-config/vue';
+import { createVueConfig } from '@josui/eslint-config/vue';
 
-export default vueConfig;
+const config: object[] = createVueConfig(import.meta.dirname);
+export default config;
