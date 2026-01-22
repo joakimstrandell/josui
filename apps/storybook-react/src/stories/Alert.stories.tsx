@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Alert } from '@josui/react';
+import { Alert } from '@josui/react/src';
 
-const meta = {
+const meta: Meta<typeof Alert> = {
   title: 'Components/Alert',
   component: Alert,
   parameters: {

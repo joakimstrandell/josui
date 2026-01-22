@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Avatar } from '@josui/react';
+import { Avatar } from '@josui/react/src';
 
 const meta = {
   title: 'Components/Avatar',

@@ -11,7 +11,8 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
-    "./styles.css": "./dist/styles.css"
+    "./src": "./src/index.ts",
+    "./tailwind.css": "./tailwind.css"
   },
   "files": [
     "dist",

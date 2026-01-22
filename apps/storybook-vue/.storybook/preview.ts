@@ -1,5 +1,5 @@
 import type { Preview } from '@storybook/vue3';
-import '@josui/tailwind-config/styles.css';
+import '../src/index.css';
 
 const preview: Preview = {
   parameters: {
