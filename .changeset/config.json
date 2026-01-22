@@ -12,7 +12,6 @@
     "@josui/storybook-react",
     "@josui/storybook-vue",
     "@josui/eslint-config",
-    "@josui/typescript-config",
-    "@josui/skills"
+    "@josui/typescript-config"
   ]
 }
