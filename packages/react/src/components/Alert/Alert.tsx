@@ -1,5 +1,5 @@
 import { forwardRef, type HTMLAttributes, type ReactNode } from 'react';
-import { cn } from '../utils/cn';
+import { cn } from '../../utils/cn';
 
 export interface AlertProps extends HTMLAttributes<HTMLDivElement> {
   /** Alert variant */
@@ -94,19 +94,13 @@ export const Alert = forwardRef<HTMLDivElement, AlertProps>(
       <div
         ref={ref}
         role="alert"
-        className={cn(
-          'flex gap-3 rounded-lg border-l-4 p-4',
-          variantStyles[variant],
-          className
-        )}
+        className={cn('flex gap-3 rounded-lg border-l-4 p-4', variantStyles[variant], className)}
         {...props}
       >
         {icon !== null && (icon || <DefaultIcon variant={variant} />)}
         <div className="flex-1 min-w-0">
           {title && <p className="font-medium">{title}</p>}
-          {children && (
-            <div className={cn('text-sm', title && 'mt-1')}>{children}</div>
-          )}
+          {children && <div className={cn('text-sm', title && 'mt-1')}>{children}</div>}
         </div>
         {dismissible && (
           <button

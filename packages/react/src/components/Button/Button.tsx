@@ -1,6 +1,6 @@
 import { forwardRef, type ButtonHTMLAttributes, type ReactNode } from 'react';
-import { cn } from '../utils/cn';
-import { Spinner } from './Spinner';
+import { cn } from '../../utils/cn';
+import { Spinner } from '../Spinner';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /** Visual style variant */

@@ -30,6 +30,15 @@ import { Button, Card, CardContent } from '@josui/react';
 
 Button, Input, Card, Badge, Typography, Avatar, Spinner, Alert
 
+## Testing
+
+```bash
+pnpm test        # Run tests once
+pnpm test:watch  # Watch mode
+```
+
+Uses Vitest with React Testing Library.
+
 ## Claude Code Integration
 
 ```bash

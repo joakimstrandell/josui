@@ -1,5 +1,5 @@
 import { forwardRef, type InputHTMLAttributes, type ReactNode } from 'react';
-import { cn } from '../utils/cn';
+import { cn } from '../../utils/cn';
 
 export interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> {
   /** Label text */
@@ -53,10 +53,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     return (
       <div className="w-full">
         {label && (
-          <label
-            htmlFor={inputId}
-            className="mb-1.5 block text-sm font-medium text-gray-700"
-          >
+          <label htmlFor={inputId} className="mb-1.5 block text-sm font-medium text-gray-700">
             {label}
           </label>
         )}
@@ -90,12 +87,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           )}
         </div>
         {(error || hint) && (
-          <p
-            className={cn(
-              'mt-1.5 text-sm',
-              error ? 'text-error-500' : 'text-gray-500'
-            )}
-          >
+          <p className={cn('mt-1.5 text-sm', error ? 'text-error-500' : 'text-gray-500')}>
             {error || hint}
           </p>
         )}

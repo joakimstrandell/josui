@@ -1,5 +1,5 @@
 import { forwardRef, type HTMLAttributes, type ElementType } from 'react';
-import { cn } from '../utils/cn';
+import { cn } from '../../utils/cn';
 
 type TypographyVariant = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'body' | 'body-sm' | 'caption';
 
@@ -55,18 +55,7 @@ const colorStyles = {
 };
 
 export const Typography = forwardRef<HTMLElement, TypographyProps>(
-  (
-    {
-      className,
-      variant = 'body',
-      as,
-      weight,
-      color = 'default',
-      children,
-      ...props
-    },
-    ref
-  ) => {
+  ({ className, variant = 'body', as, weight, color = 'default', children, ...props }, ref) => {
     const Component = as || variantElements[variant];
 
     return (
