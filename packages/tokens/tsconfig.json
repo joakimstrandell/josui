@@ -1,5 +1,5 @@
 {
-  "extends": "@josui/typescript-config/base.json",
+  "extends": "@josui/typescript-config/node.json",
   "compilerOptions": {
     "outDir": "dist"
   },

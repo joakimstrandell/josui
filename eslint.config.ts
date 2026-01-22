@@ -1,3 +1,8 @@
 import baseConfig from '@josui/eslint-config';
 
-export default baseConfig;
+export default [
+  {
+    ignores: ['apps/**', 'packages/**'],
+  },
+  ...baseConfig,
+];

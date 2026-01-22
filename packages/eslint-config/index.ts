@@ -27,6 +27,12 @@ export default [
     },
   },
   {
-    ignores: ['**/dist/**', '**/node_modules/**', '**/.storybook/**'],
+    ignores: [
+      '**/dist/**',
+      '**/node_modules/**',
+      '**/.storybook/**',
+      '**/storybook-static/**',
+      '**/coverage/**',
+    ],
   },
 ];

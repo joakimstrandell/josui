@@ -6,7 +6,7 @@
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
-    "lint": "turbo lint",
+    "lint": "turbo lint && eslint .",
     "clean": "turbo clean && rm -rf node_modules",
     "format": "prettier --write \"**/*.{ts,tsx,vue,md,json}\"",
     "changeset": "changeset",
@@ -17,6 +17,7 @@
   "devDependencies": {
     "@changesets/cli": "^2.27.0",
     "@josui/eslint-config": "workspace:*",
+    "@types/node": "^20.0.0",
     "eslint": "^9.39.2",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
