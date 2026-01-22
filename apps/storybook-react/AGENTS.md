@@ -16,28 +16,11 @@ Runs at http://localhost:6006
 pnpm --filter @josui/storybook-react build
 ```
 
-## Adding Stories
+## Stories Location
 
-Stories live in `src/stories/`. Each component should have a story file:
+Stories are colocated with components in `packages/react/src/components/ComponentName/ComponentName.stories.tsx`.
 
-```tsx
-// ComponentName.stories.tsx
-import type { Meta, StoryObj } from '@storybook/react';
-import { ComponentName } from '@josui/react';
-
-const meta: Meta<typeof ComponentName> = {
-  component: ComponentName,
-};
-export default meta;
-
-type Story = StoryObj<typeof ComponentName>;
-
-export const Default: Story = {
-  args: {
-    /* props */
-  },
-};
-```
+This app only serves as a Storybook runner — it does not contain story files.
 
 ## Dependencies
 

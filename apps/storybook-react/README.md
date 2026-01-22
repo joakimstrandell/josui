@@ -1,6 +1,6 @@
 # @josui/storybook-react
 
-Storybook for React components.
+Storybook for React components. Stories are colocated with components in `packages/react/`.
 
 ## Development
 

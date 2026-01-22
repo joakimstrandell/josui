@@ -16,6 +16,7 @@ Components live in `src/components/ComponentName/`. Each component folder contai
 
 - `ComponentName.tsx` — Component implementation
 - `ComponentName.test.tsx` — Unit tests
+- `ComponentName.stories.tsx` — Storybook stories
 - `index.ts` — Barrel export
 
 Components:
@@ -29,10 +30,10 @@ Components:
 
 1. Create `src/components/ComponentName/ComponentName.tsx`
 2. Create `src/components/ComponentName/ComponentName.test.tsx`
-3. Create `src/components/ComponentName/index.ts` with exports
-4. Export from `src/index.ts`
-5. Create matching component in `@josui/vue` with identical API
-6. Add story in `apps/storybook-react`
+3. Create `src/components/ComponentName/ComponentName.stories.tsx`
+4. Create `src/components/ComponentName/index.ts` with exports
+5. Export from `src/index.ts`
+6. Create matching component in `@josui/vue` with identical API
 
 ## Props Conventions
 

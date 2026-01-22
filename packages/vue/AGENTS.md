@@ -12,19 +12,26 @@ Uses Vite for bundling. Outputs ESM, CJS, and type definitions to `dist/`.
 
 ## Component Structure
 
-Components live in `src/components/`. Each component:
+Components live in `src/components/ComponentName/`. Each component folder contains:
 
-- Is a `.vue` SFC (Single File Component)
-- Uses `<script setup lang="ts">`
-- Uses Tailwind CSS classes
-- Supports `class` prop via `useAttrs()`
+- `ComponentName.vue` — Component implementation (SFC)
+- `ComponentName.stories.ts` — Storybook stories
+- `index.ts` — Barrel export
+
+Components:
+
+- Use `<script setup lang="ts">`
+- Use Tailwind CSS classes
+- Support `class` prop via `useAttrs()`
+- Have TypeScript props interface
 
 ## Creating a Component
 
-1. Create `src/components/ComponentName.vue`
-2. Export from `src/index.ts`
-3. Create matching component in `@josui/react` with identical API
-4. Add story in `apps/storybook-vue`
+1. Create `src/components/ComponentName/ComponentName.vue`
+2. Create `src/components/ComponentName/ComponentName.stories.ts`
+3. Create `src/components/ComponentName/index.ts` with exports
+4. Export from `src/index.ts`
+5. Create matching component in `@josui/react` with identical API
 
 ## Props Conventions
 
@@ -35,11 +42,15 @@ Components live in `src/components/`. Each component:
 
 ## Testing
 
+### Storybook
+
 ```bash
 pnpm --filter @josui/storybook-vue dev
 ```
 
 Visually verify in Storybook at http://localhost:6007
+
+Stories live alongside components: `src/components/ComponentName/ComponentName.stories.ts`
 
 ## Important
 

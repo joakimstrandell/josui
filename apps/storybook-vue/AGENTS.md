@@ -16,28 +16,11 @@ Runs at http://localhost:6007
 pnpm --filter @josui/storybook-vue build
 ```
 
-## Adding Stories
+## Stories Location
 
-Stories live in `src/stories/`. Each component should have a story file:
+Stories are colocated with components in `packages/vue/src/components/ComponentName/ComponentName.stories.ts`.
 
-```ts
-// ComponentName.stories.ts
-import type { Meta, StoryObj } from '@storybook/vue3';
-import { ComponentName } from '@josui/vue';
-
-const meta: Meta<typeof ComponentName> = {
-  component: ComponentName,
-};
-export default meta;
-
-type Story = StoryObj<typeof ComponentName>;
-
-export const Default: Story = {
-  args: {
-    /* props */
-  },
-};
-```
+This app only serves as a Storybook runner — it does not contain story files.
 
 ## Dependencies
 
