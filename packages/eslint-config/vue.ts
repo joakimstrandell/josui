@@ -15,11 +15,6 @@ export const vueConfig: object[] = [
         ...globals.browser,
         ...globals.node,
       },
-      parserOptions: {
-        projectService: {
-          allowDefaultProject: ['*.config.ts', '*.config.js'],
-        },
-      },
     },
   },
   {

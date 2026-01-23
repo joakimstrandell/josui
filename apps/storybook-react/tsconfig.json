@@ -1,5 +1,5 @@
 {
   "extends": "@josui/typescript-config/react.json",
-  "include": ["src/**/*", ".storybook/**/*"],
+  "include": ["src/**/*", ".storybook/**/*", "*.ts"],
   "exclude": ["node_modules", "storybook-static"]
 }

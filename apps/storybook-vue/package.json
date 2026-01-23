@@ -7,7 +7,7 @@
     "dev": "storybook dev -p 6007",
     "build": "storybook build",
     "clean": "rm -rf storybook-static",
-    "lint": "eslint src"
+    "lint": "eslint ."
   },
   "dependencies": {
     "@josui/vue": "workspace:*",
