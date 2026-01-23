@@ -13,7 +13,7 @@ This is a multi-framework design system monorepo. Follow these guidelines when w
 Packages must build in this order due to dependencies:
 
 ```
-tokens → tailwind-config → react/vue → storybook apps
+tokens → tailwind-config → core-web → react/vue → storybook apps
 ```
 
 Always rebuild upstream packages if you modify them.
@@ -47,9 +47,42 @@ pnpm --filter @josui/storybook-vue dev    # Visual verification
 
 ## Commit Guidelines
 
-- Commits are auto-linted via husky pre-commit hook
-- Write clear, concise commit messages
-- Use present tense ("Add feature" not "Added feature")
+Use [Conventional Commits](https://www.conventionalcommits.org/) with package scopes.
+
+### Format
+
+```
+<type>(<scope>): <description>
+```
+
+### Types
+
+- `feat` — New feature
+- `fix` — Bug fix
+- `refactor` — Code change that neither fixes a bug nor adds a feature
+- `docs` — Documentation only
+- `chore` — Maintenance (deps, config, etc.)
+- `test` — Adding or updating tests
+
+### Scopes
+
+Use the package name without `@josui/` prefix:
+
+- `core-web`, `react`, `vue`, `tokens`, `tailwind-config`
+
+For changes spanning multiple packages, list them: `feat(react, vue): ...`
+
+For repo-wide changes, omit scope: `chore: update CI workflow`
+
+### Examples
+
+```
+feat(core-web): add custom cursor utility
+fix(react): resolve Button focus ring on Safari
+refactor(vue, react): extract shared Card styles
+docs(tokens): update color usage examples
+chore: upgrade TypeScript to 5.8
+```
 
 ## Package-Specific Instructions
 

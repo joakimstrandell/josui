@@ -2,3 +2,4 @@
 // Shared web utilities for UI rendering, cursors, canvas, and more
 
 export { cn } from './cn';
+export { isTouchDevice } from './utils';
