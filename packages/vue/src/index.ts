@@ -1,6 +1,3 @@
-// Utils
-export { cn } from './utils/cn';
-
 // Components
 export { Button } from './components/Button';
 export { Input } from './components/Input';

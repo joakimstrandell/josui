@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { cn } from '../../utils/cn';
+import { cn } from '@josui/core-web';
 
 defineProps<{
   as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';

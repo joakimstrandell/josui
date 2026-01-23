@@ -1,5 +1,5 @@
 import { forwardRef, type HTMLAttributes } from 'react';
-import { cn } from '../../utils/cn';
+import { cn } from '@josui/core-web';
 
 export interface CardProps extends HTMLAttributes<HTMLDivElement> {
   /** Visual variant */

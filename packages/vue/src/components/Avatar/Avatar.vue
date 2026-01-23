@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
-import { cn } from '../../utils/cn';
+import { cn } from '@josui/core-web';
 
 export interface AvatarProps {
   /** Image source URL */

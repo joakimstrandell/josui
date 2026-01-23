@@ -30,8 +30,7 @@
     "test:watch": "vitest"
   },
   "dependencies": {
-    "clsx": "^2.1.0",
-    "tailwind-merge": "^3.0.0"
+    "@josui/core-web": "workspace:*"
   },
   "devDependencies": {
     "@josui/tailwind-config": "workspace:*",

@@ -1,6 +1,3 @@
-// Utils
-export { cn } from './utils/cn';
-
 // Components
 export { Button, type ButtonProps } from './components/Button';
 export { Input, type InputProps } from './components/Input';

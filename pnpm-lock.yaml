@@ -192,6 +192,25 @@ importers:
         specifier: ^6.0.0
         version: 6.4.1(@types/node@20.19.30)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.2)
 
+  packages/core-web:
+    dependencies:
+      clsx:
+        specifier: ^2.1.0
+        version: 2.1.1
+      tailwind-merge:
+        specifier: ^3.0.0
+        version: 3.4.0
+    devDependencies:
+      '@josui/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
+      tsup:
+        specifier: ^8.5.0
+        version: 8.5.1(@microsoft/api-extractor@7.55.2(@types/node@20.19.30))(jiti@2.6.1)(postcss@8.5.6)(typescript@5.9.3)(yaml@2.8.2)
+      typescript:
+        specifier: ^5.7.0
+        version: 5.9.3
+
   packages/eslint-config:
     dependencies:
       '@eslint/js':
@@ -225,12 +244,9 @@ importers:
 
   packages/react:
     dependencies:
-      clsx:
-        specifier: ^2.1.0
-        version: 2.1.1
-      tailwind-merge:
-        specifier: ^3.0.0
-        version: 3.4.0
+      '@josui/core-web':
+        specifier: workspace:*
+        version: link:../core-web
     devDependencies:
       '@josui/tailwind-config':
         specifier: workspace:*
@@ -304,12 +320,9 @@ importers:
 
   packages/vue:
     dependencies:
-      clsx:
-        specifier: ^2.1.0
-        version: 2.1.1
-      tailwind-merge:
-        specifier: ^3.0.0
-        version: 3.4.0
+      '@josui/core-web':
+        specifier: workspace:*
+        version: link:../core-web
     devDependencies:
       '@josui/tailwind-config':
         specifier: workspace:*
@@ -4280,8 +4293,8 @@ packages:
   vue-component-type-helpers@2.2.12:
     resolution: {integrity: sha512-YbGqHZ5/eW4SnkPNR44mKVc6ZKQoRs/Rux1sxC6rdwXb4qpbOSYfDr9DsTHolOTGmIKgM9j141mZbBeg05R1pw==}
 
-  vue-component-type-helpers@3.2.2:
-    resolution: {integrity: sha512-x8C2nx5XlUNM0WirgfTkHjJGO/ABBxlANZDtHw2HclHtQnn+RFPTnbjMJn8jHZW4TlUam0asHcA14lf1C6Jb+A==}
+  vue-component-type-helpers@3.2.3:
+    resolution: {integrity: sha512-lpJTa8a+12Cgy/n5OdlQTzQhSWOCu+6zQoNFbl3KYxwAoB95mYIgMLKEYMvQykPJ2ucBDjJJISdIBHc1d9Hd3w==}
 
   vue-docgen-api@4.79.2:
     resolution: {integrity: sha512-n9ENAcs+40awPZMsas7STqjkZiVlIjxIKgiJr5rSohDP0/JCrD9VtlzNojafsA1MChm/hz2h3PDtUedx3lbgfA==}
@@ -5609,7 +5622,7 @@ snapshots:
       ts-dedent: 2.2.0
       type-fest: 2.19.0
       vue: 3.5.27(typescript@5.9.3)
-      vue-component-type-helpers: 3.2.2
+      vue-component-type-helpers: 3.2.3
 
   '@tailwindcss/node@4.1.18':
     dependencies:
@@ -8750,7 +8763,7 @@ snapshots:
 
   vue-component-type-helpers@2.2.12: {}
 
-  vue-component-type-helpers@3.2.2: {}
+  vue-component-type-helpers@3.2.3: {}
 
   vue-docgen-api@4.79.2(vue@3.5.27(typescript@5.9.3)):
     dependencies:

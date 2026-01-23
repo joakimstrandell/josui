@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { cn } from '../../utils/cn';
+import { cn } from '@josui/core-web';
 import Spinner from '../Spinner/Spinner.vue';
 
 export interface ButtonProps {

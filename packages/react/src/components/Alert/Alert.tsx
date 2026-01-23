@@ -1,5 +1,5 @@
 import { forwardRef, type HTMLAttributes, type ReactNode } from 'react';
-import { cn } from '../../utils/cn';
+import { cn } from '@josui/core-web';
 
 export interface AlertProps extends HTMLAttributes<HTMLDivElement> {
   /** Alert variant */

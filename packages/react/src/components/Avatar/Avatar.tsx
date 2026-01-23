@@ -1,5 +1,5 @@
 import { forwardRef, type ImgHTMLAttributes, useState } from 'react';
-import { cn } from '../../utils/cn';
+import { cn } from '@josui/core-web';
 
 export interface AvatarProps extends Omit<ImgHTMLAttributes<HTMLImageElement>, 'size'> {
   /** Image source URL */

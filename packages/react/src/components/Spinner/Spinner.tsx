@@ -1,5 +1,5 @@
 import { forwardRef, type HTMLAttributes } from 'react';
-import { cn } from '../../utils/cn';
+import { cn } from '@josui/core-web';
 
 export interface SpinnerProps extends HTMLAttributes<HTMLDivElement> {
   /** Size variant */
