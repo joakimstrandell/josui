@@ -32,4 +32,4 @@ export default createReactConfig(import.meta.dirname);
 
 ## Important
 
-This is an internal package — not published to npm.
+Changes affect all packages using these configs. Test with `pnpm lint` from root.

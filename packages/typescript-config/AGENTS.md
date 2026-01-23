@@ -34,4 +34,4 @@ Packages extend the appropriate config:
 
 ## Important
 
-This is an internal package — not published to npm.
+Changes affect all packages extending these configs. Test with `pnpm lint` from root.

@@ -34,8 +34,8 @@ Uses [Changesets](https://github.com/changesets/changesets). **Do NOT create cha
 pnpm changeset  # Select packages, bump type, write summary
 ```
 
-**Published:** `@josui/core`, `@josui/core-web`, `@josui/tokens`, `@josui/tailwind-config`, `@josui/react`, `@josui/vue`
-**Ignored:** Apps (`docs`, `storybook-*`) and internal configs (`eslint-config`, `typescript-config`)
+**Published:** `@josui/core`, `@josui/core-web`, `@josui/tokens`, `@josui/tailwind-config`, `@josui/react`, `@josui/vue`, `@josui/eslint-config`, `@josui/typescript-config`
+**Ignored:** Apps (`docs`, `storybook-*`)
 
 When adding packages, update `.changeset/config.json` (`linked` or `ignore`).
 

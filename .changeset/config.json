@@ -10,17 +10,13 @@
       "@josui/tokens",
       "@josui/tailwind-config",
       "@josui/react",
-      "@josui/vue"
+      "@josui/vue",
+      "@josui/eslint-config",
+      "@josui/typescript-config"
     ]
   ],
   "access": "public",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
-  "ignore": [
-    "@josui/docs",
-    "@josui/storybook-react",
-    "@josui/storybook-vue",
-    "@josui/eslint-config",
-    "@josui/typescript-config"
-  ]
+  "ignore": ["@josui/docs", "@josui/storybook-react", "@josui/storybook-vue"]
 }
