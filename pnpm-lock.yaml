@@ -192,6 +192,25 @@ importers:
         specifier: ^6.0.0
         version: 6.4.1(@types/node@20.19.30)(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.8.2)
 
+  packages/core:
+    dependencies:
+      culori:
+        specifier: ^4.0.0
+        version: 4.0.2
+    devDependencies:
+      '@josui/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
+      '@types/culori':
+        specifier: ^4.0.0
+        version: 4.0.1
+      tsup:
+        specifier: ^8.5.0
+        version: 8.5.1(@microsoft/api-extractor@7.55.2(@types/node@20.19.30))(jiti@2.6.1)(postcss@8.5.6)(typescript@5.9.3)(yaml@2.8.2)
+      typescript:
+        specifier: ^5.7.0
+        version: 5.9.3
+
   packages/core-web:
     dependencies:
       clsx:
@@ -1673,6 +1692,9 @@ packages:
   '@types/chai@5.2.3':
     resolution: {integrity: sha512-Mw558oeA9fFbv65/y4mHtXDs9bPnFMZAL/jxdPFUpOHHIXX91mcgEHbS5Lahr+pwZFR8A7GQleRWeI6cGFC2UA==}
 
+  '@types/culori@4.0.1':
+    resolution: {integrity: sha512-43M51r/22CjhbOXyGT361GZ9vncSVQ39u62x5eJdBQFviI8zWp2X5jzqg7k4M6PVgDQAClpy2bUe2dtwEgEDVQ==}
+
   '@types/deep-eql@4.0.2':
     resolution: {integrity: sha512-c9h9dVVMigMPc4bwTvC5dxqtqJZwQPePsWjPlpSOnojbor6pGqdk541lfA7AqFQr5pB1BRdq0juY9db81BwyFw==}
 
@@ -2258,6 +2280,10 @@ packages:
 
   csstype@3.2.3:
     resolution: {integrity: sha512-z1HGKcYy2xA8AGQfwrn0PAy+PB7X/GSj3UVJW9qKyn43xWa+gl5nXmU4qqLMRzWVLFC8KusUX8T/0kCiOYpAIQ==}
+
+  culori@4.0.2:
+    resolution: {integrity: sha512-1+BhOB8ahCn4O0cep0Sh2l9KCOfOdY+BXJnKMHFFzDEouSr/el18QwXEMRlOj9UY5nCeA8UN3a/82rUWRBeyBw==}
+    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
 
   data-urls@5.0.0:
     resolution: {integrity: sha512-ZYP5VBHshaDAiVZxjbRVcFJpc+4xGgT0bK3vzy1HLN8jTO975HEbuYzZJcHoQEY5K1a0z8YayJkyVETa08eNTg==}
@@ -5796,6 +5822,8 @@ snapshots:
       '@types/deep-eql': 4.0.2
       assertion-error: 2.0.1
 
+  '@types/culori@4.0.1': {}
+
   '@types/deep-eql@4.0.2': {}
 
   '@types/doctrine@0.0.9': {}
@@ -6468,6 +6496,8 @@ snapshots:
       rrweb-cssom: 0.8.0
 
   csstype@3.2.3: {}
+
+  culori@4.0.2: {}
 
   data-urls@5.0.0:
     dependencies:

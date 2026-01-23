@@ -1,7 +1,8 @@
 import type { GridController } from './types';
-import { createCellManager } from '../grid-background/cellManager';
-import { drawGrid, drawCells, clearCanvas } from '../grid-background/gridRenderer';
-import { getCssVariable, getRGB } from '../utils';
+import { createCellManager } from './manager';
+import { drawGrid, drawCells, clearCanvas } from './renderer';
+import { getCssVariable } from '../utils';
+import { toRgb } from '@josui/core';
 
 /**
  * Configuration for the grid controller
@@ -60,8 +61,8 @@ export const createGridController = (
       currentFadeRate = Math.max(fadeRate, currentFadeRate * 0.95);
     }
 
-    const foregroundColor = getRGB(getCssVariable('--foreground')) || 'rgb(0, 0, 0)';
-    const accentColor = getRGB(getCssVariable('--accent')) || 'rgb(0, 0, 0)';
+    const foregroundColor = toRgb(getCssVariable('--foreground')) || 'rgb(0, 0, 0)';
+    const accentColor = toRgb(getCssVariable('--accent')) || 'rgb(0, 0, 0)';
 
     // Clear canvas for fresh frame
     clearCanvas(ctx, canvasWidth, canvasHeight);
