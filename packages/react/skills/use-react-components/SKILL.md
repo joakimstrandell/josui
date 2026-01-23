@@ -1,5 +1,5 @@
 ---
-name: use-components
+name: use-react-components
 description: Use @josui/react components. Use when asked to add, use, or implement josui React components like Button, Card, Input, Badge, Avatar, Alert, or Spinner.
 ---
 

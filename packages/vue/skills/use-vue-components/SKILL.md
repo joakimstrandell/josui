@@ -1,5 +1,5 @@
 ---
-name: use-components
+name: use-vue-components
 description: Use @josui/vue components. Use when asked to add, use, or implement josui Vue components like Button, Card, Input, Badge, Avatar, Alert, or Spinner.
 ---
 
