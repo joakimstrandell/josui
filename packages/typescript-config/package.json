@@ -3,14 +3,14 @@
   "version": "0.0.0",
   "type": "module",
   "exports": {
-    "./base.json": "./base.json",
-    "./browser.json": "./browser.json",
-    "./node.json": "./node.json",
-    "./react.json": "./react.json",
-    "./vue.json": "./vue.json"
+    "./base.json": "./src/base.json",
+    "./browser.json": "./src/browser.json",
+    "./node.json": "./src/node.json",
+    "./react.json": "./src/react.json",
+    "./vue.json": "./src/vue.json"
   },
   "files": [
-    "*.json"
+    "src"
   ],
   "publishConfig": {
     "access": "public"
