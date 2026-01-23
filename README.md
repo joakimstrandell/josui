@@ -38,8 +38,18 @@ AI-native design system built on DTCG tokens.
 pnpm build      # Build all packages
 pnpm dev        # Start all dev servers
 pnpm lint       # Lint all packages
-pnpm changeset  # Create a changeset
+pnpm test       # Run all tests
 ```
+
+## Releasing
+
+This project uses [Changesets](https://github.com/changesets/changesets) for versioning.
+
+```bash
+pnpm changeset  # Create a changeset after making releasable changes
+```
+
+When you push to main with changesets, CI automatically creates a "Version Packages" PR. Merging that PR publishes to npm.
 
 ## License
 

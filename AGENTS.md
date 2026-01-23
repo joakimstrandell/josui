@@ -86,6 +86,63 @@ docs(tokens): update color usage examples
 chore: upgrade TypeScript to 5.8
 ```
 
+## Releasing
+
+This project uses [Changesets](https://github.com/changesets/changesets) for versioning and publishing.
+
+### Important
+
+**Do NOT create changesets automatically.** Only create a changeset when:
+
+- The user explicitly asks you to
+- You ask the user and they confirm
+
+### When to Create a Changeset
+
+Create a changeset when you make changes that should be released to npm:
+
+- New features
+- Bug fixes
+- Breaking changes
+
+Do NOT create changesets for:
+
+- Documentation-only changes
+- Internal tooling/config changes
+- Changes to apps (docs, storybooks)
+
+### How to Create a Changeset
+
+```bash
+pnpm changeset
+```
+
+Follow the prompts to:
+
+1. Select which packages changed
+2. Choose bump type (`patch` for fixes, `minor` for features, `major` for breaking)
+3. Write a summary (this goes into the CHANGELOG)
+
+Commit the changeset file (in `.changeset/`) along with your code.
+
+### Release Process
+
+Releases are automated via CI:
+
+1. Push to main with changesets → CI creates a "Version Packages" PR
+2. Merge the "Version Packages" PR → CI publishes to npm
+
+### Published Packages
+
+- `@josui/core`, `@josui/core-web`, `@josui/tokens`, `@josui/tailwind-config`, `@josui/react`, `@josui/vue`
+
+### Ignored (not published)
+
+- Apps: `@josui/docs`, `@josui/storybook-react`, `@josui/storybook-vue`
+- Internal configs: `@josui/eslint-config`, `@josui/typescript-config`
+
+**Note:** When adding new packages, update `.changeset/config.json` to add them to `linked` (if published) or `ignore` (if internal).
+
 ## Package-Specific Instructions
 
 Each package has its own `AGENTS.md` with specific guidance. The closest `AGENTS.md` to the file you're editing takes precedence.
