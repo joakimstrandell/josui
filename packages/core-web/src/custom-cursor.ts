@@ -1,13 +1,14 @@
 import gsap from 'gsap';
+import { DEFAULT_INTERACTIVE_SELECTORS, isInteractiveElement } from './interactive';
 
 export interface CustomCursorOptions {
   offset?: number;
   easing?: string;
   interactiveSelectors?: string;
-  activateScale?: number;
-  activateBorderRadius?: number;
-  activateBackgroundColor?: string;
-  activateDuration?: number;
+  interactiveScale?: number;
+  interactiveBorderRadius?: number;
+  interactiveBackground?: string;
+  interactiveDuration?: number;
 }
 
 export interface CustomCursorInstance {
@@ -17,11 +18,11 @@ export interface CustomCursorInstance {
 const DEFAULTS: Required<CustomCursorOptions> = {
   offset: 10,
   easing: 'power3.out',
-  interactiveSelectors: "a, button, [data-cursor='active']",
-  activateScale: 2.5,
-  activateBorderRadius: 9999,
-  activateBackgroundColor: 'var(--accent)',
-  activateDuration: 0.25,
+  interactiveSelectors: DEFAULT_INTERACTIVE_SELECTORS,
+  interactiveScale: 2.5,
+  interactiveBorderRadius: 9999,
+  interactiveBackground: '#000',
+  interactiveDuration: 0.25,
 };
 
 export function createCustomCursor(
@@ -67,10 +68,10 @@ export function createCustomCursor(
 
   // Hover activation timeline
   const hoverTimeline = gsap.timeline({ paused: true }).to(cursorElement, {
-    scale: opts.activateScale,
-    borderRadius: opts.activateBorderRadius,
-    backgroundColor: opts.activateBackgroundColor,
-    duration: opts.activateDuration,
+    scale: opts.interactiveScale,
+    borderRadius: opts.interactiveBorderRadius,
+    backgroundColor: opts.interactiveBackground,
+    duration: opts.interactiveDuration,
     ease: opts.easing,
   });
 
@@ -81,10 +82,9 @@ export function createCustomCursor(
     lastX = e.clientX;
     lastY = e.clientY;
 
-    // Check if target is interactive using event delegation
+    // Check if target is interactive
     const target = e.target as Element;
-    const isInteractiveTarget =
-      target.matches?.(opts.interactiveSelectors) || !!target.closest?.(opts.interactiveSelectors);
+    const isInteractiveTarget = isInteractiveElement(target, opts.interactiveSelectors);
 
     // Update hover state
     if (isInteractiveTarget && !isHovering) {
@@ -136,8 +136,7 @@ export function createCustomCursor(
   // Pointer down/up handlers for click effect
   const onPointerDown = (e: PointerEvent) => {
     const target = e.target as Element;
-    const isInteractiveTarget =
-      target.matches?.(opts.interactiveSelectors) || !!target.closest?.(opts.interactiveSelectors);
+    const isInteractiveTarget = isInteractiveElement(target, opts.interactiveSelectors);
 
     if (isInteractiveTarget) {
       isClicking = true;
@@ -145,7 +144,7 @@ export function createCustomCursor(
       clickTimeline.kill();
       clickTimeline.clear();
       clickTimeline.to(cursorElement, {
-        scale: isHovering ? opts.activateScale * 0.8 : 0.8,
+        scale: isHovering ? opts.interactiveScale * 0.8 : 0.8,
         duration: 0.05,
         ease: 'power1.in', // Fast start, slow end
       });

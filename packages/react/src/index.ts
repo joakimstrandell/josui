@@ -1,5 +1,10 @@
 // Components
 export { Button, type ButtonProps } from './components/Button';
+export { CustomCursor, type CustomCursorProps } from './components/CustomCursor';
+
+// Hooks
+export { useIsTouchDevice } from './hooks/useIsTouchDevice';
+export { useScrollDirection } from './hooks/useScrollDirection';
 export { Input, type InputProps } from './components/Input';
 export {
   Card,

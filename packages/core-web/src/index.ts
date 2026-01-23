@@ -8,3 +8,8 @@ export {
   type CustomCursorOptions,
   type CustomCursorInstance,
 } from './custom-cursor';
+export {
+  DEFAULT_INTERACTIVE_SELECTORS,
+  isInteractiveElement,
+  interactiveState,
+} from './interactive';
