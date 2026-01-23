@@ -1,4 +1,4 @@
 {
   "extends": "@josui/typescript-config/node.json",
-  "include": ["*.ts"]
+  "include": ["src/**/*"]
 }

@@ -2,14 +2,14 @@
   "name": "@josui/eslint-config",
   "version": "0.0.0",
   "type": "module",
-  "main": "./index.ts",
+  "main": "./src/index.ts",
   "exports": {
-    ".": "./index.ts",
-    "./react": "./react.ts",
-    "./vue": "./vue.ts"
+    ".": "./src/index.ts",
+    "./react": "./src/react.ts",
+    "./vue": "./src/vue.ts"
   },
   "files": [
-    "*.ts"
+    "src"
   ],
   "devDependencies": {
     "@josui/typescript-config": "workspace:*"
