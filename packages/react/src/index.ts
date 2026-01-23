@@ -1,9 +1,11 @@
 // Components
 export { Button, type ButtonProps } from './components/Button';
 export { CustomCursor, type CustomCursorProps } from './components/CustomCursor';
+export { CellGrid, type CellGridProps } from './components/CellGrid';
 
 // Hooks
 export { useIsTouchDevice } from './hooks/useIsTouchDevice';
+export { useInteractiveState } from './hooks/useInteractiveState';
 export { useScrollDirection } from './hooks/useScrollDirection';
 export { Input, type InputProps } from './components/Input';
 export {

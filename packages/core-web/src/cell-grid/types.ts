@@ -13,16 +13,20 @@ export interface CellState {
 }
 
 /**
- * Main configuration interface for the grid component
+ * Main configuration interface for the cell grid component
  * All properties are optional with sensible defaults
  */
-export interface GridControllerConfig {
+export interface CellGridControllerConfig {
   /** Size of each grid cell in pixels (default: 24) */
   cellSize?: number;
   /** Rate at which cells fade out per frame (default: 0.015) */
   fadeRate?: number;
   /** Maximum number of cells that can be active simultaneously (default: 200) */
   maxCells?: number;
+  /** Color for grid lines (default: '#000') */
+  gridColor?: string;
+  /** Color for active cells (default: '#000') */
+  cellColor?: string;
 }
 
 /**
@@ -47,10 +51,10 @@ export interface CellManager {
 }
 
 /**
- * Main controller interface for the grid
+ * Main controller interface for the cell grid
  * Coordinates between managers and handles user interactions
  */
-export interface GridController {
+export interface CellGridController {
   /** Starts the animation and sets up event listeners */
   start: () => void;
   /** Stops the animation loop */

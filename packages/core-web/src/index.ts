@@ -13,3 +13,14 @@ export {
   isInteractiveElement,
   interactiveState,
 } from './interactive';
+export {
+  createCellGridController,
+  createCellManager,
+  drawCellGridLines,
+  drawCells,
+  clearCanvas,
+  type CellState,
+  type CellManager,
+  type CellGridController,
+  type CellGridControllerConfig,
+} from './cell-grid';
