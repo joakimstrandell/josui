@@ -7,10 +7,7 @@
 
 # Josui
 
-[![Lint](https://img.shields.io/github/actions/workflow/status/joakimstrandell/josui/ci.yml?label=lint&job=lint)](https://github.com/joakimstrandell/josui/actions/workflows/ci.yml)
-[![Test](https://img.shields.io/github/actions/workflow/status/joakimstrandell/josui/ci.yml?label=test&job=test)](https://github.com/joakimstrandell/josui/actions/workflows/ci.yml)
-[![Build](https://img.shields.io/github/actions/workflow/status/joakimstrandell/josui/ci.yml?label=build&job=build)](https://github.com/joakimstrandell/josui/actions/workflows/ci.yml)
-[![Release](https://img.shields.io/github/actions/workflow/status/joakimstrandell/josui/ci.yml?label=release&job=release)](https://github.com/joakimstrandell/josui/actions/workflows/ci.yml)
+[![CI](https://github.com/joakimstrandell/josui/actions/workflows/ci.yml/badge.svg)](https://github.com/joakimstrandell/josui/actions/workflows/ci.yml)
 
 AI-native design system built on DTCG tokens.
 
