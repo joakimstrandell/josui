@@ -34,6 +34,16 @@ import { Button, Card, CardContent } from '@josui/vue';
 
 Button, Input, Card, Badge, Typography, Avatar, Spinner, Alert
 
+## Importing Source Files
+
+For projects with their own build setup, you can import TypeScript source directly:
+
+```ts
+import { Button } from '@josui/vue/src';
+```
+
+This enables better tree-shaking and lets your bundler optimize the code.
+
 ## Development
 
 ```bash

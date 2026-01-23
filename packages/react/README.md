@@ -30,6 +30,16 @@ import { Button, Card, CardContent } from '@josui/react';
 
 Button, Input, Card, Badge, Typography, Avatar, Spinner, Alert
 
+## Importing Source Files
+
+For projects with their own build setup, you can import TypeScript source directly:
+
+```tsx
+import { Button } from '@josui/react/src';
+```
+
+This enables better tree-shaking and lets your bundler optimize the code.
+
 ## Testing
 
 ```bash

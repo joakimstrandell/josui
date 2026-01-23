@@ -17,7 +17,9 @@
   },
   "files": [
     "dist",
-    "skills"
+    "skills",
+    "src",
+    "tailwind.css"
   ],
   "sideEffects": [
     "**/*.css"
