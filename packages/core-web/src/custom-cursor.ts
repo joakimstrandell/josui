@@ -16,7 +16,7 @@ export interface CustomCursorInstance {
 }
 
 const DEFAULTS: Required<CustomCursorOptions> = {
-  offset: 10,
+  offset: 0,
   easing: 'power3.out',
   interactiveSelectors: DEFAULT_INTERACTIVE_SELECTORS,
   interactiveScale: 2.5,
@@ -44,8 +44,8 @@ export function createCustomCursor(
   let clickTimeout: number | null = null;
   let isVisible = false;
 
-  // initial hidden
-  gsap.set(cursorElement, { opacity: 0 });
+  // initial hidden, centered on cursor position
+  gsap.set(cursorElement, { opacity: 0, xPercent: -50, yPercent: -50 });
 
   // Centralized show/hide helpers to avoid tween conflicts
   function showCursorAt(x: number, y: number) {
