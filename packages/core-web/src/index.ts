@@ -3,3 +3,8 @@
 
 export { cn } from './cn';
 export { isTouchDevice } from './utils';
+export {
+  createCustomCursor,
+  type CustomCursorOptions,
+  type CustomCursorInstance,
+} from './custom-cursor';
