@@ -37,13 +37,11 @@ const meta = {
             </p>
           </div>
           <div
-            data-cursor="active"
+            data-interactive
             className="cursor-pointer rounded-lg border border-gray-200 bg-white p-4 transition-shadow hover:shadow-md"
           >
             <p className="font-medium">Custom interactive area</p>
-            <p className="text-sm text-gray-500">
-              This div has data-cursor=&quot;active&quot; attribute
-            </p>
+            <p className="text-sm text-gray-500">This div has data-interactive attribute</p>
           </div>
         </div>
       </div>

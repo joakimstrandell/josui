@@ -27,7 +27,7 @@ export function CustomCursor({ options, className }: CustomCursorProps) {
       ref={cursorRef}
       className={
         className ??
-        'pointer-events-none fixed left-0 top-0 z-[9999] h-5 w-5 border border-primary-500 mix-blend-difference'
+        'pointer-events-none fixed left-0 top-0 z-[9999] h-5 w-5 rounded-full bg-primary-500 mix-blend-difference'
       }
     />
   );

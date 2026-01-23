@@ -21,7 +21,7 @@ const DEFAULTS: Required<CustomCursorOptions> = {
   interactiveSelectors: DEFAULT_INTERACTIVE_SELECTORS,
   interactiveScale: 2.5,
   interactiveBorderRadius: 9999,
-  interactiveBackground: '#000',
+  interactiveBackground: 'none',
   interactiveDuration: 0.25,
 };
 
@@ -67,13 +67,16 @@ export function createCustomCursor(
   }
 
   // Hover activation timeline
-  const hoverTimeline = gsap.timeline({ paused: true }).to(cursorElement, {
+  const hoverProps: gsap.TweenVars = {
     scale: opts.interactiveScale,
     borderRadius: opts.interactiveBorderRadius,
-    backgroundColor: opts.interactiveBackground,
     duration: opts.interactiveDuration,
     ease: opts.easing,
-  });
+  };
+  if (opts.interactiveBackground !== 'none') {
+    hoverProps.backgroundColor = opts.interactiveBackground;
+  }
+  const hoverTimeline = gsap.timeline({ paused: true }).to(cursorElement, hoverProps);
 
   // Click squeeze timeline (created empty, populated on pointerdown)
   const clickTimeline = gsap.timeline({ paused: true });
