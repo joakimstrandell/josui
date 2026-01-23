@@ -33,7 +33,6 @@ Components:
 3. Create `src/components/ComponentName/ComponentName.stories.tsx`
 4. Create `src/components/ComponentName/index.ts` with exports
 5. Export from `src/index.ts`
-6. Create matching component in `@josui/vue` with identical API
 
 ## Props Conventions
 
@@ -79,4 +78,4 @@ Visually verify in Storybook at http://localhost:6006
 
 ## Important
 
-Keep APIs identical to `@josui/vue` for cross-framework consistency.
+This is the primary component library for the Josui design system.

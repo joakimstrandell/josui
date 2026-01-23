@@ -13,7 +13,7 @@ This is a multi-framework design system monorepo. Follow these guidelines when w
 Packages must build in this order due to dependencies:
 
 ```
-tokens → tailwind-config → core-web → react/vue → storybook apps
+tokens → tailwind-config → core → core-web → react/vue → storybook apps
 ```
 
 Always rebuild upstream packages if you modify them.
@@ -29,12 +29,14 @@ Always rebuild upstream packages if you modify them.
 
 ## Component Development
 
-When creating or modifying components:
+When creating or modifying components in `@josui/react`:
 
-1. Implement in both `packages/react` and `packages/vue` with identical APIs
-2. Use Tailwind CSS classes from `@josui/tailwind-config`
-3. Support these common props: `variant`, `size`, `className`
-4. Export from the package's `src/index.ts`
+1. Use Tailwind CSS classes from `@josui/tailwind-config`
+2. Support these common props: `variant`, `size`, `className`
+3. Export from the package's `src/index.ts`
+4. Add tests and Storybook stories
+
+Note: `@josui/vue` is a proof of concept for SCSS-based token consumption and does not require feature parity.
 
 ## Testing Changes
 

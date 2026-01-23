@@ -2,6 +2,8 @@
 
 Vue 3 component library for the Josui design system.
 
+> **Note:** This package is a proof of concept. It will be refactored to use SCSS instead of Tailwind CSS to demonstrate how design tokens can be centralized and consumed in different styling approaches.
+
 ## Installation
 
 ```bash
@@ -33,16 +35,6 @@ import { Button, Card, CardContent } from '@josui/vue';
 ## Components
 
 Button, Input, Card, Badge, Typography, Avatar, Spinner, Alert
-
-## Importing Source Files
-
-For projects with their own build setup, you can import TypeScript source directly:
-
-```ts
-import { Button } from '@josui/vue/src';
-```
-
-This enables better tree-shaking and lets your bundler optimize the code.
 
 ## Development
 

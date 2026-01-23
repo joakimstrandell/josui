@@ -27,7 +27,7 @@ Utilities are organized by domain:
 - **No browser APIs** — No `window`, `document`, `navigator`, etc.
 - **Pure functions** — No side effects where possible
 - **Well-typed** — Full TypeScript support with documented parameters
-- **Zero dependencies** — Keep this package dependency-free
+- **Minimal dependencies** — Only add well-maintained, focused libraries
 
 ## Important
 

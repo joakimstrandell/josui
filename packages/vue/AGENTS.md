@@ -2,6 +2,8 @@
 
 Vue 3 component library for the Josui design system.
 
+> **Note:** This package is a proof of concept. It will be refactored to use SCSS instead of Tailwind CSS to demonstrate centralized token consumption.
+
 ## Build
 
 ```bash
@@ -33,7 +35,6 @@ Components:
 3. Create `src/components/ComponentName/ComponentName.stories.ts`
 4. Create `src/components/ComponentName/index.ts` with exports
 5. Export from `src/index.ts`
-6. Create matching component in `@josui/react` with identical API
 
 ## Props Conventions
 
@@ -67,4 +68,4 @@ Stories live alongside components: `src/components/ComponentName/ComponentName.s
 
 ## Important
 
-Keep APIs identical to `@josui/react` for cross-framework consistency.
+This is a proof of concept package demonstrating token usage with SCSS. It does not aim for full parity with `@josui/react`.
