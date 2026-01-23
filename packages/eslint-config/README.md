@@ -1,6 +1,12 @@
 # @josui/eslint-config
 
-Shared ESLint flat configs for the Josui monorepo.
+Shared ESLint flat configs for the Josui design system.
+
+## Installation
+
+```bash
+pnpm add -D @josui/eslint-config eslint
+```
 
 ## Configs
 
@@ -17,4 +23,16 @@ import { createReactConfig } from '@josui/eslint-config/react';
 export default createReactConfig(import.meta.dirname);
 ```
 
-Internal package — not published to npm.
+```ts
+// eslint.config.ts
+import { createVueConfig } from '@josui/eslint-config/vue';
+
+export default createVueConfig(import.meta.dirname);
+```
+
+```ts
+// eslint.config.ts
+import { createBaseConfig } from '@josui/eslint-config';
+
+export default createBaseConfig(import.meta.dirname);
+```

@@ -1,6 +1,12 @@
 # @josui/typescript-config
 
-Shared TypeScript configurations for the Josui monorepo.
+Shared TypeScript configurations for the Josui design system.
+
+## Installation
+
+```bash
+pnpm add -D @josui/typescript-config typescript
+```
 
 ## Configs
 
@@ -18,4 +24,14 @@ Shared TypeScript configurations for the Josui monorepo.
 }
 ```
 
-Internal package — not published to npm.
+```json
+{
+  "extends": "@josui/typescript-config/vue.json"
+}
+```
+
+```json
+{
+  "extends": "@josui/typescript-config/node.json"
+}
+```
