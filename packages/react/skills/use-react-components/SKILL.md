@@ -1,6 +1,6 @@
 ---
 name: use-react-components
-description: Use @josui/react components. Use when asked to add, use, or implement josui React components like Button, Card, Input, Badge, Avatar, Alert, or Spinner.
+description: Use @josui/react components. Use when asked to add, use, or implement josui React components like Button, Card, Input, Badge, Avatar, Alert, Spinner, Typography, CustomCursor, or CellGrid.
 ---
 
 # Use @josui/react Components
@@ -8,12 +8,13 @@ description: Use @josui/react components. Use when asked to add, use, or impleme
 ## Setup
 
 ```bash
-pnpm add @josui/react
+pnpm add @josui/react @josui/tailwind
 ```
 
-```tsx
-// App.tsx or main.tsx
-import '@josui/react/tailwind.css';
+```css
+/* styles.css */
+@import '@josui/tailwind';
+@import '@josui/react/tailwind.css';
 ```
 
 ## Button
@@ -140,6 +141,45 @@ import { Typography } from '@josui/react';
 <Typography variant="body">Body text</Typography>
 ```
 
+## CustomCursor
+
+Custom cursor that follows the mouse. Automatically hidden on touch devices.
+
+```tsx
+import { CustomCursor } from '@josui/react';
+
+// In your layout/root component
+<CustomCursor />
+
+// With custom styling
+<CustomCursor className="h-8 w-8 rounded-full bg-secondary-500" />
+```
+
+| Prop      | Values                      |
+| --------- | --------------------------- |
+| className | `string` (Tailwind classes) |
+| options   | `CustomCursorOptions`       |
+
+## CellGrid
+
+Interactive canvas background that highlights cells under the cursor.
+
+```tsx
+import { CellGrid } from '@josui/react';
+
+<CellGrid cellSize={24} fadeRate={0.045} maxCells={200}>
+  <YourContent />
+</CellGrid>;
+```
+
+| Prop      | Values                        |
+| --------- | ----------------------------- |
+| cellSize  | `number` (default: 24)        |
+| fadeRate  | `number` (default: 0.045)     |
+| maxCells  | `number` (default: 200)       |
+| className | `string`                      |
+| children  | `ReactNode` (content on grid) |
+
 ## Hooks
 
 ```tsx
@@ -163,6 +203,8 @@ import { Avatar, type AvatarProps } from '@josui/react';
 import { Spinner, type SpinnerProps } from '@josui/react';
 import { Alert, type AlertProps } from '@josui/react';
 import { Typography, type TypographyProps } from '@josui/react';
+import { CustomCursor, type CustomCursorProps } from '@josui/react';
+import { CellGrid, type CellGridProps } from '@josui/react';
 ```
 
 ## Customization
