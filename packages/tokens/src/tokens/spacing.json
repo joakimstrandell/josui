@@ -2,7 +2,7 @@
   "spacing": {
     "$type": "dimension",
     "0": {
-      "$value": "0",
+      "$value": "0px",
       "$description": "No spacing"
     },
     "px": {
@@ -84,6 +84,58 @@
     "24": {
       "$value": "6rem",
       "$description": "96px spacing"
+    },
+    "28": {
+      "$value": "7rem",
+      "$description": "112px spacing"
+    },
+    "32": {
+      "$value": "8rem",
+      "$description": "128px spacing"
+    },
+    "36": {
+      "$value": "9rem",
+      "$description": "144px spacing"
+    },
+    "40": {
+      "$value": "10rem",
+      "$description": "160px spacing"
+    },
+    "44": {
+      "$value": "11rem",
+      "$description": "176px spacing"
+    },
+    "48": {
+      "$value": "12rem",
+      "$description": "192px spacing"
+    },
+    "52": {
+      "$value": "13rem",
+      "$description": "208px spacing"
+    },
+    "56": {
+      "$value": "14rem",
+      "$description": "224px spacing"
+    },
+    "60": {
+      "$value": "15rem",
+      "$description": "240px spacing"
+    },
+    "64": {
+      "$value": "16rem",
+      "$description": "256px spacing"
+    },
+    "72": {
+      "$value": "18rem",
+      "$description": "288px spacing"
+    },
+    "80": {
+      "$value": "20rem",
+      "$description": "320px spacing"
+    },
+    "96": {
+      "$value": "24rem",
+      "$description": "384px spacing"
     }
   }
 }

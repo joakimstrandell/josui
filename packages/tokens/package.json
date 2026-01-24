@@ -17,13 +17,17 @@
     "skills"
   ],
   "scripts": {
-    "build": "style-dictionary build --config style-dictionary.config.ts",
-    "clean": "rm -rf dist",
-    "lint": "eslint ."
+    "build": "tz build",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@terrazzo/parser": "^0.7.2"
   },
   "devDependencies": {
     "@josui/typescript-config": "workspace:*",
-    "style-dictionary": "^5.1.0"
+    "@terrazzo/cli": "^0.7.2",
+    "@terrazzo/plugin-css": "^0.7.2",
+    "@terrazzo/plugin-js": "^0.7.2"
   },
   "publishConfig": {
     "access": "public"

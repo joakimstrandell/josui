@@ -2,7 +2,7 @@
   "radius": {
     "$type": "dimension",
     "none": {
-      "$value": "0",
+      "$value": "0px",
       "$description": "No border radius"
     },
     "sm": {
@@ -28,6 +28,10 @@
     "2xl": {
       "$value": "1.5rem",
       "$description": "2XL radius (24px)"
+    },
+    "3xl": {
+      "$value": "1.875rem",
+      "$description": "3XL radius (30px)"
     },
     "full": {
       "$value": "9999px",

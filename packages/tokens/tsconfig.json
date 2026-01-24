@@ -3,5 +3,5 @@
   "compilerOptions": {
     "outDir": "dist"
   },
-  "include": ["src/**/*", "style-dictionary.config.ts"]
+  "include": ["src/**/*"]
 }

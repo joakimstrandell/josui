@@ -6,6 +6,10 @@
         "$value": ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
         "$description": "Primary sans-serif font stack"
       },
+      "serif": {
+        "$value": ["Georgia", "Cambria", "Times New Roman", "Times", "serif"],
+        "$description": "Serif font stack"
+      },
       "mono": {
         "$value": ["JetBrains Mono", "ui-monospace", "SFMono-Regular", "monospace"],
         "$description": "Monospace font stack"
@@ -48,10 +52,38 @@
       "5xl": {
         "$value": "3rem",
         "$description": "5XL text (48px)"
+      },
+      "6xl": {
+        "$value": "3.75rem",
+        "$description": "6XL text (60px)"
+      },
+      "7xl": {
+        "$value": "4.5rem",
+        "$description": "7XL text (72px)"
+      },
+      "8xl": {
+        "$value": "6rem",
+        "$description": "8XL text (96px)"
+      },
+      "9xl": {
+        "$value": "8rem",
+        "$description": "9XL text (128px)"
       }
     },
     "weight": {
       "$type": "fontWeight",
+      "thin": {
+        "$value": 100,
+        "$description": "Thin weight"
+      },
+      "extralight": {
+        "$value": 200,
+        "$description": "Extra light weight"
+      },
+      "light": {
+        "$value": 300,
+        "$description": "Light weight"
+      },
       "normal": {
         "$value": 400,
         "$description": "Normal weight"
@@ -67,6 +99,14 @@
       "bold": {
         "$value": 700,
         "$description": "Bold weight"
+      },
+      "extrabold": {
+        "$value": 800,
+        "$description": "Extra bold weight"
+      },
+      "black": {
+        "$value": 900,
+        "$description": "Black weight"
       }
     },
     "line-height": {
@@ -94,6 +134,33 @@
       "loose": {
         "$value": 2,
         "$description": "Loose line height"
+      }
+    },
+    "tracking": {
+      "$type": "dimension",
+      "tighter": {
+        "$value": "-0.05em",
+        "$description": "Tighter letter spacing"
+      },
+      "tight": {
+        "$value": "-0.025em",
+        "$description": "Tight letter spacing"
+      },
+      "normal": {
+        "$value": "0em",
+        "$description": "Normal letter spacing"
+      },
+      "wide": {
+        "$value": "0.025em",
+        "$description": "Wide letter spacing"
+      },
+      "wider": {
+        "$value": "0.05em",
+        "$description": "Wider letter spacing"
+      },
+      "widest": {
+        "$value": "0.1em",
+        "$description": "Widest letter spacing"
       }
     }
   }

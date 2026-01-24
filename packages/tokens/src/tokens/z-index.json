@@ -1,0 +1,45 @@
+{
+  "z-index": {
+    "$type": "number",
+    "hide": {
+      "$value": -1,
+      "$description": "Hidden below content"
+    },
+    "base": {
+      "$value": 0,
+      "$description": "Default layer"
+    },
+    "dropdown": {
+      "$value": 10,
+      "$description": "Dropdown menus"
+    },
+    "sticky": {
+      "$value": 20,
+      "$description": "Sticky elements"
+    },
+    "banner": {
+      "$value": 30,
+      "$description": "Banner overlays"
+    },
+    "overlay": {
+      "$value": 40,
+      "$description": "Overlay backgrounds"
+    },
+    "modal": {
+      "$value": 50,
+      "$description": "Modal dialogs"
+    },
+    "popover": {
+      "$value": 60,
+      "$description": "Popovers"
+    },
+    "toast": {
+      "$value": 70,
+      "$description": "Toast notifications"
+    },
+    "tooltip": {
+      "$value": 80,
+      "$description": "Tooltips"
+    }
+  }
+}

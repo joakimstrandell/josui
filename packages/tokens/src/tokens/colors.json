@@ -3,69 +3,161 @@
     "$type": "color",
     "primary": {
       "50": {
-        "$value": "oklch(0.97 0.02 250)",
-        "$description": "Lightest primary shade"
+        "$value": "oklch(0.98 0.02 72)",
+        "$description": "Lightest primary"
       },
       "100": {
-        "$value": "oklch(0.93 0.05 250)",
+        "$value": "oklch(0.96 0.04 72)",
         "$description": "Very light primary"
       },
       "200": {
-        "$value": "oklch(0.86 0.09 250)",
+        "$value": "oklch(0.92 0.08 72)",
         "$description": "Light primary"
       },
       "300": {
-        "$value": "oklch(0.76 0.13 250)",
+        "$value": "oklch(0.88 0.12 72)",
         "$description": "Medium light primary"
       },
       "400": {
-        "$value": "oklch(0.65 0.16 250)",
+        "$value": "oklch(0.86 0.15 72)",
         "$description": "Medium primary"
       },
       "500": {
-        "$value": "oklch(0.53 0.19 250)",
-        "$description": "Primary brand color"
+        "$value": "oklch(0.85 0.17 72)",
+        "$description": "Primary brand color (warm amber)"
       },
       "600": {
-        "$value": "oklch(0.46 0.17 250)",
+        "$value": "oklch(0.75 0.16 72)",
         "$description": "Dark primary"
       },
       "700": {
-        "$value": "oklch(0.39 0.14 250)",
+        "$value": "oklch(0.62 0.14 72)",
         "$description": "Darker primary"
       },
       "800": {
-        "$value": "oklch(0.32 0.11 250)",
+        "$value": "oklch(0.50 0.12 72)",
         "$description": "Very dark primary"
       },
       "900": {
-        "$value": "oklch(0.26 0.08 250)",
+        "$value": "oklch(0.38 0.09 72)",
         "$description": "Darkest primary"
       },
       "950": {
-        "$value": "oklch(0.20 0.06 250)",
+        "$value": "oklch(0.25 0.06 72)",
         "$description": "Near black primary"
+      }
+    },
+    "secondary": {
+      "50": {
+        "$value": "oklch(0.97 0.02 295)",
+        "$description": "Lightest secondary"
+      },
+      "100": {
+        "$value": "oklch(0.94 0.05 295)",
+        "$description": "Very light secondary"
+      },
+      "200": {
+        "$value": "oklch(0.88 0.10 295)",
+        "$description": "Light secondary"
+      },
+      "300": {
+        "$value": "oklch(0.81 0.16 295)",
+        "$description": "Medium light secondary"
+      },
+      "400": {
+        "$value": "oklch(0.72 0.22 295)",
+        "$description": "Medium secondary"
+      },
+      "500": {
+        "$value": "oklch(0.62 0.26 295)",
+        "$description": "Secondary brand color (purple)"
+      },
+      "600": {
+        "$value": "oklch(0.54 0.24 295)",
+        "$description": "Dark secondary"
+      },
+      "700": {
+        "$value": "oklch(0.45 0.20 295)",
+        "$description": "Darker secondary"
+      },
+      "800": {
+        "$value": "oklch(0.36 0.16 295)",
+        "$description": "Very dark secondary"
+      },
+      "900": {
+        "$value": "oklch(0.28 0.12 295)",
+        "$description": "Darkest secondary"
+      },
+      "950": {
+        "$value": "oklch(0.18 0.08 295)",
+        "$description": "Near black secondary"
+      }
+    },
+    "tertiary": {
+      "50": {
+        "$value": "oklch(0.97 0.02 260)",
+        "$description": "Lightest tertiary"
+      },
+      "100": {
+        "$value": "oklch(0.94 0.04 260)",
+        "$description": "Very light tertiary"
+      },
+      "200": {
+        "$value": "oklch(0.88 0.08 260)",
+        "$description": "Light tertiary"
+      },
+      "300": {
+        "$value": "oklch(0.79 0.14 260)",
+        "$description": "Medium light tertiary"
+      },
+      "400": {
+        "$value": "oklch(0.70 0.18 260)",
+        "$description": "Medium tertiary"
+      },
+      "500": {
+        "$value": "oklch(0.60 0.22 260)",
+        "$description": "Tertiary brand color (blue-violet)"
+      },
+      "600": {
+        "$value": "oklch(0.52 0.20 260)",
+        "$description": "Dark tertiary"
+      },
+      "700": {
+        "$value": "oklch(0.44 0.17 260)",
+        "$description": "Darker tertiary"
+      },
+      "800": {
+        "$value": "oklch(0.36 0.14 260)",
+        "$description": "Very dark tertiary"
+      },
+      "900": {
+        "$value": "oklch(0.28 0.10 260)",
+        "$description": "Darkest tertiary"
+      },
+      "950": {
+        "$value": "oklch(0.18 0.07 260)",
+        "$description": "Near black tertiary"
       }
     },
     "gray": {
       "50": {
-        "$value": "oklch(0.98 0 0)",
+        "$value": "oklch(0.985 0 0)",
         "$description": "Lightest gray"
       },
       "100": {
-        "$value": "oklch(0.95 0 0)",
+        "$value": "oklch(0.96 0 0)",
         "$description": "Very light gray"
       },
       "200": {
-        "$value": "oklch(0.90 0 0)",
+        "$value": "oklch(0.91 0 0)",
         "$description": "Light gray"
       },
       "300": {
-        "$value": "oklch(0.82 0 0)",
+        "$value": "oklch(0.84 0 0)",
         "$description": "Medium light gray"
       },
       "400": {
-        "$value": "oklch(0.70 0 0)",
+        "$value": "oklch(0.71 0 0)",
         "$description": "Medium gray"
       },
       "500": {
@@ -77,48 +169,112 @@
         "$description": "Dark gray"
       },
       "700": {
-        "$value": "oklch(0.35 0 0)",
+        "$value": "oklch(0.37 0 0)",
         "$description": "Darker gray"
       },
       "800": {
-        "$value": "oklch(0.25 0 0)",
+        "$value": "oklch(0.27 0 0)",
         "$description": "Very dark gray"
       },
       "900": {
-        "$value": "oklch(0.18 0 0)",
+        "$value": "oklch(0.20 0 0)",
         "$description": "Darkest gray"
       },
       "950": {
-        "$value": "oklch(0.10 0 0)",
+        "$value": "oklch(0.13 0 0)",
         "$description": "Near black"
       }
     },
     "success": {
       "50": {
-        "$value": "oklch(0.97 0.03 145)",
+        "$value": "oklch(0.97 0.02 145)",
         "$description": "Lightest success"
       },
+      "100": {
+        "$value": "oklch(0.94 0.04 145)",
+        "$description": "Very light success"
+      },
+      "200": {
+        "$value": "oklch(0.88 0.08 145)",
+        "$description": "Light success"
+      },
+      "300": {
+        "$value": "oklch(0.80 0.12 145)",
+        "$description": "Medium light success"
+      },
+      "400": {
+        "$value": "oklch(0.72 0.16 145)",
+        "$description": "Medium success"
+      },
       "500": {
-        "$value": "oklch(0.60 0.18 145)",
-        "$description": "Success color"
+        "$value": "oklch(0.65 0.19 145)",
+        "$description": "Success color (green)"
+      },
+      "600": {
+        "$value": "oklch(0.56 0.17 145)",
+        "$description": "Dark success"
       },
       "700": {
-        "$value": "oklch(0.45 0.14 145)",
-        "$description": "Dark success"
+        "$value": "oklch(0.47 0.14 145)",
+        "$description": "Darker success"
+      },
+      "800": {
+        "$value": "oklch(0.38 0.11 145)",
+        "$description": "Very dark success"
+      },
+      "900": {
+        "$value": "oklch(0.30 0.08 145)",
+        "$description": "Darkest success"
+      },
+      "950": {
+        "$value": "oklch(0.20 0.05 145)",
+        "$description": "Near black success"
       }
     },
     "warning": {
       "50": {
-        "$value": "oklch(0.98 0.03 85)",
+        "$value": "oklch(0.98 0.02 85)",
         "$description": "Lightest warning"
       },
+      "100": {
+        "$value": "oklch(0.96 0.05 85)",
+        "$description": "Very light warning"
+      },
+      "200": {
+        "$value": "oklch(0.92 0.10 85)",
+        "$description": "Light warning"
+      },
+      "300": {
+        "$value": "oklch(0.88 0.14 85)",
+        "$description": "Medium light warning"
+      },
+      "400": {
+        "$value": "oklch(0.84 0.17 85)",
+        "$description": "Medium warning"
+      },
       "500": {
-        "$value": "oklch(0.75 0.16 85)",
-        "$description": "Warning color"
+        "$value": "oklch(0.80 0.18 85)",
+        "$description": "Warning color (yellow)"
+      },
+      "600": {
+        "$value": "oklch(0.70 0.16 75)",
+        "$description": "Dark warning"
       },
       "700": {
-        "$value": "oklch(0.55 0.14 55)",
-        "$description": "Dark warning"
+        "$value": "oklch(0.58 0.14 65)",
+        "$description": "Darker warning"
+      },
+      "800": {
+        "$value": "oklch(0.47 0.11 55)",
+        "$description": "Very dark warning"
+      },
+      "900": {
+        "$value": "oklch(0.36 0.08 50)",
+        "$description": "Darkest warning"
+      },
+      "950": {
+        "$value": "oklch(0.24 0.05 45)",
+        "$description": "Near black warning"
       }
     },
     "error": {
@@ -126,13 +282,45 @@
         "$value": "oklch(0.97 0.02 25)",
         "$description": "Lightest error"
       },
+      "100": {
+        "$value": "oklch(0.94 0.04 25)",
+        "$description": "Very light error"
+      },
+      "200": {
+        "$value": "oklch(0.88 0.08 25)",
+        "$description": "Light error"
+      },
+      "300": {
+        "$value": "oklch(0.78 0.14 25)",
+        "$description": "Medium light error"
+      },
+      "400": {
+        "$value": "oklch(0.68 0.18 25)",
+        "$description": "Medium error"
+      },
       "500": {
-        "$value": "oklch(0.55 0.20 25)",
-        "$description": "Error color"
+        "$value": "oklch(0.58 0.22 25)",
+        "$description": "Error color (red)"
+      },
+      "600": {
+        "$value": "oklch(0.50 0.20 25)",
+        "$description": "Dark error"
       },
       "700": {
-        "$value": "oklch(0.42 0.16 25)",
-        "$description": "Dark error"
+        "$value": "oklch(0.43 0.17 25)",
+        "$description": "Darker error"
+      },
+      "800": {
+        "$value": "oklch(0.35 0.13 25)",
+        "$description": "Very dark error"
+      },
+      "900": {
+        "$value": "oklch(0.27 0.09 25)",
+        "$description": "Darkest error"
+      },
+      "950": {
+        "$value": "oklch(0.18 0.06 25)",
+        "$description": "Near black error"
       }
     },
     "info": {
@@ -140,13 +328,45 @@
         "$value": "oklch(0.97 0.02 230)",
         "$description": "Lightest info"
       },
+      "100": {
+        "$value": "oklch(0.94 0.04 230)",
+        "$description": "Very light info"
+      },
+      "200": {
+        "$value": "oklch(0.88 0.07 230)",
+        "$description": "Light info"
+      },
+      "300": {
+        "$value": "oklch(0.80 0.10 230)",
+        "$description": "Medium light info"
+      },
+      "400": {
+        "$value": "oklch(0.71 0.13 230)",
+        "$description": "Medium info"
+      },
       "500": {
-        "$value": "oklch(0.58 0.15 230)",
-        "$description": "Info color"
+        "$value": "oklch(0.62 0.16 230)",
+        "$description": "Info color (blue)"
+      },
+      "600": {
+        "$value": "oklch(0.54 0.14 230)",
+        "$description": "Dark info"
       },
       "700": {
-        "$value": "oklch(0.45 0.12 230)",
-        "$description": "Dark info"
+        "$value": "oklch(0.46 0.12 230)",
+        "$description": "Darker info"
+      },
+      "800": {
+        "$value": "oklch(0.38 0.10 230)",
+        "$description": "Very dark info"
+      },
+      "900": {
+        "$value": "oklch(0.30 0.07 230)",
+        "$description": "Darkest info"
+      },
+      "950": {
+        "$value": "oklch(0.20 0.05 230)",
+        "$description": "Near black info"
       }
     },
     "background": {
@@ -154,11 +374,11 @@
       "$description": "Default background"
     },
     "foreground": {
-      "$value": "oklch(0.15 0 0)",
+      "$value": "oklch(0.145 0 0)",
       "$description": "Default foreground text"
     },
     "muted": {
-      "$value": "oklch(0.96 0 0)",
+      "$value": "oklch(0.965 0 0)",
       "$description": "Muted background"
     },
     "muted-foreground": {
