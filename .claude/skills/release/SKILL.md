@@ -71,8 +71,9 @@ git commit -m "chore: version packages"
 
 Config in `.changeset/config.json`:
 
-- **linked**: Packages that share the same version number
 - **ignore**: Private packages excluded from releases (apps, storybooks)
+- **fixed**: (empty) Packages version independently
+- **linked**: (empty) Packages version independently
 
 ## Troubleshooting
 
