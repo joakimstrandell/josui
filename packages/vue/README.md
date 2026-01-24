@@ -16,10 +16,33 @@ pnpm add lucide-vue-next
 
 ## Setup
 
+### Using pre-built components
+
 ```ts
 // main.ts
-import '@josui/scss'; // Base reset + CSS tokens
-import '@josui/vue/styles.css'; // Component styles
+import '@josui/scss';
+import '@josui/vue/styles.css';
+```
+
+```vue
+<script setup>
+import { Button } from '@josui/vue';
+</script>
+```
+
+### Using source components
+
+For better tree-shaking and smaller bundles, import from source. Styles are included via SFCs.
+
+```ts
+// main.ts
+import '@josui/scss';
+```
+
+```vue
+<script setup>
+import { Button } from '@josui/vue/src';
+</script>
 ```
 
 ## Architecture
