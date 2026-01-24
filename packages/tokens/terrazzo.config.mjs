@@ -1,6 +1,7 @@
 import { defineConfig } from "@terrazzo/cli";
 import css from "@terrazzo/plugin-css";
 import js from "@terrazzo/plugin-js";
+import tailwind from "@terrazzo/plugin-tailwind";
 
 export default defineConfig({
   tokens: [
@@ -24,6 +25,32 @@ export default defineConfig({
       js: "js/index.js",
       dts: "js/index.d.ts",
       json: "js/tokens.json",
+    }),
+    tailwind({
+      filename: "tailwind/theme.css",
+      theme: {
+        // Colors
+        color: ["color.*"],
+        // Typography
+        fontFamily: ["font.family.*"],
+        fontSize: ["font.size.*"],
+        fontWeight: ["font.weight.*"],
+        letterSpacing: ["font.tracking.*"],
+        // Spacing & Layout
+        spacing: ["spacing.*"],
+        borderRadius: ["radius.*"],
+        // Shadows
+        boxShadow: ["shadow.*"],
+        // Animation
+        transitionDuration: ["animation.duration.*"],
+        transitionTimingFunction: ["animation.easing.*"],
+        // Z-index
+        zIndex: ["z.*"],
+        // Breakpoints
+        screens: ["breakpoint.*"],
+        // Opacity
+        opacity: ["opacity.*"],
+      },
     }),
   ],
 });

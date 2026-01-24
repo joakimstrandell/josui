@@ -10,7 +10,8 @@
       "types": "./dist/js/index.d.ts",
       "import": "./dist/js/index.js"
     },
-    "./css": "./dist/css/variables.css"
+    "./css": "./dist/css/variables.css",
+    "./tailwind": "./dist/tailwind/theme.css"
   },
   "files": [
     "dist",
@@ -21,13 +22,15 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@terrazzo/parser": "^0.7.2"
+    "@terrazzo/parser": "^0.10.5",
+    "tailwindcss": "^4.0.0"
   },
   "devDependencies": {
     "@josui/typescript-config": "workspace:*",
-    "@terrazzo/cli": "^0.7.2",
-    "@terrazzo/plugin-css": "^0.7.2",
-    "@terrazzo/plugin-js": "^0.7.2"
+    "@terrazzo/cli": "^0.10.5",
+    "@terrazzo/plugin-css": "^0.10.4",
+    "@terrazzo/plugin-js": "^0.10.3",
+    "@terrazzo/plugin-tailwind": "^0.3.3"
   },
   "publishConfig": {
     "access": "public"

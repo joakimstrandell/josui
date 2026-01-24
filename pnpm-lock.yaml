@@ -335,21 +335,27 @@ importers:
   packages/tokens:
     dependencies:
       '@terrazzo/parser':
-        specifier: ^0.7.2
-        version: 0.7.3
+        specifier: ^0.10.5
+        version: 0.10.5
+      tailwindcss:
+        specifier: ^4.0.0
+        version: 4.1.18
     devDependencies:
       '@josui/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
       '@terrazzo/cli':
-        specifier: ^0.7.2
-        version: 0.7.4(hono@4.11.5)
+        specifier: ^0.10.5
+        version: 0.10.5(hono@4.11.5)
       '@terrazzo/plugin-css':
-        specifier: ^0.7.2
-        version: 0.7.4(@terrazzo/cli@0.7.4(hono@4.11.5))
+        specifier: ^0.10.4
+        version: 0.10.4(@terrazzo/cli@0.10.5(hono@4.11.5))
       '@terrazzo/plugin-js':
-        specifier: ^0.7.2
-        version: 0.7.3(@terrazzo/cli@0.7.4(hono@4.11.5))
+        specifier: ^0.10.3
+        version: 0.10.3(@terrazzo/cli@0.10.5(hono@4.11.5))
+      '@terrazzo/plugin-tailwind':
+        specifier: ^0.3.3
+        version: 0.3.3(@terrazzo/cli@0.10.5(hono@4.11.5))(@terrazzo/plugin-css@0.10.4(@terrazzo/cli@0.10.5(hono@4.11.5)))(tailwindcss@4.1.18)
 
   packages/typescript-config: {}
 
@@ -1629,25 +1635,32 @@ packages:
     peerDependencies:
       vue: ^2.7.0 || ^3.0.0
 
-  '@terrazzo/cli@0.7.4':
-    resolution: {integrity: sha512-dAO3pCddnSfJuFYQu9ptfaB0Q/sSxvgyYawuVW6TrZhpBvy8Cs2DKW8prb7sEiIVcWfL3v7u6GajuPvhfe2CnA==}
+  '@terrazzo/cli@0.10.5':
+    resolution: {integrity: sha512-NbdKM9BOrVcyMPwvrj6MU7ISfD/azuqHZYODVrpIPdiEy+EyhXNSb8F5I8oD6mvQ2nVaU9dPzV8e+HvU6DobcA==}
     hasBin: true
 
-  '@terrazzo/parser@0.7.3':
-    resolution: {integrity: sha512-HEmhif5Ywree+Nsn3xKBqeDUi+poLjmV7qInrxrJ70zFbi+eLHRFUVN2Fx2QkxTMIRW7W9vYOwaGyvjbd2E+oA==}
+  '@terrazzo/parser@0.10.5':
+    resolution: {integrity: sha512-XTQg6lJ8TIqDQI30F5mJITU+OCmASQvAimO1jbNLIcBNKRA0BGoha+XFFOiMplu28x1b0OsA4YgEJH+u0B0pfw==}
 
-  '@terrazzo/plugin-css@0.7.4':
-    resolution: {integrity: sha512-zXxbM6hZtQ3J6AuRkZUDvfWeT3ypx383BvZtBOJZWTgjoRvmQKHePposEnQlnuf+K8+/tGeCf5zVZ1M9gsUHhg==}
+  '@terrazzo/plugin-css@0.10.4':
+    resolution: {integrity: sha512-SnxRZBkwLMQPbXB2xcrDi9O7VEU8DIus9HfCOjv4hXPjOfNaRJsZdM2cK9OKb6vzIyxLzzv3klsCeVKe3EMFgA==}
     peerDependencies:
-      '@terrazzo/cli': ^0.7.0
+      '@terrazzo/cli': ^0.10.3
 
-  '@terrazzo/plugin-js@0.7.3':
-    resolution: {integrity: sha512-RAe2lKodRU8jhAvUT/0oIew4y3uHsqxrLfdoJOcrUxzXnTYQXywdSilmSEM8dMOkBvoOutKGh9Y56xMMpbo0pw==}
+  '@terrazzo/plugin-js@0.10.3':
+    resolution: {integrity: sha512-tb91w5OZFzDpuSXRTb54aR+/rxl922J8FwfonKcgdD066w6YWBWALKhBjTOy7GQEQWyFkTJJjSBwbpOFbhHqWg==}
     peerDependencies:
-      '@terrazzo/cli': ^0.7.0
+      '@terrazzo/cli': ^0.10.3
 
-  '@terrazzo/token-tools@0.7.4':
-    resolution: {integrity: sha512-JbADmXXyZX3ISyHhFdYzfAY1oW/3kP05YWYvfF+Om5yx0GcVg9Uie5XVOOgs+MUV0ZJpb2f7D77pzvCPNWJLvA==}
+  '@terrazzo/plugin-tailwind@0.3.3':
+    resolution: {integrity: sha512-R1oCgsI0ffq3pHE/EDaH+2QJkFpKHwJKt8OtRGB4k40PFZ62K45131PGd6hYGWofVh1iuEOxMvB//nu9MIUCNw==}
+    peerDependencies:
+      '@terrazzo/cli': ^0.10.3
+      '@terrazzo/plugin-css': ^0.10.4
+      tailwindcss: ^4.0.0
+
+  '@terrazzo/token-tools@0.10.5':
+    resolution: {integrity: sha512-XQ6LDOmEZC8kesrhF48pvhz8F0RJsi56vQUg97VCmiKCOXBwPFJ7bOfv9M3f/tnYWo8eAs3EJvrCgMckZPKhbg==}
 
   '@testing-library/dom@10.4.0':
     resolution: {integrity: sha512-pemlzrSESWbdAloYml3bAJMEfNh1Z7EduzqPKprCH5S341frlpYnUEW0H72dLxa6IsYr+mPno20GiSm+h9dEdQ==}
@@ -4518,8 +4531,8 @@ packages:
   yallist@4.0.0:
     resolution: {integrity: sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==}
 
-  yaml-to-momoa@0.0.6:
-    resolution: {integrity: sha512-H6OxymcTIB5fTCQV7/+ETO9Wh6v1vpBDpmW94XnscKE+jQl6x58us/G6r6z5IiPCi5wuSvJ+0wipUsp0s2/Yyg==}
+  yaml-to-momoa@0.0.8:
+    resolution: {integrity: sha512-ukog7yNG9jM/2lwG9RFnAYabuVl9wCqudfnXKsk1jkVIImPfS6JizmXNHqq7ansuJtWQN95sAP8m1PfoCOuLsQ==}
 
   yaml@2.8.2:
     resolution: {integrity: sha512-mplynKqc1C2hTVYxd0PU2xQAc22TI1vShAYGksCCfxbn/dFwnHTNi1bvYsBTkhdUNtGIf5xNOg938rrSSYvS9A==}
@@ -5753,13 +5766,13 @@ snapshots:
       '@tanstack/virtual-core': 3.13.18
       vue: 3.5.27(typescript@5.9.3)
 
-  '@terrazzo/cli@0.7.4(hono@4.11.5)':
+  '@terrazzo/cli@0.10.5(hono@4.11.5)':
     dependencies:
       '@clack/prompts': 0.9.1
       '@hono/node-server': 1.19.9(hono@4.11.5)
       '@humanwhocodes/momoa': 3.3.10
-      '@terrazzo/parser': 0.7.3
-      '@terrazzo/token-tools': 0.7.4
+      '@terrazzo/parser': 0.10.5
+      '@terrazzo/token-tools': 0.10.5
       '@types/escodegen': 0.0.10
       chokidar: 3.6.0
       detect-package-manager: 3.0.2
@@ -5769,35 +5782,41 @@ snapshots:
       meriyah: 6.1.4
       mime: 4.1.0
       picocolors: 1.1.1
-      yaml-to-momoa: 0.0.6
+      yaml-to-momoa: 0.0.8
     transitivePeerDependencies:
       - hono
 
-  '@terrazzo/parser@0.7.3':
+  '@terrazzo/parser@0.10.5':
     dependencies:
       '@humanwhocodes/momoa': 3.3.10
-      '@terrazzo/token-tools': 0.7.4
+      '@terrazzo/token-tools': 0.10.5
       '@types/babel__code-frame': 7.27.0
       '@types/culori': 4.0.1
       culori: 4.0.2
-      is-what: 4.1.16
       merge-anything: 5.1.7
       picocolors: 1.1.1
       scule: 1.3.0
       wildcard-match: 5.1.4
-      yaml: 2.8.2
 
-  '@terrazzo/plugin-css@0.7.4(@terrazzo/cli@0.7.4(hono@4.11.5))':
+  '@terrazzo/plugin-css@0.10.4(@terrazzo/cli@0.10.5(hono@4.11.5))':
     dependencies:
-      '@terrazzo/cli': 0.7.4(hono@4.11.5)
-      '@terrazzo/token-tools': 0.7.4
+      '@terrazzo/cli': 0.10.5(hono@4.11.5)
+      '@terrazzo/token-tools': 0.10.5
+      wildcard-match: 5.1.4
 
-  '@terrazzo/plugin-js@0.7.3(@terrazzo/cli@0.7.4(hono@4.11.5))':
+  '@terrazzo/plugin-js@0.10.3(@terrazzo/cli@0.10.5(hono@4.11.5))':
     dependencies:
-      '@terrazzo/cli': 0.7.4(hono@4.11.5)
-      '@terrazzo/token-tools': 0.7.4
+      '@terrazzo/cli': 0.10.5(hono@4.11.5)
+      '@terrazzo/token-tools': 0.10.5
 
-  '@terrazzo/token-tools@0.7.4':
+  '@terrazzo/plugin-tailwind@0.3.3(@terrazzo/cli@0.10.5(hono@4.11.5))(@terrazzo/plugin-css@0.10.4(@terrazzo/cli@0.10.5(hono@4.11.5)))(tailwindcss@4.1.18)':
+    dependencies:
+      '@terrazzo/cli': 0.10.5(hono@4.11.5)
+      '@terrazzo/plugin-css': 0.10.4(@terrazzo/cli@0.10.5(hono@4.11.5))
+      '@terrazzo/token-tools': 0.10.5
+      tailwindcss: 4.1.18
+
+  '@terrazzo/token-tools@0.10.5':
     dependencies:
       '@humanwhocodes/momoa': 3.3.10
       culori: 4.0.2
@@ -9057,7 +9076,7 @@ snapshots:
 
   yallist@4.0.0: {}
 
-  yaml-to-momoa@0.0.6:
+  yaml-to-momoa@0.0.8:
     dependencies:
       '@humanwhocodes/momoa': 3.3.10
       yaml: 2.8.2
