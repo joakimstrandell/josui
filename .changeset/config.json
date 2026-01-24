@@ -9,6 +9,7 @@
       "@josui/core-web",
       "@josui/tokens",
       "@josui/tailwind",
+      "@josui/scss",
       "@josui/react",
       "@josui/vue",
       "@josui/eslint-config",
