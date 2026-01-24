@@ -38,9 +38,9 @@ importers:
 
   apps/docs:
     dependencies:
-      '@josui/tailwind-config':
+      '@josui/tailwind':
         specifier: workspace:*
-        version: link:../../packages/tailwind-config
+        version: link:../../packages/tailwind
       '@josui/tokens':
         specifier: workspace:*
         version: link:../../packages/tokens
@@ -66,9 +66,9 @@ importers:
       '@josui/react':
         specifier: workspace:*
         version: link:../../packages/react
-      '@josui/tailwind-config':
+      '@josui/tailwind':
         specifier: workspace:*
-        version: link:../../packages/tailwind-config
+        version: link:../../packages/tailwind
       '@josui/tokens':
         specifier: workspace:*
         version: link:../../packages/tokens
@@ -270,9 +270,9 @@ importers:
         specifier: workspace:*
         version: link:../core-web
     devDependencies:
-      '@josui/tailwind-config':
+      '@josui/tailwind':
         specifier: workspace:*
-        version: link:../tailwind-config
+        version: link:../tailwind
       '@josui/tokens':
         specifier: workspace:*
         version: link:../tokens
@@ -325,7 +325,7 @@ importers:
         specifier: workspace:*
         version: link:../tokens
 
-  packages/tailwind-config:
+  packages/tailwind:
     dependencies:
       '@josui/tokens':
         specifier: workspace:*

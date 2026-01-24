@@ -20,7 +20,7 @@ AI-native design system built on DTCG tokens.
 | [@josui/core](./packages/core)                           | Pure JS utilities         |
 | [@josui/core-web](./packages/core-web)                   | Shared web utilities      |
 | [@josui/tokens](./packages/tokens)                       | Design tokens (CSS + JS)  |
-| [@josui/tailwind-config](./packages/tailwind-config)     | Tailwind CSS v4 config    |
+| [@josui/tailwind](./packages/tailwind-config)            | Tailwind CSS v4 config    |
 | [@josui/eslint-config](./packages/eslint-config)         | Shared ESLint configs     |
 | [@josui/typescript-config](./packages/typescript-config) | Shared TypeScript configs |
 

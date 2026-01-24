@@ -1,62 +1,114 @@
 // Shared SCSS utilities for Josui components
-// These functions and mixins provide easy access to design tokens
+// Uses type-safe token function from @josui/tokens
+
+@use 'sass:map';
+@use 'sass:string';
+@use '@josui/tokens/scss' as tokens;
 
 // =============================================================================
-// Token accessor functions
+// Token accessor functions (convenience wrappers)
 // =============================================================================
 
 // Color helper - returns a CSS variable for colors
-// Usage: color('primary-500') -> var(--color-primary-500)
-@function color($name) {
-  @return var(--color-#{$name});
+// Usage: color('primary-500') or color('primary', '500') -> var(--color-primary-500)
+// Supports both dash-separated (gray-100) and functional colors (muted-foreground)
+@function color($name, $shade: null) {
+  @if $shade {
+    @return tokens.token('color.#{$name}.#{$shade}');
+  }
+  // Convert dash-number format to dot-number (e.g., 'gray-100' -> 'gray.100')
+  // but keep dashes in functional names (e.g., 'muted-foreground' stays as-is)
+  $converted: convert-color-name($name);
+  @return tokens.token('color.#{$converted}');
+}
+
+// Convert color names: replace dash before numeric shades with dot
+// e.g., 'gray-100' -> 'gray.100', but 'muted-foreground' stays as-is
+@function convert-color-name($name) {
+  // List of shade values to check for
+  $shades: ('50', '100', '200', '300', '400', '500', '600', '700', '800', '900', '950');
+
+  @each $shade in $shades {
+    $dash-shade: '-#{$shade}';
+    $index: string.index($name, $dash-shade);
+    @if $index and $index + string.length($dash-shade) - 1 == string.length($name) {
+      // Found a shade at the end, replace dash with dot
+      @return string.slice($name, 1, $index - 1) + '.#{$shade}';
+    }
+  }
+  // No shade found, return as-is
+  @return $name;
 }
 
 // Spacing helper - returns a CSS variable for spacing
-// Usage: spacing('4') -> var(--spacing-4)
+// Usage: spacing('4') or spacing('0-5') -> var(--spacing-4) or var(--spacing-0.5)
 @function spacing($scale) {
-  @return var(--spacing-#{$scale});
+  // Convert dash to dot for fractional values (e.g., '0-5' -> '0.5')
+  $converted: convert-fractional($scale);
+  @return tokens.token('spacing.#{$converted}');
+}
+
+// Convert fractional spacing values: '0-5' -> '0.5', '1-5' -> '1.5', etc.
+@function convert-fractional($value) {
+  $fractions: ('0-5': '0.5', '1-5': '1.5', '2-5': '2.5', '3-5': '3.5');
+  @if map-has-key($fractions, $value) {
+    @return map-get($fractions, $value);
+  }
+  @return $value;
 }
 
 // Radius helper - returns a CSS variable for border radius
 // Usage: radius('md') -> var(--radius-md)
 @function radius($size) {
-  @return var(--radius-#{$size});
+  @return tokens.token('radius.#{$size}');
 }
 
 // Shadow helper - returns a CSS variable for shadows
 // Usage: shadow('md') -> var(--shadow-md)
 @function shadow($size) {
-  @return var(--shadow-#{$size});
+  @return tokens.token('shadow.#{$size}');
 }
 
 // Font size helper
 // Usage: font-size('sm') -> var(--font-size-sm)
 @function font-size($size) {
-  @return var(--font-size-#{$size});
+  @return tokens.token('font.size.#{$size}');
 }
 
 // Font weight helper
 // Usage: font-weight('medium') -> var(--font-weight-medium)
 @function font-weight($weight) {
-  @return var(--font-weight-#{$weight});
+  @return tokens.token('font.weight.#{$weight}');
+}
+
+// Font family helper
+// Usage: font-family('sans') -> var(--font-family-sans)
+@function font-family($family) {
+  @return tokens.token('font.family.#{$family}');
 }
 
 // Animation duration helper
 // Usage: duration('fast') -> var(--animation-duration-fast)
 @function duration($speed) {
-  @return var(--animation-duration-#{$speed});
+  @return tokens.token('animation.duration.#{$speed}');
 }
 
 // Animation easing helper
 // Usage: easing('ease-out') -> var(--animation-easing-ease-out)
 @function easing($type) {
-  @return var(--animation-easing-#{$type});
+  @return tokens.token('animation.easing.#{$type}');
 }
 
 // Z-index helper
 // Usage: z-index('modal') -> var(--z-index-modal)
 @function z-index($layer) {
-  @return var(--z-index-#{$layer});
+  @return tokens.token('z-index.#{$layer}');
+}
+
+// Opacity helper
+// Usage: opacity('50') -> var(--opacity-50)
+@function opacity($value) {
+  @return tokens.token('opacity.#{$value}');
 }
 
 // =============================================================================
@@ -64,20 +116,20 @@
 // =============================================================================
 
 // Focus ring mixin
-// Usage: @include focus-ring;
-@mixin focus-ring($color: 'primary-500') {
-  outline: 2px solid color($color);
+// Usage: @include focus-ring; or @include focus-ring('primary-500');
+@mixin focus-ring($color-ref: 'primary-500') {
+  outline: 2px solid color($color-ref);
   outline-offset: 2px;
 }
 
 // Focus visible ring (only shows on keyboard focus)
-@mixin focus-visible-ring($color: 'primary-500') {
+@mixin focus-visible-ring($color-ref: 'primary-500') {
   &:focus {
     outline: none;
   }
 
   &:focus-visible {
-    @include focus-ring($color);
+    @include focus-ring($color-ref);
   }
 }
 

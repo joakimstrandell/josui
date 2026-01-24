@@ -6,7 +6,7 @@
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
       "outputs": ["dist/**", "storybook-static/**", ".next/**", "!.next/cache/**"]
     },
-    "@josui/tailwind-config#build": {
+    "@josui/tailwind#build": {
       "inputs": ["src/**"],
       "outputs": []
     },

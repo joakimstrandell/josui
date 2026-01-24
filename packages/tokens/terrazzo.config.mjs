@@ -1,6 +1,7 @@
 import { defineConfig } from "@terrazzo/cli";
 import css from "@terrazzo/plugin-css";
 import js from "@terrazzo/plugin-js";
+import sass from "@terrazzo/plugin-sass";
 import tailwind from "@terrazzo/plugin-tailwind";
 
 export default defineConfig({
@@ -45,12 +46,15 @@ export default defineConfig({
         transitionDuration: ["animation.duration.*"],
         transitionTimingFunction: ["animation.easing.*"],
         // Z-index
-        zIndex: ["z.*"],
+        zIndex: ["z-index.*"],
         // Breakpoints
         screens: ["breakpoint.*"],
         // Opacity
         opacity: ["opacity.*"],
       },
+    }),
+    sass({
+      filename: "scss/index.scss",
     }),
   ],
 });

@@ -168,7 +168,7 @@ const isDisabled = computed(() => props.disabled || props.isLoading);
     padding-left: spacing('3');
     padding-right: spacing('3');
     font-size: font-size('sm');
-    gap: spacing('1-5');
+    gap: spacing('1.5');
   }
 
   &--md {

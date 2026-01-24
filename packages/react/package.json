@@ -35,7 +35,7 @@
     "@josui/core-web": "workspace:*"
   },
   "devDependencies": {
-    "@josui/tailwind-config": "workspace:*",
+    "@josui/tailwind": "workspace:*",
     "@josui/tokens": "workspace:*",
     "@josui/typescript-config": "workspace:*",
     "@storybook/react": "^8.5.0",

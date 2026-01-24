@@ -19,6 +19,6 @@ defineProps<CardHeaderProps>();
 .josui-card-header {
   display: flex;
   flex-direction: column;
-  gap: spacing('1-5');
+  gap: spacing('1.5');
 }
 </style>

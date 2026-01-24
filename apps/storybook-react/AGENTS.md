@@ -24,4 +24,4 @@ This app only serves as a Storybook runner — it does not contain story files.
 
 ## Dependencies
 
-Requires `@josui/react` and `@josui/tailwind-config` to be built first.
+Requires `@josui/react` and `@josui/tailwind` to be built first.

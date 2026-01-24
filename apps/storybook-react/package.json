@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@josui/react": "workspace:*",
-    "@josui/tailwind-config": "workspace:*",
+    "@josui/tailwind": "workspace:*",
     "@josui/tokens": "workspace:*",
     "react": "^18.3.0",
     "react-dom": "^18.3.0"
