@@ -42,7 +42,7 @@ const isDecorative = computed(() => !props.label);
 </template>
 
 <style lang="scss" scoped>
-@use '../../styles/tokens' as *;
+@use '@josui/scss/mixins' as *;
 
 .josui-icon {
   display: inline-flex;

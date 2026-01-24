@@ -319,6 +319,12 @@ importers:
         specifier: ^3.0.0
         version: 3.2.4(@types/node@20.19.30)(jiti@2.6.1)(jsdom@26.1.0)(lightningcss@1.30.2)(sass@1.97.3)(yaml@2.8.2)
 
+  packages/scss:
+    dependencies:
+      '@josui/tokens':
+        specifier: workspace:*
+        version: link:../tokens
+
   packages/tailwind-config:
     dependencies:
       '@josui/tokens':
@@ -350,6 +356,9 @@ importers:
       '@terrazzo/plugin-js':
         specifier: ^0.10.3
         version: 0.10.3(@terrazzo/cli@0.10.5(hono@4.11.5))
+      '@terrazzo/plugin-sass':
+        specifier: ^0.10.4
+        version: 0.10.4(@terrazzo/cli@0.10.5(hono@4.11.5))(@terrazzo/plugin-css@0.10.4(@terrazzo/cli@0.10.5(hono@4.11.5)))
       '@terrazzo/plugin-tailwind':
         specifier: ^0.3.3
         version: 0.3.3(@terrazzo/cli@0.10.5(hono@4.11.5))(@terrazzo/plugin-css@0.10.4(@terrazzo/cli@0.10.5(hono@4.11.5)))(tailwindcss@4.1.18)
@@ -358,6 +367,9 @@ importers:
 
   packages/vue:
     dependencies:
+      '@josui/scss':
+        specifier: workspace:*
+        version: link:../scss
       '@josui/tokens':
         specifier: workspace:*
         version: link:../tokens
@@ -1648,6 +1660,12 @@ packages:
     resolution: {integrity: sha512-tb91w5OZFzDpuSXRTb54aR+/rxl922J8FwfonKcgdD066w6YWBWALKhBjTOy7GQEQWyFkTJJjSBwbpOFbhHqWg==}
     peerDependencies:
       '@terrazzo/cli': ^0.10.3
+
+  '@terrazzo/plugin-sass@0.10.4':
+    resolution: {integrity: sha512-UhW59eZ+mPiHPqKpGjeIXtdWQh4kudn/ZwrpQHJqckNgsfsP8rZfoRPjIrVE+tyOJ3KF5GaOydql33oS6dQXLQ==}
+    peerDependencies:
+      '@terrazzo/cli': ^0.10.3
+      '@terrazzo/plugin-css': ^0.10.4
 
   '@terrazzo/plugin-tailwind@0.3.3':
     resolution: {integrity: sha512-R1oCgsI0ffq3pHE/EDaH+2QJkFpKHwJKt8OtRGB4k40PFZ62K45131PGd6hYGWofVh1iuEOxMvB//nu9MIUCNw==}
@@ -5805,6 +5823,13 @@ snapshots:
     dependencies:
       '@terrazzo/cli': 0.10.5(hono@4.11.5)
       '@terrazzo/token-tools': 0.10.5
+
+  '@terrazzo/plugin-sass@0.10.4(@terrazzo/cli@0.10.5(hono@4.11.5))(@terrazzo/plugin-css@0.10.4(@terrazzo/cli@0.10.5(hono@4.11.5)))':
+    dependencies:
+      '@terrazzo/cli': 0.10.5(hono@4.11.5)
+      '@terrazzo/plugin-css': 0.10.4(@terrazzo/cli@0.10.5(hono@4.11.5))
+      '@terrazzo/token-tools': 0.10.5
+      wildcard-match: 5.1.4
 
   '@terrazzo/plugin-tailwind@0.3.3(@terrazzo/cli@0.10.5(hono@4.11.5))(@terrazzo/plugin-css@0.10.4(@terrazzo/cli@0.10.5(hono@4.11.5)))(tailwindcss@4.1.18)':
     dependencies:

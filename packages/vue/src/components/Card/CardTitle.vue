@@ -16,7 +16,7 @@ withDefaults(defineProps<CardTitleProps>(), {
 </template>
 
 <style lang="scss" scoped>
-@use '../../styles/tokens' as *;
+@use '@josui/scss/mixins' as *;
 
 .josui-card-title {
   font-size: font-size('lg');

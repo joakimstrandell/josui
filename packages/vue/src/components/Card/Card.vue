@@ -19,7 +19,7 @@ withDefaults(defineProps<CardProps>(), {
 </template>
 
 <style lang="scss" scoped>
-@use '../../styles/tokens' as *;
+@use '@josui/scss/mixins' as *;
 
 .josui-card {
   border-radius: radius('lg');

@@ -1,6 +1,6 @@
 # Agent Instructions — @josui/vue
 
-Vue 3 component library using SCSS and CSS custom properties from `@josui/tokens`.
+Vue 3 component library using SCSS utilities from `@josui/scss` and CSS custom properties from `@josui/tokens`.
 
 ## Build
 
@@ -26,7 +26,7 @@ ComponentName/
 
 - Use `<script setup lang="ts">`
 - Export props interface from SFC: `export interface ComponentProps { ... }`
-- Use scoped SCSS with `@use '../../styles/tokens' as *`
+- Use scoped SCSS with `@use '@josui/scss/mixins' as *`
 - BEM naming: `josui-component`, `josui-component--variant`, `josui-component__element`
 
 ## reka-ui
@@ -42,10 +42,10 @@ Button, Card, Badge, Icon are custom implementations (no reka-ui).
 
 ## Styling
 
-Import shared utilities in component `<style>`:
+Import shared utilities from `@josui/scss` in component `<style>`:
 
 ```scss
-@use '../../styles/tokens' as *;
+@use '@josui/scss/mixins' as *;
 
 .josui-button {
   background-color: color('primary-500');
@@ -56,32 +56,7 @@ Import shared utilities in component `<style>`:
 }
 ```
 
-### Functions
-
-| Function               | Example                 | Output                             |
-| ---------------------- | ----------------------- | ---------------------------------- |
-| `color($name)`         | `color('primary-500')`  | `var(--color-primary-500)`         |
-| `spacing($scale)`      | `spacing('4')`          | `var(--spacing-4)`                 |
-| `radius($size)`        | `radius('md')`          | `var(--radius-md)`                 |
-| `shadow($size)`        | `shadow('md')`          | `var(--shadow-md)`                 |
-| `font-size($size)`     | `font-size('sm')`       | `var(--font-size-sm)`              |
-| `font-weight($weight)` | `font-weight('medium')` | `var(--font-weight-medium)`        |
-| `duration($speed)`     | `duration('fast')`      | `var(--animation-duration-fast)`   |
-| `easing($type)`        | `easing('ease-out')`    | `var(--animation-easing-ease-out)` |
-| `z-index($layer)`      | `z-index('modal')`      | `var(--z-index-modal)`             |
-
-### Mixins
-
-| Mixin                        | Purpose                                |
-| ---------------------------- | -------------------------------------- |
-| `focus-ring($color)`         | Focus outline                          |
-| `focus-visible-ring($color)` | Focus outline on keyboard only         |
-| `disabled-state`             | Opacity + no pointer events            |
-| `transition-colors`          | Color property transitions             |
-| `transition-all`             | Common property transitions            |
-| `interactive-base`           | Cursor, transitions, disabled handling |
-| `visually-hidden`            | Screen reader only                     |
-| `reset-button`               | Reset native button styles             |
+Functions and mixins are defined in `@josui/scss` — see that package for full documentation.
 
 ## Creating a Component
 

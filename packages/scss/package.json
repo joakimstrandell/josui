@@ -1,0 +1,19 @@
+{
+  "name": "@josui/scss",
+  "version": "0.1.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.scss",
+    "./base": "./src/base.scss",
+    "./mixins": "./src/mixins.scss"
+  },
+  "files": [
+    "src"
+  ],
+  "dependencies": {
+    "@josui/tokens": "workspace:*"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

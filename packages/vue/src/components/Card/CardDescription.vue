@@ -14,7 +14,7 @@ defineProps<CardDescriptionProps>();
 </template>
 
 <style lang="scss" scoped>
-@use '../../styles/tokens' as *;
+@use '@josui/scss/mixins' as *;
 
 .josui-card-description {
   font-size: font-size('sm');

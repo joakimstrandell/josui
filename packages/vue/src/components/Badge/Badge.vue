@@ -19,7 +19,7 @@ withDefaults(defineProps<BadgeProps>(), {
 </template>
 
 <style lang="scss" scoped>
-@use '../../styles/tokens' as *;
+@use '@josui/scss/mixins' as *;
 
 .josui-badge {
   display: inline-flex;

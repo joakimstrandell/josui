@@ -57,7 +57,7 @@ const isDisabled = computed(() => props.disabled || props.isLoading);
 </template>
 
 <style lang="scss" scoped>
-@use '../../styles/tokens' as *;
+@use '@josui/scss/mixins' as *;
 
 .josui-button {
   display: inline-flex;

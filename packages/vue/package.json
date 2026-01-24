@@ -31,6 +31,7 @@
     "test:watch": "vitest"
   },
   "dependencies": {
+    "@josui/scss": "workspace:*",
     "@josui/tokens": "workspace:*",
     "reka-ui": "^2.7.0"
   },

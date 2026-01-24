@@ -14,7 +14,7 @@ defineProps<CardContentProps>();
 </template>
 
 <style lang="scss" scoped>
-@use '../../styles/tokens' as *;
+@use '@josui/scss/mixins' as *;
 
 .josui-card-content {
   padding-top: spacing('4');

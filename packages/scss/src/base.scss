@@ -1,0 +1,148 @@
+// Base reset and global styles for Josui
+// Inspired by modern-normalize and Tailwind Preflight
+
+// Box sizing
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+// Remove default margin and padding
+* {
+  margin: 0;
+  padding: 0;
+}
+
+// Document
+html {
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+  tab-size: 4;
+}
+
+// Body defaults
+body {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+  color: var(--color-gray-900);
+  background-color: var(--color-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Headings
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+// Links
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+// Lists
+ol,
+ul {
+  list-style: none;
+}
+
+// Images and media
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  display: block;
+  vertical-align: middle;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+// Form elements
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  font-weight: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+button,
+select {
+  text-transform: none;
+}
+
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+  -webkit-appearance: button;
+  background-color: transparent;
+  background-image: none;
+}
+
+// Remove inner border and padding in Firefox
+::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+// Restore focus styles
+:-moz-focusring {
+  outline: auto;
+}
+
+// Remove additional :invalid styles in Firefox
+:-moz-ui-invalid {
+  box-shadow: none;
+}
+
+// Textarea
+textarea {
+  resize: vertical;
+}
+
+// Placeholder
+::placeholder {
+  opacity: 1;
+  color: var(--color-gray-400);
+}
+
+// Tables
+table {
+  text-indent: 0;
+  border-color: inherit;
+  border-collapse: collapse;
+}
+
+// Hidden attribute
+[hidden] {
+  display: none;
+}
+
+// Smooth scrolling (respects user preference)
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}

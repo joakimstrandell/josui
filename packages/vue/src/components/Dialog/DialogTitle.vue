@@ -18,7 +18,7 @@ withDefaults(defineProps<DialogTitleProps>(), {
 </template>
 
 <style lang="scss" scoped>
-@use '../../styles/tokens' as *;
+@use '@josui/scss/mixins' as *;
 
 .josui-dialog-title {
   font-size: font-size('lg');

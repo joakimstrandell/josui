@@ -14,7 +14,7 @@ defineProps<DialogHeaderProps>();
 </template>
 
 <style lang="scss" scoped>
-@use '../../styles/tokens' as *;
+@use '@josui/scss/mixins' as *;
 
 .josui-dialog-header {
   display: flex;
