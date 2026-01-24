@@ -50,7 +50,12 @@
 
 // Convert fractional spacing values: '0-5' -> '0.5', '1-5' -> '1.5', etc.
 @function convert-fractional($value) {
-  $fractions: ('0-5': '0.5', '1-5': '1.5', '2-5': '2.5', '3-5': '3.5');
+  $fractions: (
+    '0-5': '0.5',
+    '1-5': '1.5',
+    '2-5': '2.5',
+    '3-5': '3.5',
+  );
   @if map-has-key($fractions, $value) {
     @return map-get($fractions, $value);
   }
@@ -159,6 +164,7 @@
   @include transition-colors;
   cursor: pointer;
   user-select: none;
+  -webkit-user-select: none;
 
   &:disabled,
   &[aria-disabled='true'] {
