@@ -1,5 +1,18 @@
 # @josui/tailwind
 
+## 0.2.0
+
+### Minor Changes
+
+- - Renamed package from `@josui/tailwind-config` to `@josui/tailwind`
+  - Simplified exports structure
+  - Removed redundant Preflight reset (handled by @josui/scss)
+
+### Patch Changes
+
+- Updated dependencies
+  - @josui/tokens@0.2.0
+
 ## 0.1.0
 
 ### Minor Changes

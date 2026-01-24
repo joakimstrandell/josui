@@ -1,5 +1,20 @@
 # @josui/vue
 
+## 0.2.0
+
+### Minor Changes
+
+- - Replaced Tailwind CSS with SCSS for styling
+  - Added reka-ui for improved accessibility primitives
+  - Added pre-built and source import options
+
+### Patch Changes
+
+- Updated dependencies
+- Updated dependencies
+  - @josui/scss@0.2.0
+  - @josui/tokens@0.2.0
+
 ## 0.1.0
 
 ### Minor Changes
