@@ -97,16 +97,18 @@ Uses Vitest with `@testing-library/react`.
 
 ## Components
 
-| Component  | Variants                                        | Sizes      |
-| ---------- | ----------------------------------------------- | ---------- |
-| Button     | primary, secondary, outline, ghost, destructive | sm, md, lg |
-| Card       | —                                               | —          |
-| Input      | —                                               | sm, md, lg |
-| Badge      | default, primary, success, warning, error       | sm, md, lg |
-| Typography | —                                               | —          |
-| Avatar     | —                                               | sm, md, lg |
-| Spinner    | —                                               | sm, md, lg |
-| Alert      | info, success, warning, error                   | —          |
+| Component    | Variants                                        | Sizes      |
+| ------------ | ----------------------------------------------- | ---------- |
+| Button       | primary, secondary, outline, ghost, destructive | sm, md, lg |
+| Card         | —                                               | —          |
+| Input        | —                                               | sm, md, lg |
+| Badge        | default, primary, success, warning, error       | sm, md, lg |
+| Typography   | —                                               | —          |
+| Avatar       | —                                               | sm, md, lg |
+| Spinner      | —                                               | sm, md, lg |
+| Alert        | info, success, warning, error                   | —          |
+| CustomCursor | —                                               | —          |
+| CellGrid     | —                                               | —          |
 
 Card is a compound component with sub-components (CardHeader, CardTitle, CardDescription, CardContent, CardFooter).
 

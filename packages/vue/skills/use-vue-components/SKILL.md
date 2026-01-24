@@ -8,13 +8,12 @@ description: Use @josui/vue components. Use when asked to add, use, or implement
 ## Setup
 
 ```bash
-pnpm add @josui/vue @josui/tokens
+pnpm add @josui/vue @josui/scss
 ```
 
 ```ts
 // main.ts
-import '@josui/tokens/css';
-import '@josui/vue/styles.css';
+import '@josui/scss';
 ```
 
 ## Button

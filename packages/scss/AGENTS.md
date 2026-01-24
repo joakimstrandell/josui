@@ -13,11 +13,11 @@ src/
 
 ## Exports
 
-| Export               | Purpose                   |
-| -------------------- | ------------------------- |
-| `@josui/scss`        | Base + mixins combined    |
-| `@josui/scss/base`   | Reset and global styles   |
-| `@josui/scss/mixins` | Functions and mixins only |
+| Export                  | Purpose                      |
+| ----------------------- | ---------------------------- |
+| `@josui/scss`           | Tokens + base + mixins       |
+| `@josui/scss/base.scss` | Reset and global styles only |
+| `@josui/scss/mixins`    | Functions and mixins only    |
 
 ## Functions
 
