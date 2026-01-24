@@ -110,7 +110,28 @@ Verify:
 - [ ] Import examples match actual exports
 - [ ] Links to Storybook/docs are valid (if referenced)
 
-### 6. Cross-Reference Audit
+### 6. Package Registry Audit
+
+Verify all packages in `packages/` are registered in:
+
+```bash
+# List actual packages
+ls packages/
+
+# Check root README.md packages table
+grep -E "^\| \[@josui/" README.md
+
+# Check changeset linked packages
+cat .changeset/config.json | grep -A 20 '"linked"'
+```
+
+Cross-reference:
+
+- [ ] Every package in `packages/` listed in root README.md table
+- [ ] Every package in `packages/` listed in `.changeset/config.json` linked array
+- [ ] README.md links point to correct folder paths (not renamed folders)
+
+### 7. Cross-Reference Audit
 
 Check consistency between:
 
@@ -138,6 +159,12 @@ Report findings as:
 
 - [ ] `@josui/react` exports 8 components, AGENTS.md lists 7
 - [ ] Skill documents `Checkbox` but component not exported
+
+### Package Registry Issues
+
+- [ ] `@josui/scss` missing from root README.md packages table
+- [ ] `@josui/scss` missing from `.changeset/config.json` linked array
+- [ ] `README.md` links to `./packages/tailwind-config` but folder is `./packages/tailwind`
 
 ### Suggested Fixes
 
@@ -172,4 +199,10 @@ head -5 .claude/skills/*/SKILL.md packages/*/skills/*/SKILL.md 2>/dev/null
 
 # Find CLAUDE.md files not pointing to AGENTS.md
 grep -L "AGENTS.md" */CLAUDE.md packages/*/CLAUDE.md apps/*/CLAUDE.md 2>/dev/null
+
+# Compare packages vs README listing
+diff <(ls packages/ | sort) <(grep -oE "@josui/[a-z-]+" README.md | sed 's/@josui\///' | sort -u)
+
+# Compare packages vs changeset config
+diff <(ls packages/ | sort) <(grep -oE "@josui/[a-z-]+" .changeset/config.json | sed 's/@josui\///' | sort -u)
 ```
