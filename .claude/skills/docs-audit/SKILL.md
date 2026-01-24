@@ -18,6 +18,8 @@ Audit these files:
 
 ## Audit Process
 
+**Reference:** See `references/checklist.md` for package-specific verification steps.
+
 ### 1. Gather Documentation Files
 
 ```bash
