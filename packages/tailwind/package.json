@@ -2,10 +2,9 @@
   "name": "@josui/tailwind",
   "version": "0.1.0",
   "type": "module",
-  "main": "./src/index.css",
+  "main": "./src/theme.css",
   "exports": {
-    ".": "./src/styles.css",
-    "./theme.css": "./src/theme.css"
+    ".": "./src/index.css"
   },
   "files": [
     "src"

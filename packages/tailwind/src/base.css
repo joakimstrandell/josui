@@ -1,0 +1,12 @@
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: var(--fontFamily-sans);
+    color: var(--color-foreground);
+    background-color: var(--color-background);
+  }
+}

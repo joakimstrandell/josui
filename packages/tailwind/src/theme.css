@@ -1,4 +1,2 @@
-/* @josui/tailwind - Base Tailwind configuration */
-
 /* Import generated Tailwind theme from design tokens */
 @import '@josui/tokens/tailwind';
