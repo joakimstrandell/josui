@@ -5,8 +5,8 @@
   "main": "./src/index.scss",
   "exports": {
     ".": "./src/index.scss",
-    "./mixins": "./src/mixins.scss",
-    "./styles.css": "./src/styles.css"
+    "./base.scss": "./src/base.scss",
+    "./mixins": "./src/mixins.scss"
   },
   "files": [
     "src"

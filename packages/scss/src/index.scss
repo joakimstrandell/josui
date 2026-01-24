@@ -1,5 +1,7 @@
 // Josui SCSS - Base styles and utilities
 // Requires @josui/tokens/css to be imported first for CSS variables
 
+@forward '@josui/tokens/css';
+
 @forward 'mixins';
 @forward 'base';
