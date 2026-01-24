@@ -133,15 +133,15 @@ importers:
 
   apps/storybook-vue:
     dependencies:
-      '@josui/tailwind-config':
-        specifier: workspace:*
-        version: link:../../packages/tailwind-config
       '@josui/tokens':
         specifier: workspace:*
         version: link:../../packages/tokens
       '@josui/vue':
         specifier: workspace:*
         version: link:../../packages/vue
+      lucide-vue-next:
+        specifier: '>=0.300.0'
+        version: 0.563.0(vue@3.5.27(typescript@5.9.3))
       vue:
         specifier: ^3.5.0
         version: 3.5.27(typescript@5.9.3)
@@ -173,18 +173,15 @@ importers:
       '@storybook/vue3-vite':
         specifier: ^8.5.0
         version: 8.6.15(storybook@8.6.15(prettier@3.8.1))(vite@6.4.1(@types/node@20.19.30)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.97.3)(yaml@2.8.2))(vue@3.5.27(typescript@5.9.3))
-      '@tailwindcss/vite':
-        specifier: ^4.0.0
-        version: 4.1.18(vite@6.4.1(@types/node@20.19.30)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.97.3)(yaml@2.8.2))
       '@vitejs/plugin-vue':
         specifier: ^5.2.0
         version: 5.2.4(vite@6.4.1(@types/node@20.19.30)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.97.3)(yaml@2.8.2))(vue@3.5.27(typescript@5.9.3))
+      sass:
+        specifier: ^1.77.0
+        version: 1.97.3
       storybook:
         specifier: ^8.5.0
         version: 8.6.15(prettier@3.8.1)
-      tailwindcss:
-        specifier: ^4.0.0
-        version: 4.1.18
       typescript:
         specifier: ^5.7.0
         version: 5.9.3

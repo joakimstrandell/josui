@@ -1,1 +1,2 @@
-@import '@josui/tailwind-config/styles.css';
+@import '@josui/tokens/css';
+@import '@josui/vue/styles.css';

@@ -24,4 +24,4 @@ This app only serves as a Storybook runner — it does not contain story files.
 
 ## Dependencies
 
-Requires `@josui/vue` and `@josui/tailwind-config` to be built first.
+Requires `@josui/vue` and `@josui/tokens` to be built first.
