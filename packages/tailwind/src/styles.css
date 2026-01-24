@@ -1,5 +1,5 @@
 /* @josui/tailwind-config/styles.css - Import this in your app */
-@import "./index.css";
+@import './index.css';
 
 /* Base styles */
 *,
@@ -92,9 +92,9 @@ select {
 }
 
 button,
-input:where([type="button"]),
-input:where([type="reset"]),
-input:where([type="submit"]) {
+input:where([type='button']),
+input:where([type='reset']),
+input:where([type='submit']) {
   -webkit-appearance: button;
   background-color: transparent;
   background-image: none;
@@ -113,7 +113,7 @@ input:where([type="submit"]) {
   height: auto;
 }
 
-[type="search"] {
+[type='search'] {
   -webkit-appearance: textfield;
   outline-offset: -2px;
 }
@@ -179,7 +179,7 @@ textarea::placeholder {
 }
 
 button,
-[role="button"] {
+[role='button'] {
   cursor: pointer;
 }
 
@@ -205,6 +205,6 @@ video {
   height: auto;
 }
 
-[hidden]:where(:not([hidden="until-found"])) {
+[hidden]:where(:not([hidden='until-found'])) {
   display: none;
 }

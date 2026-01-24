@@ -1,5 +1,5 @@
 {
-  "name": "@josui/tailwind-config",
+  "name": "@josui/tailwind",
   "version": "0.1.0",
   "type": "module",
   "main": "./src/index.css",
