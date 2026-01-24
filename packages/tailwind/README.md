@@ -1,11 +1,11 @@
-# @josui/tailwind-config
+# @josui/tailwind
 
 Shared Tailwind CSS v4 configuration for Josui components.
 
 ## Installation
 
 ```bash
-pnpm add @josui/tailwind-config
+pnpm add @josui/tailwind
 ```
 
 ## Usage
@@ -13,5 +13,5 @@ pnpm add @josui/tailwind-config
 Import in your CSS entry point:
 
 ```css
-@import '@josui/tailwind-config/styles.css';
+@import '@josui/tailwind/styles.css';
 ```

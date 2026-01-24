@@ -1,4 +1,4 @@
-# @josui/tailwind-config
+# @josui/tailwind
 
 ## 0.1.0
 

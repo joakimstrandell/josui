@@ -1,4 +1,4 @@
-# Agent Instructions — @josui/tailwind-config
+# Agent Instructions — @josui/tailwind
 
 Tailwind CSS v4 configuration package.
 
@@ -14,7 +14,7 @@ This is a CSS-only package. No build step required.
 Consumers import via:
 
 ```css
-@import '@josui/tailwind-config/styles.css';
+@import '@josui/tailwind/styles.css';
 ```
 
 ## Modifying Styles
