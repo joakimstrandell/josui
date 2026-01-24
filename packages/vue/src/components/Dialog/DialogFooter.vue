@@ -1,14 +1,14 @@
 <script setup lang="ts">
-export interface CardFooterProps {
+export interface DialogFooterProps {
   /** Additional CSS classes */
   class?: string;
 }
 
-defineProps<CardFooterProps>();
+defineProps<DialogFooterProps>();
 </script>
 
 <template>
-  <div class="josui-card-footer">
+  <div class="josui-dialog-footer">
     <slot />
   </div>
 </template>
@@ -16,10 +16,15 @@ defineProps<CardFooterProps>();
 <style lang="scss" scoped>
 @use '../../styles/tokens' as *;
 
-.josui-card-footer {
+.josui-dialog-footer {
   display: flex;
-  align-items: center;
+  flex-direction: column-reverse;
   gap: spacing('2');
   padding-top: spacing('4');
+
+  @media (min-width: 640px) {
+    flex-direction: row;
+    justify-content: flex-end;
+  }
 }
 </style>

@@ -5,30 +5,76 @@ React component library for the Josui design system.
 ## Installation
 
 ```bash
-pnpm add @josui/react @josui/tailwind-config
+pnpm add @josui/react
 ```
 
 ## Setup
 
-```css
-@import '@josui/tailwind-config/styles.css';
-```
-
-## Usage
+Import the Tailwind styles in your app entry:
 
 ```tsx
-import { Button, Card, CardContent } from '@josui/react';
+// App.tsx or main.tsx
+import '@josui/react/tailwind.css';
+```
 
-<Card>
-  <CardContent>
-    <Button variant="primary">Click me</Button>
-  </CardContent>
-</Card>;
+## Architecture
+
+### Tailwind CSS Styling
+
+Components use Tailwind CSS classes with the `cn()` utility from `@josui/core-web` for class merging. All components support the `className` prop for customization:
+
+```tsx
+<Button className="my-custom-class" variant="primary">
+  Click me
+</Button>
+```
+
+### Accessibility
+
+Components follow WAI-ARIA patterns with proper roles, labels, and keyboard navigation.
+
+## Customizing Styles
+
+### Override with className
+
+All components accept a `className` prop that merges with default styles:
+
+```tsx
+<Button className="rounded-full" variant="primary">
+  Rounded Button
+</Button>
+```
+
+### Tailwind Configuration
+
+Extend your Tailwind config to customize the design tokens:
+
+```js
+// tailwind.config.js
+export default {
+  theme: {
+    extend: {
+      colors: {
+        primary: {
+          500: '#your-color',
+          600: '#your-hover-color',
+        },
+      },
+    },
+  },
+};
 ```
 
 ## Components
 
-Button, Input, Card, Badge, Typography, Avatar, Spinner, Alert, CustomCursor, CellGrid
+- **Button** — Primary actions with variants, sizes, loading state
+- **Card** — Container with header, content, footer sections
+- **Input** — Form input field
+- **Badge** — Status indicators and labels
+- **Typography** — Text styling component
+- **Avatar** — User profile images
+- **Spinner** — Loading indicator
+- **Alert** — Notification messages
 
 ## Hooks
 
@@ -36,28 +82,4 @@ Button, Input, Card, Badge, Typography, Avatar, Spinner, Alert, CustomCursor, Ce
 - **useInteractiveState** — Subscribe to cursor over interactive element state
 - **useScrollDirection** — Track scroll direction (up/down)
 
-## Importing Source Files
-
-For projects with their own build setup, you can import TypeScript source directly:
-
-```tsx
-import { Button } from '@josui/react/src';
-```
-
-This enables better tree-shaking and lets your bundler optimize the code.
-
-## Testing
-
-```bash
-pnpm test        # Run tests once
-pnpm test:watch  # Watch mode
-```
-
-Uses Vitest with React Testing Library.
-
-## Claude Code Integration
-
-```bash
-mkdir -p .claude/skills
-cp -r node_modules/@josui/react/skills/* .claude/skills/
-```
+See Storybook for interactive examples and full API documentation.

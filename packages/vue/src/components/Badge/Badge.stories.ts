@@ -1,12 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 import Badge from './Badge.vue';
 
-const meta = {
+const meta: Meta<typeof Badge> = {
   title: 'Components/Badge',
   component: Badge,
-  parameters: {
-    layout: 'centered',
-  },
   tags: ['autodocs'],
   argTypes: {
     variant: {
@@ -18,43 +15,86 @@ const meta = {
       options: ['sm', 'md', 'lg'],
     },
   },
-} satisfies Meta<typeof Badge>;
+};
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof Badge>;
 
 export const Default: Story = {
-  render: () => ({
+  args: {
+    variant: 'default',
+  },
+  render: (args) => ({
     components: { Badge },
-    template: '<Badge>Badge</Badge>',
+    setup() {
+      return { args };
+    },
+    template: '<Badge v-bind="args">Default</Badge>',
   }),
 };
 
 export const Primary: Story = {
-  render: () => ({
+  args: {
+    variant: 'primary',
+  },
+  render: (args) => ({
     components: { Badge },
-    template: '<Badge variant="primary">Primary</Badge>',
+    setup() {
+      return { args };
+    },
+    template: '<Badge v-bind="args">Primary</Badge>',
   }),
 };
 
 export const Success: Story = {
-  render: () => ({
+  args: {
+    variant: 'success',
+  },
+  render: (args) => ({
     components: { Badge },
-    template: '<Badge variant="success">Success</Badge>',
+    setup() {
+      return { args };
+    },
+    template: '<Badge v-bind="args">Success</Badge>',
   }),
 };
 
 export const Warning: Story = {
-  render: () => ({
+  args: {
+    variant: 'warning',
+  },
+  render: (args) => ({
     components: { Badge },
-    template: '<Badge variant="warning">Warning</Badge>',
+    setup() {
+      return { args };
+    },
+    template: '<Badge v-bind="args">Warning</Badge>',
   }),
 };
 
 export const Error: Story = {
+  args: {
+    variant: 'error',
+  },
+  render: (args) => ({
+    components: { Badge },
+    setup() {
+      return { args };
+    },
+    template: '<Badge v-bind="args">Error</Badge>',
+  }),
+};
+
+export const Sizes: Story = {
   render: () => ({
     components: { Badge },
-    template: '<Badge variant="error">Error</Badge>',
+    template: `
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <Badge size="sm">Small</Badge>
+        <Badge size="md">Medium</Badge>
+        <Badge size="lg">Large</Badge>
+      </div>
+    `,
   }),
 };
 
@@ -62,12 +102,38 @@ export const AllVariants: Story = {
   render: () => ({
     components: { Badge },
     template: `
-      <div class="flex flex-wrap gap-2">
-        <Badge>Default</Badge>
+      <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
+        <Badge variant="default">Default</Badge>
         <Badge variant="primary">Primary</Badge>
         <Badge variant="success">Success</Badge>
         <Badge variant="warning">Warning</Badge>
         <Badge variant="error">Error</Badge>
+      </div>
+    `,
+  }),
+};
+
+export const StatusBadges: Story = {
+  render: () => ({
+    components: { Badge },
+    template: `
+      <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <Badge variant="success">Active</Badge>
+          <span>User is currently online</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <Badge variant="warning">Pending</Badge>
+          <span>Awaiting approval</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <Badge variant="error">Failed</Badge>
+          <span>Payment declined</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <Badge variant="primary">New</Badge>
+          <span>Just released</span>
+        </div>
       </div>
     `,
   }),

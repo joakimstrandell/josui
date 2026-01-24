@@ -1,13 +1,24 @@
 <script setup lang="ts">
-import { cn } from '@josui/core-web';
-
-defineProps<{
+export interface CardDescriptionProps {
+  /** Additional CSS classes */
   class?: string;
-}>();
+}
+
+defineProps<CardDescriptionProps>();
 </script>
 
 <template>
-  <p :class="cn('text-sm text-gray-500', $props.class)">
+  <p class="josui-card-description">
     <slot />
   </p>
 </template>
+
+<style lang="scss" scoped>
+@use '../../styles/tokens' as *;
+
+.josui-card-description {
+  font-size: font-size('sm');
+  color: color('muted-foreground');
+  margin: 0;
+}
+</style>

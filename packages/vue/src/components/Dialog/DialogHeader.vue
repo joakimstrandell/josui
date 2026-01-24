@@ -1,14 +1,14 @@
 <script setup lang="ts">
-export interface CardHeaderProps {
+export interface DialogHeaderProps {
   /** Additional CSS classes */
   class?: string;
 }
 
-defineProps<CardHeaderProps>();
+defineProps<DialogHeaderProps>();
 </script>
 
 <template>
-  <div class="josui-card-header">
+  <div class="josui-dialog-header">
     <slot />
   </div>
 </template>
@@ -16,9 +16,14 @@ defineProps<CardHeaderProps>();
 <style lang="scss" scoped>
 @use '../../styles/tokens' as *;
 
-.josui-card-header {
+.josui-dialog-header {
   display: flex;
   flex-direction: column;
   gap: spacing('1-5');
+  text-align: center;
+
+  @media (min-width: 640px) {
+    text-align: left;
+  }
 }
 </style>

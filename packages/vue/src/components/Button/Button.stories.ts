@@ -1,12 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 import Button from './Button.vue';
 
-const meta = {
+const meta: Meta<typeof Button> = {
   title: 'Components/Button',
   component: Button,
-  parameters: {
-    layout: 'centered',
-  },
   tags: ['autodocs'],
   argTypes: {
     variant: {
@@ -17,85 +14,119 @@ const meta = {
       control: 'select',
       options: ['sm', 'md', 'lg'],
     },
-    isLoading: {
-      control: 'boolean',
-    },
-    disabled: {
-      control: 'boolean',
+    isLoading: { control: 'boolean' },
+    disabled: { control: 'boolean' },
+    type: {
+      control: 'select',
+      options: ['button', 'submit', 'reset'],
     },
   },
-} satisfies Meta<typeof Button>;
+};
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof Button>;
 
 export const Primary: Story = {
   args: {
     variant: 'primary',
-    default: 'Button',
   },
   render: (args) => ({
     components: { Button },
     setup() {
       return { args };
     },
-    template: '<Button v-bind="args">Button</Button>',
+    template: '<Button v-bind="args">Primary Button</Button>',
   }),
 };
 
 export const Secondary: Story = {
-  render: () => ({
+  args: {
+    variant: 'secondary',
+  },
+  render: (args) => ({
     components: { Button },
-    template: '<Button variant="secondary">Secondary</Button>',
+    setup() {
+      return { args };
+    },
+    template: '<Button v-bind="args">Secondary Button</Button>',
   }),
 };
 
 export const Outline: Story = {
-  render: () => ({
+  args: {
+    variant: 'outline',
+  },
+  render: (args) => ({
     components: { Button },
-    template: '<Button variant="outline">Outline</Button>',
+    setup() {
+      return { args };
+    },
+    template: '<Button v-bind="args">Outline Button</Button>',
   }),
 };
 
 export const Ghost: Story = {
-  render: () => ({
+  args: {
+    variant: 'ghost',
+  },
+  render: (args) => ({
     components: { Button },
-    template: '<Button variant="ghost">Ghost</Button>',
+    setup() {
+      return { args };
+    },
+    template: '<Button v-bind="args">Ghost Button</Button>',
   }),
 };
 
 export const Destructive: Story = {
-  render: () => ({
+  args: {
+    variant: 'destructive',
+  },
+  render: (args) => ({
     components: { Button },
-    template: '<Button variant="destructive">Delete</Button>',
+    setup() {
+      return { args };
+    },
+    template: '<Button v-bind="args">Destructive Button</Button>',
   }),
 };
 
-export const Small: Story = {
+export const Sizes: Story = {
   render: () => ({
     components: { Button },
-    template: '<Button size="sm">Small</Button>',
-  }),
-};
-
-export const Large: Story = {
-  render: () => ({
-    components: { Button },
-    template: '<Button size="lg">Large</Button>',
+    template: `
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <Button size="sm">Small</Button>
+        <Button size="md">Medium</Button>
+        <Button size="lg">Large</Button>
+      </div>
+    `,
   }),
 };
 
 export const Loading: Story = {
-  render: () => ({
+  args: {
+    isLoading: true,
+  },
+  render: (args) => ({
     components: { Button },
-    template: '<Button :isLoading="true">Loading</Button>',
+    setup() {
+      return { args };
+    },
+    template: '<Button v-bind="args">Loading...</Button>',
   }),
 };
 
 export const Disabled: Story = {
-  render: () => ({
+  args: {
+    disabled: true,
+  },
+  render: (args) => ({
     components: { Button },
-    template: '<Button disabled>Disabled</Button>',
+    setup() {
+      return { args };
+    },
+    template: '<Button v-bind="args">Disabled</Button>',
   }),
 };
 
@@ -103,7 +134,7 @@ export const AllVariants: Story = {
   render: () => ({
     components: { Button },
     template: `
-      <div class="flex flex-wrap gap-2">
+      <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
         <Button variant="primary">Primary</Button>
         <Button variant="secondary">Secondary</Button>
         <Button variant="outline">Outline</Button>

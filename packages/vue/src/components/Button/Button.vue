@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { cn } from '@josui/core-web';
-import Spinner from '../Spinner/Spinner.vue';
 
 export interface ButtonProps {
   /** Visual style variant */
@@ -24,50 +22,202 @@ const props = withDefaults(defineProps<ButtonProps>(), {
   type: 'button',
 });
 
-const variantStyles = {
-  primary:
-    'bg-primary-500 text-white hover:bg-primary-600 active:bg-primary-700 focus-visible:ring-primary-500',
-  secondary:
-    'bg-gray-100 text-gray-900 hover:bg-gray-200 active:bg-gray-300 focus-visible:ring-gray-500',
-  outline:
-    'border border-gray-300 bg-transparent text-gray-900 hover:bg-gray-50 active:bg-gray-100 focus-visible:ring-gray-500',
-  ghost:
-    'bg-transparent text-gray-900 hover:bg-gray-100 active:bg-gray-200 focus-visible:ring-gray-500',
-  destructive:
-    'bg-error-500 text-white hover:bg-error-700 active:bg-error-700 focus-visible:ring-error-500',
-};
-
-const sizeStyles = {
-  sm: 'h-8 px-3 text-sm gap-1.5',
-  md: 'h-10 px-4 text-sm gap-2',
-  lg: 'h-12 px-6 text-base gap-2',
-};
-
-const classes = computed(() =>
-  cn(
-    'inline-flex items-center justify-center rounded-md font-medium transition-colors',
-    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
-    'disabled:pointer-events-none disabled:opacity-50',
-    variantStyles[props.variant],
-    sizeStyles[props.size]
-  )
-);
-
 const isDisabled = computed(() => props.disabled || props.isLoading);
-const spinnerSize = computed(() => (props.size === 'sm' ? 'sm' : 'md'));
 </script>
 
 <template>
-  <button :class="classes" :disabled="isDisabled" :type="type">
-    <Spinner v-if="isLoading" :size="spinnerSize" class="mr-2" />
-    <slot v-else name="leftIcon">
-      <span v-if="$slots.leftIcon" class="shrink-0">
-        <slot name="leftIcon" />
-      </span>
-    </slot>
-    <slot />
-    <span v-if="$slots.rightIcon && !isLoading" class="shrink-0">
-      <slot name="rightIcon" />
+  <button
+    :class="['josui-button', `josui-button--${variant}`, `josui-button--${size}`]"
+    :disabled="isDisabled"
+    :type="type"
+  >
+    <span v-if="isLoading" class="josui-button__spinner" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" class="josui-button__spinner-icon">
+        <circle
+          cx="12"
+          cy="12"
+          r="10"
+          stroke="currentColor"
+          stroke-width="3"
+          stroke-linecap="round"
+          stroke-dasharray="31.4 31.4"
+        />
+      </svg>
+    </span>
+    <span v-if="$slots.icon && !isLoading" class="josui-button__icon">
+      <slot name="icon" />
+    </span>
+    <span class="josui-button__content">
+      <slot />
+    </span>
+    <span v-if="$slots.iconRight && !isLoading" class="josui-button__icon">
+      <slot name="iconRight" />
     </span>
   </button>
 </template>
+
+<style lang="scss" scoped>
+@use '../../styles/tokens' as *;
+
+.josui-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: radius('default');
+  font-weight: font-weight('medium');
+  font-family: inherit;
+  border: 1px solid transparent;
+  cursor: pointer;
+  @include transition-colors;
+  @include focus-visible-ring;
+
+  &:disabled {
+    @include disabled-state;
+  }
+
+  // Variants
+  &--primary {
+    background-color: color('primary-500');
+    color: white;
+
+    &:hover:not(:disabled) {
+      background-color: color('primary-600');
+    }
+
+    &:active:not(:disabled) {
+      background-color: color('primary-700');
+    }
+
+    &:focus-visible {
+      @include focus-ring('primary-500');
+    }
+  }
+
+  &--secondary {
+    background-color: color('gray-100');
+    color: color('gray-900');
+
+    &:hover:not(:disabled) {
+      background-color: color('gray-200');
+    }
+
+    &:active:not(:disabled) {
+      background-color: color('gray-300');
+    }
+
+    &:focus-visible {
+      @include focus-ring('gray-500');
+    }
+  }
+
+  &--outline {
+    background-color: transparent;
+    border-color: color('gray-300');
+    color: color('gray-900');
+
+    &:hover:not(:disabled) {
+      background-color: color('gray-50');
+    }
+
+    &:active:not(:disabled) {
+      background-color: color('gray-100');
+    }
+
+    &:focus-visible {
+      @include focus-ring('gray-500');
+    }
+  }
+
+  &--ghost {
+    background-color: transparent;
+    color: color('gray-900');
+
+    &:hover:not(:disabled) {
+      background-color: color('gray-100');
+    }
+
+    &:active:not(:disabled) {
+      background-color: color('gray-200');
+    }
+
+    &:focus-visible {
+      @include focus-ring('gray-500');
+    }
+  }
+
+  &--destructive {
+    background-color: color('error-500');
+    color: white;
+
+    &:hover:not(:disabled) {
+      background-color: color('error-600');
+    }
+
+    &:active:not(:disabled) {
+      background-color: color('error-700');
+    }
+
+    &:focus-visible {
+      @include focus-ring('error-500');
+    }
+  }
+
+  // Sizes
+  &--sm {
+    height: spacing('8');
+    padding-left: spacing('3');
+    padding-right: spacing('3');
+    font-size: font-size('sm');
+    gap: spacing('1-5');
+  }
+
+  &--md {
+    height: spacing('10');
+    padding-left: spacing('4');
+    padding-right: spacing('4');
+    font-size: font-size('sm');
+    gap: spacing('2');
+  }
+
+  &--lg {
+    height: spacing('12');
+    padding-left: spacing('6');
+    padding-right: spacing('6');
+    font-size: font-size('base');
+    gap: spacing('2');
+  }
+
+  &__spinner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__spinner-icon {
+    width: 1em;
+    height: 1em;
+    animation: josui-spin 1s linear infinite;
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  &__content {
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+@keyframes josui-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+</style>

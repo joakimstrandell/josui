@@ -11,6 +11,13 @@ export default defineConfig({
       include: ['src/**/*.ts', 'src/**/*.vue'],
     }),
   ],
+  css: {
+    preprocessorOptions: {
+      scss: {
+        api: 'modern-compiler',
+      },
+    },
+  },
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
@@ -18,11 +25,21 @@ export default defineConfig({
       formats: ['es', 'cjs'],
       fileName: (format) => `index.${format === 'es' ? 'js' : 'cjs'}`,
     },
+    cssCodeSplit: false,
     rollupOptions: {
-      external: ['vue'],
+      external: ['vue', 'lucide-vue-next', 'reka-ui', /^reka-ui\/.*/],
       output: {
         globals: {
           vue: 'Vue',
+          'lucide-vue-next': 'LucideVueNext',
+          'reka-ui': 'RekaUI',
+        },
+        assetFileNames: (assetInfo) => {
+          // Rename the CSS output to styles.css for consistency
+          if (assetInfo.name?.endsWith('.css')) {
+            return 'styles.css';
+          }
+          return assetInfo.name ?? 'asset';
         },
       },
     },

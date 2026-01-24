@@ -1,46 +1,38 @@
-import { render, screen } from '@testing-library/vue';
 import { describe, it, expect } from 'vitest';
+import { render, screen } from '@testing-library/vue';
 import Badge from './Badge.vue';
 
 describe('Badge', () => {
-  it('renders slot content', () => {
-    render(Badge, { slots: { default: 'New' } });
-    expect(screen.getByText('New')).toBeInTheDocument();
-  });
-
-  it.each([
-    { variant: 'default', expectedClass: 'bg-gray-100' },
-    { variant: 'primary', expectedClass: 'bg-primary-100' },
-    { variant: 'success', expectedClass: 'bg-success-50' },
-    { variant: 'warning', expectedClass: 'bg-warning-50' },
-    { variant: 'error', expectedClass: 'bg-error-50' },
-  ] as const)('applies $variant variant class', ({ variant, expectedClass }) => {
+  it('renders with default props', () => {
     render(Badge, {
-      props: { variant },
-      slots: { default: 'Badge' },
+      slots: { default: 'Badge text' },
     });
-    expect(screen.getByText('Badge')).toHaveClass(expectedClass);
+    expect(screen.getByText('Badge text')).toBeInTheDocument();
   });
 
-  it.each([
-    { size: 'sm', expectedClass: 'text-xs' },
-    { size: 'md', expectedClass: 'text-sm' },
-    { size: 'lg', expectedClass: 'text-sm' },
-  ] as const)('applies $size size class', ({ size, expectedClass }) => {
-    render(Badge, {
+  it.each(['default', 'primary', 'success', 'warning', 'error'] as const)(
+    'renders %s variant',
+    (variant) => {
+      const { container } = render(Badge, {
+        props: { variant },
+        slots: { default: 'Badge' },
+      });
+      expect(container.querySelector(`.josui-badge--${variant}`)).toBeInTheDocument();
+    }
+  );
+
+  it.each(['sm', 'md', 'lg'] as const)('renders %s size', (size) => {
+    const { container } = render(Badge, {
       props: { size },
       slots: { default: 'Badge' },
     });
-    expect(screen.getByText('Badge')).toHaveClass(expectedClass);
+    expect(container.querySelector(`.josui-badge--${size}`)).toBeInTheDocument();
   });
 
-  it('defaults to default variant', () => {
-    render(Badge, { slots: { default: 'Badge' } });
-    expect(screen.getByText('Badge')).toHaveClass('bg-gray-100');
-  });
-
-  it('defaults to md size', () => {
-    render(Badge, { slots: { default: 'Badge' } });
-    expect(screen.getByText('Badge')).toHaveClass('px-2.5');
+  it('renders as span element', () => {
+    render(Badge, {
+      slots: { default: 'Badge' },
+    });
+    expect(screen.getByText('Badge').tagName).toBe('SPAN');
   });
 });

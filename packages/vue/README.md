@@ -2,51 +2,99 @@
 
 Vue 3 component library for the Josui design system.
 
-> **Note:** This package is a proof of concept. It will be refactored to use SCSS instead of Tailwind CSS to demonstrate how design tokens can be centralized and consumed in different styling approaches.
-
 ## Installation
 
 ```bash
-pnpm add @josui/vue @josui/tailwind-config
+pnpm add @josui/vue @josui/tokens
+```
+
+For icons (optional):
+
+```bash
+pnpm add lucide-vue-next
 ```
 
 ## Setup
 
+Import the token CSS variables and component styles in your app entry:
+
+```ts
+// main.ts
+import '@josui/tokens/css'; // Design tokens as CSS custom properties
+import '@josui/vue/styles.css'; // Component styles
+```
+
+## Architecture
+
+### Token-Based Styling
+
+Components are styled using CSS custom properties from `@josui/tokens`. No utility classes or runtime CSS-in-JS — just scoped SCSS that references design tokens:
+
 ```css
-@import '@josui/tailwind-config/styles.css';
+/* How components consume tokens internally */
+.josui-button {
+  background: var(--color-primary-500);
+  padding: var(--spacing-2) var(--spacing-4);
+  border-radius: var(--radius-md);
+}
 ```
 
-## Usage
+This means you can customize the entire look of components by overriding token values.
 
-```vue
-<script setup>
-import { Button, Card, CardContent } from '@josui/vue';
-</script>
+### Accessibility (WCAG)
 
-<template>
-  <Card>
-    <CardContent>
-      <Button variant="primary">Click me</Button>
-    </CardContent>
-  </Card>
-</template>
+Components that require complex accessibility patterns use [reka-ui](https://reka-ui.com) primitives under the hood:
+
+This provides:
+
+- Keyboard navigation (Tab, Escape, Enter)
+- Focus trapping in modals
+- ARIA attributes (`aria-modal`, `aria-labelledby`, `aria-describedby`, `aria-checked`)
+- Screen reader announcements
+
+Components like Button, Card, Badge, and Icon are simple enough to not require reka-ui.
+
+## Customizing Tokens
+
+### Override CSS Variables
+
+The simplest way to customize is overriding CSS custom properties:
+
+```css
+:root {
+  /* Change primary color */
+  --color-primary-500: oklch(0.6 0.2 280);
+
+  /* Adjust spacing scale */
+  --spacing-4: 1.25rem;
+
+  /* Modify border radius */
+  --radius-md: 0.5rem;
+}
 ```
+
+### Scoped Theming
+
+Apply different tokens to specific sections:
+
+```css
+.dark-section {
+  --color-gray-900: oklch(0.98 0 0);
+  --color-gray-100: oklch(0.2 0 0);
+}
+```
+
+### Available Tokens
+
+See [@josui/tokens](https://github.com/joakimstrandell/josui/tree/main/packages/tokens) for the complete token reference including colors, spacing, radius, shadows, animation, and z-index.
 
 ## Components
 
-Button, Input, Card, Badge, Typography, Avatar, Spinner, Alert
+- **Button** — Primary actions with variants, sizes, loading state
+- **Card** — Container with header, content, footer sections
+- **Dialog** — Modal dialogs with overlay and focus trapping
+- **Checkbox** — Form input with indeterminate state support
+- **Badge** — Status indicators and labels
+- **Icon** — Lucide icon wrapper with consistent sizing
 
-## Development
-
-```bash
-pnpm --filter @josui/vue build       # Build
-pnpm --filter @josui/vue test        # Run tests
-pnpm --filter @josui/vue test:watch  # Run tests in watch mode
-```
-
-## Claude Code Integration
-
-```bash
-mkdir -p .claude/skills
-cp -r node_modules/@josui/vue/skills/* .claude/skills/
-```
+See Storybook for interactive examples and full API documentation.

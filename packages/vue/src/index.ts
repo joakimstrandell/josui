@@ -1,6 +1,5 @@
 // Components
 export { Button } from './components/Button';
-export { Input } from './components/Input';
 export {
   Card,
   CardHeader,
@@ -9,18 +8,40 @@ export {
   CardContent,
   CardFooter,
 } from './components/Card';
+export {
+  Dialog,
+  DialogOverlay,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+  DialogClose,
+} from './components/Dialog';
+export { Checkbox } from './components/Checkbox';
 export { Badge } from './components/Badge';
-export { Typography } from './components/Typography';
-export { Avatar } from './components/Avatar';
-export { Spinner } from './components/Spinner';
-export { Alert } from './components/Alert';
+export { Icon } from './components/Icon';
 
 // Types
 export type { ButtonProps } from './components/Button';
-export type { InputProps } from './components/Input';
-export type { CardProps } from './components/Card';
+export type {
+  CardProps,
+  CardHeaderProps,
+  CardTitleProps,
+  CardDescriptionProps,
+  CardContentProps,
+  CardFooterProps,
+} from './components/Card';
+export type {
+  DialogProps,
+  DialogOverlayProps,
+  DialogContentProps,
+  DialogHeaderProps,
+  DialogTitleProps,
+  DialogDescriptionProps,
+  DialogFooterProps,
+  DialogCloseProps,
+} from './components/Dialog';
+export type { CheckboxProps } from './components/Checkbox';
 export type { BadgeProps } from './components/Badge';
-export type { TypographyProps } from './components/Typography';
-export type { AvatarProps } from './components/Avatar';
-export type { SpinnerProps } from './components/Spinner';
-export type { AlertProps } from './components/Alert';
+export type { IconProps } from './components/Icon';

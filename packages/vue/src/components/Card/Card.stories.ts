@@ -5,14 +5,10 @@ import CardTitle from './CardTitle.vue';
 import CardDescription from './CardDescription.vue';
 import CardContent from './CardContent.vue';
 import CardFooter from './CardFooter.vue';
-import Button from '../Button/Button.vue';
 
-const meta = {
+const meta: Meta<typeof Card> = {
   title: 'Components/Card',
   component: Card,
-  parameters: {
-    layout: 'centered',
-  },
   tags: ['autodocs'],
   argTypes: {
     variant: {
@@ -23,35 +19,29 @@ const meta = {
       control: 'select',
       options: ['none', 'sm', 'md', 'lg'],
     },
-    shadow: {
-      control: 'select',
-      options: ['none', 'sm', 'md', 'lg'],
-    },
   },
-  decorators: [
-    () => ({
-      template: '<div style="width: 400px;"><story /></div>',
-    }),
-  ],
-} satisfies Meta<typeof Card>;
+};
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof Card>;
 
 export const Default: Story = {
-  render: () => ({
-    components: { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter, Button },
+  render: (args) => ({
+    components: { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter },
+    setup() {
+      return { args };
+    },
     template: `
-      <Card>
+      <Card v-bind="args">
         <CardHeader>
           <CardTitle>Card Title</CardTitle>
-          <CardDescription>Card description goes here.</CardDescription>
+          <CardDescription>Card description goes here</CardDescription>
         </CardHeader>
         <CardContent>
-          <p>This is the card content. You can put anything here.</p>
+          <p>This is the main content of the card. It can contain any content you want.</p>
         </CardContent>
         <CardFooter>
-          <Button size="sm">Action</Button>
+          <button>Action</button>
         </CardFooter>
       </Card>
     `,
@@ -59,13 +49,19 @@ export const Default: Story = {
 };
 
 export const Bordered: Story = {
-  render: () => ({
+  args: {
+    variant: 'bordered',
+  },
+  render: (args) => ({
     components: { Card, CardHeader, CardTitle, CardDescription, CardContent },
+    setup() {
+      return { args };
+    },
     template: `
-      <Card variant="bordered">
+      <Card v-bind="args">
         <CardHeader>
           <CardTitle>Bordered Card</CardTitle>
-          <CardDescription>A card with a border.</CardDescription>
+          <CardDescription>A card with a thicker border</CardDescription>
         </CardHeader>
         <CardContent>
           <p>Content inside a bordered card variant.</p>
@@ -76,18 +72,74 @@ export const Bordered: Story = {
 };
 
 export const Elevated: Story = {
-  render: () => ({
+  args: {
+    variant: 'elevated',
+  },
+  render: (args) => ({
     components: { Card, CardHeader, CardTitle, CardDescription, CardContent },
+    setup() {
+      return { args };
+    },
     template: `
-      <Card variant="elevated" shadow="lg">
+      <Card v-bind="args">
         <CardHeader>
           <CardTitle>Elevated Card</CardTitle>
-          <CardDescription>A card with elevation shadow.</CardDescription>
+          <CardDescription>A card with a shadow</CardDescription>
         </CardHeader>
         <CardContent>
-          <p>Content inside an elevated card with large shadow.</p>
+          <p>Content inside an elevated card variant.</p>
         </CardContent>
       </Card>
+    `,
+  }),
+};
+
+export const Padding: Story = {
+  render: () => ({
+    components: { Card, CardContent },
+    template: `
+      <div style="display: flex; flex-direction: column; gap: 1rem;">
+        <Card padding="none">
+          <CardContent>No padding</CardContent>
+        </Card>
+        <Card padding="sm">
+          <CardContent>Small padding</CardContent>
+        </Card>
+        <Card padding="md">
+          <CardContent>Medium padding (default)</CardContent>
+        </Card>
+        <Card padding="lg">
+          <CardContent>Large padding</CardContent>
+        </Card>
+      </div>
+    `,
+  }),
+};
+
+export const AllVariants: Story = {
+  render: () => ({
+    components: { Card, CardHeader, CardTitle, CardContent },
+    template: `
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+        <Card variant="default" style="width: 250px;">
+          <CardHeader>
+            <CardTitle>Default</CardTitle>
+          </CardHeader>
+          <CardContent>Default card variant</CardContent>
+        </Card>
+        <Card variant="bordered" style="width: 250px;">
+          <CardHeader>
+            <CardTitle>Bordered</CardTitle>
+          </CardHeader>
+          <CardContent>Bordered card variant</CardContent>
+        </Card>
+        <Card variant="elevated" style="width: 250px;">
+          <CardHeader>
+            <CardTitle>Elevated</CardTitle>
+          </CardHeader>
+          <CardContent>Elevated card variant</CardContent>
+        </Card>
+      </div>
     `,
   }),
 };

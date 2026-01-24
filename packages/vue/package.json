@@ -12,14 +12,12 @@
       "require": "./dist/index.cjs"
     },
     "./styles.css": "./dist/styles.css",
-    "./src": "./src/index.ts",
-    "./tailwind": "./tailwind.css"
+    "./src": "./src/index.ts"
   },
   "files": [
     "dist",
     "skills",
-    "src",
-    "tailwind.css"
+    "src"
   ],
   "sideEffects": [
     "**/*.css"
@@ -33,18 +31,17 @@
     "test:watch": "vitest"
   },
   "dependencies": {
-    "@josui/core-web": "workspace:*"
+    "@josui/tokens": "workspace:*",
+    "reka-ui": "^2.7.0"
   },
   "devDependencies": {
-    "@josui/tailwind-config": "workspace:*",
-    "@josui/tokens": "workspace:*",
     "@josui/typescript-config": "workspace:*",
     "@storybook/vue3": "^8.5.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/vue": "^8.1.0",
     "@vitejs/plugin-vue": "^5.2.0",
     "jsdom": "^26.0.0",
-    "tailwindcss": "^4.0.0",
+    "sass": "^1.77.0",
     "typescript": "^5.7.0",
     "vite": "^6.0.0",
     "vite-plugin-dts": "^4.4.0",
@@ -53,7 +50,13 @@
     "vue-tsc": "^2.2.0"
   },
   "peerDependencies": {
+    "lucide-vue-next": ">=0.300.0",
     "vue": "^3.4.0"
+  },
+  "peerDependenciesMeta": {
+    "lucide-vue-next": {
+      "optional": true
+    }
   },
   "publishConfig": {
     "access": "public"

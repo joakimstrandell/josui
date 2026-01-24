@@ -1,6 +1,6 @@
 # Agent Instructions — @josui/react
 
-React component library for the Josui design system.
+React component library using Tailwind CSS.
 
 ## Build
 
@@ -8,74 +8,112 @@ React component library for the Josui design system.
 pnpm --filter @josui/react build
 ```
 
-Uses tsup for bundling. Outputs ESM, CJS, and type definitions to `dist/`.
+Outputs ESM, CJS, and types to `dist/`.
 
-## Component Structure
+## Structure
 
-Components live in `src/components/ComponentName/`. Each component folder contains:
+Components live in `src/components/ComponentName/`:
 
-- `ComponentName.tsx` — Component implementation
-- `ComponentName.test.tsx` — Unit tests
-- `ComponentName.stories.tsx` — Storybook stories
-- `index.ts` — Barrel export
+```
+ComponentName/
+├── ComponentName.tsx        # Component implementation
+├── ComponentName.test.tsx   # Vitest tests
+├── ComponentName.stories.tsx # Storybook stories
+└── index.ts                 # Barrel export
+```
 
-Components:
+## Component Conventions
 
-- Are named exports (no default exports)
-- Use Tailwind CSS classes
+- Named exports (no default exports)
+- Use `forwardRef` for ref forwarding
+- Extend `React.ComponentPropsWithoutRef<'element'>` for HTML props
 - Support `className` prop for customization
-- Have TypeScript props interface
+- Use `cn()` from `@josui/core-web` for class merging
+
+```tsx
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: 'primary' | 'secondary';
+  size?: 'sm' | 'md' | 'lg';
+}
+
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, variant = 'primary', size = 'md', ...props }, ref) => {
+    return (
+      <button
+        ref={ref}
+        className={cn(baseStyles, variantStyles[variant], sizeStyles[size], className)}
+        {...props}
+      />
+    );
+  }
+);
+
+Button.displayName = 'Button';
+```
+
+## Styling
+
+Components use Tailwind CSS classes. Define variant/size styles as objects:
+
+```tsx
+const variantStyles = {
+  primary: 'bg-primary-500 text-white hover:bg-primary-600',
+  secondary: 'bg-gray-100 text-gray-900 hover:bg-gray-200',
+};
+
+const sizeStyles = {
+  sm: 'h-8 px-3 text-sm',
+  md: 'h-10 px-4 text-sm',
+  lg: 'h-12 px-6 text-base',
+};
+```
 
 ## Creating a Component
 
-1. Create `src/components/ComponentName/ComponentName.tsx`
-2. Create `src/components/ComponentName/ComponentName.test.tsx`
-3. Create `src/components/ComponentName/ComponentName.stories.tsx`
-4. Create `src/components/ComponentName/index.ts` with exports
-5. Export from `src/index.ts`
-
-## Props Conventions
-
-- `variant` — Visual style (primary, secondary, etc.)
-- `size` — Size scale (sm, md, lg)
-- `className` — Additional CSS classes
-- Use `React.ComponentPropsWithoutRef<'element'>` for HTML props
-
-## Testing
-
-Unit tests use Vitest with React Testing Library.
-
-```bash
-pnpm --filter @josui/react test        # Run tests once
-pnpm --filter @josui/react test:watch  # Watch mode
-```
-
-Test files live alongside components: `src/components/ComponentName/ComponentName.test.tsx`
-
-### Writing Tests
-
-```tsx
-import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import { describe, it, expect } from 'vitest';
-import { Button } from './Button';
-
-describe('Button', () => {
-  it('renders children', () => {
-    render(<Button>Click me</Button>);
-    expect(screen.getByRole('button', { name: 'Click me' })).toBeInTheDocument();
-  });
-});
-```
-
-### Storybook
-
-```bash
-pnpm --filter @josui/storybook-react dev
-```
-
-Visually verify in Storybook at http://localhost:6006
+1. Create folder `src/components/ComponentName/`
+2. Create `ComponentName.tsx` with `forwardRef`
+3. Create `ComponentName.test.tsx` using `@testing-library/react`
+4. Create `ComponentName.stories.tsx`
+5. Create `index.ts` exporting component and props type
+6. Add exports to `src/index.ts`
+7. Update `skills/use-react-components/SKILL.md` with usage docs
 
 ## Important
 
-This is the primary component library for the Josui design system.
+When modifying components (adding/removing props, changing API), update:
+
+- `AGENTS.md` — Component table, conventions
+- `skills/use-react-components/SKILL.md` — Component usage examples
+- `README.md` — If architecture or setup changes
+
+## Testing
+
+```bash
+pnpm --filter @josui/react test        # Run once
+pnpm --filter @josui/react test:watch  # Watch mode
+```
+
+Uses Vitest with `@testing-library/react`.
+
+## Components
+
+| Component  | Variants                                        | Sizes      |
+| ---------- | ----------------------------------------------- | ---------- |
+| Button     | primary, secondary, outline, ghost, destructive | sm, md, lg |
+| Card       | —                                               | —          |
+| Input      | —                                               | sm, md, lg |
+| Badge      | default, primary, success, warning, error       | sm, md, lg |
+| Typography | —                                               | —          |
+| Avatar     | —                                               | sm, md, lg |
+| Spinner    | —                                               | sm, md, lg |
+| Alert      | info, success, warning, error                   | —          |
+
+Card is a compound component with sub-components (CardHeader, CardTitle, CardDescription, CardContent, CardFooter).
+
+## Hooks
+
+| Hook                | Purpose                               |
+| ------------------- | ------------------------------------- |
+| useIsTouchDevice    | Detect touch-capable devices          |
+| useInteractiveState | Subscribe to cursor interactive state |
+| useScrollDirection  | Track scroll direction (up/down)      |
