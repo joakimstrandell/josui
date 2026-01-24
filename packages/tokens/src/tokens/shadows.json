@@ -3,29 +3,29 @@
     "$type": "shadow",
     "sm": {
       "$value": {
-        "offsetX": "0px",
-        "offsetY": "1px",
-        "blur": "2px",
-        "spread": "0px",
-        "color": "oklch(0 0 0 / 0.05)"
+        "offsetX": { "value": 0, "unit": "px" },
+        "offsetY": { "value": 1, "unit": "px" },
+        "blur": { "value": 2, "unit": "px" },
+        "spread": { "value": 0, "unit": "px" },
+        "color": { "colorSpace": "oklch", "components": [0, 0, 0], "alpha": 0.05 }
       },
       "$description": "Small shadow"
     },
     "default": {
       "$value": [
         {
-          "offsetX": "0px",
-          "offsetY": "1px",
-          "blur": "3px",
-          "spread": "0px",
-          "color": "oklch(0 0 0 / 0.1)"
+          "offsetX": { "value": 0, "unit": "px" },
+          "offsetY": { "value": 1, "unit": "px" },
+          "blur": { "value": 3, "unit": "px" },
+          "spread": { "value": 0, "unit": "px" },
+          "color": { "colorSpace": "oklch", "components": [0, 0, 0], "alpha": 0.1 }
         },
         {
-          "offsetX": "0px",
-          "offsetY": "1px",
-          "blur": "2px",
-          "spread": "-1px",
-          "color": "oklch(0 0 0 / 0.1)"
+          "offsetX": { "value": 0, "unit": "px" },
+          "offsetY": { "value": 1, "unit": "px" },
+          "blur": { "value": 2, "unit": "px" },
+          "spread": { "value": -1, "unit": "px" },
+          "color": { "colorSpace": "oklch", "components": [0, 0, 0], "alpha": 0.1 }
         }
       ],
       "$description": "Default shadow"
@@ -33,18 +33,18 @@
     "md": {
       "$value": [
         {
-          "offsetX": "0px",
-          "offsetY": "4px",
-          "blur": "6px",
-          "spread": "-1px",
-          "color": "oklch(0 0 0 / 0.1)"
+          "offsetX": { "value": 0, "unit": "px" },
+          "offsetY": { "value": 4, "unit": "px" },
+          "blur": { "value": 6, "unit": "px" },
+          "spread": { "value": -1, "unit": "px" },
+          "color": { "colorSpace": "oklch", "components": [0, 0, 0], "alpha": 0.1 }
         },
         {
-          "offsetX": "0px",
-          "offsetY": "2px",
-          "blur": "4px",
-          "spread": "-2px",
-          "color": "oklch(0 0 0 / 0.1)"
+          "offsetX": { "value": 0, "unit": "px" },
+          "offsetY": { "value": 2, "unit": "px" },
+          "blur": { "value": 4, "unit": "px" },
+          "spread": { "value": -2, "unit": "px" },
+          "color": { "colorSpace": "oklch", "components": [0, 0, 0], "alpha": 0.1 }
         }
       ],
       "$description": "Medium shadow"
@@ -52,18 +52,18 @@
     "lg": {
       "$value": [
         {
-          "offsetX": "0px",
-          "offsetY": "10px",
-          "blur": "15px",
-          "spread": "-3px",
-          "color": "oklch(0 0 0 / 0.1)"
+          "offsetX": { "value": 0, "unit": "px" },
+          "offsetY": { "value": 10, "unit": "px" },
+          "blur": { "value": 15, "unit": "px" },
+          "spread": { "value": -3, "unit": "px" },
+          "color": { "colorSpace": "oklch", "components": [0, 0, 0], "alpha": 0.1 }
         },
         {
-          "offsetX": "0px",
-          "offsetY": "4px",
-          "blur": "6px",
-          "spread": "-4px",
-          "color": "oklch(0 0 0 / 0.1)"
+          "offsetX": { "value": 0, "unit": "px" },
+          "offsetY": { "value": 4, "unit": "px" },
+          "blur": { "value": 6, "unit": "px" },
+          "spread": { "value": -4, "unit": "px" },
+          "color": { "colorSpace": "oklch", "components": [0, 0, 0], "alpha": 0.1 }
         }
       ],
       "$description": "Large shadow"
@@ -71,50 +71,50 @@
     "xl": {
       "$value": [
         {
-          "offsetX": "0px",
-          "offsetY": "20px",
-          "blur": "25px",
-          "spread": "-5px",
-          "color": "oklch(0 0 0 / 0.1)"
+          "offsetX": { "value": 0, "unit": "px" },
+          "offsetY": { "value": 20, "unit": "px" },
+          "blur": { "value": 25, "unit": "px" },
+          "spread": { "value": -5, "unit": "px" },
+          "color": { "colorSpace": "oklch", "components": [0, 0, 0], "alpha": 0.1 }
         },
         {
-          "offsetX": "0px",
-          "offsetY": "8px",
-          "blur": "10px",
-          "spread": "-6px",
-          "color": "oklch(0 0 0 / 0.1)"
+          "offsetX": { "value": 0, "unit": "px" },
+          "offsetY": { "value": 8, "unit": "px" },
+          "blur": { "value": 10, "unit": "px" },
+          "spread": { "value": -6, "unit": "px" },
+          "color": { "colorSpace": "oklch", "components": [0, 0, 0], "alpha": 0.1 }
         }
       ],
       "$description": "Extra large shadow"
     },
     "2xl": {
       "$value": {
-        "offsetX": "0px",
-        "offsetY": "25px",
-        "blur": "50px",
-        "spread": "-12px",
-        "color": "oklch(0 0 0 / 0.25)"
+        "offsetX": { "value": 0, "unit": "px" },
+        "offsetY": { "value": 25, "unit": "px" },
+        "blur": { "value": 50, "unit": "px" },
+        "spread": { "value": -12, "unit": "px" },
+        "color": { "colorSpace": "oklch", "components": [0, 0, 0], "alpha": 0.25 }
       },
       "$description": "2XL shadow"
     },
     "inner": {
       "$value": {
-        "offsetX": "0px",
-        "offsetY": "2px",
-        "blur": "4px",
-        "spread": "0px",
-        "color": "oklch(0 0 0 / 0.05)",
+        "offsetX": { "value": 0, "unit": "px" },
+        "offsetY": { "value": 2, "unit": "px" },
+        "blur": { "value": 4, "unit": "px" },
+        "spread": { "value": 0, "unit": "px" },
+        "color": { "colorSpace": "oklch", "components": [0, 0, 0], "alpha": 0.05 },
         "inset": true
       },
       "$description": "Inner shadow"
     },
     "none": {
       "$value": {
-        "offsetX": "0px",
-        "offsetY": "0px",
-        "blur": "0px",
-        "spread": "0px",
-        "color": "transparent"
+        "offsetX": { "value": 0, "unit": "px" },
+        "offsetY": { "value": 0, "unit": "px" },
+        "blur": { "value": 0, "unit": "px" },
+        "spread": { "value": 0, "unit": "px" },
+        "color": { "colorSpace": "srgb", "components": [0, 0, 0], "alpha": 0 }
       },
       "$description": "No shadow"
     }

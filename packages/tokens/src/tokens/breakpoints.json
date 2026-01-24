@@ -2,27 +2,27 @@
   "breakpoint": {
     "$type": "dimension",
     "xs": {
-      "$value": "475px",
+      "$value": { "value": 475, "unit": "px" },
       "$description": "Extra small screens"
     },
     "sm": {
-      "$value": "640px",
+      "$value": { "value": 640, "unit": "px" },
       "$description": "Small screens"
     },
     "md": {
-      "$value": "768px",
+      "$value": { "value": 768, "unit": "px" },
       "$description": "Medium screens"
     },
     "lg": {
-      "$value": "1024px",
+      "$value": { "value": 1024, "unit": "px" },
       "$description": "Large screens"
     },
     "xl": {
-      "$value": "1280px",
+      "$value": { "value": 1280, "unit": "px" },
       "$description": "Extra large screens"
     },
     "2xl": {
-      "$value": "1536px",
+      "$value": { "value": 1536, "unit": "px" },
       "$description": "2X large screens"
     }
   }

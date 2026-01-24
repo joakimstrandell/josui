@@ -3,23 +3,23 @@
     "duration": {
       "$type": "duration",
       "instant": {
-        "$value": "0ms",
+        "$value": { "value": 0, "unit": "ms" },
         "$description": "No animation"
       },
       "fast": {
-        "$value": "100ms",
+        "$value": { "value": 100, "unit": "ms" },
         "$description": "Fast transitions"
       },
       "normal": {
-        "$value": "200ms",
+        "$value": { "value": 200, "unit": "ms" },
         "$description": "Standard transitions"
       },
       "slow": {
-        "$value": "300ms",
+        "$value": { "value": 300, "unit": "ms" },
         "$description": "Slow transitions"
       },
       "slower": {
-        "$value": "500ms",
+        "$value": { "value": 500, "unit": "ms" },
         "$description": "Slower transitions"
       }
     },

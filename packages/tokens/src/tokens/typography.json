@@ -18,55 +18,55 @@
     "size": {
       "$type": "dimension",
       "xs": {
-        "$value": "0.75rem",
+        "$value": { "value": 0.75, "unit": "rem" },
         "$description": "Extra small text (12px)"
       },
       "sm": {
-        "$value": "0.875rem",
+        "$value": { "value": 0.875, "unit": "rem" },
         "$description": "Small text (14px)"
       },
       "base": {
-        "$value": "1rem",
+        "$value": { "value": 1, "unit": "rem" },
         "$description": "Base text (16px)"
       },
       "lg": {
-        "$value": "1.125rem",
+        "$value": { "value": 1.125, "unit": "rem" },
         "$description": "Large text (18px)"
       },
       "xl": {
-        "$value": "1.25rem",
+        "$value": { "value": 1.25, "unit": "rem" },
         "$description": "Extra large text (20px)"
       },
       "2xl": {
-        "$value": "1.5rem",
+        "$value": { "value": 1.5, "unit": "rem" },
         "$description": "2XL text (24px)"
       },
       "3xl": {
-        "$value": "1.875rem",
+        "$value": { "value": 1.875, "unit": "rem" },
         "$description": "3XL text (30px)"
       },
       "4xl": {
-        "$value": "2.25rem",
+        "$value": { "value": 2.25, "unit": "rem" },
         "$description": "4XL text (36px)"
       },
       "5xl": {
-        "$value": "3rem",
+        "$value": { "value": 3, "unit": "rem" },
         "$description": "5XL text (48px)"
       },
       "6xl": {
-        "$value": "3.75rem",
+        "$value": { "value": 3.75, "unit": "rem" },
         "$description": "6XL text (60px)"
       },
       "7xl": {
-        "$value": "4.5rem",
+        "$value": { "value": 4.5, "unit": "rem" },
         "$description": "7XL text (72px)"
       },
       "8xl": {
-        "$value": "6rem",
+        "$value": { "value": 6, "unit": "rem" },
         "$description": "8XL text (96px)"
       },
       "9xl": {
-        "$value": "8rem",
+        "$value": { "value": 8, "unit": "rem" },
         "$description": "9XL text (128px)"
       }
     },
@@ -139,27 +139,27 @@
     "tracking": {
       "$type": "dimension",
       "tighter": {
-        "$value": "-0.05em",
+        "$value": { "value": -0.05, "unit": "em" },
         "$description": "Tighter letter spacing"
       },
       "tight": {
-        "$value": "-0.025em",
+        "$value": { "value": -0.025, "unit": "em" },
         "$description": "Tight letter spacing"
       },
       "normal": {
-        "$value": "0em",
+        "$value": { "value": 0, "unit": "em" },
         "$description": "Normal letter spacing"
       },
       "wide": {
-        "$value": "0.025em",
+        "$value": { "value": 0.025, "unit": "em" },
         "$description": "Wide letter spacing"
       },
       "wider": {
-        "$value": "0.05em",
+        "$value": { "value": 0.05, "unit": "em" },
         "$description": "Wider letter spacing"
       },
       "widest": {
-        "$value": "0.1em",
+        "$value": { "value": 0.1, "unit": "em" },
         "$description": "Widest letter spacing"
       }
     }
