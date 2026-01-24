@@ -5,7 +5,7 @@ Vue 3 component library for the Josui design system.
 ## Installation
 
 ```bash
-pnpm add @josui/vue @josui/tokens
+pnpm add @josui/vue @josui/scss
 ```
 
 For icons (optional):
@@ -16,11 +16,9 @@ pnpm add lucide-vue-next
 
 ## Setup
 
-Import the token CSS variables and component styles in your app entry:
-
 ```ts
 // main.ts
-import '@josui/tokens/css'; // Design tokens as CSS custom properties
+import '@josui/scss'; // Base reset + CSS tokens
 import '@josui/vue/styles.css'; // Component styles
 ```
 

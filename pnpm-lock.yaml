@@ -133,9 +133,9 @@ importers:
 
   apps/storybook-vue:
     dependencies:
-      '@josui/tokens':
+      '@josui/scss':
         specifier: workspace:*
-        version: link:../../packages/tokens
+        version: link:../../packages/scss
       '@josui/vue':
         specifier: workspace:*
         version: link:../../packages/vue
