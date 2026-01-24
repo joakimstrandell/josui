@@ -2,10 +2,11 @@
   "name": "@josui/scss",
   "version": "0.1.0",
   "type": "module",
-  "main": "./src/styles.css",
+  "main": "./src/index.scss",
   "exports": {
-    ".": "./src/styles.css",
-    "./mixins": "./src/mixins.scss"
+    ".": "./src/index.scss",
+    "./mixins": "./src/mixins.scss",
+    "./styles.css": "./src/styles.css"
   },
   "files": [
     "src"

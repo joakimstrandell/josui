@@ -4,8 +4,8 @@
   "type": "module",
   "main": "./src/index.css",
   "exports": {
-    ".": "./src/index.css",
-    "./styles.css": "./src/styles.css"
+    ".": "./src/styles.css",
+    "./theme.css": "./src/theme.css"
   },
   "files": [
     "src"
