@@ -1,6 +1,6 @@
 # @josui/tokens
 
-Design tokens in DTCG format, built with Terrazzo CLI.
+Design tokens in DTCG format, built with Terrazzo CLI. Supports light/dark theming.
 
 ## Installation
 
@@ -47,16 +47,72 @@ pnpm add @josui/tokens
 ### JavaScript
 
 ```ts
-import token from '@josui/tokens';
+import { token } from '@josui/tokens';
 
 // Function-based accessor
 const primaryColor = token('color.primary.500');
 const spacing = token('spacing.4');
+
+// Access mode-specific values
+const darkBg = token('color.background', 'dark');
+const lightBg = token('color.background', 'light');
 ```
+
+## Theming (Light/Dark Mode)
+
+Tokens support automatic light/dark theming via system preference and manual toggle.
+
+### Automatic (System Preference)
+
+```html
+<!-- Respects prefers-color-scheme automatically -->
+<html>
+  <body>
+    ...
+  </body>
+</html>
+```
+
+### Manual Toggle
+
+```html
+<!-- Force dark mode -->
+<html data-theme="dark">
+  <!-- or -->
+  <html class="dark">
+    <!-- Force light mode -->
+    <html data-theme="light">
+      <!-- or -->
+      <html class="light"></html>
+    </html>
+  </html>
+</html>
+```
+
+### Semantic Tokens
+
+These tokens automatically adapt to light/dark mode:
+
+| Token                 | Light      | Dark       | Use Case            |
+| --------------------- | ---------- | ---------- | ------------------- |
+| `--color-background`  | White      | Near black | Page background     |
+| `--color-foreground`  | Near black | Near white | Primary text        |
+| `--color-card`        | White      | Near black | Card surfaces       |
+| `--color-popover`     | White      | Near black | Popover surfaces    |
+| `--color-muted`       | Light gray | Dark gray  | Muted backgrounds   |
+| `--color-accent`      | Light gray | Dark gray  | Highlighted content |
+| `--color-destructive` | Red        | Darker red | Destructive actions |
+| `--color-border`      | Light gray | Dark gray  | Borders             |
+| `--color-input`       | Light gray | Dark gray  | Input borders       |
+| `--color-ring`        | Primary    | Primary    | Focus rings         |
+
+Each semantic token also has a `-foreground` variant for text (e.g., `--color-card-foreground`).
 
 ## Color System
 
 All colors use OKLCH color space for perceptual uniformity.
+
+### Primitive Palettes
 
 | Palette   | Base (500)             | Use Case                 |
 | --------- | ---------------------- | ------------------------ |

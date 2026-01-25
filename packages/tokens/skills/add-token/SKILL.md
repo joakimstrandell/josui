@@ -35,6 +35,43 @@ Add tokens directly to `packages/tokens/src/tokens/*.json` using DTCG format:
 
 Then rebuild: `pnpm --filter @josui/tokens build`
 
+## Adding Semantic Tokens with Light/Dark Modes
+
+For tokens that should change between light and dark themes, use `$extensions.mode`:
+
+```json
+// colors.json - add a semantic token with modes
+{
+  "color": {
+    "surface": {
+      "$value": { "colorSpace": "oklch", "components": [0.98, 0, 0] },
+      "$description": "Surface background",
+      "$extensions": {
+        "mode": {
+          "light": { "colorSpace": "oklch", "components": [0.98, 0, 0] },
+          "dark": { "colorSpace": "oklch", "components": [0.2, 0, 0] }
+        }
+      }
+    },
+    "surface-foreground": {
+      "$value": { "colorSpace": "oklch", "components": [0.15, 0, 0] },
+      "$description": "Surface text color",
+      "$extensions": {
+        "mode": {
+          "light": { "colorSpace": "oklch", "components": [0.15, 0, 0] },
+          "dark": { "colorSpace": "oklch", "components": [0.98, 0, 0] }
+        }
+      }
+    }
+  }
+}
+```
+
+The CSS output will include:
+
+- `@media (prefers-color-scheme: light/dark)` for system preference
+- `[data-theme="light/dark"]` and `.light/.dark` selectors for manual toggle
+
 ## CSS Custom Properties Override
 
 Import and override at runtime:

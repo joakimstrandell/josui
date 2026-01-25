@@ -21,6 +21,26 @@ export default defineConfig({
     css({
       filename: "css/variables.css",
       variableName: (token) => `--${token.id.replace(/\./g, "-")}`,
+      modeSelectors: [
+        {
+          mode: "light",
+          selectors: [
+            '@media (prefers-color-scheme: light)',
+            '[data-theme="light"]',
+            '.light',
+          ],
+          scheme: "light",
+        },
+        {
+          mode: "dark",
+          selectors: [
+            '@media (prefers-color-scheme: dark)',
+            '[data-theme="dark"]',
+            '.dark',
+          ],
+          scheme: "dark",
+        },
+      ],
     }),
     js({
       js: "js/index.js",
