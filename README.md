@@ -32,6 +32,7 @@ AI-native design system built on DTCG tokens.
 | [@josui/storybook-react](./apps/storybook-react) | React component docs |
 | [@josui/storybook-vue](./apps/storybook-vue)     | Vue component docs   |
 | [@josui/docs](./apps/docs)                       | Landing page         |
+| [@josui/playground](./apps/playground)           | Dev sandbox          |
 
 ## Development
 
