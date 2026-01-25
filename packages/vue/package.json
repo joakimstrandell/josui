@@ -37,7 +37,6 @@
   },
   "devDependencies": {
     "@josui/typescript-config": "workspace:*",
-    "@storybook/vue3": "^8.5.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/vue": "^8.1.0",
     "@vitejs/plugin-vue": "^5.2.0",
