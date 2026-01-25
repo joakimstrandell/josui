@@ -34,6 +34,7 @@ export const baseConfig: object[] = [
       '**/storybook-static/**',
       '**/coverage/**',
       '**/terrazzo.config.mjs',
+      '**/*.gen.ts',
     ],
   },
 ];
