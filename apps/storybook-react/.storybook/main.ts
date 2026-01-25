@@ -5,7 +5,13 @@ import tailwindcss from '@tailwindcss/vite';
 
 const config: StorybookConfig = {
   stories: ['../../../packages/react/src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
-  addons: [getAbsolutePath('@storybook/addon-links'), getAbsolutePath('@storybook/addon-docs')],
+  addons: [
+    getAbsolutePath('@storybook/addon-links'),
+    getAbsolutePath('@storybook/addon-docs'),
+    getAbsolutePath('@storybook/addon-a11y'),
+    getAbsolutePath('@chromatic-com/storybook'),
+    getAbsolutePath('@storybook/addon-vitest'),
+  ],
   framework: {
     name: getAbsolutePath('@storybook/react-vite'),
     options: {},

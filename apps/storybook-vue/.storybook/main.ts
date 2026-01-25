@@ -5,7 +5,13 @@ import vue from '@vitejs/plugin-vue';
 
 const config: StorybookConfig = {
   stories: ['../../../packages/vue/src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
-  addons: [getAbsolutePath('@storybook/addon-links'), getAbsolutePath('@storybook/addon-docs')],
+  addons: [
+    getAbsolutePath('@storybook/addon-links'),
+    getAbsolutePath('@storybook/addon-docs'),
+    getAbsolutePath('@storybook/addon-a11y'),
+    getAbsolutePath('@chromatic-com/storybook'),
+    getAbsolutePath('@storybook/addon-vitest'),
+  ],
   framework: {
     name: getAbsolutePath('@storybook/vue3-vite'),
     options: {},
