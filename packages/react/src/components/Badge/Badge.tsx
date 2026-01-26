@@ -9,11 +9,11 @@ export interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {
 }
 
 const variantStyles = {
-  default: 'bg-gray-100 text-gray-800',
+  default: 'bg-muted-background text-muted-foreground',
   primary: 'bg-primary-100 text-primary-800',
-  success: 'bg-success-50 text-success-700',
-  warning: 'bg-warning-50 text-warning-700',
-  error: 'bg-error-50 text-error-700',
+  success: 'bg-success-background text-success-foreground',
+  warning: 'bg-warning-background text-warning-foreground',
+  error: 'bg-error-background text-error-foreground',
 };
 
 const sizeStyles = {

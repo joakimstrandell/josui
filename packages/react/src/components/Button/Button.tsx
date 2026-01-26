@@ -19,13 +19,13 @@ const variantStyles = {
   primary:
     'bg-primary-500 text-white hover:bg-primary-600 active:bg-primary-700 focus-visible:ring-primary-500',
   secondary:
-    'bg-gray-100 text-gray-900 hover:bg-gray-200 active:bg-gray-300 focus-visible:ring-gray-500',
+    'bg-muted-background text-foreground hover:bg-gray-200 active:bg-gray-300 focus-visible:ring-gray-500',
   outline:
-    'border border-gray-300 bg-transparent text-gray-900 hover:bg-gray-50 active:bg-gray-100 focus-visible:ring-gray-500',
+    'border border-gray-300 bg-transparent text-foreground hover:bg-gray-50 active:bg-gray-100 focus-visible:ring-gray-500',
   ghost:
-    'bg-transparent text-gray-900 hover:bg-gray-100 active:bg-gray-200 focus-visible:ring-gray-500',
+    'bg-transparent text-foreground hover:bg-gray-100 active:bg-gray-200 focus-visible:ring-gray-500',
   destructive:
-    'bg-error-500 text-white hover:bg-error-700 active:bg-error-700 focus-visible:ring-error-500',
+    'bg-destructive-background text-destructive-foreground hover:bg-error-600 active:bg-error-700 focus-visible:ring-error-500',
 };
 
 const sizeStyles = {

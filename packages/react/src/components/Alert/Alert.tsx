@@ -15,10 +15,10 @@ export interface AlertProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 const variantStyles = {
-  info: 'bg-info-50 text-info-700 border-info-500',
-  success: 'bg-success-50 text-success-700 border-success-500',
-  warning: 'bg-warning-50 text-warning-700 border-warning-500',
-  error: 'bg-error-50 text-error-700 border-error-500',
+  info: 'bg-info-background text-info-foreground border-info-500',
+  success: 'bg-success-background text-success-foreground border-success-500',
+  warning: 'bg-warning-background text-warning-foreground border-warning-500',
+  error: 'bg-error-background text-error-foreground border-error-500',
 };
 
 const iconStyles = {

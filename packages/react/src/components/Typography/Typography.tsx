@@ -46,12 +46,12 @@ const weightStyles = {
 };
 
 const colorStyles = {
-  default: 'text-gray-900',
-  muted: 'text-gray-500',
+  default: 'text-foreground',
+  muted: 'text-muted-foreground',
   primary: 'text-primary-600',
-  success: 'text-success-700',
-  warning: 'text-warning-700',
-  error: 'text-error-700',
+  success: 'text-success-foreground',
+  warning: 'text-warning-foreground',
+  error: 'text-error-foreground',
 };
 
 export const Typography = forwardRef<HTMLElement, TypographyProps>(

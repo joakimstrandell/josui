@@ -29,7 +29,7 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(
       <div
         ref={ref}
         className={cn(
-          'relative inline-flex shrink-0 items-center justify-center overflow-hidden rounded-full bg-gray-200',
+          'relative inline-flex shrink-0 items-center justify-center overflow-hidden rounded-full bg-muted-background',
           sizeStyles[size],
           className
         )}
@@ -43,7 +43,7 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(
             {...props}
           />
         ) : (
-          <span className="font-medium text-gray-600">
+          <span className="font-medium text-muted-foreground">
             {fallback || alt?.charAt(0).toUpperCase() || '?'}
           </span>
         )}

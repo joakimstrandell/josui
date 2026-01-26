@@ -11,9 +11,9 @@ export interface CardProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 const variantStyles = {
-  default: 'bg-white',
-  bordered: 'bg-white border border-gray-200',
-  elevated: 'bg-white',
+  default: 'bg-card-background',
+  bordered: 'bg-card-background border border-border',
+  elevated: 'bg-card-background',
 };
 
 const paddingStyles = {
@@ -71,7 +71,7 @@ export const CardTitle = forwardRef<HTMLHeadingElement, CardTitleProps>(
   ({ className, as: Component = 'h3', ...props }, ref) => (
     <Component
       ref={ref}
-      className={cn('text-lg font-semibold leading-tight text-gray-900', className)}
+      className={cn('text-lg font-semibold leading-tight text-card-foreground', className)}
       {...props}
     />
   )
@@ -83,7 +83,7 @@ export type CardDescriptionProps = HTMLAttributes<HTMLParagraphElement>;
 
 export const CardDescription = forwardRef<HTMLParagraphElement, CardDescriptionProps>(
   ({ className, ...props }, ref) => (
-    <p ref={ref} className={cn('text-sm text-gray-500', className)} {...props} />
+    <p ref={ref} className={cn('text-sm text-muted-foreground', className)} {...props} />
   )
 );
 
