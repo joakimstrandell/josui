@@ -307,11 +307,11 @@
         }
       },
       "foreground": {
-        "$value": { "colorSpace": "oklch", "components": [0.58, 0.14, 65] },
+        "$value": { "colorSpace": "oklch", "components": [0.54, 0.14, 65] },
         "$description": "Warning state foreground text",
         "$extensions": {
           "mode": {
-            "light": { "colorSpace": "oklch", "components": [0.58, 0.14, 65] },
+            "light": { "colorSpace": "oklch", "components": [0.54, 0.14, 65] },
             "dark": { "colorSpace": "oklch", "components": [0.92, 0.1, 85] }
           }
         }
@@ -530,7 +530,7 @@
         "$extensions": {
           "mode": {
             "light": { "colorSpace": "oklch", "components": [0.5, 0, 0] },
-            "dark": { "colorSpace": "oklch", "components": [0.55, 0, 0] }
+            "dark": { "colorSpace": "oklch", "components": [0.65, 0, 0] }
           }
         }
       }
