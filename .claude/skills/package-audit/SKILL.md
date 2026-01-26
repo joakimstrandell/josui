@@ -36,6 +36,10 @@ Verify:
 
 ### 2. Dependency Health
 
+Run `pnpm knip` first — it detects unused dependencies, exports, and files automatically.
+
+For manual checks:
+
 ```bash
 # Check workspace dependencies resolve
 for pkg in packages/*/; do
@@ -119,6 +123,9 @@ Verify:
 ## Quick Commands
 
 ```bash
+# Run knip for unused deps/exports (recommended)
+pnpm knip
+
 # Compare packages vs README
 diff <(ls packages/ | sort) <(grep -oE "@josui/[a-z-]+" README.md | sed 's/@josui\///' | sort -u)
 

@@ -8,7 +8,8 @@ Multi-framework design system monorepo. Build order: `tokens → tailwind-config
 pnpm install              # Install dependencies
 pnpm build                # Build all packages
 pnpm lint                 # Must pass before committing
-pnpm --filter @josui/storybook-react dev  # Visual verification
+pnpm knip                 # Check for unused deps/exports
+pnpm --filter @josui/react storybook      # Visual verification
 ```
 
 ## Code Style
@@ -43,9 +44,19 @@ When adding packages, update `.changeset/config.json` (`linked` or `ignore`).
 
 Each package has its own `AGENTS.md`. The closest one to the file you're editing takes precedence.
 
+## Dependency Management
+
+Run `pnpm knip` to detect unused dependencies, exports, and files. Use after:
+
+- Adding/removing dependencies
+- Refactoring exports
+- Before releasing
+
+Knip config is in `knip.config.ts`. CSS-only packages (scss, tailwind) are ignored since knip only analyzes JS/TS.
+
 ## Common Pitfalls
 
 - **ESLint**: Each package has its own `eslint.config.ts` with `tsconfigRootDir`
-- **TypeScript**: Ensure `tsconfig.json` extends the correct base config
+- **TypeScript**: Ensure `tsconfig.json` extends `@josui/typescript-config`
 - **Build failures**: Build tokens first (`pnpm --filter @josui/tokens build`)
 - **Imports**: Use workspace protocol (`workspace:*`) for internal dependencies
