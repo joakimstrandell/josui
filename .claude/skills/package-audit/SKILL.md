@@ -1,105 +1,137 @@
 ---
 name: package-audit
-description: Audit package registry consistency. Use when asked to check if all packages are registered in README, changeset config, or after adding/removing/renaming packages.
+description: Audit package registry consistency and health. Use when asked to check packages are correctly registered, have valid dependencies, and proper configuration.
 ---
 
-# Package Registry Audit
+# Package Audit
 
-Verify all packages are consistently registered across configuration files.
+Comprehensive package health check covering registry consistency, dependencies, and configuration.
 
-## Scope
+## Audit Sections
 
-Check that every package in `packages/` is registered in:
-
-- Root `README.md` packages table
-- `.changeset/config.json` linked array
-- Correct folder paths (no stale references after renames)
+1. **Registry Consistency** — packages listed in README, changeset config
+2. **Dependency Health** — workspace deps exist, peer deps satisfied
+3. **Config Consistency** — required fields, extends chains valid
 
 ## Audit Process
 
-### 1. List Actual Packages
+### 1. Registry Consistency
 
 ```bash
+# List actual packages
 ls packages/
-```
 
-### 2. Check README.md Packages Table
-
-```bash
+# Check README.md packages table
 grep -E "^\| \[@josui/" README.md
+
+# Check changeset config
+cat .changeset/config.json
 ```
 
 Verify:
 
-- [ ] Every package in `packages/` has a row in the table
-- [ ] Package links point to correct folder paths
-- [ ] No removed packages still listed
+- Every package in `packages/` has a row in README table
+- Package links point to correct folder paths
+- No removed packages still listed in README or changeset ignore
 
-### 3. Check Changeset Config
-
-```bash
-cat .changeset/config.json | grep -A 20 '"linked"'
-```
-
-Verify:
-
-- [ ] Every package in `packages/` is in the linked array
-- [ ] No removed packages still listed
-
-### 4. Check Package Names
+### 2. Dependency Health
 
 ```bash
-# Verify package.json names match folder structure
+# Check workspace dependencies resolve
 for pkg in packages/*/; do
-  name=$(cat "$pkg/package.json" | grep '"name"' | head -1)
-  echo "$pkg: $name"
+  echo "=== $pkg ==="
+  grep -E '"workspace:\*"' "$pkg/package.json" | while read line; do
+    dep=$(echo "$line" | grep -oE '"@josui/[^"]+' | tr -d '"')
+    folder=$(echo "$dep" | sed 's/@josui\///')
+    [ ! -d "packages/$folder" ] && echo "MISSING: $dep"
+  done
+done
+
+# Check for version mismatches in shared deps
+for dep in typescript eslint vite vitest storybook; do
+  echo "=== $dep versions ==="
+  grep -r "\"$dep\":" packages/*/package.json | grep -oE '"[0-9^~].*"' | sort -u
 done
 ```
+
+Verify:
+
+- All `workspace:*` dependencies point to existing packages
+- Shared devDependencies use consistent versions
+- No circular workspace dependencies
+
+### 3. Config Consistency
+
+```bash
+# Check package.json required fields
+for pkg in packages/*/; do
+  name=$(basename "$pkg")
+  echo "=== $name ==="
+
+  # Required fields for publishable packages
+  jq -r '.name, .version, .main, .types, .exports' "$pkg/package.json" 2>/dev/null
+done
+
+# Check tsconfig extends chains
+for pkg in packages/*/; do
+  [ -f "$pkg/tsconfig.json" ] && echo "$pkg: $(jq -r '.extends // "none"' "$pkg/tsconfig.json")"
+done
+
+# Check eslint extends
+for pkg in packages/*/; do
+  [ -f "$pkg/eslint.config.ts" ] && echo "$pkg: has eslint config"
+done
+```
+
+Verify:
+
+- Publishable packages have: name, version, main, types, exports
+- tsconfig.json extends from @josui/typescript-config
+- eslint configs extend from @josui/eslint-config
 
 ## Output Format
 
 ```markdown
 ## Package Audit Report
 
-### Missing from README.md
+### Registry Issues
 
-- [ ] `@josui/scss` — not in packages table
+- **README.md**: Missing `@josui/new-pkg`
+- **changeset**: Stale reference to `@josui/deleted-pkg`
 
-### Missing from Changeset
+### Dependency Issues
 
-- [ ] `@josui/scss` — not in linked array
+- **@josui/react**: workspace dep `@josui/missing` doesn't exist
+- **Version mismatch**: typescript has 3 different versions across packages
 
-### Stale References
+### Config Issues
 
-- [ ] `README.md` links to `./packages/tailwind-config` but folder is `./packages/tailwind`
+- **@josui/core**: missing `exports` field in package.json
+- **@josui/vue**: tsconfig doesn't extend shared config
 
-### Suggested Fixes
+### Summary
 
-1. Add @josui/scss to README.md packages table
-2. Add @josui/scss to .changeset/config.json linked array
-3. Update tailwind link path in README.md
+- Registry: 2 issues
+- Dependencies: 1 issue
+- Config: 2 issues
 ```
 
 ## Quick Commands
 
 ```bash
-# Compare packages vs README listing
+# Compare packages vs README
 diff <(ls packages/ | sort) <(grep -oE "@josui/[a-z-]+" README.md | sed 's/@josui\///' | sort -u)
 
-# Compare packages vs changeset config
-diff <(ls packages/ | sort) <(grep -oE "@josui/[a-z-]+" .changeset/config.json | sed 's/@josui\///' | sort -u)
+# Find all workspace deps
+grep -rh "workspace:" packages/*/package.json | sort -u
 
-# Find broken README links
-grep -oE "\./packages/[a-z-]+" README.md | while read path; do
-  [ ! -d "$path" ] && echo "Broken: $path"
-done
+# Check for missing peer deps
+pnpm ls --depth 0 2>&1 | grep -i "peer"
 ```
 
 ## When to Run
 
-Run this audit after:
-
-- Adding a new package
-- Removing a package
-- Renaming a package folder
+- After adding/removing/renaming packages
+- After changing dependencies
 - Before releasing
+- When CI fails with dependency errors
