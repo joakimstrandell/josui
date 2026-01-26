@@ -38,12 +38,18 @@ Semantic color tokens support light and dark modes via `$extensions.mode`:
 **Semantic tokens with modes:**
 
 - `background`, `foreground` — Page background/text
-- `card`, `card-foreground` — Card surfaces
-- `popover`, `popover-foreground` — Popover surfaces
-- `muted`, `muted-foreground` — Muted/secondary content
-- `accent`, `accent-foreground` — Highlighted content
-- `destructive`, `destructive-foreground` — Destructive actions
+- `card.background`, `card.foreground` — Card surfaces
+- `popover.background`, `popover.foreground` — Popover surfaces
+- `muted.background`, `muted.foreground` — Muted/secondary content
+- `accent.background`, `accent.foreground` — Highlighted content
+- `destructive.background`, `destructive.foreground` — Destructive actions
+- `success.background`, `success.foreground` — Success states
+- `warning.background`, `warning.foreground` — Warning states
+- `error.background`, `error.foreground` — Error states
+- `info.background`, `info.foreground` — Info states
 - `border`, `input`, `ring` — Borders and focus states
+
+**Note:** Semantic tokens are nested under their group (e.g., `card.background` → `--color-card-background`).
 
 **CSS activation:**
 
