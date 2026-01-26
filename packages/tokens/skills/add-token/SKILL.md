@@ -10,7 +10,7 @@ description: Extend or customize design tokens when using @josui/tokens. Use whe
 Add tokens directly to `packages/tokens/src/tokens/*.json` using DTCG format:
 
 ```json
-// colors.json - add a new color
+// color.json - add a new color
 {
   "color": {
     "brand": {
@@ -40,7 +40,7 @@ Then rebuild: `pnpm --filter @josui/tokens build`
 For tokens that should change between light and dark themes, use `$extensions.mode`:
 
 ```json
-// colors.json - add a semantic token with modes
+// color.json - add a semantic token with modes
 {
   "color": {
     "surface": {

@@ -25,9 +25,9 @@
         "$value": { "value": 0.875, "unit": "rem" },
         "$description": "Small text (14px)"
       },
-      "base": {
+      "default": {
         "$value": { "value": 1, "unit": "rem" },
-        "$description": "Base text (16px)"
+        "$description": "Default text (16px)"
       },
       "lg": {
         "$value": { "value": 1.125, "unit": "rem" },

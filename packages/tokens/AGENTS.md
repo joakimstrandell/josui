@@ -19,17 +19,17 @@ Outputs:
 
 Tokens are in `src/tokens/` as JSON files in strict DTCG object format:
 
-| File               | Contents                                                            |
-| ------------------ | ------------------------------------------------------------------- |
-| `colors.json`      | OKLCH color palettes (primary, secondary, tertiary, gray, semantic) |
-| `typography.json`  | Font families, sizes, weights, line-height, tracking                |
-| `spacing.json`     | Spacing scale (0-96)                                                |
-| `radius.json`      | Border radius values                                                |
-| `shadows.json`     | Box shadow definitions                                              |
-| `animation.json`   | Duration and easing tokens                                          |
-| `z-index.json`     | Z-index layering scale                                              |
-| `breakpoints.json` | Responsive breakpoints                                              |
-| `opacity.json`     | Opacity scale                                                       |
+| File              | Contents                                                            |
+| ----------------- | ------------------------------------------------------------------- |
+| `color.json`      | OKLCH color palettes (primary, secondary, tertiary, gray, semantic) |
+| `font.json`       | Font families, sizes, weights, line-height, tracking                |
+| `spacing.json`    | Spacing scale (0-96)                                                |
+| `radius.json`     | Border radius values                                                |
+| `shadow.json`     | Box shadow definitions                                              |
+| `animation.json`  | Duration and easing tokens                                          |
+| `z-index.json`    | Z-index layering scale                                              |
+| `breakpoint.json` | Responsive breakpoints                                              |
+| `opacity.json`    | Opacity scale                                                       |
 
 ## Theming (Light/Dark Mode)
 

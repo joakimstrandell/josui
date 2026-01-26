@@ -129,17 +129,17 @@ Each palette has 11 shades: 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950
 
 ## Token Categories
 
-| Category    | Examples                                   | Description            |
-| ----------- | ------------------------------------------ | ---------------------- |
-| Colors      | `--color-primary-500`                      | OKLCH color palettes   |
-| Typography  | `--font-size-base`, `--font-weight-medium` | Font properties        |
-| Spacing     | `--spacing-4`                              | 0-96 scale (rem-based) |
-| Radius      | `--radius-md`                              | Border radius values   |
-| Shadows     | `--shadow-lg`                              | Box shadow definitions |
-| Animation   | `--animation-duration-fast`                | Timing values          |
-| Z-index     | `--z-index-modal`                          | Layering scale         |
-| Breakpoints | `--breakpoint-md`                          | Responsive breakpoints |
-| Opacity     | `--opacity-50`                             | Opacity scale          |
+| Category    | Examples                                      | Description            |
+| ----------- | --------------------------------------------- | ---------------------- |
+| Colors      | `--color-primary-500`                         | OKLCH color palettes   |
+| Typography  | `--font-size-default`, `--font-weight-medium` | Font properties        |
+| Spacing     | `--spacing-4`                                 | 0-96 scale (rem-based) |
+| Radius      | `--radius-md`                                 | Border radius values   |
+| Shadows     | `--shadow-lg`                                 | Box shadow definitions |
+| Animation   | `--animation-duration-fast`                   | Timing values          |
+| Z-index     | `--z-index-modal`                             | Layering scale         |
+| Breakpoints | `--breakpoint-md`                             | Responsive breakpoints |
+| Opacity     | `--opacity-50`                                | Opacity scale          |
 
 ## Exports
 

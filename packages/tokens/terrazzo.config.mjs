@@ -6,14 +6,14 @@ import tailwind from "@terrazzo/plugin-tailwind";
 
 export default defineConfig({
   tokens: [
-    "./src/tokens/colors.json",
-    "./src/tokens/typography.json",
+    "./src/tokens/color.json",
+    "./src/tokens/font.json",
     "./src/tokens/spacing.json",
     "./src/tokens/radius.json",
-    "./src/tokens/shadows.json",
+    "./src/tokens/shadow.json",
     "./src/tokens/animation.json",
     "./src/tokens/z-index.json",
-    "./src/tokens/breakpoints.json",
+    "./src/tokens/breakpoint.json",
     "./src/tokens/opacity.json",
   ],
   outDir: "./dist/",
