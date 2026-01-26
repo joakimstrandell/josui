@@ -493,12 +493,12 @@
     },
     "popover": {
       "background": {
-        "$value": "{color.gray.50}",
+        "$value": "{color.background}",
         "$description": "Popover background",
         "$extensions": {
           "mode": {
-            "light": "{color.gray.50}",
-            "dark": "{color.gray.950}"
+            "light": "{color.background}",
+            "dark": "{color.background}"
           }
         }
       },
