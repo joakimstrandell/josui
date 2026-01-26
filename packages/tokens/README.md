@@ -153,3 +153,13 @@ Each palette has 11 shades: 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950
 | CSS        | `@josui/tokens/css`      | CSS custom properties    |
 | Tailwind   | `@josui/tokens/tailwind` | Tailwind v4 theme        |
 | SCSS       | `@josui/tokens/scss`     | Type-safe SCSS functions |
+
+## AI-Assisted Development
+
+This package includes a skill for AI coding assistants. Copy it to your project:
+
+```bash
+cp -r node_modules/@josui/tokens/skills/add-token .claude/skills/
+```
+
+The skill helps AI assistants correctly add and customize design tokens.

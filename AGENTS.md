@@ -44,6 +44,20 @@ When adding packages, update `.changeset/config.json` (`linked` or `ignore`).
 
 Each package has its own `AGENTS.md`. The closest one to the file you're editing takes precedence.
 
+## Package Skills
+
+Some packages include skills that enhance AI-assisted development. These are located in `packages/{name}/skills/` and are published with the package.
+
+| Package         | Skill                  | Purpose                        |
+| --------------- | ---------------------- | ------------------------------ |
+| `@josui/tokens` | `add-token`            | Add or customize design tokens |
+| `@josui/react`  | `use-react-components` | Use React components correctly |
+| `@josui/vue`    | `use-vue-components`   | Use Vue components correctly   |
+
+**For monorepo contributors:** Run `npx tsx scripts/link-package-skills.ts` to symlink package skills to `.claude/skills/`.
+
+**For package consumers:** Copy the skill folder from `node_modules/@josui/{package}/skills/{skill-name}/` to your project's `.claude/skills/` directory to enable AI-assisted usage of the package.
+
 ## Dependency Management
 
 Run `pnpm knip` to detect unused dependencies, exports, and files. Use after:

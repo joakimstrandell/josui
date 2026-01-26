@@ -97,3 +97,15 @@ Uses Vitest with `@testing-library/vue`.
 | Icon      | —                                               | xs, sm, md, lg, xl        |
 
 Card and Dialog are compound components with sub-components (CardHeader, DialogContent, etc.).
+
+## Skills
+
+This package includes a `use-vue-components` skill for AI-assisted development.
+
+**For package consumers:** Copy the skill to your project to enhance agentic coding:
+
+```bash
+cp -r node_modules/@josui/vue/skills/use-vue-components .claude/skills/
+```
+
+The skill helps AI assistants correctly use components with proper props, variants, and patterns.

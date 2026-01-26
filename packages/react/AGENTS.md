@@ -119,3 +119,15 @@ Card is a compound component with sub-components (CardHeader, CardTitle, CardDes
 | useIsTouchDevice    | Detect touch-capable devices          |
 | useInteractiveState | Subscribe to cursor interactive state |
 | useScrollDirection  | Track scroll direction (up/down)      |
+
+## Skills
+
+This package includes a `use-react-components` skill for AI-assisted development.
+
+**For package consumers:** Copy the skill to your project to enhance agentic coding:
+
+```bash
+cp -r node_modules/@josui/react/skills/use-react-components .claude/skills/
+```
+
+The skill helps AI assistants correctly use components with proper props, variants, and patterns.

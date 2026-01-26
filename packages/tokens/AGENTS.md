@@ -229,3 +229,15 @@ This package must build before:
 - `@josui/tailwind-config` (imports `@josui/tokens/tailwind`)
 - `@josui/scss` (imports `@josui/tokens/scss`)
 - `@josui/react` and `@josui/vue` (use tokens via CSS/SCSS)
+
+## Skills
+
+This package includes an `add-token` skill for AI-assisted token management.
+
+**For package consumers:** Copy the skill to your project to enhance agentic coding:
+
+```bash
+cp -r node_modules/@josui/tokens/skills/add-token .claude/skills/
+```
+
+The skill helps AI assistants correctly add and customize design tokens using DTCG format.

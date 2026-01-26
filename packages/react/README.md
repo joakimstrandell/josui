@@ -82,4 +82,14 @@ export default {
 - **useInteractiveState** — Subscribe to cursor over interactive element state
 - **useScrollDirection** — Track scroll direction (up/down)
 
+## AI-Assisted Development
+
+This package includes a skill for AI coding assistants. Copy it to your project:
+
+```bash
+cp -r node_modules/@josui/react/skills/use-react-components .claude/skills/
+```
+
+The skill helps AI assistants correctly use components with proper props and patterns.
+
 See Storybook for interactive examples and full API documentation.

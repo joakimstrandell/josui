@@ -118,4 +118,14 @@ See [@josui/tokens](https://github.com/joakimstrandell/josui/tree/main/packages/
 - **Badge** — Status indicators and labels
 - **Icon** — Lucide icon wrapper with consistent sizing
 
+## AI-Assisted Development
+
+This package includes a skill for AI coding assistants. Copy it to your project:
+
+```bash
+cp -r node_modules/@josui/vue/skills/use-vue-components .claude/skills/
+```
+
+The skill helps AI assistants correctly use components with proper props and patterns.
+
 See Storybook for interactive examples and full API documentation.
