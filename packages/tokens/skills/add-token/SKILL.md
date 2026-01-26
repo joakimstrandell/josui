@@ -37,35 +37,39 @@ Then rebuild: `pnpm --filter @josui/tokens build`
 
 ## Adding Semantic Tokens with Light/Dark Modes
 
-For tokens that should change between light and dark themes, use `$extensions.mode`:
+For tokens that should change between light and dark themes, use `$extensions.mode` with nested structure:
 
 ```json
-// color.json - add a semantic token with modes
+// color.json - add a semantic token with modes (nested structure)
 {
   "color": {
     "surface": {
-      "$value": { "colorSpace": "oklch", "components": [0.98, 0, 0] },
-      "$description": "Surface background",
-      "$extensions": {
-        "mode": {
-          "light": { "colorSpace": "oklch", "components": [0.98, 0, 0] },
-          "dark": { "colorSpace": "oklch", "components": [0.2, 0, 0] }
+      "background": {
+        "$value": "{color.gray.50}",
+        "$description": "Surface background",
+        "$extensions": {
+          "mode": {
+            "light": "{color.gray.50}",
+            "dark": "{color.gray.950}"
+          }
         }
-      }
-    },
-    "surface-foreground": {
-      "$value": { "colorSpace": "oklch", "components": [0.15, 0, 0] },
-      "$description": "Surface text color",
-      "$extensions": {
-        "mode": {
-          "light": { "colorSpace": "oklch", "components": [0.15, 0, 0] },
-          "dark": { "colorSpace": "oklch", "components": [0.98, 0, 0] }
+      },
+      "foreground": {
+        "$value": "{color.foreground}",
+        "$description": "Surface text color",
+        "$extensions": {
+          "mode": {
+            "light": "{color.foreground}",
+            "dark": "{color.foreground}"
+          }
         }
       }
     }
   }
 }
 ```
+
+**Token references:** Use `{path.to.token}` to reference other tokens instead of hardcoding values. This ensures consistency when palette values change.
 
 The CSS output will include:
 
@@ -100,7 +104,7 @@ Import and override at runtime:
 ## JavaScript
 
 ```ts
-import token from '@josui/tokens';
+import { token } from '@josui/tokens';
 
 const primaryColor = token('color.primary.500');
 const spacing = token('spacing.4');

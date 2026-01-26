@@ -51,6 +51,12 @@ Semantic color tokens support light and dark modes via `$extensions.mode`:
 
 **Note:** Semantic tokens are nested under their group (e.g., `card.background` → `--color-card-background`).
 
+**Token references:** Semantic tokens use `{path.to.token}` syntax to reference other tokens:
+
+- `"{color.background}"` — References the base background token
+- `"{color.gray.50}"` — References a primitive palette value
+- `"{color.error.500}"` — References an error palette shade
+
 **CSS activation:**
 
 ```css
@@ -117,6 +123,35 @@ Tokens use strict DTCG object format (not shorthand strings):
         "mode": {
           "light": { "colorSpace": "oklch", "components": [1, 0, 0] },
           "dark": { "colorSpace": "oklch", "components": [0.13, 0, 0] }
+        }
+      }
+    }
+  }
+}
+
+// Token references - semantic tokens can reference other tokens
+{
+  "color": {
+    "$type": "color",
+    "card": {
+      "background": {
+        "$value": "{color.background}",
+        "$description": "Card background",
+        "$extensions": {
+          "mode": {
+            "light": "{color.background}",
+            "dark": "{color.background}"
+          }
+        }
+      },
+      "foreground": {
+        "$value": "{color.foreground}",
+        "$description": "Card foreground text",
+        "$extensions": {
+          "mode": {
+            "light": "{color.foreground}",
+            "dark": "{color.foreground}"
+          }
         }
       }
     }
