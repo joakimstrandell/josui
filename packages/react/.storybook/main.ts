@@ -1,31 +1,33 @@
-import { fileURLToPath } from 'node:url';
 import { dirname } from 'node:path';
-import type { StorybookConfig } from '@storybook/vue3-vite';
-import vue from '@vitejs/plugin-vue';
+import { fileURLToPath } from 'node:url';
+import tailwindcss from '@tailwindcss/vite';
+import type { StorybookConfig } from '@storybook/react-vite';
 
 const config: StorybookConfig = {
-  stories: ['../../../packages/vue/src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+  stories: ['../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
   addons: [
     getAbsolutePath('@storybook/addon-links'),
     getAbsolutePath('@storybook/addon-docs'),
     getAbsolutePath('@storybook/addon-a11y'),
     getAbsolutePath('@chromatic-com/storybook'),
-    getAbsolutePath('@storybook/addon-vitest'),
   ],
   framework: {
-    name: getAbsolutePath('@storybook/vue3-vite'),
+    name: getAbsolutePath('@storybook/react-vite'),
     options: {},
   },
   docs: {},
+  typescript: {
+    reactDocgen: 'react-docgen-typescript',
+  },
   viteFinal: async (config) => {
     config.plugins = config.plugins || [];
-    config.plugins.push(vue());
+    config.plugins.push(tailwindcss());
     return config;
   },
 };
 
 export default config;
 
-function getAbsolutePath(value: string): any {
+function getAbsolutePath(value: string): string {
   return dirname(fileURLToPath(import.meta.resolve(`${value}/package.json`)));
 }
