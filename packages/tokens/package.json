@@ -23,11 +23,9 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@terrazzo/parser": "^0.10.5",
     "tailwindcss": "^4.0.0"
   },
   "devDependencies": {
-    "@josui/typescript-config": "workspace:*",
     "@terrazzo/cli": "^0.10.5",
     "@terrazzo/plugin-css": "^0.10.4",
     "@terrazzo/plugin-js": "^0.10.3",

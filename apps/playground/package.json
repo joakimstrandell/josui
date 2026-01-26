@@ -11,7 +11,7 @@
     "start": "vite"
   },
   "devDependencies": {
-    "@josui/typescript-config": "workspace:*",
+    "@josui/typescript-config": "^0.1.0",
     "@tailwindcss/vite": "^4.0.0",
     "@tanstack/router-plugin": "^1.117.2",
     "@types/react": "^19.0.8",

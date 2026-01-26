@@ -1,4 +1,4 @@
-import { baseConfig } from './index.ts';
+import baseConfig from './index.ts';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 
@@ -25,7 +25,7 @@ const reactRules = {
 };
 
 /** ESLint config for React packages (raw array) */
-export const reactConfig: object[] = [...baseConfig, reactRules];
+const reactConfig: object[] = [...baseConfig, reactRules];
 
 /** Factory to create React ESLint config with tsconfigRootDir */
 export function createReactConfig(tsconfigRootDir: string): object[] {

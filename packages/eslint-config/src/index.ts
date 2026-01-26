@@ -3,7 +3,7 @@ import tseslint from 'typescript-eslint';
 import globals from 'globals';
 
 /** Base ESLint config array (without tsconfigRootDir) */
-export const baseConfig: object[] = [
+const baseConfig: object[] = [
   js.configs.recommended,
   ...tseslint.configs.recommended,
   {

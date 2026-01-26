@@ -5,7 +5,7 @@ import vue from 'eslint-plugin-vue';
 import vueParser from 'vue-eslint-parser';
 
 /** ESLint config for Vue packages (raw array) */
-export const vueConfig: object[] = [
+const vueConfig: object[] = [
   js.configs.recommended,
   ...tseslint.configs.recommended,
   ...vue.configs['flat/recommended'],
