@@ -3,16 +3,24 @@
     "family": {
       "$type": "fontFamily",
       "sans": {
-        "$value": ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+        "$value": ["Roboto", "ui-sans-serif", "system-ui", "sans-serif"],
         "$description": "Primary sans-serif font stack"
       },
       "serif": {
-        "$value": ["Georgia", "Cambria", "Times New Roman", "Times", "serif"],
+        "$value": ["Roboto Slab", "Georgia", "Cambria", "Times New Roman", "Times", "serif"],
         "$description": "Serif font stack"
       },
       "mono": {
-        "$value": ["JetBrains Mono", "ui-monospace", "SFMono-Regular", "monospace"],
+        "$value": ["Roboto Mono", "ui-monospace", "SFMono-Regular", "monospace"],
         "$description": "Monospace font stack"
+      },
+      "heading": {
+        "$value": ["Roboto Mono", "ui-monospace", "SFMono-Regular", "monospace"],
+        "$description": "Font family for headings"
+      },
+      "body": {
+        "$value": ["Roboto", "ui-sans-serif", "system-ui", "sans-serif"],
+        "$description": "Font family for body text"
       }
     },
     "size": {

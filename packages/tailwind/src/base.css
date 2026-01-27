@@ -5,8 +5,17 @@
   }
 
   body {
-    font-family: var(--fontFamily-sans);
+    font-family: var(--fontFamily-body);
     color: var(--color-foreground);
     background-color: var(--color-background);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--fontFamily-heading);
   }
 }

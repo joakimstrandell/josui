@@ -49,6 +49,9 @@ export default defineConfig({
     }),
     tailwind({
       filename: "tailwind/theme.css",
+      modeVariants: [
+        { variant: "dark", mode: "dark" },
+      ],
       theme: {
         // Colors
         color: ["color.*"],
