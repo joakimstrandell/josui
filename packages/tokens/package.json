@@ -10,16 +10,29 @@
       "types": "./dist/js/index.d.ts",
       "import": "./dist/js/index.js"
     },
-    "./css": "./dist/css/variables.css",
-    "./tailwind": "./dist/tailwind/theme.css",
-    "./scss": "./dist/scss/index.scss"
+    "./css": {
+      "style": "./dist/css/variables.css",
+      "default": "./dist/css/variables.css"
+    },
+    "./tailwind": {
+      "style": "./dist/tailwind/theme.css",
+      "default": "./dist/tailwind/theme.css"
+    },
+    "./tailwind/inline": {
+      "style": "./dist/tailwind/theme-inline.css",
+      "default": "./dist/tailwind/theme-inline.css"
+    },
+    "./scss": {
+      "style": "./dist/scss/index.scss",
+      "default": "./dist/scss/index.scss"
+    }
   },
   "files": [
     "dist",
     "skills"
   ],
   "scripts": {
-    "build": "tz build",
+    "build": "tz build && node scripts/generate-inline-theme.js",
     "clean": "rm -rf dist"
   },
   "dependencies": {

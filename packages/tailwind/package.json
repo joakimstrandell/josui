@@ -4,7 +4,8 @@
   "type": "module",
   "main": "./src/theme.css",
   "exports": {
-    ".": "./src/index.css"
+    ".": "./src/index.css",
+    "./theme-inline": "./src/index-theme-inline.css"
   },
   "files": [
     "src"
