@@ -14,6 +14,7 @@ const baseConfig: object[] = [
       },
       parserOptions: {
         projectService: true,
+        allowDefaultProject: ['**/*.mjs', '**/*.cjs', '**/*.js'],
       },
     },
   },
