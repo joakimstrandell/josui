@@ -1,0 +1,22 @@
+{
+  "name": "@josui/prettier-config",
+  "version": "0.1.0",
+  "type": "module",
+  "exports": {
+    ".": "./index.mjs",
+    "./tailwind": "./tailwind.mjs"
+  },
+  "files": [
+    "index.mjs",
+    "tailwind.mjs"
+  ],
+  "dependencies": {
+    "prettier-plugin-tailwindcss": "^0.7.2"
+  },
+  "peerDependencies": {
+    "prettier": "^3.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
