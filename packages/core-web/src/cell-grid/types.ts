@@ -25,8 +25,12 @@ export interface CellGridControllerConfig {
   maxCells?: number;
   /** Color for grid lines (default: '#000') */
   gridColor?: string;
+  /** Opacity for grid lines (default: 0.1) */
+  gridOpacity?: number;
   /** Color for active cells (default: '#000') */
   cellColor?: string;
+  /** Max opacity for active cells at full intensity (default: 0.3) */
+  cellOpacity?: number;
 }
 
 /**

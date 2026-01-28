@@ -47,3 +47,18 @@ export function withAlpha(color: string | null | undefined, alpha: number): stri
   const clamped = Math.max(0, Math.min(1, alpha));
   return formatRgb({ ...parsed, alpha: clamped });
 }
+
+/**
+ * Converts any CSS color to canvas-compatible RGB format
+ * Canvas 2D context doesn't support oklch or other modern color spaces
+ *
+ * @param color - Any valid CSS color string
+ * @param alpha - Optional alpha value (0-1)
+ * @returns RGB/RGBA string compatible with canvas, or original color if conversion fails
+ */
+export function toCanvasColor(color: string, alpha?: number): string {
+  if (alpha !== undefined) {
+    return withAlpha(color, alpha) ?? toRgb(color) ?? color;
+  }
+  return toRgb(color) ?? color;
+}

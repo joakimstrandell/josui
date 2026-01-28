@@ -1,22 +1,43 @@
 'use client';
 
 import { useEffect, useRef, useCallback } from 'react';
-import { createCellGridController, cn, isTouchDevice } from '@josui/core-web';
-import type { CellGridController } from '@josui/core-web';
+import { createCellGridController, cn, isTouchDevice, getCssVariable } from '@josui/core-web/src';
+import type { CellGridController } from '@josui/core-web/src';
 import { useInteractiveState } from '../../hooks/useInteractiveState';
 
 export interface CellGridProps {
   cellSize?: number;
   fadeRate?: number;
   maxCells?: number;
+  /** Color for grid lines (token name like "color-foreground" or direct value) */
+  gridColor?: string;
+  /** Opacity for grid lines (0-1) */
+  gridOpacity?: number;
+  /** Color for active cells (token name like "color-primary-500" or direct value) */
+  cellColor?: string;
+  /** Max opacity for active cells at full intensity (0-1) */
+  cellOpacity?: number;
   className?: string;
   children?: React.ReactNode;
 }
+
+/**
+ * Resolves a color value - either from a CSS variable token or a direct color value
+ * Token names starting with "color-" are resolved via CSS variables
+ * The core-web renderer handles conversion to canvas-compatible formats
+ */
+const resolveColor = (color: string): string => {
+  return color.startsWith('color-') ? (getCssVariable(`--${color}`) ?? color) : color;
+};
 
 export function CellGrid({
   cellSize = 24,
   fadeRate = 0.045,
   maxCells = 200,
+  gridColor = 'color-foreground',
+  gridOpacity = 0.1,
+  cellColor = 'color-primary-500',
+  cellOpacity = 0.3,
   className = '',
   children,
 }: CellGridProps) {
@@ -89,6 +110,10 @@ export function CellGrid({
             cellSize,
             fadeRate,
             maxCells,
+            gridColor: resolveColor(gridColor),
+            gridOpacity,
+            cellColor: resolveColor(cellColor),
+            cellOpacity,
           });
           controllerRef.current = controller;
           controller.start();
@@ -116,7 +141,7 @@ export function CellGrid({
         controllerRef.current = null;
       }
     };
-  }, [cellSize, fadeRate, maxCells]);
+  }, [cellSize, fadeRate, maxCells, gridColor, gridOpacity, cellColor, cellOpacity]);
 
   // Track mouse position globally and handle scroll events
   useEffect(() => {

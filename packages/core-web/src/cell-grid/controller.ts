@@ -19,7 +19,9 @@ export const createCellGridController = (
     fadeRate = 0.015,
     maxCells = 200,
     gridColor = '#000',
+    gridOpacity = 0.1,
     cellColor = '#000',
+    cellOpacity = 0.3,
   } = config;
 
   const ctx = canvas.getContext('2d');
@@ -56,8 +58,8 @@ export const createCellGridController = (
 
     // Clear and redraw
     clearCanvas(ctx, canvasWidth, canvasHeight);
-    drawCellGridLines(ctx, canvasWidth, canvasHeight, cellSize, gridColor);
-    drawCells(ctx, cellManager.getCells(), cellSize, cellColor);
+    drawCellGridLines(ctx, canvasWidth, canvasHeight, cellSize, gridColor, gridOpacity);
+    drawCells(ctx, cellManager.getCells(), cellSize, cellColor, cellOpacity);
 
     animationFrameId = requestAnimationFrame(animate);
   };

@@ -100,7 +100,7 @@ export const FastFade: Story = {
     <div className="h-screen">
       <CellGrid {...args}>
         <div className="flex min-h-screen items-center justify-center p-8">
-          <div className="max-w-2xl space-y-8 text-center prose">
+          <div className="prose max-w-2xl space-y-8 text-center">
             <h1 className="text-4xl font-bold">Fast Fade</h1>
             <p className="text-gray-600">This grid has a faster fade rate for quick cell decay.</p>
           </div>

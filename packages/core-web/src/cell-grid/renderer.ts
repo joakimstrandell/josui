@@ -1,5 +1,5 @@
 import type { CellState } from './types';
-import { withAlpha } from '@josui/core';
+import { toCanvasColor } from '@josui/core';
 
 /**
  * Draws the static cell grid lines on the canvas
@@ -15,9 +15,10 @@ export const drawCellGridLines = (
   width: number,
   height: number,
   cellSize: number,
-  color: string
+  color: string,
+  opacity: number = 0.1
 ): void => {
-  const gridColor = withAlpha(color, 0.1) ?? color;
+  const gridColor = toCanvasColor(color, opacity);
   ctx.strokeStyle = gridColor;
   ctx.lineWidth = 0.5;
   ctx.globalAlpha = 1;
@@ -51,14 +52,14 @@ export const drawCells = (
   ctx: CanvasRenderingContext2D,
   cells: ReadonlyMap<string, CellState>,
   cellSize: number,
-  color: string
+  color: string,
+  maxOpacity: number = 0.3
 ): void => {
   const padding = 1;
 
   cells.forEach((cell) => {
-    const alpha = cell.intensity * 0.3;
-    const cellColor = withAlpha(color, alpha) ?? color;
-
+    const alpha = cell.intensity * maxOpacity;
+    const cellColor = toCanvasColor(color, alpha);
     ctx.fillStyle = cellColor;
     ctx.globalAlpha = 1;
 
