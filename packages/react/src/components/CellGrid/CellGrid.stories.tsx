@@ -39,6 +39,10 @@ export const Default: Story = {
 export const SmallCells: Story = {
   args: {
     cellSize: 12,
+    gridColor: 'red',
+    gridOpacity: 0.5,
+    cellColor: 'blue',
+    cellOpacity: 0.8,
   },
   render: (args) => (
     <div className="h-screen">

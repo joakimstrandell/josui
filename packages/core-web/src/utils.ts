@@ -45,6 +45,7 @@ export function isTouchDevice(): boolean {
  * @param variable - The CSS variable to get the value of
  * @returns String, empty if no value
  */
-export function getCssVariable(variable: string) {
-  return getComputedStyle(document.documentElement).getPropertyValue(variable).trim();
+export function getCssVariable(variable: string): string | null {
+  const value = getComputedStyle(document.documentElement).getPropertyValue(variable).trim();
+  return value || null;
 }

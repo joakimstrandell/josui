@@ -25,7 +25,6 @@
 ### README.md
 
 - [ ] Features list matches exported components
-- [ ] Setup imports are correct (`@josui/react/tailwind.css`)
 
 ---
 
