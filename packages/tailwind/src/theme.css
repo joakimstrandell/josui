@@ -1,2 +1,4 @@
-/* Import Tailwind theme from design tokens */
-@import '@josui/tokens/tailwind';
+@theme {
+  /* remove default color declarations */
+  --color-*: initial;
+}
