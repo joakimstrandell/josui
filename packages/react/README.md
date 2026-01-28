@@ -12,11 +12,9 @@ pnpm add @josui/react
 
 ### 1. Import Tailwind styles
 
-Import the Tailwind styles in your app entry:
-
-```tsx
-// App.tsx or main.tsx
-import '@josui/react/tailwind.css';
+```css
+/* app.css or globals.css */
+@import '@josui/tailwind';
 ```
 
 ### 2. Configure Tailwind source scanning
@@ -25,6 +23,7 @@ Add the `@source` directive to your CSS to ensure Tailwind scans the component l
 
 ```css
 /* app.css or globals.css */
+@import '@josui/tailwind';
 @source '../node_modules/@josui/react/dist';
 ```
 
@@ -88,6 +87,8 @@ export default {
 - **Avatar** — User profile images
 - **Spinner** — Loading indicator
 - **Alert** — Notification messages
+- **CustomCursor** — GSAP-powered custom cursor (auto-hidden on touch)
+- **CellGrid** — Interactive canvas background with cell highlighting
 
 ## Hooks
 

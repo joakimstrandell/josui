@@ -9,6 +9,15 @@ const meta = {
     layout: 'fullscreen',
   },
   tags: ['autodocs'],
+  args: {
+    cellSize: 24,
+    fadeRate: 0.045,
+    maxCells: 200,
+    gridColor: 'color-foreground',
+    gridOpacity: 0.1,
+    cellColor: 'color-primary-500',
+    cellOpacity: 0.3,
+  },
 } satisfies Meta<typeof CellGrid>;
 
 export default meta;

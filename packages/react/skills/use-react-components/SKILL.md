@@ -14,7 +14,7 @@ pnpm add @josui/react @josui/tailwind
 ```css
 /* styles.css */
 @import '@josui/tailwind';
-@import '@josui/react/tailwind.css';
+@source '../node_modules/@josui/react/dist';
 ```
 
 ## Button
@@ -167,18 +167,30 @@ Interactive canvas background that highlights cells under the cursor.
 ```tsx
 import { CellGrid } from '@josui/react';
 
-<CellGrid cellSize={24} fadeRate={0.045} maxCells={200}>
+<CellGrid
+  cellSize={24}
+  fadeRate={0.045}
+  maxCells={200}
+  gridColor="color-foreground"
+  gridOpacity={0.1}
+  cellColor="color-primary-500"
+  cellOpacity={0.3}
+>
   <YourContent />
 </CellGrid>;
 ```
 
-| Prop      | Values                        |
-| --------- | ----------------------------- |
-| cellSize  | `number` (default: 24)        |
-| fadeRate  | `number` (default: 0.045)     |
-| maxCells  | `number` (default: 200)       |
-| className | `string`                      |
-| children  | `ReactNode` (content on grid) |
+| Prop        | Values                                                            |
+| ----------- | ----------------------------------------------------------------- |
+| cellSize    | `number` (default: 24)                                            |
+| fadeRate    | `number` (default: 0.045)                                         |
+| maxCells    | `number` (default: 200)                                           |
+| gridColor   | `string` — token name or CSS color (default: "color-foreground")  |
+| gridOpacity | `number` — 0-1 (default: 0.1)                                     |
+| cellColor   | `string` — token name or CSS color (default: "color-primary-500") |
+| cellOpacity | `number` — 0-1 (default: 0.3)                                     |
+| className   | `string`                                                          |
+| children    | `ReactNode` (content on grid)                                     |
 
 ## Hooks
 

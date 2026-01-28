@@ -15,7 +15,7 @@ Uses tsup for bundling. Outputs ESM, CJS, and type definitions to `dist/`.
 Utilities live in `src/`:
 
 - `cn.ts` — Tailwind class merging utility
-- `utils.ts` — Touch device detection
+- `utils.ts` — Touch device detection, CSS variable access
 - `custom-cursor.ts` — GSAP-powered custom cursor
 - `interactive.ts` — Interactive element detection and state management
 - `cell-grid/` — Interactive canvas cell grid
