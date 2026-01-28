@@ -10,12 +10,25 @@ pnpm add @josui/react
 
 ## Setup
 
+### 1. Import Tailwind styles
+
 Import the Tailwind styles in your app entry:
 
 ```tsx
 // App.tsx or main.tsx
 import '@josui/react/tailwind.css';
 ```
+
+### 2. Configure Tailwind source scanning
+
+Add the `@source` directive to your CSS to ensure Tailwind scans the component library for class names:
+
+```css
+/* app.css or globals.css */
+@source '../node_modules/@josui/react/dist';
+```
+
+This tells Tailwind v4 to include the component library's dist folder when scanning for utility classes. Without this, component styles may be purged from your production build.
 
 ## Architecture
 
