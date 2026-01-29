@@ -26,6 +26,33 @@
 
 - [ ] Features list matches exported components
 
+### Storybook Coverage
+
+- [ ] Every component has a `.stories.tsx` / `.stories.ts` file
+- [ ] Stories have `tags: ['autodocs']` in meta
+- [ ] Stories have `args` in meta for controls panel
+- [ ] All variants have stories or are controllable via args
+- [ ] All sizes have stories or are controllable via args
+
+```bash
+# Check for missing story files (React)
+for comp in $(ls packages/react/src/components/); do
+  [ ! -f "packages/react/src/components/$comp/$comp.stories.tsx" ] && echo "Missing: $comp"
+done
+
+# Check for missing story files (Vue)
+for comp in $(ls packages/vue/src/components/); do
+  [ ! -f "packages/vue/src/components/$comp/$comp.stories.ts" ] && echo "Missing: $comp"
+done
+
+# Check autodocs and args in React stories
+for story in packages/react/src/components/*/*.stories.tsx; do
+  name=$(basename "$story")
+  grep -q "autodocs" "$story" || echo "No autodocs: $name"
+  grep -q "args:" "$story" || echo "No args: $name"
+done
+```
+
 ---
 
 ## Design Tokens
