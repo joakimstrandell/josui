@@ -8,16 +8,6 @@ const meta = {
     layout: 'centered',
   },
   tags: ['autodocs'],
-  argTypes: {
-    size: {
-      control: 'select',
-      options: ['sm', 'md', 'lg'],
-    },
-    color: {
-      control: 'select',
-      options: ['primary', 'current', 'white'],
-    },
-  },
 } satisfies Meta<typeof Spinner>;
 
 export default meta;

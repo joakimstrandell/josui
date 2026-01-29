@@ -8,19 +8,6 @@ const meta = {
     layout: 'centered',
   },
   tags: ['autodocs'],
-  argTypes: {
-    size: {
-      control: 'select',
-      options: ['sm', 'md', 'lg'],
-    },
-    state: {
-      control: 'select',
-      options: ['default', 'error', 'success'],
-    },
-    disabled: {
-      control: 'boolean',
-    },
-  },
   decorators: [
     (Story) => (
       <div style={{ width: '320px' }}>

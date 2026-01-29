@@ -9,20 +9,6 @@ const meta = {
     layout: 'centered',
   },
   tags: ['autodocs'],
-  argTypes: {
-    variant: {
-      control: 'select',
-      options: ['default', 'bordered', 'elevated'],
-    },
-    padding: {
-      control: 'select',
-      options: ['none', 'sm', 'md', 'lg'],
-    },
-    shadow: {
-      control: 'select',
-      options: ['none', 'sm', 'md', 'lg'],
-    },
-  },
   decorators: [
     (Story) => (
       <div style={{ width: '400px' }}>

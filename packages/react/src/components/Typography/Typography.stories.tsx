@@ -8,20 +8,6 @@ const meta = {
     layout: 'centered',
   },
   tags: ['autodocs'],
-  argTypes: {
-    variant: {
-      control: 'select',
-      options: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'body', 'body-sm', 'caption'],
-    },
-    weight: {
-      control: 'select',
-      options: ['normal', 'medium', 'semibold', 'bold'],
-    },
-    color: {
-      control: 'select',
-      options: ['default', 'muted', 'primary', 'success', 'warning', 'error'],
-    },
-  },
 } satisfies Meta<typeof Typography>;
 
 export default meta;

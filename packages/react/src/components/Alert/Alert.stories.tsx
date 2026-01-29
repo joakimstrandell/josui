@@ -8,15 +8,6 @@ const meta: Meta<typeof Alert> = {
     layout: 'centered',
   },
   tags: ['autodocs'],
-  argTypes: {
-    variant: {
-      control: 'select',
-      options: ['info', 'success', 'warning', 'error'],
-    },
-    dismissible: {
-      control: 'boolean',
-    },
-  },
   decorators: [
     (Story) => (
       <div style={{ width: '400px' }}>

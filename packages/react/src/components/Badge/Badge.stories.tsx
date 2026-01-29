@@ -8,16 +8,6 @@ const meta = {
     layout: 'centered',
   },
   tags: ['autodocs'],
-  argTypes: {
-    variant: {
-      control: 'select',
-      options: ['default', 'primary', 'success', 'warning', 'error'],
-    },
-    size: {
-      control: 'select',
-      options: ['sm', 'md', 'lg'],
-    },
-  },
 } satisfies Meta<typeof Badge>;
 
 export default meta;

@@ -8,12 +8,6 @@ const meta = {
     layout: 'centered',
   },
   tags: ['autodocs'],
-  argTypes: {
-    size: {
-      control: 'select',
-      options: ['sm', 'md', 'lg', 'xl'],
-    },
-  },
 } satisfies Meta<typeof Avatar>;
 
 export default meta;
