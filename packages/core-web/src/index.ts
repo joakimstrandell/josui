@@ -2,7 +2,7 @@
 // Shared web utilities for UI rendering, cursors, canvas, and more
 
 export { cn } from './cn';
-export { isTouchDevice, getCssVariable } from './utils';
+export { isTouchDevice, getCssVariable, resolveColor } from './utils';
 export {
   createCustomCursor,
   type CustomCursorOptions,
@@ -24,3 +24,17 @@ export {
   type CellGridController,
   type CellGridControllerConfig,
 } from './cell-grid';
+export {
+  createKeyboardShortcut,
+  parseShortcut,
+  type KeyboardShortcut,
+  type KeyboardShortcutOptions,
+} from './keyboard';
+export {
+  themeState,
+  getThemeScript,
+  type Theme,
+  type ResolvedTheme,
+  type ThemeState,
+  type ThemeManager,
+} from './theme';

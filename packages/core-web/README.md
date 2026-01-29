@@ -32,3 +32,9 @@ controller.start();
 - **interactiveState** — Pub/sub state for tracking cursor over interactive elements
 - **isInteractiveElement** — Check if an element is interactive (button, link, etc.)
 - **isTouchDevice** — Detect touch-capable devices
+- **getCssVariable** — Retrieve CSS variable values from the DOM
+- **resolveColor** — Resolve color tokens (e.g., `color-primary-500`) to CSS variable values
+- **themeState** — Theme manager singleton (light/dark/system) with localStorage persistence
+- **getThemeScript** — Blocking script to prevent theme flash on SSR
+- **createKeyboardShortcut** — Keyboard shortcut listener with cleanup
+- **parseShortcut** — Parse shortcut strings (e.g., "ctrl+shift+t") into objects

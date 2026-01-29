@@ -109,16 +109,19 @@ Uses Vitest with `@testing-library/react`.
 | Alert        | info, success, warning, error                   | —          |
 | CustomCursor | —                                               | —          |
 | CellGrid     | —                                               | —          |
+| ThemeToggle  | —                                               | sm, md, lg |
 
 Card is a compound component with sub-components (CardHeader, CardTitle, CardDescription, CardContent, CardFooter).
 
 ## Hooks
 
-| Hook                | Purpose                               |
-| ------------------- | ------------------------------------- |
-| useIsTouchDevice    | Detect touch-capable devices          |
-| useInteractiveState | Subscribe to cursor interactive state |
-| useScrollDirection  | Track scroll direction (up/down)      |
+| Hook                | Purpose                                  |
+| ------------------- | ---------------------------------------- |
+| useIsTouchDevice    | Detect touch-capable devices             |
+| useInteractiveState | Subscribe to cursor interactive state    |
+| useScrollDirection  | Track scroll direction (up/down)         |
+| useTheme            | Manage theme state (light/dark/system)   |
+| useKeyboardShortcut | Add keyboard shortcuts with auto-cleanup |
 
 ## Skills
 

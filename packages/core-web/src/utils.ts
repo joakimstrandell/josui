@@ -49,3 +49,13 @@ export function getCssVariable(variable: string): string | null {
   const value = getComputedStyle(document.documentElement).getPropertyValue(variable).trim();
   return value || null;
 }
+
+/**
+ * Resolves a color value - either from a CSS variable token or a direct color value.
+ * Token names starting with "color-" are resolved via CSS variables.
+ * @param color - Token name (e.g., "color-primary-500") or direct color value
+ * @returns The resolved color value
+ */
+export function resolveColor(color: string): string {
+  return color.startsWith('color-') ? (getCssVariable(`--${color}`) ?? color) : color;
+}

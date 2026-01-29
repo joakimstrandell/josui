@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useCallback } from 'react';
-import { createCellGridController, cn, isTouchDevice, getCssVariable } from '@josui/core-web/src';
+import { createCellGridController, cn, isTouchDevice, resolveColor } from '@josui/core-web/src';
 import type { CellGridController } from '@josui/core-web/src';
 import { useInteractiveState } from '../../hooks/useInteractiveState';
 
@@ -20,15 +20,6 @@ export interface CellGridProps {
   className?: string;
   children?: React.ReactNode;
 }
-
-/**
- * Resolves a color value - either from a CSS variable token or a direct color value
- * Token names starting with "color-" are resolved via CSS variables
- * The core-web renderer handles conversion to canvas-compatible formats
- */
-const resolveColor = (color: string): string => {
-  return color.startsWith('color-') ? (getCssVariable(`--${color}`) ?? color) : color;
-};
 
 export function CellGrid({
   cellSize = 24,

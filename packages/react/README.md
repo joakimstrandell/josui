@@ -89,12 +89,15 @@ export default {
 - **Alert** — Notification messages
 - **CustomCursor** — GSAP-powered custom cursor (auto-hidden on touch)
 - **CellGrid** — Interactive canvas background with cell highlighting
+- **ThemeToggle** — Dark/light/system theme toggle button
 
 ## Hooks
 
 - **useIsTouchDevice** — Detect touch-capable devices
 - **useInteractiveState** — Subscribe to cursor over interactive element state
 - **useScrollDirection** — Track scroll direction (up/down)
+- **useTheme** — Manage theme state (light/dark/system) with optional keyboard shortcut
+- **useKeyboardShortcut** — Add keyboard shortcuts with auto-cleanup
 
 ## AI-Assisted Development
 
