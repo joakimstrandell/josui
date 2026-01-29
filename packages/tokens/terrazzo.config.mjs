@@ -24,21 +24,11 @@ export default defineConfig({
       modeSelectors: [
         {
           mode: "light",
-          selectors: [
-            '@media (prefers-color-scheme: light)',
-            '[data-theme="light"]',
-            '.light',
-          ],
-          scheme: "light",
+          selectors: ['[data-theme="light"]', '.light'],
         },
         {
           mode: "dark",
-          selectors: [
-            '@media (prefers-color-scheme: dark)',
-            '[data-theme="dark"]',
-            '.dark',
-          ],
-          scheme: "dark",
+          selectors: ['[data-theme="dark"]', '.dark'],
         },
       ],
     }),
