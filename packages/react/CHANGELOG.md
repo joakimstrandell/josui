@@ -1,5 +1,11 @@
 # @josui/react
 
+## 0.4.0
+
+### Minor Changes
+
+- Add useScrollProgress hook for tracking scroll position
+
 ## 0.3.0
 
 ### Minor Changes
