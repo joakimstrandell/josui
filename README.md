@@ -23,6 +23,7 @@ AI-native design system built on DTCG tokens.
 | [@josui/core](./packages/core)                           | Pure JS utilities         |
 | [@josui/core-web](./packages/core-web)                   | Shared web utilities      |
 | [@josui/eslint-config](./packages/eslint-config)         | Shared ESLint configs     |
+| [@josui/prettier-config](./packages/prettier-config)     | Shared Prettier configs   |
 | [@josui/typescript-config](./packages/typescript-config) | Shared TypeScript configs |
 
 ## Apps

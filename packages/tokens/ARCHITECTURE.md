@@ -41,7 +41,7 @@ We use `@theme` (non-inline) so:
 - CSS variables are available at runtime for custom CSS
 - Alpha modifiers work via `color-mix(in oklab, var(--color-*) 50%, transparent)`
 
-The `theme-inline.css` export exists but is broken for semantic tokens. If inline themes are needed, Terrazzo would need to resolve `var()` references at build time.
+The `@theme inline` approach was removed from this package because it cannot work with semantic token references.
 
 ## Build Pipeline
 
@@ -56,10 +56,6 @@ src/tokens/*.json (DTCG format)
 │ dist/tailwind/theme.css       │ ← Tailwind @theme block
 │ dist/scss/index.scss          │ ← SCSS token function
 └───────────────────────────────┘
-        ↓
-  generate-inline-theme.js
-        ↓
-  dist/tailwind/theme-inline.css (broken, do not use)
 ```
 
 ## Color System
