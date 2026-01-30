@@ -12,8 +12,9 @@ This project uses [changesets](https://github.com/changesets/changesets) for ver
 ```bash
 pnpm changeset status          # Check pending changesets
 pnpm changeset version         # Bump versions, write CHANGELOGs
-pnpm publish -r                # Publish to npm
 ```
+
+Publishing is handled automatically by the GitHub workflow CI after merging to main.
 
 ## Creating Changesets
 

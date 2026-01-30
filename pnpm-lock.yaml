@@ -323,8 +323,8 @@ importers:
         specifier: ^5.0.0
         version: 5.0.0(storybook@10.2.0(@testing-library/dom@10.4.0)(prettier@3.8.1)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
       '@josui/scss':
-        specifier: ^0.2.0
-        version: 0.2.0
+        specifier: workspace:*
+        version: link:../scss
       '@josui/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
@@ -1011,12 +1011,6 @@ packages:
     peerDependenciesMeta:
       typescript:
         optional: true
-
-  '@josui/scss@0.2.0':
-    resolution: {integrity: sha512-P/ROHITjEZXk69TSipY6+uZEYoONCDzZ6+ohBvDNz+GCO2jHLPPuvp/5Kt1moulOIncqeI0gA8qlLFhxPsnHwQ==}
-
-  '@josui/tokens@0.2.0':
-    resolution: {integrity: sha512-VCgfJiASPVKjjNR/rUHvVzJRFFMxcLm8PhDwnQWqUUlxwBbkSz9eZqPyMW4sIyCW6ALUbvDfZQgBCZWSnpJoyQ==}
 
   '@josui/typescript-config@0.1.0':
     resolution: {integrity: sha512-oBRr0L8SIpfhpxl3EQTTZ2eQVuyZAJaE+9+DMhIPltZ0SsjWCWOxBrOOSZko97zJKopmQW3kltO7weT3AUaKMw==}
@@ -5408,15 +5402,6 @@ snapshots:
       vite: 6.4.1(@types/node@20.19.30)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.97.3)(tsx@4.21.0)(yaml@2.8.2)
     optionalDependencies:
       typescript: 5.9.3
-
-  '@josui/scss@0.2.0':
-    dependencies:
-      '@josui/tokens': 0.2.0
-
-  '@josui/tokens@0.2.0':
-    dependencies:
-      '@terrazzo/parser': 0.10.5
-      tailwindcss: 4.1.18
 
   '@josui/typescript-config@0.1.0': {}
 
