@@ -10,11 +10,22 @@ This project uses [changesets](https://github.com/changesets/changesets) for ver
 ## Quick Reference
 
 ```bash
+git fetch --tags               # Pull latest tags from GitHub before release
 pnpm changeset status          # Check pending changesets
 pnpm changeset version         # Bump versions, write CHANGELOGs
 ```
 
 Publishing is handled automatically by the GitHub workflow CI after merging to main.
+
+## Before You Start
+
+**Always fetch the latest tags from GitHub** before checking what needs to be released:
+
+```bash
+git fetch --tags
+```
+
+Release tags are created by the GitHub CI workflow, so your local tags may be out of date. Without fetching, you might create changesets for versions that have already been published.
 
 ## Creating Changesets
 
