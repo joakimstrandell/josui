@@ -1,5 +1,11 @@
 # @josui/tokens
 
+## 0.3.1
+
+### Patch Changes
+
+- Remove duplicate `@import 'tailwindcss'` from generated Tailwind theme output. This allows consumers to control import order and properly disable default Tailwind colors.
+
 ## 0.3.0
 
 ### Minor Changes

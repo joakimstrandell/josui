@@ -1,5 +1,12 @@
 # @josui/scss
 
+## 0.2.2
+
+### Patch Changes
+
+- Updated dependencies
+  - @josui/tokens@0.3.1
+
 ## 0.2.1
 
 ### Patch Changes
