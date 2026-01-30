@@ -25,12 +25,14 @@ pnpm add @josui/tokens
 ### Tailwind CSS v4
 
 ```css
-/* Automatically configures Tailwind theme from tokens */
+@import 'tailwindcss';
 @import '@josui/tokens/tailwind';
 
 /* Then use standard Tailwind classes */
 /* bg-primary-500, text-secondary-700, p-4, etc. */
 ```
+
+> **Note:** The tokens export does not include `@import 'tailwindcss'` - you must import Tailwind separately. This allows you to control the import order and disable default Tailwind colors if needed.
 
 ### SCSS (Type-Safe)
 

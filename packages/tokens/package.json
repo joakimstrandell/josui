@@ -28,7 +28,7 @@
     "skills"
   ],
   "scripts": {
-    "build": "tz build",
+    "build": "tz build && node -e \"const fs=require('fs');const f='./dist/tailwind/theme.css';fs.writeFileSync(f,fs.readFileSync(f,'utf8').replace('@import \\\"tailwindcss\\\";\\n\\n',''))\"",
     "clean": "rm -rf dist"
   },
   "dependencies": {

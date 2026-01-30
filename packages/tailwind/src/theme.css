@@ -1,4 +1,4 @@
 @theme {
-  /* remove default color declarations */
+  /* disable default tailwind colors */
   --color-*: initial;
 }
