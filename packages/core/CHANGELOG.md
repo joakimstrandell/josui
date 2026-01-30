@@ -1,5 +1,11 @@
 # @josui/core
 
+## 0.2.0
+
+### Minor Changes
+
+- - Add color and opacity customization to CellGrid with canvas-compatible conversion
+
 ## 0.1.0
 
 ### Minor Changes

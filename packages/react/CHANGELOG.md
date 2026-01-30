@@ -1,5 +1,19 @@
 # @josui/react
 
+## 0.3.0
+
+### Minor Changes
+
+- - Add theme management with keyboard shortcuts for toggling dark/light mode
+  - Add color and opacity customization to CellGrid component
+  - Use semantic color tokens in components
+  - Move Storybook into package, upgrade to Storybook 10.2.0
+
+### Patch Changes
+
+- Updated dependencies
+  - @josui/core-web@0.2.0
+
 ## 0.2.0
 
 ### Minor Changes

@@ -1,5 +1,15 @@
 # @josui/tokens
 
+## 0.3.0
+
+### Minor Changes
+
+- - Add dark/light theme support with JS-controlled dark mode (removed CSS media queries)
+  - Add Roboto font family and semantic typography tokens
+  - Consolidate semantic token naming for better consistency
+  - Ensure WCAG AA contrast compliance for all color tokens
+  - Use token references for semantic colors (card, popover backgrounds reference color.background)
+
 ## 0.2.0
 
 ### Minor Changes

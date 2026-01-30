@@ -1,6 +1,6 @@
 {
   "name": "@josui/vue",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -37,7 +37,7 @@
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^5.0.0",
-    "@josui/scss": "^0.2.0",
+    "@josui/scss": "^0.2.1",
     "@josui/typescript-config": "workspace:*",
     "@storybook/addon-a11y": "^10.2.0",
     "@storybook/addon-docs": "^10.2.0",

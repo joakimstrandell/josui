@@ -1,5 +1,18 @@
 # @josui/tailwind
 
+## 0.3.0
+
+### Minor Changes
+
+- - Restructure theme imports and reset default colors
+  - Add Roboto font family and semantic typography tokens
+  - Add inline theme export for Tailwind opacity modifiers
+
+### Patch Changes
+
+- Updated dependencies
+  - @josui/tokens@0.3.0
+
 ## 0.2.0
 
 ### Minor Changes

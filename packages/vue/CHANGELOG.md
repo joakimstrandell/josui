@@ -1,5 +1,11 @@
 # @josui/vue
 
+## 0.2.1
+
+### Patch Changes
+
+- - Move Storybook into package, upgrade to Storybook 10.2.0
+
 ## 0.2.0
 
 ### Minor Changes
