@@ -73,7 +73,7 @@ describe('CustomCursor', () => {
     const cursor = document.querySelector('div[class*="fixed"]');
     expect(cursor).toBeInTheDocument();
     expect(cursor).toHaveClass('pointer-events-none');
-    expect(cursor).toHaveClass('z-[9999]');
+    expect(cursor).toHaveClass('z-9999');
   });
 
   it('does not call createCustomCursor on touch devices', () => {

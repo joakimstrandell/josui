@@ -9,6 +9,7 @@ export { useInteractiveState } from './hooks/useInteractiveState';
 export { useScrollDirection } from './hooks/useScrollDirection';
 export { useTheme, type UseThemeOptions, type UseThemeReturn } from './hooks/useTheme';
 export { useKeyboardShortcut, type UseKeyboardShortcutOptions } from './hooks/useKeyboardShortcut';
+export { useScrollProgress } from './hooks/useScrollProgress';
 export { Input, type InputProps } from './components/Input';
 export {
   Card,
