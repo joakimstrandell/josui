@@ -10,19 +10,19 @@ describe('Badge', () => {
 
   it('applies variant classes', () => {
     const { rerender } = render(<Badge variant="default">Default</Badge>);
-    expect(screen.getByText('Default')).toHaveClass('bg-gray-100');
+    expect(screen.getByText('Default')).toHaveClass('bg-muted-background');
 
     rerender(<Badge variant="primary">Primary</Badge>);
     expect(screen.getByText('Primary')).toHaveClass('bg-primary-100');
 
     rerender(<Badge variant="success">Success</Badge>);
-    expect(screen.getByText('Success')).toHaveClass('bg-success-50');
+    expect(screen.getByText('Success')).toHaveClass('bg-success-background');
 
     rerender(<Badge variant="warning">Warning</Badge>);
-    expect(screen.getByText('Warning')).toHaveClass('bg-warning-50');
+    expect(screen.getByText('Warning')).toHaveClass('bg-warning-background');
 
     rerender(<Badge variant="error">Error</Badge>);
-    expect(screen.getByText('Error')).toHaveClass('bg-error-50');
+    expect(screen.getByText('Error')).toHaveClass('bg-error-background');
   });
 
   it('applies size classes', () => {

@@ -10,13 +10,13 @@ describe('Card', () => {
 
   it('applies variant classes', () => {
     const { rerender } = render(<Card variant="default">Default</Card>);
-    expect(screen.getByText('Default')).toHaveClass('bg-white');
+    expect(screen.getByText('Default')).toHaveClass('bg-card-background');
 
     rerender(<Card variant="bordered">Bordered</Card>);
     expect(screen.getByText('Bordered')).toHaveClass('border');
 
     rerender(<Card variant="elevated">Elevated</Card>);
-    expect(screen.getByText('Elevated')).toHaveClass('bg-white');
+    expect(screen.getByText('Elevated')).toHaveClass('bg-card-background');
   });
 
   it('applies padding classes', () => {

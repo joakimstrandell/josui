@@ -21,16 +21,16 @@ describe('Alert', () => {
 
   it('applies variant classes', () => {
     const { rerender } = render(<Alert variant="info">Info</Alert>);
-    expect(screen.getByRole('alert')).toHaveClass('bg-info-50');
+    expect(screen.getByRole('alert')).toHaveClass('bg-info-background');
 
     rerender(<Alert variant="success">Success</Alert>);
-    expect(screen.getByRole('alert')).toHaveClass('bg-success-50');
+    expect(screen.getByRole('alert')).toHaveClass('bg-success-background');
 
     rerender(<Alert variant="warning">Warning</Alert>);
-    expect(screen.getByRole('alert')).toHaveClass('bg-warning-50');
+    expect(screen.getByRole('alert')).toHaveClass('bg-warning-background');
 
     rerender(<Alert variant="error">Error</Alert>);
-    expect(screen.getByRole('alert')).toHaveClass('bg-error-50');
+    expect(screen.getByRole('alert')).toHaveClass('bg-error-background');
   });
 
   it('renders default icon for each variant', () => {

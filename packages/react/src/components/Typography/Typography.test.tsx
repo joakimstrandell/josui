@@ -73,22 +73,22 @@ describe('Typography', () => {
 
   it('applies color styles', () => {
     const { rerender } = render(<Typography color="default">Default</Typography>);
-    expect(screen.getByText('Default')).toHaveClass('text-gray-900');
+    expect(screen.getByText('Default')).toHaveClass('text-foreground');
 
     rerender(<Typography color="muted">Muted</Typography>);
-    expect(screen.getByText('Muted')).toHaveClass('text-gray-500');
+    expect(screen.getByText('Muted')).toHaveClass('text-muted-foreground');
 
     rerender(<Typography color="primary">Primary</Typography>);
     expect(screen.getByText('Primary')).toHaveClass('text-primary-600');
 
     rerender(<Typography color="success">Success</Typography>);
-    expect(screen.getByText('Success')).toHaveClass('text-success-700');
+    expect(screen.getByText('Success')).toHaveClass('text-success-foreground');
 
     rerender(<Typography color="warning">Warning</Typography>);
-    expect(screen.getByText('Warning')).toHaveClass('text-warning-700');
+    expect(screen.getByText('Warning')).toHaveClass('text-warning-foreground');
 
     rerender(<Typography color="error">Error</Typography>);
-    expect(screen.getByText('Error')).toHaveClass('text-error-700');
+    expect(screen.getByText('Error')).toHaveClass('text-error-foreground');
   });
 
   it('applies custom className', () => {

@@ -14,7 +14,7 @@ describe('Button', () => {
     expect(screen.getByRole('button')).toHaveClass('bg-primary-500');
 
     rerender(<Button variant="secondary">Secondary</Button>);
-    expect(screen.getByRole('button')).toHaveClass('bg-gray-100');
+    expect(screen.getByRole('button')).toHaveClass('bg-muted-background');
 
     rerender(<Button variant="outline">Outline</Button>);
     expect(screen.getByRole('button')).toHaveClass('border-gray-300');
@@ -23,7 +23,7 @@ describe('Button', () => {
     expect(screen.getByRole('button')).toHaveClass('bg-transparent');
 
     rerender(<Button variant="destructive">Destructive</Button>);
-    expect(screen.getByRole('button')).toHaveClass('bg-error-500');
+    expect(screen.getByRole('button')).toHaveClass('bg-destructive-background');
   });
 
   it('applies size classes', () => {
