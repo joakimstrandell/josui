@@ -46,7 +46,7 @@ withDefaults(defineProps<DialogCloseProps>(), {
   width: spacing('6');
   height: spacing('6');
   border-radius: radius('sm');
-  color: color('muted-foreground');
+  color: color('muted.foreground');
   @include transition-colors;
 
   &:hover {

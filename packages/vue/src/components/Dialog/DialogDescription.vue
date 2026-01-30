@@ -22,7 +22,7 @@ withDefaults(defineProps<DialogDescriptionProps>(), {
 
 .josui-dialog-description {
   font-size: font-size('sm');
-  color: color('muted-foreground');
+  color: color('muted.foreground');
   margin: 0;
 }
 </style>
