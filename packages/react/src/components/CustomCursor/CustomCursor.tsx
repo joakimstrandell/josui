@@ -2,6 +2,7 @@
 import { useEffect, useRef } from 'react';
 import { createCustomCursor, type CustomCursorOptions } from '@josui/core-web';
 import { useIsTouchDevice } from '../../hooks/useIsTouchDevice';
+import { cn } from '@josui/core-web/src';
 
 export interface CustomCursorProps {
   options?: CustomCursorOptions;
@@ -25,10 +26,10 @@ export function CustomCursor({ options, className }: CustomCursorProps) {
   return (
     <div
       ref={cursorRef}
-      className={
-        className ??
-        'pointer-events-none fixed left-0 top-0 z-[9999] h-5 w-5 rounded-full bg-primary-500 mix-blend-difference'
-      }
+      className={cn(
+        'border-primary-500 pointer-events-none fixed top-0 left-0 z-9999 size-4 border-2 opacity-5 mix-blend-multiply',
+        className
+      )}
     />
   );
 }
