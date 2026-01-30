@@ -2,6 +2,8 @@
 
 Design tokens package using Terrazzo CLI with DTCG format. Supports light/dark theming.
 
+**Before modifying tokens, read [ARCHITECTURE.md](./ARCHITECTURE.md) for design decisions and constraints.**
+
 ## Build
 
 ```bash
@@ -29,7 +31,6 @@ Tokens are in `src/tokens/` as JSON files in strict DTCG object format:
 | `animation.json`  | Duration and easing tokens                                          |
 | `z-index.json`    | Z-index layering scale                                              |
 | `breakpoint.json` | Responsive breakpoints                                              |
-| `opacity.json`    | Opacity scale                                                       |
 
 ## Theming (Light/Dark Mode)
 

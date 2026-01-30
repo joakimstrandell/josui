@@ -18,10 +18,6 @@
       "style": "./dist/tailwind/theme.css",
       "default": "./dist/tailwind/theme.css"
     },
-    "./tailwind/inline": {
-      "style": "./dist/tailwind/theme-inline.css",
-      "default": "./dist/tailwind/theme-inline.css"
-    },
     "./scss": {
       "style": "./dist/scss/index.scss",
       "default": "./dist/scss/index.scss"
@@ -32,7 +28,7 @@
     "skills"
   ],
   "scripts": {
-    "build": "tz build && node scripts/generate-inline-theme.js",
+    "build": "tz build",
     "clean": "rm -rf dist"
   },
   "dependencies": {

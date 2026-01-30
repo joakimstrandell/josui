@@ -11,19 +11,34 @@ Verify that documentation content matches current code.
 
 Audit documentation content in:
 
-- `**/AGENTS.md` - Agent instructions
+- `**/AGENTS.md` - Agent instructions (how to work with the code)
+- `**/ARCHITECTURE.md` - Design decisions and constraints
 - `**/README.md` - User-facing docs
 - `**/CLAUDE.md` - Should point to AGENTS.md
 - `**/skills/**/SKILL.md` - Skill definitions
 
 For package registry consistency (README table, changeset config), use `package-audit` instead.
 
+## Documentation File Purposes
+
+| File              | Audience           | Content                                   |
+| ----------------- | ------------------ | ----------------------------------------- |
+| `CLAUDE.md`       | AI agents          | Pointer to AGENTS.md (single line)        |
+| `AGENTS.md`       | AI agents          | How to build, test, and modify the code   |
+| `ARCHITECTURE.md` | AI agents + humans | Design decisions, constraints, principles |
+| `README.md`       | Humans             | Installation, usage, API reference        |
+
+**Key distinction:**
+
+- `AGENTS.md` = **How** to work with the code (build commands, file structure, testing)
+- `ARCHITECTURE.md` = **Why** decisions were made (constraints, tradeoffs, principles)
+
 ## Audit Process
 
 ### 1. Gather Documentation Files
 
 ```bash
-find . -name "AGENTS.md" -o -name "README.md" -o -name "CLAUDE.md" -o -name "SKILL.md" | grep -v node_modules
+find . \( -name "AGENTS.md" -o -name "ARCHITECTURE.md" -o -name "README.md" -o -name "CLAUDE.md" -o -name "SKILL.md" \) | grep -v node_modules
 ```
 
 ### 2. Structural Completeness
@@ -31,8 +46,9 @@ find . -name "AGENTS.md" -o -name "README.md" -o -name "CLAUDE.md" -o -name "SKI
 Every package in `packages/` and app in `apps/` must have:
 
 - [ ] README.md
-- [ ] AGENTS.md
+- [ ] AGENTS.md (must reference ARCHITECTURE.md if it exists)
 - [ ] CLAUDE.md (containing only `See [AGENTS.md](./AGENTS.md)`)
+- [ ] ARCHITECTURE.md (optional, for packages with design decisions)
 
 ### 3. AGENTS.md Content Audit
 
@@ -60,7 +76,27 @@ Verify:
 - [ ] Variants/sizes match component source
 - [ ] No removed components still documented
 
-### 4. Skill Content Audit
+### 4. ARCHITECTURE.md Content Audit
+
+If a package has an ARCHITECTURE.md:
+
+- [ ] AGENTS.md references it near the top
+- [ ] Design decisions reflect current implementation
+- [ ] No outdated constraints or removed features documented
+- [ ] Tradeoffs still apply to current code
+
+**Check AGENTS.md references ARCHITECTURE.md:**
+
+```bash
+grep -L "ARCHITECTURE.md" packages/*/AGENTS.md 2>/dev/null | while read f; do
+  dir=$(dirname "$f")
+  if [ -f "$dir/ARCHITECTURE.md" ]; then
+    echo "Missing reference: $f"
+  fi
+done
+```
+
+### 5. Skill Content Audit
 
 **Frontmatter required:**
 
@@ -78,19 +114,19 @@ description: What it does. When to use (triggers).
 - [ ] Import statements are correct
 - [ ] No deprecated APIs documented
 
-### 5. README.md Content Audit
+### 6. README.md Content Audit
 
 - [ ] Package name in header matches package.json name
 - [ ] Installation command: `pnpm add {package-name}`
 - [ ] Import examples match actual exports
 
-### 6. Cross-Reference Audit
+### 7. Cross-Reference Audit
 
 - AGENTS.md component tables ↔ Skill component coverage
 - AGENTS.md build commands ↔ package.json scripts
 - README.md features list ↔ Actual exports
 
-### 7. Storybook Audit (@josui/react, @josui/vue)
+### 8. Storybook Audit (@josui/react, @josui/vue)
 
 Every exported component must have complete story coverage.
 
