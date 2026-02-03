@@ -1,6 +1,6 @@
 ---
 name: docs-audit
-description: Audit documentation content for accuracy. Use when asked to check if documentation matches code (AGENTS.md, README.md, CLAUDE.md, skills) or verify Storybook coverage for components.
+description: Audit documentation content for accuracy. Use when asked to check if documentation matches code (AGENTS.md, README.md, skills) or verify Storybook coverage for components.
 ---
 
 # Documentation Audit
@@ -14,7 +14,6 @@ Audit documentation content in:
 - `**/AGENTS.md` - Agent instructions (how to work with the code)
 - `**/ARCHITECTURE.md` - Design decisions and constraints
 - `**/README.md` - User-facing docs
-- `**/CLAUDE.md` - Should point to AGENTS.md
 - `**/skills/**/SKILL.md` - Skill definitions
 
 For package registry consistency (README table, changeset config), use `package-audit` instead.
@@ -23,7 +22,6 @@ For package registry consistency (README table, changeset config), use `package-
 
 | File              | Audience           | Content                                   |
 | ----------------- | ------------------ | ----------------------------------------- |
-| `CLAUDE.md`       | AI agents          | Pointer to AGENTS.md (single line)        |
 | `AGENTS.md`       | AI agents          | How to build, test, and modify the code   |
 | `ARCHITECTURE.md` | AI agents + humans | Design decisions, constraints, principles |
 | `README.md`       | Humans             | Installation, usage, API reference        |
@@ -38,7 +36,7 @@ For package registry consistency (README table, changeset config), use `package-
 ### 1. Gather Documentation Files
 
 ```bash
-find . \( -name "AGENTS.md" -o -name "ARCHITECTURE.md" -o -name "README.md" -o -name "CLAUDE.md" -o -name "SKILL.md" \) | grep -v node_modules
+find . \( -name "AGENTS.md" -o -name "ARCHITECTURE.md" -o -name "README.md" -o -name "SKILL.md" \) | grep -v node_modules
 ```
 
 ### 2. Structural Completeness
@@ -47,7 +45,6 @@ Every package in `packages/` and app in `apps/` must have:
 
 - [ ] README.md
 - [ ] AGENTS.md (must reference ARCHITECTURE.md if it exists)
-- [ ] CLAUDE.md (containing only `See [AGENTS.md](./AGENTS.md)`)
 - [ ] ARCHITECTURE.md (optional, for packages with design decisions)
 
 ### 3. AGENTS.md Content Audit
@@ -188,7 +185,7 @@ grep -E "^export const" packages/react/src/components/Button/Button.stories.tsx
 
 ### Missing Files
 
-- [ ] `packages/foo/CLAUDE.md` — missing
+- [ ] `packages/foo/AGENTS.md` — missing
 
 ### Outdated Content
 
@@ -227,8 +224,6 @@ grep -E "^export \{|^export type" packages/vue/src/index.ts
 # Check skill frontmatter
 head -5 .claude/skills/*/SKILL.md packages/*/skills/*/SKILL.md 2>/dev/null
 
-# Find CLAUDE.md files not pointing to AGENTS.md
-grep -L "AGENTS.md" */CLAUDE.md packages/*/CLAUDE.md apps/*/CLAUDE.md 2>/dev/null
 
 # List all story files (React)
 find packages/react/src/components -name "*.stories.tsx"

@@ -65,16 +65,6 @@ Gotchas, dependencies, or critical information.
 | Testing   | How to verify changes        |
 | Important | Gotchas and dependencies     |
 
-## CLAUDE.md
-
-Always create a companion `CLAUDE.md` file that references AGENTS.md:
-
-```markdown
-See [AGENTS.md](./AGENTS.md)
-```
-
-This ensures Claude Code finds the instructions.
-
 ## Example
 
 ```markdown
