@@ -34,6 +34,16 @@ pnpm add @josui/tokens
 
 > **Note:** The tokens export does not include `@import 'tailwindcss'` - you must import Tailwind separately. This allows you to control the import order and disable default Tailwind colors if needed.
 
+### Tailwind No-Prefix Tokens (Contributor Note)
+
+In `terrazzo.config.mjs`, the Tailwind theme key `'*'` is used as a no-prefix marker.
+
+- Example: `'*': ['animation.easing.*']`
+- Terrazzo emits variables like `--*-linear`
+- Post-build normalization rewrites them to `--linear` in `dist/tailwind/theme.css`
+
+This keeps the config explicit while producing unprefixed CSS variable names in the final output.
+
 ### SCSS (Type-Safe)
 
 ```scss

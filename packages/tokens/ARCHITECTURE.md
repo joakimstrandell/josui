@@ -82,3 +82,13 @@ The Tailwind theme maps token categories to Tailwind namespaces:
 | `z-index.*`     | `--zIndex-*`       |
 
 Alpha modifiers (`bg-primary-500/50`) work because Tailwind v4 uses `color-mix()` which handles CSS variables correctly.
+
+### No-prefix namespace marker
+
+For token groups that should emit variables without a namespace prefix, the Tailwind config uses `'*'` as a marker key.
+
+- Config example: `'*': ['animation.easing.*']`
+- Raw plugin output: `--*-linear`, `--*-ease`, etc.
+- Post-build step (`scripts/postbuild-tailwind-theme.ts`) normalizes these to `--linear`, `--ease`, etc.
+
+This convention avoids prefixing while still making intent explicit in the config.
