@@ -5,7 +5,7 @@
   }
 
   body {
-    font-family: var(--fontFamily-body);
+    font-family: var(--font-body);
     color: var(--color-foreground);
     background-color: var(--color-background);
   }
@@ -16,6 +16,6 @@
   h4,
   h5,
   h6 {
-    font-family: var(--fontFamily-heading);
+    font-family: var(--font-heading);
   }
 }

@@ -43,22 +43,22 @@ export default defineConfig({
         // Colors
         color: ['color.*'],
         // Typography
-        fontFamily: ['font.family.*'],
-        fontSize: ['font.size.*'],
-        fontWeight: ['font.weight.*'],
-        letterSpacing: ['font.tracking.*'],
+        font: ['font.family.*'],
+        text: ['font.size.*'],
+        'font-weight': ['font.weight.*'],
+        tracking: ['font.tracking.*'],
         // Spacing & Layout
         spacing: ['spacing.*'],
-        borderRadius: ['radius.*'],
+        radius: ['radius.*'],
         // Shadows
-        boxShadow: ['shadow.*'],
+        'drop-shadow': ['shadow.*'],
         // Animation
-        transitionDuration: ['animation.duration.*'],
-        transitionTimingFunction: ['animation.easing.*'],
+        '': ['animation.duration.*'],
+        '': ['animation.easing.*'],
         // Z-index
-        zIndex: ['z-index.*'],
+        z: ['z-index.*'],
         // Breakpoints
-        screens: ['breakpoint.*'],
+        breakpoint: ['breakpoint.*'],
       },
     }),
     sass({
