@@ -2,9 +2,8 @@
   "extends": "@josui/typescript-config/node.json",
   "compilerOptions": {
     "outDir": "dist",
-    "rootDir": ".",
-    "types": ["vitest/globals"]
+    "rootDir": "."
   },
-  "include": ["src/**/*", "*.ts"],
+  "include": ["src/**/*", "*.ts", "scripts/**/*.ts"],
   "exclude": ["node_modules", "dist"]
 }
