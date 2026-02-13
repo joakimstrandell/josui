@@ -28,7 +28,7 @@
     "skills"
   ],
   "scripts": {
-    "build": "tz build && node -e \"const fs=require('fs');const f='./dist/tailwind/theme.css';fs.writeFileSync(f,fs.readFileSync(f,'utf8').replace('@import \\\"tailwindcss\\\";\\n\\n',''))\"",
+    "build": "tz build && node ./scripts/postbuild-tailwind-theme.ts",
     "clean": "rm -rf dist"
   },
   "dependencies": {
@@ -39,7 +39,9 @@
     "@terrazzo/plugin-css": "^0.10.4",
     "@terrazzo/plugin-js": "^0.10.3",
     "@terrazzo/plugin-sass": "^0.10.4",
-    "@terrazzo/plugin-tailwind": "^0.3.3"
+    "@terrazzo/plugin-tailwind": "^0.3.3",
+    "@josui/eslint-config": "workspace:*",
+    "@josui/typescript-config": "workspace:*"
   },
   "publishConfig": {
     "access": "public"

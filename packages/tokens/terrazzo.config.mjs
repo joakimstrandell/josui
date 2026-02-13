@@ -53,8 +53,8 @@ export default defineConfig({
         // Shadows
         'drop-shadow': ['shadow.*'],
         // Animation
-        '': ['animation.duration.*'],
-        '': ['animation.easing.*'],
+        'duration': ['animation.duration.*'],
+        '*': ['animation.easing.*'],
         // Z-index
         z: ['z-index.*'],
         // Breakpoints
