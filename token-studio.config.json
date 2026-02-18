@@ -1,0 +1,4 @@
+{
+  "tokensDir": "packages/tokens/src/tokens",
+  "terrazzoPath": "packages/tokens/terrazzo.config.mjs"
+}

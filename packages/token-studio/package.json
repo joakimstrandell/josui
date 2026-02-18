@@ -1,0 +1,54 @@
+{
+  "name": "@josui/token-studio",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "./dist/cli.js",
+  "module": "./dist/cli.js",
+  "types": "./dist/cli.d.ts",
+  "bin": {
+    "josui-token-studio": "./dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup && vite build",
+    "dev": "tsx src/cli.ts",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:smoke": "playwright test"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.13.8",
+    "@tanstack/react-router": "^1.117.1",
+    "commander": "^14.0.1",
+    "hono": "^4.10.6",
+    "open": "^10.2.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@josui/eslint-config": "workspace:*",
+    "@josui/prettier-config": "workspace:*",
+    "@josui/typescript-config": "workspace:*",
+    "@playwright/test": "^1.55.0",
+    "@tailwindcss/vite": "^4.0.0",
+    "@types/node": "^20.0.0",
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "@vitejs/plugin-react": "^4.3.2",
+    "jsdom": "^26.0.0",
+    "tailwindcss": "^4.0.0",
+    "tsup": "^8.5.0",
+    "tsx": "^4.20.6",
+    "typescript": "^5.7.0",
+    "vite": "^6.0.3",
+    "vitest": "^3.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
