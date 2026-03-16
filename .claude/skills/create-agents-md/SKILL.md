@@ -97,8 +97,4 @@ Components live in `src/components/`. Each component:
 \`\`\`bash
 pnpm --filter @josui/storybook-react dev
 \`\`\`
-
-## Important
-
-Keep APIs identical to `@josui/vue` for consistency.
 ```

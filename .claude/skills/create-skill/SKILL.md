@@ -8,7 +8,7 @@ description: Guide for creating skills in the josui project. Use when asked to c
 ## Location
 
 - **Internal**: `.claude/skills/` - for maintainers
-- **External**: `packages/{react,vue}/skills/` - shipped to consumers
+- **External**: `packages/{react,tokens}/skills/` - shipped to consumers
 
 ## Structure
 

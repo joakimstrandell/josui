@@ -1,6 +1,6 @@
 # Agent Instructions — @josui/core-web
 
-Framework-agnostic web utilities shared across `@josui/react` and `@josui/vue`.
+Framework-agnostic web utilities used by `@josui/react`.
 
 ## Build
 
@@ -41,4 +41,4 @@ Utilities live in `src/`:
 
 ## Important
 
-This package must build before `@josui/react` and `@josui/vue` packages.
+This package must build before `@josui/react`.

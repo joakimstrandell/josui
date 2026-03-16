@@ -16,10 +16,8 @@ AI-native design system built on DTCG tokens.
 | Package                                                  | Description               |
 | -------------------------------------------------------- | ------------------------- |
 | [@josui/react](./packages/react)                         | React component library   |
-| [@josui/vue](./packages/vue)                             | Vue 3 component library   |
 | [@josui/tokens](./packages/tokens)                       | Design tokens (CSS + JS)  |
 | [@josui/tailwind](./packages/tailwind)                   | Tailwind CSS v4 config    |
-| [@josui/scss](./packages/scss)                           | Base styles + SCSS utils  |
 | [@josui/core](./packages/core)                           | Pure JS utilities         |
 | [@josui/core-web](./packages/core-web)                   | Shared web utilities      |
 | [@josui/cli](./packages/cli)                             | CLI for linking packages  |

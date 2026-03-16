@@ -10,7 +10,7 @@
     "knip": "knip",
     "test": "turbo test",
     "clean": "turbo clean && rm -rf node_modules",
-    "format": "prettier --write \"**/*.{ts,tsx,vue,md,json}\"",
+    "format": "prettier --write \"**/*.{ts,tsx,md,json}\"",
     "changeset": "changeset",
     "version-packages": "changeset version",
     "release": "turbo build --filter=./packages/* && changeset publish",
@@ -34,10 +34,6 @@
   },
   "lint-staged": {
     "*.{ts,tsx}": [
-      "eslint --fix",
-      "prettier --write"
-    ],
-    "*.vue": [
       "eslint --fix",
       "prettier --write"
     ],

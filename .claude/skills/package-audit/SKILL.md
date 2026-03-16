@@ -111,7 +111,6 @@ Verify:
 ### Config Issues
 
 - **@josui/core**: missing `exports` field in package.json
-- **@josui/vue**: tsconfig doesn't extend shared config
 
 ### Summary
 

@@ -12,7 +12,6 @@ pnpm add -D @josui/eslint-config eslint
 
 - `@josui/eslint-config` — Base TypeScript config
 - `@josui/eslint-config/react` — React + TypeScript
-- `@josui/eslint-config/vue` — Vue + TypeScript
 
 ## Usage
 
@@ -21,13 +20,6 @@ pnpm add -D @josui/eslint-config eslint
 import { createReactConfig } from '@josui/eslint-config/react';
 
 export default createReactConfig(import.meta.dirname);
-```
-
-```ts
-// eslint.config.ts
-import { createVueConfig } from '@josui/eslint-config/vue';
-
-export default createVueConfig(import.meta.dirname);
 ```
 
 ```ts

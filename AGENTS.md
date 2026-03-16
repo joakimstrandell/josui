@@ -1,6 +1,6 @@
 # Agent Instructions
 
-Multi-framework design system monorepo. Build order: `tokens → tailwind-config → core → core-web → react/vue → storybook apps`
+Design system monorepo. Build order: `tokens → tailwind → core → core-web → react → apps`
 
 ## Build & Test
 
@@ -35,7 +35,7 @@ Uses [Changesets](https://github.com/changesets/changesets). **Do NOT create cha
 pnpm changeset  # Select packages, bump type, write summary
 ```
 
-**Published:** `@josui/core`, `@josui/core-web`, `@josui/tokens`, `@josui/tailwind`, `@josui/react`, `@josui/vue`, `@josui/eslint-config`, `@josui/typescript-config`
+**Published:** `@josui/core`, `@josui/core-web`, `@josui/tokens`, `@josui/tailwind`, `@josui/react`, `@josui/eslint-config`, `@josui/typescript-config`, `@josui/cli`
 **Ignored:** Apps (`docs`, `storybook-*`)
 
 When adding packages, update `.changeset/config.json` (`linked` or `ignore`).
@@ -52,7 +52,6 @@ Some packages include skills that enhance AI-assisted development. These are loc
 | --------------- | ---------------------- | ------------------------------ |
 | `@josui/tokens` | `add-token`            | Add or customize design tokens |
 | `@josui/react`  | `use-react-components` | Use React components correctly |
-| `@josui/vue`    | `use-vue-components`   | Use Vue components correctly   |
 
 **For monorepo contributors:** Run `npx tsx scripts/link-package-skills.ts` to symlink package skills to `.claude/skills/`.
 
@@ -66,7 +65,7 @@ Run `pnpm knip` to detect unused dependencies, exports, and files. Use after:
 - Refactoring exports
 - Before releasing
 
-Knip config is in `knip.config.ts`. CSS-only packages (scss, tailwind) are ignored since knip only analyzes JS/TS.
+Knip config is in `knip.config.ts`. CSS-only packages (tailwind) are ignored since knip only analyzes JS/TS.
 
 ## Common Pitfalls
 

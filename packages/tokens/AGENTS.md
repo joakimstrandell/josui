@@ -209,27 +209,12 @@ Configuration is in `terrazzo.config.mjs`:
 | Tailwind   | `@josui/tokens/tailwind` | Tailwind v4 theme             |
 | SCSS       | `@josui/tokens/scss`     | Type-safe SCSS with `token()` |
 
-## Integration with @josui/scss
-
-The `@josui/scss` package uses the SCSS export for type-safe token access:
-
-```scss
-@use '@josui/tokens/scss' as tokens;
-
-.example {
-  color: tokens.token('color.primary.500');
-}
-```
-
-Invalid token names cause compile-time errors, not runtime CSS variable failures.
-
 ## Dependencies
 
 This package must build before:
 
-- `@josui/tailwind-config` (imports `@josui/tokens/tailwind`)
-- `@josui/scss` (imports `@josui/tokens/scss`)
-- `@josui/react` and `@josui/vue` (use tokens via CSS/SCSS)
+- `@josui/tailwind` (imports `@josui/tokens/tailwind`)
+- `@josui/react` (uses tokens via CSS)
 
 ## Skills
 

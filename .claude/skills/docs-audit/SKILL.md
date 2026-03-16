@@ -61,7 +61,7 @@ Every package in `packages/` and app in `apps/` must have:
 - [ ] Structure section describing key directories
 - [ ] Testing instructions (if package has tests)
 
-**For component libraries (@josui/react, @josui/vue):**
+**For component libraries (@josui/react):**
 
 ```bash
 grep -E "^export" packages/{package}/src/index.ts
@@ -123,7 +123,7 @@ description: What it does. When to use (triggers).
 - AGENTS.md build commands ↔ package.json scripts
 - README.md features list ↔ Actual exports
 
-### 8. Storybook Audit (@josui/react, @josui/vue)
+### 8. Storybook Audit (@josui/react)
 
 Every exported component must have complete story coverage.
 
@@ -134,13 +134,6 @@ Every exported component must have complete story coverage.
 for comp in $(ls packages/react/src/components/); do
   if [ ! -f "packages/react/src/components/$comp/$comp.stories.tsx" ]; then
     echo "Missing: $comp.stories.tsx"
-  fi
-done
-
-# Vue - list components without stories
-for comp in $(ls packages/vue/src/components/); do
-  if [ ! -f "packages/vue/src/components/$comp/$comp.stories.ts" ]; then
-    echo "Missing: $comp.stories.ts"
   fi
 done
 ```
@@ -190,7 +183,7 @@ grep -E "^export const" packages/react/src/components/Button/Button.stories.tsx
 ### Outdated Content
 
 - [ ] `packages/react/AGENTS.md:45` — Component table missing `Typography`
-- [ ] `packages/vue/skills/use-vue-components/SKILL.md:12` — Setup imports outdated
+- [ ] `packages/react/skills/use-react-components/SKILL.md:12` — Setup imports outdated
 
 ### Inconsistencies
 
@@ -202,34 +195,26 @@ grep -E "^export const" packages/react/src/components/Button/Button.stories.tsx
 | ------- | --------- | ------- | -------- | ---- | -------- | ----- |
 | react   | Button    | ✓       | ✓        | ✓    | 5/5      | 3/3   |
 | react   | Input     | ✓       | ✗        | ✗    | —        | 0/3   |
-| vue     | Dialog    | ✗       | —        | —    | —        | —     |
 
 ### Suggested Fixes
 
 1. Add Typography to AGENTS.md component table
 2. Update skill setup section
 3. Add autodocs tag to Input stories
-4. Create Dialog.stories.ts for Vue
 ```
 
 ## Quick Commands
 
 ```bash
-# List component exports (React)
+# List component exports
 grep -E "^export \{|^export type" packages/react/src/index.ts
-
-# List component exports (Vue)
-grep -E "^export \{|^export type" packages/vue/src/index.ts
 
 # Check skill frontmatter
 head -5 .claude/skills/*/SKILL.md packages/*/skills/*/SKILL.md 2>/dev/null
 
 
-# List all story files (React)
+# List all story files
 find packages/react/src/components -name "*.stories.tsx"
-
-# List all story files (Vue)
-find packages/vue/src/components -name "*.stories.ts"
 
 # Check stories have autodocs tag
 grep -L "autodocs" packages/react/src/components/*/*.stories.tsx 2>/dev/null

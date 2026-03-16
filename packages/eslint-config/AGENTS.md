@@ -6,7 +6,6 @@ Shared ESLint flat configs for the monorepo.
 
 - `index.ts` — Base TypeScript config with `createConfig()` factory
 - `react.ts` — React config with `createReactConfig()` factory
-- `vue.ts` — Vue config with `createVueConfig()` factory
 
 ## Usage Pattern
 

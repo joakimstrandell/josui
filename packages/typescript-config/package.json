@@ -6,8 +6,7 @@
     "./base.json": "./src/base.json",
     "./browser.json": "./src/browser.json",
     "./node.json": "./src/node.json",
-    "./react.json": "./src/react.json",
-    "./vue.json": "./src/vue.json"
+    "./react.json": "./src/react.json"
   },
   "files": [
     "src"

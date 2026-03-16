@@ -8,7 +8,6 @@ Shared TypeScript configurations for the monorepo.
 - `browser.json` — Browser projects (DOM libs, bundler resolution)
 - `node.json` — Node.js projects (NodeNext module resolution)
 - `react.json` — React projects (extends browser, adds JSX)
-- `vue.json` — Vue projects (extends browser, adds Vue types)
 
 ## Usage
 
