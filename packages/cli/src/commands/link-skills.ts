@@ -2,7 +2,7 @@ import { input, select, checkbox } from '@inquirer/prompts';
 import { existsSync } from 'node:fs';
 import { readdir, rm, symlink, mkdir, lstat } from 'node:fs/promises';
 import { join, relative } from 'node:path';
-import { readConfig, updateConfig, type JosuiConfig } from '../utils/config.js';
+import { readConfig, updateConfig, ensureGitignore, type JosuiConfig } from '../utils/config.js';
 
 interface SkillSource {
   path: string;
@@ -227,4 +227,9 @@ async function performSkillLink(
 
   console.log(`\n✓ Linked ${linked} skill(s) to .claude/skills/`);
   console.log('\nConfig saved to .josui.json');
+
+  const addedGitignore = await ensureGitignore(cwd);
+  if (addedGitignore) {
+    console.log('Added josui entries to .gitignore');
+  }
 }

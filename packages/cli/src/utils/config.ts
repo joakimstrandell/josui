@@ -2,6 +2,8 @@ import { readFile, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 
+const GITIGNORE_ENTRIES = ['# josui local linking config', '.josui.json', 'josui-linked-*'];
+
 export interface JosuiConfig {
   josuiPath?: string;
   linkedPackages?: string[];
@@ -45,4 +47,30 @@ export async function updateConfig(
   const updated = { ...existing, ...updates };
   await writeConfig(updated, cwd);
   return updated;
+}
+
+export async function ensureGitignore(cwd: string = process.cwd()): Promise<boolean> {
+  const gitignorePath = join(cwd, '.gitignore');
+
+  const content = existsSync(gitignorePath) ? await readFile(gitignorePath, 'utf-8') : '';
+
+  // Find entries that are missing (skip the comment line for checking)
+  const entriesToCheck = GITIGNORE_ENTRIES.filter((e) => !e.startsWith('#'));
+  const missingEntries = entriesToCheck.filter((entry) => !content.includes(entry));
+
+  if (missingEntries.length === 0) {
+    return false;
+  }
+
+  // If all are missing, add the full block with comment
+  // Otherwise just add the missing entries
+  const toAdd =
+    missingEntries.length === entriesToCheck.length ? GITIGNORE_ENTRIES : missingEntries;
+
+  // Append with proper spacing
+  const prefix =
+    content.length > 0 && !content.endsWith('\n\n') ? (content.endsWith('\n') ? '\n' : '\n\n') : '';
+
+  await writeFile(gitignorePath, content + prefix + toAdd.join('\n') + '\n');
+  return true;
 }

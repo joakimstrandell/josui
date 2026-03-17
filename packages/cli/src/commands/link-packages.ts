@@ -2,7 +2,7 @@ import { input, select, checkbox } from '@inquirer/prompts';
 import { existsSync } from 'node:fs';
 import { rm, symlink, mkdir } from 'node:fs/promises';
 import { join, relative } from 'node:path';
-import { readConfig, updateConfig } from '../utils/config.js';
+import { readConfig, updateConfig, ensureGitignore } from '../utils/config.js';
 
 const AVAILABLE_PACKAGES = ['core', 'core-web', 'react', 'tailwind', 'tokens'] as const;
 
@@ -111,4 +111,9 @@ async function performLink(cwd: string, josuiPath: string, packages: string[]): 
 
   console.log(`\n✓ Linked ${packages.length} package(s)`);
   console.log('\nConfig saved to .josui.json');
+
+  const addedGitignore = await ensureGitignore(cwd);
+  if (addedGitignore) {
+    console.log('Added josui entries to .gitignore');
+  }
 }
