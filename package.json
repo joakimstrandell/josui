@@ -6,7 +6,7 @@
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
-    "lint": "turbo lint && eslint *.ts scripts/**/*.ts",
+    "lint": "turbo lint",
     "knip": "knip",
     "test": "turbo test",
     "clean": "turbo clean && rm -rf node_modules",
