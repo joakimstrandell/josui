@@ -13,7 +13,7 @@ importers:
         version: 2.29.8(@types/node@20.19.30)
       '@josui/eslint-config':
         specifier: workspace:*
-        version: link:packages/eslint-config
+        version: link:config/eslint-config
       '@types/node':
         specifier: ^20.0.0
         version: 20.19.30
@@ -50,7 +50,7 @@ importers:
     devDependencies:
       '@josui/typescript-config':
         specifier: workspace:*
-        version: link:../../packages/typescript-config
+        version: link:../../config/typescript-config
       '@tailwindcss/vite':
         specifier: ^4.0.0
         version: 4.1.18(vite@6.4.1(@types/node@20.19.30)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.97.3)(tsx@4.21.0)(yaml@2.8.2))
@@ -84,7 +84,7 @@ importers:
     devDependencies:
       '@josui/prettier-config':
         specifier: workspace:*
-        version: link:../../packages/prettier-config
+        version: link:../../config/prettier-config
       '@josui/typescript-config':
         specifier: ^0.1.0
         version: 0.1.0
@@ -110,6 +110,42 @@ importers:
         specifier: ^6.0.3
         version: 6.4.1(@types/node@20.19.30)(jiti@2.6.1)(lightningcss@1.30.2)(sass@1.97.3)(tsx@4.21.0)(yaml@2.8.2)
 
+  config/eslint-config:
+    dependencies:
+      '@eslint/js':
+        specifier: ^9.39.2
+        version: 9.39.2
+      eslint:
+        specifier: ^9.0.0
+        version: 9.39.2(jiti@2.6.1)
+      eslint-plugin-react:
+        specifier: ^7.37.5
+        version: 7.37.5(eslint@9.39.2(jiti@2.6.1))
+      eslint-plugin-react-hooks:
+        specifier: ^7.0.1
+        version: 7.0.1(eslint@9.39.2(jiti@2.6.1))
+      globals:
+        specifier: ^17.0.0
+        version: 17.0.0
+      typescript-eslint:
+        specifier: ^8.53.1
+        version: 8.53.1(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
+    devDependencies:
+      '@josui/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
+
+  config/prettier-config:
+    dependencies:
+      prettier:
+        specifier: ^3.0.0
+        version: 3.8.1
+      prettier-plugin-tailwindcss:
+        specifier: ^0.7.2
+        version: 0.7.2(prettier@3.8.1)
+
+  config/typescript-config: {}
+
   packages/cli:
     dependencies:
       '@inquirer/prompts':
@@ -118,7 +154,7 @@ importers:
     devDependencies:
       '@josui/typescript-config':
         specifier: workspace:*
-        version: link:../typescript-config
+        version: link:../../config/typescript-config
       '@types/node':
         specifier: ^20.0.0
         version: 20.19.30
@@ -137,7 +173,7 @@ importers:
     devDependencies:
       '@josui/typescript-config':
         specifier: workspace:*
-        version: link:../typescript-config
+        version: link:../../config/typescript-config
       '@types/culori':
         specifier: ^4.0.0
         version: 4.0.1
@@ -165,47 +201,13 @@ importers:
     devDependencies:
       '@josui/typescript-config':
         specifier: workspace:*
-        version: link:../typescript-config
+        version: link:../../config/typescript-config
       tsup:
         specifier: ^8.5.0
         version: 8.5.1(@microsoft/api-extractor@7.55.2(@types/node@20.19.30))(jiti@2.6.1)(postcss@8.5.6)(tsx@4.21.0)(typescript@5.9.3)(yaml@2.8.2)
       typescript:
         specifier: ^5.7.0
         version: 5.9.3
-
-  packages/eslint-config:
-    dependencies:
-      '@eslint/js':
-        specifier: ^9.39.2
-        version: 9.39.2
-      eslint:
-        specifier: ^9.0.0
-        version: 9.39.2(jiti@2.6.1)
-      eslint-plugin-react:
-        specifier: ^7.37.5
-        version: 7.37.5(eslint@9.39.2(jiti@2.6.1))
-      eslint-plugin-react-hooks:
-        specifier: ^7.0.1
-        version: 7.0.1(eslint@9.39.2(jiti@2.6.1))
-      globals:
-        specifier: ^17.0.0
-        version: 17.0.0
-      typescript-eslint:
-        specifier: ^8.53.1
-        version: 8.53.1(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
-    devDependencies:
-      '@josui/typescript-config':
-        specifier: workspace:*
-        version: link:../typescript-config
-
-  packages/prettier-config:
-    dependencies:
-      prettier:
-        specifier: ^3.0.0
-        version: 3.8.1
-      prettier-plugin-tailwindcss:
-        specifier: ^0.7.2
-        version: 0.7.2(prettier@3.8.1)
 
   packages/react:
     dependencies:
@@ -218,13 +220,13 @@ importers:
         version: 5.0.0(storybook@10.2.0(@testing-library/dom@10.4.0)(prettier@3.8.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       '@josui/prettier-config':
         specifier: workspace:*
-        version: link:../prettier-config
+        version: link:../../config/prettier-config
       '@josui/tailwind':
         specifier: workspace:*
         version: link:../tailwind
       '@josui/typescript-config':
         specifier: workspace:*
-        version: link:../typescript-config
+        version: link:../../config/typescript-config
       '@storybook/addon-a11y':
         specifier: ^10.2.0
         version: 10.2.0(storybook@10.2.0(@testing-library/dom@10.4.0)(prettier@3.8.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
@@ -322,13 +324,13 @@ importers:
     devDependencies:
       '@josui/eslint-config':
         specifier: workspace:*
-        version: link:../eslint-config
+        version: link:../../config/eslint-config
       '@josui/prettier-config':
         specifier: workspace:*
-        version: link:../prettier-config
+        version: link:../../config/prettier-config
       '@josui/typescript-config':
         specifier: workspace:*
-        version: link:../typescript-config
+        version: link:../../config/typescript-config
       '@playwright/test':
         specifier: ^1.55.0
         version: 1.58.2
@@ -377,10 +379,10 @@ importers:
     devDependencies:
       '@josui/eslint-config':
         specifier: workspace:*
-        version: link:../eslint-config
+        version: link:../../config/eslint-config
       '@josui/typescript-config':
         specifier: workspace:*
-        version: link:../typescript-config
+        version: link:../../config/typescript-config
       '@terrazzo/cli':
         specifier: ^0.10.5
         version: 0.10.5(hono@4.11.5)
@@ -396,8 +398,6 @@ importers:
       '@terrazzo/plugin-tailwind':
         specifier: ^0.3.3
         version: 0.3.3(@terrazzo/cli@0.10.5(hono@4.11.5))(@terrazzo/plugin-css@0.10.4(@terrazzo/cli@0.10.5(hono@4.11.5)))(tailwindcss@4.1.18)
-
-  packages/typescript-config: {}
 
 packages:
 

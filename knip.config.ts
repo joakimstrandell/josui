@@ -12,9 +12,10 @@ export default {
     'packages/tailwind': {
       ignore: ['**/*'],
     },
-    'packages/typescript-config': {
+    'config/typescript-config': {
       ignore: ['**/*'],
     },
+    'config/*': {},
     'apps/docs': {
       ignore: ['**/*'],
     },

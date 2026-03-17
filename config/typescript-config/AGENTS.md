@@ -1,17 +1,19 @@
 # Agent Instructions — @josui/typescript-config
 
-Shared TypeScript configurations for the monorepo.
+Internal TypeScript configuration for the josui monorepo. **Not published to npm.**
+
+## Purpose
+
+Provides shared TypeScript settings for all packages and apps in this monorepo. This ensures consistent compiler options and type-checking across the codebase.
 
 ## Configs
 
-- `base.json` — Shared strict settings (all packages extend this)
+- `base.json` — Shared strict settings (all configs extend this)
 - `browser.json` — Browser projects (DOM libs, bundler resolution)
 - `node.json` — Node.js projects (NodeNext module resolution)
 - `react.json` — React projects (extends browser, adds JSX)
 
-## Usage
-
-Packages extend the appropriate config:
+## Usage (monorepo only)
 
 ```json
 {
@@ -29,8 +31,10 @@ Packages extend the appropriate config:
 
 1. Edit the appropriate JSON file
 2. Run `pnpm lint` to verify TypeScript still resolves correctly
-3. Changes affect all packages extending that config
+3. Changes affect all packages in this monorepo
 
 ## Important
 
-Changes affect all packages extending these configs. Test with `pnpm lint` from root.
+- This package is private and not published to npm
+- External projects consuming @josui packages should use their own tsconfig
+- Only packages/ contents are published; config/ is internal tooling

@@ -1,17 +1,20 @@
 # Agent Instructions — @josui/eslint-config
 
-Shared ESLint flat configs for the monorepo.
+Internal ESLint configuration for the josui monorepo. **Not published to npm.**
+
+## Purpose
+
+Provides shared ESLint flat configs for all packages and apps in this monorepo. This ensures consistent linting rules across the codebase.
 
 ## Configs
 
 - `index.ts` — Base TypeScript config with `createConfig()` factory
 - `react.ts` — React config with `createReactConfig()` factory
 
-## Usage Pattern
-
-Consumers must use factory functions with `import.meta.dirname`:
+## Usage (monorepo only)
 
 ```ts
+// eslint.config.ts in any package/app
 import { createReactConfig } from '@josui/eslint-config/react';
 
 export default createReactConfig(import.meta.dirname);
@@ -27,8 +30,10 @@ export default createReactConfig(import.meta.dirname);
 
 1. Edit the appropriate config file
 2. Run `pnpm lint` from root to test across all packages
-3. Update consumers if adding new exports
+3. Changes affect all packages in this monorepo
 
 ## Important
 
-Changes affect all packages using these configs. Test with `pnpm lint` from root.
+- This package is private and not published to npm
+- External projects consuming @josui packages should use their own ESLint config
+- Only packages/ contents are published; config/ is internal tooling

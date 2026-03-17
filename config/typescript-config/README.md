@@ -1,12 +1,8 @@
 # @josui/typescript-config
 
-Shared TypeScript configurations for the Josui design system.
+> Internal package — not published to npm
 
-## Installation
-
-```bash
-pnpm add -D @josui/typescript-config typescript
-```
+Shared TypeScript configurations for the josui monorepo.
 
 ## Configs
 
