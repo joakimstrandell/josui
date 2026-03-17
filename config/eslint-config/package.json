@@ -1,17 +1,11 @@
 {
   "name": "@josui/eslint-config",
-  "version": "0.1.1",
+  "private": true,
   "type": "module",
   "main": "./src/index.ts",
   "exports": {
     ".": "./src/index.ts",
     "./react": "./src/react.ts"
-  },
-  "files": [
-    "src"
-  ],
-  "devDependencies": {
-    "@josui/typescript-config": "workspace:*"
   },
   "dependencies": {
     "@eslint/js": "^9.39.2",
@@ -22,8 +16,5 @@
   },
   "peerDependencies": {
     "eslint": "^9.0.0"
-  },
-  "publishConfig": {
-    "access": "public"
   }
 }

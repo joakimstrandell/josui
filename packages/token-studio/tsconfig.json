@@ -1,5 +1,5 @@
 {
-  "extends": "@josui/typescript-config/node.json",
+  "extends": "../../config/typescript-config/src/node.json",
   "compilerOptions": {
     "rootDir": ".",
     "lib": ["ES2022", "DOM", "DOM.Iterable"],

@@ -1,17 +1,11 @@
 {
   "name": "@josui/typescript-config",
-  "version": "0.1.1",
+  "private": true,
   "type": "module",
   "exports": {
     "./base.json": "./src/base.json",
     "./browser.json": "./src/browser.json",
     "./node.json": "./src/node.json",
     "./react.json": "./src/react.json"
-  },
-  "files": [
-    "src"
-  ],
-  "publishConfig": {
-    "access": "public"
   }
 }

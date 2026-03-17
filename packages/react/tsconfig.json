@@ -1,5 +1,5 @@
 {
-  "extends": "@josui/typescript-config/react.json",
+  "extends": "../../config/typescript-config/src/react.json",
   "compilerOptions": {
     "outDir": "dist",
     "rootDir": ".",

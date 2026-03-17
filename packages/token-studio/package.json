@@ -31,9 +31,6 @@
     "zod": "^4.1.12"
   },
   "devDependencies": {
-    "@josui/eslint-config": "workspace:*",
-    "@josui/prettier-config": "workspace:*",
-    "@josui/typescript-config": "workspace:*",
     "@playwright/test": "^1.55.0",
     "@tailwindcss/vite": "^4.0.0",
     "@types/node": "^20.0.0",

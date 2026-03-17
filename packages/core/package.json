@@ -27,7 +27,6 @@
     "culori": "^4.0.0"
   },
   "devDependencies": {
-    "@josui/typescript-config": "workspace:*",
     "@types/culori": "^4.0.0",
     "tsup": "^8.5.0",
     "typescript": "^5.7.0"

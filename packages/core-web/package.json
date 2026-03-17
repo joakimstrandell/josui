@@ -30,7 +30,6 @@
     "tailwind-merge": "^3.0.0"
   },
   "devDependencies": {
-    "@josui/typescript-config": "workspace:*",
     "tsup": "^8.5.0",
     "typescript": "^5.7.0"
   },

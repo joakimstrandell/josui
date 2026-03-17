@@ -1,5 +1,5 @@
 {
-  "extends": "@josui/typescript-config/browser.json",
+  "extends": "../../config/typescript-config/src/browser.json",
   "compilerOptions": {
     "outDir": "dist",
     "rootDir": "."
