@@ -1,6 +1,6 @@
 {
   "name": "@josui/tailwind-preset",
-  "version": "0.3.1",
+  "version": "1.0.0",
   "type": "module",
   "main": "./src/theme.css",
   "exports": {
