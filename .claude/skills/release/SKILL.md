@@ -48,12 +48,11 @@ git log @josui/react@0.1.0..HEAD --oneline -- packages/react
 Create separate files in `.changeset/` with descriptive names:
 
 ```markdown
-## <!-- .changeset/tokens-terrazzo.md -->
+## <!-- .changeset/tailwind-preset-update.md -->
 
-## "@josui/tokens": minor
+## "@josui/tailwind-preset": minor
 
-- Migrated from Style Dictionary to Terrazzo CLI
-- Added Tailwind and Sass plugins
+Add new color tokens for status states
 ```
 
 ```markdown
@@ -61,7 +60,7 @@ Create separate files in `.changeset/` with descriptive names:
 
 ## "@josui/react": patch
 
-- Documentation updates
+Documentation updates
 ```
 
 ### 3. Bump Type Guidelines
