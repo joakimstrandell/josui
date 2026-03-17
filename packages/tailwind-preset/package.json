@@ -1,5 +1,5 @@
 {
-  "name": "@josui/tailwind",
+  "name": "@josui/tailwind-preset",
   "version": "0.3.1",
   "type": "module",
   "main": "./src/theme.css",
@@ -12,9 +12,6 @@
   "scripts": {
     "build": "echo 'No build step needed - CSS-only package'",
     "lint": "echo 'No lint step needed - CSS-only package'"
-  },
-  "dependencies": {
-    "@josui/tokens": "workspace:*"
   },
   "devDependencies": {
     "tailwindcss": "^4.0.0"

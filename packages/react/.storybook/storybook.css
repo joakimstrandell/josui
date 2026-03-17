@@ -1,2 +1,2 @@
-@import '@josui/tailwind';
+@import '@josui/tailwind-preset';
 @source '../src/**/*.ts';

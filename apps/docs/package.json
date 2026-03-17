@@ -11,8 +11,7 @@
     "lint": "echo 'No lint step needed - HTML/CSS only'"
   },
   "dependencies": {
-    "@josui/tailwind": "workspace:*",
-    "@josui/tokens": "workspace:*"
+    "@josui/tailwind-preset": "workspace:*"
   },
   "devDependencies": {
     "@josui/typescript-config": "workspace:*",

@@ -1,21 +1,20 @@
 import { defineConfig } from '@terrazzo/cli';
 import css from '@terrazzo/plugin-css';
 import js from '@terrazzo/plugin-js';
-import sass from '@terrazzo/plugin-sass';
 import tailwind from '@terrazzo/plugin-tailwind';
 
 export default defineConfig({
   tokens: [
-    './src/tokens/color.json',
-    './src/tokens/font.json',
-    './src/tokens/spacing.json',
-    './src/tokens/radius.json',
-    './src/tokens/shadow.json',
-    './src/tokens/animation.json',
-    './src/tokens/z-index.json',
-    './src/tokens/breakpoint.json',
+    './tokens/color.json',
+    './tokens/font.json',
+    './tokens/spacing.json',
+    './tokens/radius.json',
+    './tokens/shadow.json',
+    './tokens/animation.json',
+    './tokens/z-index.json',
+    './tokens/breakpoint.json',
   ],
-  outDir: './dist/',
+  outDir: './generated/',
   plugins: [
     css({
       filename: 'css/variables.css',
@@ -53,16 +52,13 @@ export default defineConfig({
         // Shadows
         'drop-shadow': ['shadow.*'],
         // Animation
-        'duration': ['animation.duration.*'],
+        duration: ['animation.duration.*'],
         '*': ['animation.easing.*'],
         // Z-index
         z: ['z-index.*'],
         // Breakpoints
         breakpoint: ['breakpoint.*'],
       },
-    }),
-    sass({
-      filename: 'scss/index.scss',
     }),
   ],
 });

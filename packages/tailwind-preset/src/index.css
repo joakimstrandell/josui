@@ -1,4 +1,4 @@
 @import 'tailwindcss';
 @import './theme.css';
-@import '@josui/tokens/tailwind';
+@import './tokens.css';
 @import './base.css';
