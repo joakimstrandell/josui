@@ -13,24 +13,24 @@ AI-native design system built on DTCG tokens.
 
 ## Packages (published to npm)
 
-| Package                                | Description              |
-| -------------------------------------- | ------------------------ |
-| [@josui/react](./packages/react)       | React component library  |
-| [@josui/tokens](./packages/tokens)     | Design tokens (CSS + JS) |
-| [@josui/tailwind](./packages/tailwind) | Tailwind CSS v4 config   |
-| [@josui/core](./packages/core)         | Pure JS utilities        |
-| [@josui/core-web](./packages/core-web) | Shared web utilities     |
-| [@josui/cli](./packages/cli)           | CLI for linking packages |
+| Package                                              | Description              |
+| ---------------------------------------------------- | ------------------------ |
+| [@josui/react](./packages/react)                     | React component library  |
+| [@josui/tailwind-preset](./packages/tailwind-preset) | Tailwind CSS v4 preset   |
+| [@josui/token-studio](./packages/token-studio)       | Token editor CLI         |
+| [@josui/core](./packages/core)                       | Pure JS utilities        |
+| [@josui/core-web](./packages/core-web)               | Shared web utilities     |
+| [@josui/cli](./packages/cli)                         | CLI for linking packages |
 
-## Internal Config (not published)
+## Config Packages (published to npm)
 
-Shared tooling configs used within this monorepo:
+Shared tooling configs:
 
-| Config                                          | Description             |
-| ----------------------------------------------- | ----------------------- |
-| [eslint-config](./config/eslint-config)         | Shared ESLint configs   |
-| [prettier-config](./config/prettier-config)     | Shared Prettier configs |
-| [typescript-config](./config/typescript-config) | Shared tsconfig files   |
+| Package                                                | Description             |
+| ------------------------------------------------------ | ----------------------- |
+| [@josui/eslint-config](./config/eslint-config)         | Shared ESLint configs   |
+| [@josui/prettier-config](./config/prettier-config)     | Shared Prettier configs |
+| [@josui/typescript-config](./config/typescript-config) | Shared tsconfig files   |
 
 ## Apps
 

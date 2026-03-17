@@ -60,7 +60,7 @@ The CLI saves your settings to `.josui.json` in your project root:
 ```json
 {
   "josuiPath": "../josui",
-  "linkedPackages": ["core", "core-web", "react", "tailwind", "tokens"],
+  "linkedPackages": ["core", "core-web", "react", "tailwind-preset", "eslint-config"],
   "linkedSkills": [{ "source": "react", "skills": ["use-react-components"] }]
 }
 ```

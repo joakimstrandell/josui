@@ -4,7 +4,30 @@ import { rm, symlink, mkdir } from 'node:fs/promises';
 import { join, relative } from 'node:path';
 import { readConfig, updateConfig, ensureGitignore } from '../utils/config.js';
 
-const AVAILABLE_PACKAGES = ['core', 'core-web', 'react', 'tailwind', 'tokens'] as const;
+const AVAILABLE_PACKAGES = [
+  'core',
+  'core-web',
+  'react',
+  'tailwind-preset',
+  'token-studio',
+  'cli',
+  'eslint-config',
+  'prettier-config',
+  'typescript-config',
+] as const;
+
+// Map package names to their directory paths
+const PACKAGE_PATHS: Record<string, string> = {
+  core: 'packages/core',
+  'core-web': 'packages/core-web',
+  react: 'packages/react',
+  'tailwind-preset': 'packages/tailwind-preset',
+  'token-studio': 'packages/token-studio',
+  cli: 'packages/cli',
+  'eslint-config': 'config/eslint-config',
+  'prettier-config': 'config/prettier-config',
+  'typescript-config': 'config/typescript-config',
+};
 
 export async function linkPackages(): Promise<void> {
   const cwd = process.cwd();
@@ -95,7 +118,8 @@ async function performLink(cwd: string, josuiPath: string, packages: string[]): 
 
   for (const pkg of packages) {
     const targetPath = join(nodeModulesJosui, pkg);
-    const sourcePath = join(cwd, josuiPath, 'packages', pkg);
+    const pkgPath = PACKAGE_PATHS[pkg] || `packages/${pkg}`;
+    const sourcePath = join(cwd, josuiPath, pkgPath);
 
     // Remove existing (file, dir, or symlink)
     if (existsSync(targetPath)) {

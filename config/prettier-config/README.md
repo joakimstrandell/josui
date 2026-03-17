@@ -1,8 +1,12 @@
 # @josui/prettier-config
 
-> Internal package — not published to npm
+Shared Prettier configuration for josui projects.
 
-Shared Prettier configuration for the josui monorepo.
+## Installation
+
+```bash
+pnpm add -D @josui/prettier-config prettier
+```
 
 ## Usage
 

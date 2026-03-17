@@ -1,6 +1,6 @@
 # Agent Instructions
 
-Design system monorepo. Build order: `tokens → tailwind → core → core-web → react → apps`
+Design system monorepo. Build order: `core → core-web → react → apps`
 
 ## Build & Test
 
@@ -35,7 +35,7 @@ Uses [Changesets](https://github.com/changesets/changesets). **Do NOT create cha
 pnpm changeset  # Select packages, bump type, write summary
 ```
 
-**Published:** `@josui/core`, `@josui/core-web`, `@josui/tokens`, `@josui/tailwind`, `@josui/react`, `@josui/eslint-config`, `@josui/typescript-config`, `@josui/cli`
+**Published:** `@josui/core`, `@josui/core-web`, `@josui/react`, `@josui/tailwind-preset`, `@josui/token-studio`, `@josui/cli`, `@josui/eslint-config`, `@josui/prettier-config`, `@josui/typescript-config`
 **Ignored:** Apps (`docs`, `storybook-*`)
 
 When adding packages, update `.changeset/config.json` (`linked` or `ignore`).
@@ -48,12 +48,11 @@ Each package has its own `AGENTS.md`. The closest one to the file you're editing
 
 Some packages include skills that enhance AI-assisted development. These are located in `packages/{name}/skills/` and are published with the package.
 
-| Package         | Skill                  | Purpose                        |
-| --------------- | ---------------------- | ------------------------------ |
-| `@josui/tokens` | `add-token`            | Add or customize design tokens |
-| `@josui/react`  | `use-react-components` | Use React components correctly |
+| Package        | Skill                  | Purpose                        |
+| -------------- | ---------------------- | ------------------------------ |
+| `@josui/react` | `use-react-components` | Use React components correctly |
 
-**For monorepo contributors:** Run `npx tsx scripts/link-package-skills.ts` to symlink package skills to `.claude/skills/`.
+**For monorepo contributors:** Run `pnpm josui link skills` to symlink package skills to `.claude/skills/`.
 
 **For package consumers:** Copy the skill folder from `node_modules/@josui/{package}/skills/{skill-name}/` to your project's `.claude/skills/` directory to enable AI-assisted usage of the package.
 
@@ -71,5 +70,5 @@ Knip config is in `knip.config.ts`. CSS-only packages (tailwind) are ignored sin
 
 - **ESLint**: Each package has its own `eslint.config.ts` with `tsconfigRootDir`
 - **TypeScript**: Ensure `tsconfig.json` extends `@josui/typescript-config`
-- **Build failures**: Build tokens first (`pnpm --filter @josui/tokens build`)
+- **Build failures**: Build core first (`pnpm --filter @josui/core build`)
 - **Imports**: Use workspace protocol (`workspace:*`) for internal dependencies

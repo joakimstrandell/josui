@@ -1,17 +1,17 @@
 # Agent Instructions — @josui/prettier-config
 
-Internal Prettier configuration for the josui monorepo. **Not published to npm.**
+Shared Prettier configuration package. **Published to npm.**
 
 ## Purpose
 
-Provides shared Prettier settings for all packages and apps in this monorepo. This ensures consistent code formatting across the codebase.
+Provides shared Prettier settings for josui projects. Ensures consistent code formatting.
 
 ## Structure
 
 - `index.mjs` — Base Prettier config
 - `tailwind.mjs` — Config with Tailwind CSS plugin for class sorting
 
-## Usage (monorepo only)
+## Usage
 
 In `package.json` of any package/app:
 
@@ -34,9 +34,3 @@ Or for Tailwind projects:
 - No build step required (ships raw `.mjs` files)
 - Keep configs minimal and focused
 - Tailwind config includes `prettier-plugin-tailwindcss` for class sorting
-
-## Important
-
-- This package is private and not published to npm
-- External projects consuming @josui packages should use their own Prettier config
-- Only packages/ contents are published; config/ is internal tooling

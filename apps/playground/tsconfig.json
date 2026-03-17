@@ -1,5 +1,5 @@
 {
-  "extends": "../../config/typescript-config/src/react.json",
+  "extends": "@josui/typescript-config/react.json",
   "include": ["src", "*.ts"],
   "exclude": ["node_modules", "dist"]
 }

@@ -1,5 +1,5 @@
 {
-  "extends": "../../config/typescript-config/src/browser.json",
+  "extends": "@josui/typescript-config/browser.json",
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]
 }

@@ -1,8 +1,12 @@
 # @josui/eslint-config
 
-> Internal package — not published to npm
+Shared ESLint flat configs for josui projects.
 
-Shared ESLint flat configs for the josui monorepo.
+## Installation
+
+```bash
+pnpm add -D @josui/eslint-config eslint
+```
 
 ## Configs
 
