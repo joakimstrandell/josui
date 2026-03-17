@@ -1,5 +1,11 @@
 # @josui/token-studio
 
+## 0.2.1
+
+### Patch Changes
+
+- Publish config packages to npm to resolve workspace protocol issues
+
 ## 0.2.0
 
 ### Minor Changes
