@@ -2,7 +2,7 @@
 import { useEffect, useRef } from 'react';
 import { createCustomCursor, type CustomCursorOptions } from '@josui/core-web';
 import { useIsTouchDevice } from '../../hooks/useIsTouchDevice';
-import { cn } from '@josui/core-web/src';
+import { cn } from '@josui/core-web';
 
 export interface CustomCursorProps {
   options?: CustomCursorOptions;

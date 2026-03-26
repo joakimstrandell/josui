@@ -1,7 +1,7 @@
 'use client';
 
 import { forwardRef, type ButtonHTMLAttributes } from 'react';
-import { cn } from '@josui/core-web/src';
+import { cn } from '@josui/core-web';
 import { useTheme, type UseThemeOptions } from '../../hooks/useTheme';
 
 export interface ThemeToggleProps

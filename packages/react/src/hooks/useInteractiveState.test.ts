@@ -5,7 +5,8 @@ import { useInteractiveState } from './useInteractiveState';
 const mockSubscribe = vi.fn();
 const mockGetState = vi.fn();
 
-vi.mock('@josui/core-web', () => ({
+vi.mock('@josui/core-web', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('@josui/core-web')>()),
   interactiveState: {
     subscribe: (callback: () => void) => mockSubscribe(callback),
     getState: () => mockGetState(),

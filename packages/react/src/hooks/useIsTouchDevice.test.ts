@@ -2,7 +2,8 @@ import { renderHook } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { useIsTouchDevice } from './useIsTouchDevice';
 
-vi.mock('@josui/core-web', () => ({
+vi.mock('@josui/core-web', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('@josui/core-web')>()),
   isTouchDevice: vi.fn(),
 }));
 

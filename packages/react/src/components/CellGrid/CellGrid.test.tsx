@@ -22,10 +22,10 @@ const mockCreateCellGridController = vi.fn(() => ({
 }));
 
 // Mock @josui/core-web
-vi.mock('@josui/core-web', () => ({
+vi.mock('@josui/core-web', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('@josui/core-web')>()),
   createCellGridController: (canvas: HTMLCanvasElement, config: unknown) =>
     mockCreateCellGridController(canvas, config),
-  cn: (...args: string[]) => args.filter(Boolean).join(' '),
   isTouchDevice: vi.fn(() => false),
 }));
 

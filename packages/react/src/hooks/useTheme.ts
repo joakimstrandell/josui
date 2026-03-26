@@ -1,8 +1,8 @@
 'use client';
 
 import { useSyncExternalStore, useEffect } from 'react';
-import { themeState, createKeyboardShortcut, parseShortcut } from '@josui/core-web/src';
-import type { Theme, ResolvedTheme, ThemeState, KeyboardShortcut } from '@josui/core-web/src';
+import { themeState, createKeyboardShortcut, parseShortcut } from '@josui/core-web';
+import type { Theme, ResolvedTheme, ThemeState, KeyboardShortcut } from '@josui/core-web';
 
 export type { Theme, ResolvedTheme, ThemeState };
 

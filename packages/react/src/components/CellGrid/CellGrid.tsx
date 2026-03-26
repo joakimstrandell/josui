@@ -1,8 +1,8 @@
 'use client';
 
 import { useEffect, useRef, useCallback } from 'react';
-import { createCellGridController, cn, isTouchDevice, resolveColor } from '@josui/core-web/src';
-import type { CellGridController } from '@josui/core-web/src';
+import { createCellGridController, cn, isTouchDevice, resolveColor } from '@josui/core-web';
+import type { CellGridController } from '@josui/core-web';
 import { useInteractiveState } from '../../hooks/useInteractiveState';
 
 export interface CellGridProps {

@@ -6,7 +6,8 @@ import { CustomCursor } from './CustomCursor';
 const mockDestroy = vi.fn();
 const mockCreateCustomCursor = vi.fn(() => ({ destroy: mockDestroy }));
 
-vi.mock('@josui/core-web', () => ({
+vi.mock('@josui/core-web', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('@josui/core-web')>()),
   createCustomCursor: (el: HTMLElement, opts: unknown) => mockCreateCustomCursor(el, opts),
   isTouchDevice: vi.fn(() => false),
 }));

@@ -12,7 +12,8 @@ const mockParseShortcut = vi.fn((s: string) => ({
   meta: false,
 }));
 
-vi.mock('@josui/core-web/src', () => ({
+vi.mock('@josui/core-web', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('@josui/core-web')>()),
   createKeyboardShortcut: (opts: unknown) => mockCreateKeyboardShortcut(opts),
   parseShortcut: (s: string) => mockParseShortcut(s),
 }));

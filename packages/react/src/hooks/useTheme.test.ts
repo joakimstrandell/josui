@@ -9,7 +9,8 @@ const mockToggle = vi.fn();
 const mockCreateKeyboardShortcut = vi.fn(() => vi.fn());
 const mockParseShortcut = vi.fn((s: string) => ({ key: s }));
 
-vi.mock('@josui/core-web/src', () => ({
+vi.mock('@josui/core-web', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('@josui/core-web')>()),
   themeState: {
     subscribe: (callback: () => void) => mockSubscribe(callback),
     getState: () => mockGetState(),
