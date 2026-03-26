@@ -2,7 +2,7 @@
   "name": "@josui/tailwind-preset",
   "version": "1.0.0",
   "type": "module",
-  "main": "./src/theme.css",
+  "main": "./src/index.css",
   "exports": {
     ".": "./src/index.css"
   },
