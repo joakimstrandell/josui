@@ -2,25 +2,15 @@
   "name": "@josui/core-web",
   "version": "0.2.0",
   "type": "module",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
   "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
-    },
-    "./src": "./src/index.ts"
+    ".": "./src/index.ts"
   },
   "files": [
-    "dist",
     "src"
   ],
   "scripts": {
-    "build": "tsup",
-    "dev": "tsup --watch",
-    "clean": "rm -rf dist",
     "lint": "eslint src"
   },
   "dependencies": {
@@ -31,7 +21,6 @@
   },
   "devDependencies": {
     "@josui/typescript-config": "workspace:*",
-    "tsup": "^8.5.0",
     "typescript": "^5.7.0"
   },
   "publishConfig": {
