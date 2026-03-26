@@ -1,6 +1,6 @@
 # Agent Instructions — @josui/token-studio
 
-Local CLI + web editor for DTCG token CRUD.
+Local CLI + web editor for DTCG token CRUD. See [ARCHITECTURE.md](./ARCHITECTURE.md) for design decisions.
 
 ## Development
 

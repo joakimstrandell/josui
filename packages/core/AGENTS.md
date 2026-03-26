@@ -4,11 +4,7 @@ Pure JavaScript utilities that work anywhere (Node.js, browser, SSR).
 
 ## Build
 
-```bash
-pnpm --filter @josui/core build
-```
-
-Uses tsup for bundling. Outputs ESM, CJS, and type definitions to `dist/`.
+No build step — consumers import TypeScript source directly via `main: "./src/index.ts"`.
 
 ## Structure
 
@@ -40,7 +36,7 @@ toHex('rgb(255, 0, 0)'); // '#ff0000'
 
 1. Create `src/utility-name.ts`
 2. Export from `src/index.ts`
-3. Run `pnpm build` to verify
+3. Verify exports from `src/index.ts`
 
 ## Guidelines
 

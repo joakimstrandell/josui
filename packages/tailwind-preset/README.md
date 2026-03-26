@@ -1,11 +1,11 @@
-# @josui/tailwind
+# @josui/tailwind-preset
 
 Shared Tailwind CSS v4 configuration for Josui components.
 
 ## Installation
 
 ```bash
-pnpm add @josui/tailwind
+pnpm add @josui/tailwind-preset
 ```
 
 ## Usage

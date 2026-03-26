@@ -4,11 +4,7 @@ React component library using Tailwind CSS.
 
 ## Build
 
-```bash
-pnpm --filter @josui/react build
-```
-
-Outputs ESM, CJS, and types to `dist/`.
+No build step — consumers import TypeScript source directly via `main: "./src/index.ts"`.
 
 ## Structure
 
@@ -97,6 +93,8 @@ Uses Vitest with `@testing-library/react`.
 
 ## Components
 
+### Core
+
 | Component    | Variants                                        | Sizes      |
 | ------------ | ----------------------------------------------- | ---------- |
 | Button       | primary, secondary, outline, ghost, destructive | sm, md, lg |
@@ -113,6 +111,91 @@ Uses Vitest with `@testing-library/react`.
 
 Card is a compound component with sub-components (CardHeader, CardTitle, CardDescription, CardContent, CardFooter).
 
+### Simple
+
+| Component  | Description                      |
+| ---------- | -------------------------------- |
+| Label      | Form label (Radix)               |
+| Separator  | Visual divider (Radix)           |
+| Skeleton   | Loading placeholder              |
+| Textarea   | Multi-line text input            |
+| Table      | Data table (compound)            |
+| Pagination | Page navigation (compound)       |
+| Breadcrumb | Breadcrumb navigation (compound) |
+
+### Radix Primitives
+
+| Component   | Description                   |
+| ----------- | ----------------------------- |
+| AspectRatio | Fixed aspect ratio container  |
+| Checkbox    | Checkbox input                |
+| Progress    | Progress bar                  |
+| RadioGroup  | Radio button group            |
+| ScrollArea  | Custom scrollbar container    |
+| Slider      | Range slider                  |
+| Switch      | Toggle switch                 |
+| Toggle      | Toggle button                 |
+| ToggleGroup | Group of toggle buttons       |
+| Tabs        | Tab navigation                |
+| Collapsible | Expandable/collapsible region |
+
+### Overlays
+
+| Component      | Description          |
+| -------------- | -------------------- |
+| Tooltip        | Hover tooltip        |
+| Popover        | Floating content     |
+| Dialog         | Modal dialog         |
+| AlertDialog    | Confirmation dialog  |
+| Sheet          | Slide-out panel      |
+| HoverCard      | Hover-triggered card |
+| DropdownMenu   | Dropdown menu        |
+| ContextMenu    | Right-click menu     |
+| Menubar        | Horizontal menu bar  |
+| NavigationMenu | Site navigation menu |
+| Select         | Select dropdown      |
+
+### Compound
+
+| Component | Description                  |
+| --------- | ---------------------------- |
+| Accordion | Expandable sections          |
+| Command   | Command palette (cmdk)       |
+| Toaster   | Toast notifications (sonner) |
+| InputOTP  | One-time password input      |
+| Resizable | Resizable panels             |
+
+### Heavy Dependencies
+
+| Component | Description                    |
+| --------- | ------------------------------ |
+| Calendar  | Date picker (react-day-picker) |
+| Carousel  | Carousel (embla)               |
+| Chart     | Charts (recharts)              |
+| Drawer    | Bottom drawer (vaul)           |
+| Sidebar   | App sidebar (compound)         |
+
+### Layout
+
+| Component | Description          |
+| --------- | -------------------- |
+| Container | Responsive container |
+| Page      | Page layout          |
+
+### Animation
+
+| Component      | Description          |
+| -------------- | -------------------- |
+| RotatingText   | Text rotation effect |
+| AnimateContent | Content animation    |
+
+### Misc
+
+| Component     | Description          |
+| ------------- | -------------------- |
+| BracketButton | Bracket-style button |
+| Checklist     | Checklist component  |
+
 ## Hooks
 
 | Hook                | Purpose                                  |
@@ -122,6 +205,7 @@ Card is a compound component with sub-components (CardHeader, CardTitle, CardDes
 | useScrollDirection  | Track scroll direction (up/down)         |
 | useTheme            | Manage theme state (light/dark/system)   |
 | useKeyboardShortcut | Add keyboard shortcuts with auto-cleanup |
+| useScrollProgress   | Track scroll progress (0–1)              |
 
 ## Skills
 

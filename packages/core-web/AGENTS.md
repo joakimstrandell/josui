@@ -4,11 +4,7 @@ Framework-agnostic web utilities used by `@josui/react`.
 
 ## Build
 
-```bash
-pnpm --filter @josui/core-web build
-```
-
-Uses tsup for bundling. Outputs ESM, CJS, and type definitions to `dist/`.
+No build step — consumers import TypeScript source directly via `main: "./src/index.ts"`.
 
 ## Structure
 
@@ -30,7 +26,7 @@ Utilities live in `src/`:
 
 1. Create `src/utility-name.ts`
 2. Export from `src/index.ts`
-3. Run `pnpm build` to verify
+3. Verify exports from `src/index.ts`
 
 ## Guidelines
 
@@ -41,4 +37,4 @@ Utilities live in `src/`:
 
 ## Important
 
-This package must build before `@josui/react`.
+This package is a workspace dependency of `@josui/react`.
