@@ -1,1 +1,1 @@
-export { CellGrid, type CellGridProps } from './CellGrid';
+export { CellGrid, type CellGridProps } from "./CellGrid";

@@ -19,4 +19,4 @@ export {
   type SelectSeparatorProps,
   type SelectScrollUpButtonProps,
   type SelectScrollDownButtonProps,
-} from './Select';
+} from "./Select";

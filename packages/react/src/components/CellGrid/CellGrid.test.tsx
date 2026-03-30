@@ -1,6 +1,6 @@
-import { render, cleanup } from '@testing-library/react';
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { CellGrid } from './CellGrid';
+import { render, cleanup } from "@testing-library/react";
+import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
+import { CellGrid } from "./CellGrid";
 
 // Mock controller methods
 const mockStart = vi.fn();
@@ -22,15 +22,15 @@ const mockCreateCellGridController = vi.fn(() => ({
 }));
 
 // Mock @josui/core-web
-vi.mock('@josui/core-web', async (importOriginal) => ({
-  ...(await importOriginal<typeof import('@josui/core-web')>()),
+vi.mock("@josui/core-web", async (importOriginal) => ({
+  ...(await importOriginal<typeof import("@josui/core-web")>()),
   createCellGridController: (canvas: HTMLCanvasElement, config: unknown) =>
     mockCreateCellGridController(canvas, config),
   isTouchDevice: vi.fn(() => false),
 }));
 
 // Mock the hook
-vi.mock('../../hooks/useInteractiveState', () => ({
+vi.mock("../../hooks/useInteractiveState", () => ({
   useInteractiveState: vi.fn(() => false),
 }));
 
@@ -39,15 +39,15 @@ const mockObserve = vi.fn();
 const mockDisconnect = vi.fn();
 
 vi.stubGlobal(
-  'ResizeObserver',
+  "ResizeObserver",
   vi.fn(() => ({
     observe: mockObserve,
     disconnect: mockDisconnect,
     unobserve: vi.fn(),
-  }))
+  })),
 );
 
-describe('CellGrid', () => {
+describe("CellGrid", () => {
   beforeEach(() => {
     vi.clearAllMocks();
   });
@@ -56,63 +56,63 @@ describe('CellGrid', () => {
     cleanup();
   });
 
-  it('renders container and canvas elements', () => {
+  it("renders container and canvas elements", () => {
     render(<CellGrid />);
     const container = document.querySelector('div[class*="relative"]');
-    const canvas = document.querySelector('canvas');
+    const canvas = document.querySelector("canvas");
     expect(container).toBeInTheDocument();
     expect(canvas).toBeInTheDocument();
   });
 
-  it('renders children inside the grid', () => {
+  it("renders children inside the grid", () => {
     render(
       <CellGrid>
         <div data-testid="child">Child content</div>
-      </CellGrid>
+      </CellGrid>,
     );
     const child = document.querySelector('[data-testid="child"]');
     expect(child).toBeInTheDocument();
-    expect(child).toHaveTextContent('Child content');
+    expect(child).toHaveTextContent("Child content");
   });
 
-  it('applies custom className to container', () => {
+  it("applies custom className to container", () => {
     render(<CellGrid className="custom-grid-class" />);
-    const container = document.querySelector('.custom-grid-class');
+    const container = document.querySelector(".custom-grid-class");
     expect(container).toBeInTheDocument();
   });
 
-  it('sets up ResizeObserver on mount', () => {
+  it("sets up ResizeObserver on mount", () => {
     render(<CellGrid />);
     expect(mockObserve).toHaveBeenCalled();
   });
 
-  it('disconnects ResizeObserver on unmount', () => {
+  it("disconnects ResizeObserver on unmount", () => {
     const { unmount } = render(<CellGrid />);
     unmount();
     expect(mockDisconnect).toHaveBeenCalled();
   });
 
-  it('canvas has correct accessibility attributes', () => {
+  it("canvas has correct accessibility attributes", () => {
     render(<CellGrid />);
-    const canvas = document.querySelector('canvas');
-    expect(canvas).toHaveAttribute('aria-hidden', 'true');
+    const canvas = document.querySelector("canvas");
+    expect(canvas).toHaveAttribute("aria-hidden", "true");
   });
 
-  it('canvas has pointer-events-none class', () => {
+  it("canvas has pointer-events-none class", () => {
     render(<CellGrid />);
-    const canvas = document.querySelector('canvas');
-    expect(canvas).toHaveClass('pointer-events-none');
+    const canvas = document.querySelector("canvas");
+    expect(canvas).toHaveClass("pointer-events-none");
   });
 
-  it('children container has higher z-index than canvas', () => {
+  it("children container has higher z-index than canvas", () => {
     render(
       <CellGrid>
         <div>Content</div>
-      </CellGrid>
+      </CellGrid>,
     );
-    const canvas = document.querySelector('canvas');
+    const canvas = document.querySelector("canvas");
     const childContainer = document.querySelector('div[class*="z-10"]');
-    expect(canvas).toHaveClass('z-0');
+    expect(canvas).toHaveClass("z-0");
     expect(childContainer).toBeInTheDocument();
   });
 });

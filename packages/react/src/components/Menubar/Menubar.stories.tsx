@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import {
   Menubar,
   MenubarContent,
@@ -7,13 +7,13 @@ import {
   MenubarSeparator,
   MenubarShortcut,
   MenubarTrigger,
-} from './Menubar';
+} from "./Menubar";
 
 const meta = {
-  title: 'Components/Menubar',
+  title: "Components/Menubar",
   component: Menubar,
-  parameters: { layout: 'centered' },
-  tags: ['autodocs'],
+  parameters: { layout: "centered" },
+  tags: ["autodocs"],
 } satisfies Meta<typeof Menubar>;
 
 export default meta;

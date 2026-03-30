@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './Accordion';
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./Accordion";
 
 const meta = {
-  title: 'Components/Accordion',
+  title: "Components/Accordion",
   component: Accordion,
-  parameters: { layout: 'centered' },
-  tags: ['autodocs'],
+  parameters: { layout: "centered" },
+  tags: ["autodocs"],
 } satisfies Meta<typeof Accordion>;
 
 export default meta;

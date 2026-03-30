@@ -1,11 +1,11 @@
-import * as React from 'react';
-import type { SupportedTokenType, TokenItem } from '../../shared/types';
+import * as React from "react";
+import type { SupportedTokenType, TokenItem } from "../../shared/types";
 import {
   buildLiteralValue,
   buildModeValue,
   initialTokenFormState,
   type TokenFormState,
-} from '../lib/value-editor';
+} from "../lib/value-editor";
 
 interface TokenFormProps {
   rootName: string;
@@ -28,7 +28,7 @@ function toInitialState(rootName: string, editing?: TokenItem | null): TokenForm
     return {
       ...initialTokenFormState,
       path: `${rootName}.`,
-      type: 'string',
+      type: "string",
     };
   }
 
@@ -36,78 +36,80 @@ function toInitialState(rootName: string, editing?: TokenItem | null): TokenForm
     ...initialTokenFormState,
     path: editing.path,
     type: editing.type,
-    description: editing.description ?? '',
+    description: editing.description ?? "",
     hasMode: editing.hasMode,
-    modeLight: editing.mode?.light !== undefined ? JSON.stringify(editing.mode.light) : '',
-    modeDark: editing.mode?.dark !== undefined ? JSON.stringify(editing.mode.dark) : '',
+    modeLight: editing.mode?.light !== undefined ? JSON.stringify(editing.mode.light) : "",
+    modeDark: editing.mode?.dark !== undefined ? JSON.stringify(editing.mode.dark) : "",
   };
 
-  if (typeof editing.value === 'string' && /^\{.*\}$/.test(editing.value)) {
+  if (typeof editing.value === "string" && /^\{.*\}$/.test(editing.value)) {
     return {
       ...base,
-      valueMode: 'reference',
+      valueMode: "reference",
       reference: editing.value,
     };
   }
 
-  if (editing.type === 'color' && typeof editing.value === 'object' && editing.value !== null) {
-    const color = editing.value as { colorSpace?: 'oklch' | 'rgb' | 'hsl'; components?: number[] };
+  if (editing.type === "color" && typeof editing.value === "object" && editing.value !== null) {
+    const color = editing.value as { colorSpace?: "oklch" | "rgb" | "hsl"; components?: number[] };
     return {
       ...base,
-      colorSpace: color.colorSpace ?? 'oklch',
+      colorSpace: color.colorSpace ?? "oklch",
       colorComponents: Array.isArray(color.components)
-        ? color.components.join(', ')
+        ? color.components.join(", ")
         : base.colorComponents,
     };
   }
 
-  if (editing.type === 'dimension' && typeof editing.value === 'object' && editing.value !== null) {
+  if (editing.type === "dimension" && typeof editing.value === "object" && editing.value !== null) {
     const dimension = editing.value as { value?: number; unit?: string };
     return {
       ...base,
       dimensionValue:
-        typeof dimension.value === 'number' ? String(dimension.value) : base.dimensionValue,
+        typeof dimension.value === "number" ? String(dimension.value) : base.dimensionValue,
       dimensionUnit: dimension.unit ?? base.dimensionUnit,
     };
   }
 
-  if (editing.type === 'duration' && typeof editing.value === 'object' && editing.value !== null) {
+  if (editing.type === "duration" && typeof editing.value === "object" && editing.value !== null) {
     const duration = editing.value as { value?: number; unit?: string };
     return {
       ...base,
       durationValue:
-        typeof duration.value === 'number' ? String(duration.value) : base.durationValue,
+        typeof duration.value === "number" ? String(duration.value) : base.durationValue,
       durationUnit: duration.unit ?? base.durationUnit,
     };
   }
 
-  if (editing.type === 'cubicBezier' && Array.isArray(editing.value)) {
+  if (editing.type === "cubicBezier" && Array.isArray(editing.value)) {
     return {
       ...base,
-      cubicBezier: editing.value.join(', '),
+      cubicBezier: editing.value.join(", "),
     };
   }
 
-  if (editing.type === 'fontFamily') {
+  if (editing.type === "fontFamily") {
     return {
       ...base,
       fontFamily: Array.isArray(editing.value)
-        ? editing.value.join(', ')
-        : String(editing.value ?? ''),
+        ? editing.value.join(", ")
+        : typeof editing.value === "string"
+          ? editing.value
+          : "",
     };
   }
 
-  if (editing.type === 'number') {
+  if (editing.type === "number") {
     return {
       ...base,
-      numberValue: String(editing.value ?? ''),
+      numberValue: typeof editing.value === "number" ? String(editing.value) : "",
     };
   }
 
-  if (editing.type === 'string') {
+  if (editing.type === "string") {
     return {
       ...base,
-      stringValue: String(editing.value ?? ''),
+      stringValue: typeof editing.value === "string" ? editing.value : "",
     };
   }
 
@@ -148,7 +150,7 @@ export function TokenForm({ rootName, onSubmit, onCancel, editing }: TokenFormPr
           <input
             className="rounded border border-[var(--line)] p-2"
             value={form.path}
-            onChange={(event) => update('path', event.target.value)}
+            onChange={(event) => update("path", event.target.value)}
             placeholder={`${rootName}.group.token`}
             required
           />
@@ -159,7 +161,7 @@ export function TokenForm({ rootName, onSubmit, onCancel, editing }: TokenFormPr
           <select
             className="rounded border border-[var(--line)] p-2"
             value={form.type}
-            onChange={(event) => update('type', event.target.value as SupportedTokenType)}
+            onChange={(event) => update("type", event.target.value as SupportedTokenType)}
           >
             <option value="color">color</option>
             <option value="dimension">dimension</option>
@@ -177,7 +179,7 @@ export function TokenForm({ rootName, onSubmit, onCancel, editing }: TokenFormPr
         <input
           className="rounded border border-[var(--line)] p-2"
           value={form.description}
-          onChange={(event) => update('description', event.target.value)}
+          onChange={(event) => update("description", event.target.value)}
         />
       </label>
 
@@ -187,29 +189,29 @@ export function TokenForm({ rootName, onSubmit, onCancel, editing }: TokenFormPr
           <select
             className="rounded border border-[var(--line)] p-2"
             value={form.valueMode}
-            onChange={(event) => update('valueMode', event.target.value as 'literal' | 'reference')}
+            onChange={(event) => update("valueMode", event.target.value as "literal" | "reference")}
           >
             <option value="literal">literal</option>
             <option value="reference">reference</option>
           </select>
         </label>
 
-        {form.valueMode === 'reference' ? (
+        {form.valueMode === "reference" ? (
           <label className="flex flex-col gap-1 text-sm">
             Reference
             <input
               className="rounded border border-[var(--line)] p-2"
               value={form.reference}
-              onChange={(event) => update('reference', event.target.value)}
+              onChange={(event) => update("reference", event.target.value)}
               placeholder="{color.primary.500}"
             />
           </label>
         ) : null}
       </div>
 
-      {form.valueMode === 'literal' ? (
+      {form.valueMode === "literal" ? (
         <div className="grid gap-3 md:grid-cols-2">
-          {form.type === 'color' ? (
+          {form.type === "color" ? (
             <>
               <label className="flex flex-col gap-1 text-sm">
                 colorSpace
@@ -217,7 +219,7 @@ export function TokenForm({ rootName, onSubmit, onCancel, editing }: TokenFormPr
                   className="rounded border border-[var(--line)] p-2"
                   value={form.colorSpace}
                   onChange={(event) =>
-                    update('colorSpace', event.target.value as 'oklch' | 'rgb' | 'hsl')
+                    update("colorSpace", event.target.value as "oklch" | "rgb" | "hsl")
                   }
                 >
                   <option value="oklch">oklch</option>
@@ -230,21 +232,21 @@ export function TokenForm({ rootName, onSubmit, onCancel, editing }: TokenFormPr
                 <input
                   className="rounded border border-[var(--line)] p-2"
                   value={form.colorComponents}
-                  onChange={(event) => update('colorComponents', event.target.value)}
+                  onChange={(event) => update("colorComponents", event.target.value)}
                   placeholder="0.85, 0.17, 72"
                 />
               </label>
             </>
           ) : null}
 
-          {form.type === 'dimension' ? (
+          {form.type === "dimension" ? (
             <>
               <label className="flex flex-col gap-1 text-sm">
                 value
                 <input
                   className="rounded border border-[var(--line)] p-2"
                   value={form.dimensionValue}
-                  onChange={(event) => update('dimensionValue', event.target.value)}
+                  onChange={(event) => update("dimensionValue", event.target.value)}
                   type="number"
                   step="any"
                 />
@@ -254,7 +256,7 @@ export function TokenForm({ rootName, onSubmit, onCancel, editing }: TokenFormPr
                 <select
                   className="rounded border border-[var(--line)] p-2"
                   value={form.dimensionUnit}
-                  onChange={(event) => update('dimensionUnit', event.target.value)}
+                  onChange={(event) => update("dimensionUnit", event.target.value)}
                 >
                   <option value="px">px</option>
                   <option value="rem">rem</option>
@@ -265,14 +267,14 @@ export function TokenForm({ rootName, onSubmit, onCancel, editing }: TokenFormPr
             </>
           ) : null}
 
-          {form.type === 'duration' ? (
+          {form.type === "duration" ? (
             <>
               <label className="flex flex-col gap-1 text-sm">
                 value
                 <input
                   className="rounded border border-[var(--line)] p-2"
                   value={form.durationValue}
-                  onChange={(event) => update('durationValue', event.target.value)}
+                  onChange={(event) => update("durationValue", event.target.value)}
                   type="number"
                   step="any"
                 />
@@ -282,7 +284,7 @@ export function TokenForm({ rootName, onSubmit, onCancel, editing }: TokenFormPr
                 <select
                   className="rounded border border-[var(--line)] p-2"
                   value={form.durationUnit}
-                  onChange={(event) => update('durationUnit', event.target.value)}
+                  onChange={(event) => update("durationUnit", event.target.value)}
                 >
                   <option value="ms">ms</option>
                   <option value="s">s</option>
@@ -291,50 +293,50 @@ export function TokenForm({ rootName, onSubmit, onCancel, editing }: TokenFormPr
             </>
           ) : null}
 
-          {form.type === 'cubicBezier' ? (
+          {form.type === "cubicBezier" ? (
             <label className="flex flex-col gap-1 text-sm md:col-span-2">
               bezier points
               <input
                 className="rounded border border-[var(--line)] p-2"
                 value={form.cubicBezier}
-                onChange={(event) => update('cubicBezier', event.target.value)}
+                onChange={(event) => update("cubicBezier", event.target.value)}
                 placeholder="0.25, 0.1, 0.25, 1"
               />
             </label>
           ) : null}
 
-          {form.type === 'fontFamily' ? (
+          {form.type === "fontFamily" ? (
             <label className="flex flex-col gap-1 text-sm md:col-span-2">
               font family
               <input
                 className="rounded border border-[var(--line)] p-2"
                 value={form.fontFamily}
-                onChange={(event) => update('fontFamily', event.target.value)}
+                onChange={(event) => update("fontFamily", event.target.value)}
                 placeholder="Inter, system-ui, sans-serif"
               />
             </label>
           ) : null}
 
-          {form.type === 'number' ? (
+          {form.type === "number" ? (
             <label className="flex flex-col gap-1 text-sm md:col-span-2">
               number
               <input
                 className="rounded border border-[var(--line)] p-2"
                 value={form.numberValue}
-                onChange={(event) => update('numberValue', event.target.value)}
+                onChange={(event) => update("numberValue", event.target.value)}
                 type="number"
                 step="any"
               />
             </label>
           ) : null}
 
-          {form.type === 'string' ? (
+          {form.type === "string" ? (
             <label className="flex flex-col gap-1 text-sm md:col-span-2">
               string
               <input
                 className="rounded border border-[var(--line)] p-2"
                 value={form.stringValue}
-                onChange={(event) => update('stringValue', event.target.value)}
+                onChange={(event) => update("stringValue", event.target.value)}
               />
             </label>
           ) : null}
@@ -345,7 +347,7 @@ export function TokenForm({ rootName, onSubmit, onCancel, editing }: TokenFormPr
         <input
           type="checkbox"
           checked={form.hasMode}
-          onChange={(event) => update('hasMode', event.target.checked)}
+          onChange={(event) => update("hasMode", event.target.checked)}
         />
         Add light/dark mode values
       </label>
@@ -357,7 +359,7 @@ export function TokenForm({ rootName, onSubmit, onCancel, editing }: TokenFormPr
             <textarea
               className="h-24 rounded border border-[var(--line)] p-2"
               value={form.modeLight}
-              onChange={(event) => update('modeLight', event.target.value)}
+              onChange={(event) => update("modeLight", event.target.value)}
               placeholder="{color.gray.50}"
             />
           </label>
@@ -366,7 +368,7 @@ export function TokenForm({ rootName, onSubmit, onCancel, editing }: TokenFormPr
             <textarea
               className="h-24 rounded border border-[var(--line)] p-2"
               value={form.modeDark}
-              onChange={(event) => update('modeDark', event.target.value)}
+              onChange={(event) => update("modeDark", event.target.value)}
               placeholder="{color.gray.950}"
             />
           </label>
@@ -375,7 +377,7 @@ export function TokenForm({ rootName, onSubmit, onCancel, editing }: TokenFormPr
 
       <div className="flex gap-2">
         <button className="rounded bg-[var(--accent)] px-3 py-2 text-white" type="submit">
-          {editing ? 'Update token' : 'Add token'}
+          {editing ? "Update token" : "Add token"}
         </button>
         <button
           className="rounded border border-[var(--line)] px-3 py-2"

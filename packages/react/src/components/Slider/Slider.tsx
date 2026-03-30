@@ -1,13 +1,13 @@
-import { forwardRef, type ComponentPropsWithoutRef } from 'react';
-import * as SliderPrimitive from '@radix-ui/react-slider';
-import { cn } from '@josui/core-web';
+import { forwardRef, type ComponentPropsWithoutRef } from "react";
+import * as SliderPrimitive from "@radix-ui/react-slider";
+import { cn } from "@josui/core-web";
 
 export type SliderProps = ComponentPropsWithoutRef<typeof SliderPrimitive.Root>;
 
 export const Slider = forwardRef<HTMLSpanElement, SliderProps>(({ className, ...props }, ref) => (
   <SliderPrimitive.Root
     ref={ref}
-    className={cn('relative flex w-full touch-none items-center select-none', className)}
+    className={cn("relative flex w-full touch-none items-center select-none", className)}
     {...props}
   >
     <SliderPrimitive.Track className="bg-muted-background relative h-2 w-full grow overflow-hidden rounded-full">
@@ -17,4 +17,4 @@ export const Slider = forwardRef<HTMLSpanElement, SliderProps>(({ className, ...
   </SliderPrimitive.Root>
 ));
 
-Slider.displayName = 'Slider';
+Slider.displayName = "Slider";

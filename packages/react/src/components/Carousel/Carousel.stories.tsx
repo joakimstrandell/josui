@@ -1,17 +1,17 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from './Carousel';
+} from "./Carousel";
 
 const meta = {
-  title: 'Components/Carousel',
+  title: "Components/Carousel",
   component: Carousel,
-  parameters: { layout: 'centered' },
-  tags: ['autodocs'],
+  parameters: { layout: "centered" },
+  tags: ["autodocs"],
 } satisfies Meta<typeof Carousel>;
 
 export default meta;

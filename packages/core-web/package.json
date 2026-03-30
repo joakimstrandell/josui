@@ -1,17 +1,20 @@
 {
   "name": "@josui/core-web",
   "version": "0.2.0",
+  "files": [
+    "src"
+  ],
   "type": "module",
   "main": "./src/index.ts",
   "types": "./src/index.ts",
   "exports": {
     ".": "./src/index.ts"
   },
-  "files": [
-    "src"
-  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
-    "lint": "eslint src"
+    "lint": "vp lint src"
   },
   "dependencies": {
     "@josui/core": "workspace:*",
@@ -22,8 +25,5 @@
   "devDependencies": {
     "@josui/typescript-config": "workspace:*",
     "typescript": "^5.7.0"
-  },
-  "publishConfig": {
-    "access": "public"
   }
 }

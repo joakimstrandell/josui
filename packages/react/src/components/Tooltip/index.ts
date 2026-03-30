@@ -6,4 +6,4 @@ export {
   type TooltipProps,
   type TooltipTriggerProps,
   type TooltipContentProps,
-} from './Tooltip';
+} from "./Tooltip";

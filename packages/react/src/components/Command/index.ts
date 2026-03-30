@@ -16,4 +16,4 @@ export {
   type CommandItemProps,
   type CommandShortcutProps,
   type CommandSeparatorProps,
-} from './Command';
+} from "./Command";

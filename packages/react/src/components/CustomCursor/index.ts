@@ -1,1 +1,1 @@
-export { CustomCursor, type CustomCursorProps } from './CustomCursor';
+export { CustomCursor, type CustomCursorProps } from "./CustomCursor";

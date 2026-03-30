@@ -1,8 +1,8 @@
-'use client';
-import { useEffect, useRef } from 'react';
-import { createCustomCursor, type CustomCursorOptions } from '@josui/core-web';
-import { useIsTouchDevice } from '../../hooks/useIsTouchDevice';
-import { cn } from '@josui/core-web';
+"use client";
+import { useEffect, useRef } from "react";
+import { createCustomCursor, type CustomCursorOptions } from "@josui/core-web";
+import { useIsTouchDevice } from "../../hooks/useIsTouchDevice";
+import { cn } from "@josui/core-web";
 
 export interface CustomCursorProps {
   options?: CustomCursorOptions;
@@ -27,8 +27,8 @@ export function CustomCursor({ options, className }: CustomCursorProps) {
     <div
       ref={cursorRef}
       className={cn(
-        'border-primary-500 pointer-events-none fixed top-0 left-0 z-9999 size-4 border-2 opacity-5 mix-blend-multiply',
-        className
+        "border-primary-500 pointer-events-none fixed top-0 left-0 z-9999 size-4 border-2 opacity-5 mix-blend-multiply",
+        className,
       )}
     />
   );

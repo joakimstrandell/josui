@@ -1,7 +1,7 @@
-import { serve } from '@hono/node-server';
-import path from 'node:path';
-import { createApi } from './api';
-import { TokenRepository } from './repository';
+import { serve } from "@hono/node-server";
+import path from "node:path";
+import { createApi } from "./api";
+import { TokenRepository } from "./repository";
 
 export interface StartServerOptions {
   tokensDir: string;

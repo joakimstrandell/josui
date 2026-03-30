@@ -1,12 +1,12 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
-import { ScrollArea } from './ScrollArea';
-import { Separator } from '../Separator';
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { ScrollArea } from "./ScrollArea";
+import { Separator } from "../Separator";
 
 const meta = {
-  title: 'Components/ScrollArea',
+  title: "Components/ScrollArea",
   component: ScrollArea,
-  parameters: { layout: 'centered' },
-  tags: ['autodocs'],
+  parameters: { layout: "centered" },
+  tags: ["autodocs"],
 } satisfies Meta<typeof ScrollArea>;
 
 export default meta;

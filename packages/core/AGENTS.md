@@ -25,11 +25,11 @@ Utilities are organized by domain:
 | `formatHex` | Format color object to hex string (from culori)           |
 
 ```ts
-import { toRgb, toHex } from '@josui/core';
+import { toRgb, toHex } from "@josui/core";
 
-toRgb('oklch(0.6 0.2 260)'); // 'rgb(0, 102, 255)'
-toRgb('red', 0.5); // 'rgba(255, 0, 0, 0.5)'
-toHex('rgb(255, 0, 0)'); // '#ff0000'
+toRgb("oklch(0.6 0.2 260)"); // 'rgb(0, 102, 255)'
+toRgb("red", 0.5); // 'rgba(255, 0, 0, 0.5)'
+toHex("rgb(255, 0, 0)"); // '#ff0000'
 ```
 
 ## Adding Utilities

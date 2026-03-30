@@ -13,4 +13,4 @@ export {
   type BreadcrumbPageProps,
   type BreadcrumbSeparatorProps,
   type BreadcrumbEllipsisProps,
-} from './Breadcrumb';
+} from "./Breadcrumb";

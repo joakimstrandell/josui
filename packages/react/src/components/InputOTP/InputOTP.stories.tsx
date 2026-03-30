@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
-import { InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot } from './InputOTP';
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot } from "./InputOTP";
 
 const meta = {
-  title: 'Components/InputOTP',
+  title: "Components/InputOTP",
   component: InputOTP,
-  parameters: { layout: 'centered' },
-  tags: ['autodocs'],
+  parameters: { layout: "centered" },
+  tags: ["autodocs"],
 } satisfies Meta<typeof InputOTP>;
 
 export default meta;

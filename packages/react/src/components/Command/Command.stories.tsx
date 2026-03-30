@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import {
   Command,
   CommandEmpty,
@@ -8,14 +8,14 @@ import {
   CommandList,
   CommandSeparator,
   CommandShortcut,
-} from './Command';
-import { Calculator, Calendar, CreditCard, Settings, Smile, User } from 'lucide-react';
+} from "./Command";
+import { Calculator, Calendar, CreditCard, Settings, Smile, User } from "lucide-react";
 
 const meta = {
-  title: 'Components/Command',
+  title: "Components/Command",
   component: Command,
-  parameters: { layout: 'centered' },
-  tags: ['autodocs'],
+  parameters: { layout: "centered" },
+  tags: ["autodocs"],
 } satisfies Meta<typeof Command>;
 
 export default meta;

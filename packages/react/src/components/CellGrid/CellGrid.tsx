@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { useEffect, useRef, useCallback } from 'react';
-import { createCellGridController, cn, isTouchDevice, resolveColor } from '@josui/core-web';
-import type { CellGridController } from '@josui/core-web';
-import { useInteractiveState } from '../../hooks/useInteractiveState';
+import { useEffect, useRef, useCallback } from "react";
+import { createCellGridController, cn, isTouchDevice, resolveColor } from "@josui/core-web";
+import type { CellGridController } from "@josui/core-web";
+import { useInteractiveState } from "../../hooks/useInteractiveState";
 
 export interface CellGridProps {
   cellSize?: number;
@@ -25,11 +25,11 @@ export function CellGrid({
   cellSize = 24,
   fadeRate = 0.045,
   maxCells = 200,
-  gridColor = 'color-foreground',
+  gridColor = "color-foreground",
   gridOpacity = 0.1,
-  cellColor = 'color-primary-500',
+  cellColor = "color-primary-500",
   cellOpacity = 0.3,
-  className = '',
+  className = "",
   children,
 }: CellGridProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -162,14 +162,14 @@ export function CellGrid({
     };
 
     // Use passive listeners for better performance
-    document.addEventListener('mousemove', handleDocumentMouseMove, { passive: true });
-    window.addEventListener('scroll', handleScroll, { passive: true, capture: true });
-    document.addEventListener('mouseleave', handleMouseLeave);
+    document.addEventListener("mousemove", handleDocumentMouseMove, { passive: true });
+    window.addEventListener("scroll", handleScroll, { passive: true, capture: true });
+    document.addEventListener("mouseleave", handleMouseLeave);
 
     return () => {
-      document.removeEventListener('mousemove', handleDocumentMouseMove);
-      window.removeEventListener('scroll', handleScroll, true);
-      document.removeEventListener('mouseleave', handleMouseLeave);
+      document.removeEventListener("mousemove", handleDocumentMouseMove);
+      window.removeEventListener("scroll", handleScroll, true);
+      document.removeEventListener("mouseleave", handleMouseLeave);
     };
   }, [updateGridFromMousePosition]);
 
@@ -195,15 +195,15 @@ export function CellGrid({
       lastMousePosRef.current = null;
     };
 
-    container.addEventListener('mouseleave', handleContainerMouseLeave);
+    container.addEventListener("mouseleave", handleContainerMouseLeave);
 
     return () => {
-      container.removeEventListener('mouseleave', handleContainerMouseLeave);
+      container.removeEventListener("mouseleave", handleContainerMouseLeave);
     };
   }, []);
 
   return (
-    <div ref={containerRef} className={cn('relative h-full w-full', className)}>
+    <div ref={containerRef} className={cn("relative h-full w-full", className)}>
       <canvas
         ref={canvasRef}
         className="pointer-events-none absolute inset-0 z-0 h-full w-full"

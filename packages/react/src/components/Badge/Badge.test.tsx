@@ -1,54 +1,54 @@
-import { render, screen } from '@testing-library/react';
-import { describe, it, expect, vi } from 'vitest';
-import { Badge } from './Badge';
+import { render, screen } from "@testing-library/react";
+import { describe, it, expect, vi } from "vitest";
+import { Badge } from "./Badge";
 
-describe('Badge', () => {
-  it('renders children', () => {
+describe("Badge", () => {
+  it("renders children", () => {
     render(<Badge>New</Badge>);
-    expect(screen.getByText('New')).toBeInTheDocument();
+    expect(screen.getByText("New")).toBeInTheDocument();
   });
 
-  it('applies variant classes', () => {
+  it("applies variant classes", () => {
     const { rerender } = render(<Badge variant="default">Default</Badge>);
-    expect(screen.getByText('Default')).toHaveClass('bg-muted-background');
+    expect(screen.getByText("Default")).toHaveClass("bg-muted-background");
 
     rerender(<Badge variant="primary">Primary</Badge>);
-    expect(screen.getByText('Primary')).toHaveClass('bg-primary-100');
+    expect(screen.getByText("Primary")).toHaveClass("bg-primary-100");
 
     rerender(<Badge variant="success">Success</Badge>);
-    expect(screen.getByText('Success')).toHaveClass('bg-success-background');
+    expect(screen.getByText("Success")).toHaveClass("bg-success-background");
 
     rerender(<Badge variant="warning">Warning</Badge>);
-    expect(screen.getByText('Warning')).toHaveClass('bg-warning-background');
+    expect(screen.getByText("Warning")).toHaveClass("bg-warning-background");
 
     rerender(<Badge variant="error">Error</Badge>);
-    expect(screen.getByText('Error')).toHaveClass('bg-error-background');
+    expect(screen.getByText("Error")).toHaveClass("bg-error-background");
   });
 
-  it('applies size classes', () => {
+  it("applies size classes", () => {
     const { rerender } = render(<Badge size="sm">Small</Badge>);
-    expect(screen.getByText('Small')).toHaveClass('text-xs');
+    expect(screen.getByText("Small")).toHaveClass("text-xs");
 
     rerender(<Badge size="md">Medium</Badge>);
-    expect(screen.getByText('Medium')).toHaveClass('text-sm');
+    expect(screen.getByText("Medium")).toHaveClass("text-sm");
 
     rerender(<Badge size="lg">Large</Badge>);
-    expect(screen.getByText('Large')).toHaveClass('py-1');
+    expect(screen.getByText("Large")).toHaveClass("py-1");
   });
 
-  it('applies custom className', () => {
+  it("applies custom className", () => {
     render(<Badge className="custom-class">Custom</Badge>);
-    expect(screen.getByText('Custom')).toHaveClass('custom-class');
+    expect(screen.getByText("Custom")).toHaveClass("custom-class");
   });
 
-  it('forwards ref', () => {
+  it("forwards ref", () => {
     const ref = vi.fn();
     render(<Badge ref={ref}>Ref</Badge>);
     expect(ref).toHaveBeenCalled();
   });
 
-  it('renders as span element', () => {
+  it("renders as span element", () => {
     render(<Badge>Badge</Badge>);
-    expect(screen.getByText('Badge').tagName).toBe('SPAN');
+    expect(screen.getByText("Badge").tagName).toBe("SPAN");
   });
 });

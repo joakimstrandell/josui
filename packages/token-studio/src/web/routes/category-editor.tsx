@@ -1,14 +1,14 @@
-import * as React from 'react';
-import { useNavigate, useParams } from '@tanstack/react-router';
-import { deleteToken, upsertToken } from '../../shared/document';
-import type { CategoryDocument, TokenItem } from '../../shared/types';
-import { TokenForm } from '../components/token-form';
-import { deleteCategory, getCategory, saveCategory, validateCategory } from '../lib/api';
-import { useChanges } from './changes';
+import * as React from "react";
+import { useNavigate, useParams } from "@tanstack/react-router";
+import { deleteToken, upsertToken } from "../../shared/document";
+import type { CategoryDocument, TokenItem } from "../../shared/types";
+import { TokenForm } from "../components/token-form";
+import { deleteCategory, getCategory, saveCategory, validateCategory } from "../lib/api";
+import { useChanges } from "./changes";
 
 export function CategoryEditorPage() {
   const navigate = useNavigate();
-  const params = useParams({ from: '/categories/$name' });
+  const params = useParams({ from: "/categories/$name" });
   const { add } = useChanges();
   const [category, setCategory] = React.useState<CategoryDocument | null>(null);
   const [editing, setEditing] = React.useState<TokenItem | null>(null);
@@ -68,7 +68,7 @@ export function CategoryEditorPage() {
 
                 if (!validation.valid) {
                   throw new Error(
-                    validation.issues.map((issue) => `${issue.path}: ${issue.message}`).join('\n')
+                    validation.issues.map((issue) => `${issue.path}: ${issue.message}`).join("\n"),
                   );
                 }
 
@@ -76,17 +76,17 @@ export function CategoryEditorPage() {
                   document: category.document,
                 });
                 setCategory(saved);
-                add({ level: 'info', message: `Saved ${category.name}.json` });
+                add({ level: "info", message: `Saved ${category.name}.json` });
               } catch (reason) {
                 const message = (reason as Error).message;
                 setError(message);
-                add({ level: 'error', message: `Save failed for ${category.name}: ${message}` });
+                add({ level: "error", message: `Save failed for ${category.name}: ${message}` });
               } finally {
                 setSaving(false);
               }
             }}
           >
-            {saving ? 'Saving...' : 'Save'}
+            {saving ? "Saving..." : "Save"}
           </button>
           <button
             className="rounded border border-red-300 px-3 py-2 text-red-700"
@@ -94,12 +94,12 @@ export function CategoryEditorPage() {
             onClick={async () => {
               try {
                 await deleteCategory(category.name);
-                add({ level: 'info', message: `Deleted ${category.name}.json` });
-                await navigate({ to: '/categories' });
+                add({ level: "info", message: `Deleted ${category.name}.json` });
+                await navigate({ to: "/categories" });
               } catch (reason) {
                 const message = (reason as Error).message;
                 setError(message);
-                add({ level: 'error', message: `Delete failed: ${message}` });
+                add({ level: "error", message: `Delete failed: ${message}` });
               }
             }}
           >
@@ -142,7 +142,7 @@ export function CategoryEditorPage() {
                     })
                     .sort((a, b) => a.path.localeCompare(b.path)),
                 }
-              : current
+              : current,
           );
           setEditing(null);
         }}
@@ -165,7 +165,7 @@ export function CategoryEditorPage() {
                 <td className="py-2 font-mono text-xs">{token.path}</td>
                 <td className="py-2">{token.type}</td>
                 <td className="py-2 font-mono text-xs">{JSON.stringify(token.value)}</td>
-                <td className="py-2">{token.hasMode ? 'light/dark' : '—'}</td>
+                <td className="py-2">{token.hasMode ? "light/dark" : "—"}</td>
                 <td className="py-2">
                   <div className="flex gap-2">
                     <button
@@ -187,7 +187,7 @@ export function CategoryEditorPage() {
                                 document: nextDocument,
                                 tokens: current.tokens.filter((entry) => entry.path !== token.path),
                               }
-                            : current
+                            : current,
                         );
                       }}
                     >

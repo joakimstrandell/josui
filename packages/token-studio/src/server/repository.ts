@@ -1,15 +1,15 @@
-import fs from 'node:fs/promises';
-import path from 'node:path';
+import fs from "node:fs/promises";
+import path from "node:path";
 import {
   categoryFileName,
   normalizeCategoryName,
   validateCategoryName,
-} from '../shared/path-utils';
-import type { CategoryDocument, CategorySummary, SupportedTokenType } from '../shared/types';
-import { validateCategoryDocument } from '../shared/validators';
-import { flattenTokens } from '../shared/document';
-import { ensureDirectory, readJsonFile, removeFileIfExists, writeJsonAtomic } from './fs-utils';
-import { syncTerrazzoTokens } from './terrazzo';
+} from "../shared/path-utils";
+import type { CategoryDocument, CategorySummary, SupportedTokenType } from "../shared/types";
+import { validateCategoryDocument } from "../shared/validators";
+import { flattenTokens } from "../shared/document";
+import { ensureDirectory, readJsonFile, removeFileIfExists, writeJsonAtomic } from "./fs-utils";
+import { syncTerrazzoTokens } from "./terrazzo";
 
 export interface RepositoryOptions {
   tokensDir: string;
@@ -34,11 +34,11 @@ export class TokenRepository {
     const categories: CategorySummary[] = [];
 
     for (const entry of entries) {
-      if (!entry.isFile() || !entry.name.endsWith('.json')) {
+      if (!entry.isFile() || !entry.name.endsWith(".json")) {
         continue;
       }
 
-      const name = entry.name.replace(/\.json$/, '');
+      const name = entry.name.replace(/\.json$/, "");
       categories.push({
         name,
         fileName: entry.name,
@@ -78,7 +78,7 @@ export class TokenRepository {
       await fs.access(filePath);
       throw new Error(`Category ${normalized} already exists`);
     } catch (error) {
-      if ((error as NodeJS.ErrnoException).code !== 'ENOENT') {
+      if ((error as NodeJS.ErrnoException).code !== "ENOENT") {
         throw error;
       }
     }
@@ -91,14 +91,14 @@ export class TokenRepository {
 
     const validation = validateCategoryDocument(normalized, document);
     if (!validation.valid) {
-      throw new Error(validation.issues[0]?.message ?? 'Validation failed');
+      throw new Error(validation.issues[0]?.message ?? "Validation failed");
     }
 
     await writeJsonAtomic(filePath, document);
     await syncTerrazzoTokens(
       this.terrazzoPath,
       `./src/tokens/${categoryFileName(normalized)}`,
-      'add'
+      "add",
     );
 
     return {
@@ -113,7 +113,7 @@ export class TokenRepository {
     const validation = validateCategoryDocument(normalized, document);
     if (!validation.valid) {
       throw new Error(
-        validation.issues.map((issue) => `${issue.path}: ${issue.message}`).join('\n')
+        validation.issues.map((issue) => `${issue.path}: ${issue.message}`).join("\n"),
       );
     }
 
@@ -133,7 +133,7 @@ export class TokenRepository {
     await syncTerrazzoTokens(
       this.terrazzoPath,
       `./src/tokens/${categoryFileName(normalized)}`,
-      'remove'
+      "remove",
     );
   }
 }

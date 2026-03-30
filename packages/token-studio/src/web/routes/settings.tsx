@@ -1,9 +1,9 @@
-import * as React from 'react';
-import { getHealth } from '../lib/api';
+import * as React from "react";
+import { getHealth } from "../lib/api";
 
 export function SettingsPage() {
   const [health, setHealth] = React.useState<{ tokensDir: string; terrazzoPath: string } | null>(
-    null
+    null,
   );
   const [error, setError] = React.useState<string | null>(null);
 

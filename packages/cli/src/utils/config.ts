@@ -1,21 +1,20 @@
-import { readFile, writeFile } from 'node:fs/promises';
-import { existsSync } from 'node:fs';
-import { join } from 'node:path';
+import { readFile, writeFile } from "node:fs/promises";
+import { existsSync } from "node:fs";
+import { join } from "node:path";
 
-const GITIGNORE_ENTRIES = ['# josui local linking config', '.josui.json', 'josui-linked-*'];
+const GITIGNORE_ENTRIES = ["# josui local linking config", ".josui.json", "josui-linked-*"];
 
 export interface JosuiConfig {
   josuiPath?: string;
-  watchPackages?: string[];
   linkedSkills?: {
     source: string; // path to josui or package with skills
     skills: string[]; // skill names
   }[];
 }
 
-const CONFIG_FILE = '.josui.json';
+const CONFIG_FILE = ".josui.json";
 
-export function getConfigPath(cwd: string = process.cwd()): string {
+function getConfigPath(cwd: string = process.cwd()): string {
   return join(cwd, CONFIG_FILE);
 }
 
@@ -27,21 +26,21 @@ export async function readConfig(cwd: string = process.cwd()): Promise<JosuiConf
   }
 
   try {
-    const content = await readFile(configPath, 'utf-8');
+    const content = await readFile(configPath, "utf-8");
     return JSON.parse(content) as JosuiConfig;
   } catch {
     return null;
   }
 }
 
-export async function writeConfig(config: JosuiConfig, cwd: string = process.cwd()): Promise<void> {
+async function writeConfig(config: JosuiConfig, cwd: string = process.cwd()): Promise<void> {
   const configPath = getConfigPath(cwd);
-  await writeFile(configPath, JSON.stringify(config, null, 2) + '\n');
+  await writeFile(configPath, JSON.stringify(config, null, 2) + "\n");
 }
 
 export async function updateConfig(
   updates: Partial<JosuiConfig>,
-  cwd: string = process.cwd()
+  cwd: string = process.cwd(),
 ): Promise<JosuiConfig> {
   const existing = (await readConfig(cwd)) || {};
   const updated = { ...existing, ...updates };
@@ -50,12 +49,12 @@ export async function updateConfig(
 }
 
 export async function ensureGitignore(cwd: string = process.cwd()): Promise<boolean> {
-  const gitignorePath = join(cwd, '.gitignore');
+  const gitignorePath = join(cwd, ".gitignore");
 
-  const content = existsSync(gitignorePath) ? await readFile(gitignorePath, 'utf-8') : '';
+  const content = existsSync(gitignorePath) ? await readFile(gitignorePath, "utf-8") : "";
 
   // Find entries that are missing (skip the comment line for checking)
-  const entriesToCheck = GITIGNORE_ENTRIES.filter((e) => !e.startsWith('#'));
+  const entriesToCheck = GITIGNORE_ENTRIES.filter((e) => !e.startsWith("#"));
   const missingEntries = entriesToCheck.filter((entry) => !content.includes(entry));
 
   if (missingEntries.length === 0) {
@@ -69,8 +68,8 @@ export async function ensureGitignore(cwd: string = process.cwd()): Promise<bool
 
   // Append with proper spacing
   const prefix =
-    content.length > 0 && !content.endsWith('\n\n') ? (content.endsWith('\n') ? '\n' : '\n\n') : '';
+    content.length > 0 && !content.endsWith("\n\n") ? (content.endsWith("\n") ? "\n" : "\n\n") : "";
 
-  await writeFile(gitignorePath, content + prefix + toAdd.join('\n') + '\n');
+  await writeFile(gitignorePath, content + prefix + toAdd.join("\n") + "\n");
   return true;
 }

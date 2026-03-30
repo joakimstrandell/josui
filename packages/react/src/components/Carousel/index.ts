@@ -11,4 +11,4 @@ export {
   type CarouselPreviousProps,
   type CarouselNextProps,
   type CarouselApi,
-} from './Carousel';
+} from "./Carousel";

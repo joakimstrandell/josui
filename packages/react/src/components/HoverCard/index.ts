@@ -5,4 +5,4 @@ export {
   type HoverCardProps,
   type HoverCardTriggerProps,
   type HoverCardContentProps,
-} from './HoverCard';
+} from "./HoverCard";

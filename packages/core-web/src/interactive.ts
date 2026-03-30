@@ -4,7 +4,7 @@
  * Shared utilities for detecting interactive elements and tracking
  * interactive state across the application.
  */
-import { isTouchDevice } from './utils';
+import { isTouchDevice } from "./utils";
 
 type Subscriber = (isOverInteractive: boolean) => void;
 
@@ -12,14 +12,14 @@ type Subscriber = (isOverInteractive: boolean) => void;
  * Default CSS selectors for interactive elements
  */
 export const DEFAULT_INTERACTIVE_SELECTORS = [
-  'a',
-  'button',
-  'input',
-  'select',
-  'textarea',
+  "a",
+  "button",
+  "input",
+  "select",
+  "textarea",
   '[role="button"]',
-  '[data-interactive]',
-].join(', ');
+  "[data-interactive]",
+].join(", ");
 
 /**
  * Checks if an element is interactive
@@ -29,7 +29,7 @@ export const DEFAULT_INTERACTIVE_SELECTORS = [
  */
 export function isInteractiveElement(
   element: Element | null,
-  selectors: string = DEFAULT_INTERACTIVE_SELECTORS
+  selectors: string = DEFAULT_INTERACTIVE_SELECTORS,
 ): boolean {
   if (!element) return false;
   return element.matches?.(selectors) || !!element.closest?.(selectors);
@@ -68,15 +68,15 @@ class InteractiveStateManager {
   }
 
   private initialize() {
-    if (this.isInitialized || typeof document === 'undefined') return;
+    if (this.isInitialized || typeof document === "undefined") return;
 
     if (isTouchDevice()) {
       this.isInitialized = true;
       return;
     }
 
-    document.addEventListener('mousemove', this.handleMouseMove, { passive: true, capture: true });
-    document.addEventListener('mouseleave', this.handleMouseLeave);
+    document.addEventListener("mousemove", this.handleMouseMove, { passive: true, capture: true });
+    document.addEventListener("mouseleave", this.handleMouseLeave);
 
     this.isInitialized = true;
   }
@@ -99,8 +99,8 @@ class InteractiveStateManager {
 
   public destroy(): void {
     if (!this.isInitialized) return;
-    document.removeEventListener('mousemove', this.handleMouseMove, { capture: true });
-    document.removeEventListener('mouseleave', this.handleMouseLeave);
+    document.removeEventListener("mousemove", this.handleMouseMove, { capture: true });
+    document.removeEventListener("mouseleave", this.handleMouseLeave);
     this.subscribers.clear();
     this.isOverInteractive = false;
     this.isInitialized = false;

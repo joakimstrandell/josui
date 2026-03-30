@@ -11,24 +11,21 @@ pnpm add @josui/core
 ## Usage
 
 ```ts
-import { toRgb, toHex, withAlpha, parse } from '@josui/core';
+import { toRgb, toHex, parse } from "@josui/core";
 
 // Convert to RGB
-toRgb('#ff0000'); // "rgb(255, 0, 0)"
-toRgb('oklch(0.6 0.15 30)'); // "rgb(219, 98, 89)"
+toRgb("#ff0000"); // "rgb(255, 0, 0)"
+toRgb("oklch(0.6 0.15 30)"); // "rgb(219, 98, 89)"
 
 // Convert to hex
-toHex('rgb(255, 0, 0)'); // "#ff0000"
-
-// Add alpha
-withAlpha('#ff0000', 0.5); // "rgba(255, 0, 0, 0.5)"
+toHex("rgb(255, 0, 0)"); // "#ff0000"
 
 // Full culori parse (for advanced use)
-parse('oklch(0.6 0.15 30)'); // { mode: 'oklch', l: 0.6, c: 0.15, h: 30 }
+parse("oklch(0.6 0.15 30)"); // { mode: 'oklch', l: 0.6, c: 0.15, h: 30 }
 ```
 
 ## Utilities
 
-- **Color** — `toRgb`, `toHex`, `withAlpha`, `parse`, `formatRgb`, `formatHex`
+- **Color** — `toRgb`, `toHex`, `parse`, `formatRgb`, `formatHex`
 
 Powered by [culori](https://culorijs.org/).

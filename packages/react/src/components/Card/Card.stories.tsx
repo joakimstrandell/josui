@@ -1,17 +1,17 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from './Card';
-import { Button } from '../Button';
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "./Card";
+import { Button } from "../Button";
 
 const meta = {
-  title: 'Components/Card',
+  title: "Components/Card",
   component: Card,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   decorators: [
     (Story) => (
-      <div style={{ width: '400px' }}>
+      <div style={{ width: "400px" }}>
         <Story />
       </div>
     ),
@@ -42,7 +42,7 @@ export const Default: Story = {
 
 export const Bordered: Story = {
   args: {
-    variant: 'bordered',
+    variant: "bordered",
     children: (
       <>
         <CardHeader>
@@ -59,8 +59,8 @@ export const Bordered: Story = {
 
 export const Elevated: Story = {
   args: {
-    variant: 'elevated',
-    shadow: 'lg',
+    variant: "elevated",
+    shadow: "lg",
     children: (
       <>
         <CardHeader>
@@ -77,13 +77,13 @@ export const Elevated: Story = {
 
 export const NoPadding: Story = {
   args: {
-    padding: 'none',
-    variant: 'bordered',
+    padding: "none",
+    variant: "bordered",
     children: (
       <img
         src="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=800"
         alt="Gradient"
-        style={{ width: '100%', height: '200px', objectFit: 'cover', borderRadius: '0.5rem' }}
+        style={{ width: "100%", height: "200px", objectFit: "cover", borderRadius: "0.5rem" }}
       />
     ),
   },
@@ -91,8 +91,8 @@ export const NoPadding: Story = {
 
 export const Interactive: Story = {
   args: {
-    variant: 'bordered',
-    className: 'cursor-pointer transition-shadow hover:shadow-md',
+    variant: "bordered",
+    className: "cursor-pointer transition-shadow hover:shadow-md",
     children: (
       <>
         <CardHeader>

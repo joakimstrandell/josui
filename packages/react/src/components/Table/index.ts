@@ -15,4 +15,4 @@ export {
   type TableHeadProps,
   type TableCellProps,
   type TableCaptionProps,
-} from './Table';
+} from "./Table";

@@ -1,20 +1,20 @@
-'use client';
+"use client";
 
-import { forwardRef, useEffect, useRef, type HTMLAttributes } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { cn } from '@josui/core-web';
+import { forwardRef, useEffect, useRef, type HTMLAttributes } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { cn } from "@josui/core-web";
 
 export interface AnimateContentProps extends HTMLAttributes<HTMLDivElement> {
   /** Animation type */
   animationType?:
-    | 'fadeUp'
-    | 'fadeIn'
-    | 'fadeLeft'
-    | 'fadeRight'
-    | 'slideUp'
-    | 'slideLeft'
-    | 'slideRight';
+    | "fadeUp"
+    | "fadeIn"
+    | "fadeLeft"
+    | "fadeRight"
+    | "slideUp"
+    | "slideLeft"
+    | "slideRight";
   /** Delay before animation starts (seconds) */
   delay?: number;
   /** Animation duration (seconds) */
@@ -29,14 +29,14 @@ export interface AnimateContentProps extends HTMLAttributes<HTMLDivElement> {
   sequenceDelay?: number;
 }
 
-const initialClassMap: Record<NonNullable<AnimateContentProps['animationType']>, string> = {
-  fadeUp: 'opacity-0 translate-y-[40px]',
-  fadeIn: 'opacity-0',
-  fadeLeft: 'opacity-0 translate-x-[40px]',
-  fadeRight: 'opacity-0 -translate-x-[40px]',
-  slideUp: 'translate-y-[100px]',
-  slideLeft: 'translate-x-[100px]',
-  slideRight: '-translate-x-[100px]',
+const initialClassMap: Record<NonNullable<AnimateContentProps["animationType"]>, string> = {
+  fadeUp: "opacity-0 translate-y-[40px]",
+  fadeIn: "opacity-0",
+  fadeLeft: "opacity-0 translate-x-[40px]",
+  fadeRight: "opacity-0 -translate-x-[40px]",
+  slideUp: "translate-y-[100px]",
+  slideLeft: "translate-x-[100px]",
+  slideRight: "-translate-x-[100px]",
 };
 
 export const AnimateContent = forwardRef<HTMLDivElement, AnimateContentProps>(
@@ -44,23 +44,23 @@ export const AnimateContent = forwardRef<HTMLDivElement, AnimateContentProps>(
     {
       children,
       className,
-      animationType = 'fadeUp',
+      animationType = "fadeUp",
       delay = 0,
       duration = 1,
-      start = 'top bottom',
-      end = 'top center',
+      start = "top bottom",
+      end = "top center",
       scrub = true,
       sequenceDelay = 0.1,
       ...props
     },
-    ref
+    ref,
   ) => {
     const sectionRef = useRef<HTMLDivElement>(null);
 
     // Merge refs
     const setRef = (el: HTMLDivElement | null) => {
       (sectionRef as React.MutableRefObject<HTMLDivElement | null>).current = el;
-      if (typeof ref === 'function') ref(el);
+      if (typeof ref === "function") ref(el);
       else if (ref) (ref as React.MutableRefObject<HTMLDivElement | null>).current = el;
     };
 
@@ -75,7 +75,7 @@ export const AnimateContent = forwardRef<HTMLDivElement, AnimateContentProps>(
 
       if (isInViewport) {
         // Sequence elements already visible on mount
-        const allElements = document.querySelectorAll('[data-animate-content]');
+        const allElements = document.querySelectorAll("[data-animate-content]");
         const visibleElements = Array.from(allElements)
           .filter((el) => {
             const elRect = el.getBoundingClientRect();
@@ -126,14 +126,14 @@ export const AnimateContent = forwardRef<HTMLDivElement, AnimateContentProps>(
     return (
       <div
         ref={setRef}
-        className={cn('block w-full', initialClassMap[animationType], className)}
+        className={cn("block w-full", initialClassMap[animationType], className)}
         data-animate-content
         {...props}
       >
         {children}
       </div>
     );
-  }
+  },
 );
 
-AnimateContent.displayName = 'AnimateContent';
+AnimateContent.displayName = "AnimateContent";

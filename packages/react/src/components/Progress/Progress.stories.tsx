@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Progress } from './Progress';
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { Progress } from "./Progress";
 
 const meta = {
-  title: 'Components/Progress',
+  title: "Components/Progress",
   component: Progress,
-  parameters: { layout: 'centered' },
-  tags: ['autodocs'],
+  parameters: { layout: "centered" },
+  tags: ["autodocs"],
 } satisfies Meta<typeof Progress>;
 
 export default meta;

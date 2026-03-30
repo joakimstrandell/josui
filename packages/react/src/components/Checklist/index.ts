@@ -1,1 +1,1 @@
-export { Checklist, type ChecklistProps } from './Checklist';
+export { Checklist, type ChecklistProps } from "./Checklist";

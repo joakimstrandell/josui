@@ -1,23 +1,23 @@
-import path from 'node:path';
-import process from 'node:process';
-import { Command } from 'commander';
-import open from 'open';
-import { DEFAULT_TOKENS_RELATIVE_DIR, DEFAULT_TERRAZZO_RELATIVE_PATH } from './shared/constants';
-import { inferTerrazzoPathFromTokensDir } from './shared/path-utils';
-import { findConfigFile, findNearestTokensRoot, readConfig } from './shared/config';
-import { startServer } from './server/index';
+import path from "node:path";
+import process from "node:process";
+import { Command } from "commander";
+import open from "open";
+import { DEFAULT_TOKENS_RELATIVE_DIR, DEFAULT_TERRAZZO_RELATIVE_PATH } from "./shared/constants";
+import { inferTerrazzoPathFromTokensDir } from "./shared/path-utils";
+import { findConfigFile, findNearestTokensRoot, readConfig } from "./shared/config";
+import { startServer } from "./server/index";
 
 async function run(): Promise<void> {
   const program = new Command();
 
   program
-    .name('josui-token-studio')
-    .description('Launch local token CRUD editor')
-    .option('--cwd <path>', 'Working directory', process.cwd())
-    .option('--config <path>', 'Path to token-studio config JSON')
-    .option('--tokens-dir <path>', 'Tokens directory path')
-    .option('--port <number>', 'Port to run local server', '4598')
-    .option('--no-open', 'Do not open browser automatically');
+    .name("josui-token-studio")
+    .description("Launch local token CRUD editor")
+    .option("--cwd <path>", "Working directory", process.cwd())
+    .option("--config <path>", "Path to token-studio config JSON")
+    .option("--tokens-dir <path>", "Tokens directory path")
+    .option("--port <number>", "Port to run local server", "4598")
+    .option("--no-open", "Do not open browser automatically");
 
   program.parse(process.argv);
   const options = program.opts<{
@@ -42,13 +42,13 @@ async function run(): Promise<void> {
     options.tokensDir ??
       configTokensDir ??
       discoveredTokensDir ??
-      path.join(cwd, DEFAULT_TOKENS_RELATIVE_DIR)
+      path.join(cwd, DEFAULT_TOKENS_RELATIVE_DIR),
   );
 
   const defaultTerrazzoPath = path.resolve(
     config.terrazzoPath
       ? path.resolve(configBaseDir, config.terrazzoPath)
-      : path.join(cwd, DEFAULT_TERRAZZO_RELATIVE_PATH)
+      : path.join(cwd, DEFAULT_TERRAZZO_RELATIVE_PATH),
   );
   const terrazzoPath = inferTerrazzoPathFromTokensDir(tokensDir, defaultTerrazzoPath);
 
@@ -56,7 +56,7 @@ async function run(): Promise<void> {
     tokensDir,
     terrazzoPath,
     port: Number(options.port),
-    webDir: path.resolve(import.meta.dirname, '..', 'dist', 'web'),
+    webDir: path.resolve(import.meta.dirname, "..", "dist", "web"),
   });
 
   process.stdout.write(`Token Studio running at ${server.url}\n`);
@@ -75,8 +75,8 @@ async function run(): Promise<void> {
     process.exit(0);
   };
 
-  process.on('SIGINT', shutdown);
-  process.on('SIGTERM', shutdown);
+  process.on("SIGINT", shutdown);
+  process.on("SIGTERM", shutdown);
 }
 
 void run();

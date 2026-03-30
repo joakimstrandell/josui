@@ -1,16 +1,16 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Input } from './Input';
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { Input } from "./Input";
 
 const meta = {
-  title: 'Components/Input',
+  title: "Components/Input",
   component: Input,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   decorators: [
     (Story) => (
-      <div style={{ width: '320px' }}>
+      <div style={{ width: "320px" }}>
         <Story />
       </div>
     ),
@@ -22,77 +22,77 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    placeholder: 'Enter text...',
+    placeholder: "Enter text...",
   },
 };
 
 export const WithLabel: Story = {
   args: {
-    label: 'Email',
-    placeholder: 'you@example.com',
+    label: "Email",
+    placeholder: "you@example.com",
   },
 };
 
 export const WithHint: Story = {
   args: {
-    label: 'Password',
-    type: 'password',
-    hint: 'Must be at least 8 characters',
+    label: "Password",
+    type: "password",
+    hint: "Must be at least 8 characters",
   },
 };
 
 export const WithError: Story = {
   args: {
-    label: 'Email',
-    placeholder: 'you@example.com',
-    error: 'Please enter a valid email address',
-    defaultValue: 'invalid-email',
+    label: "Email",
+    placeholder: "you@example.com",
+    error: "Please enter a valid email address",
+    defaultValue: "invalid-email",
   },
 };
 
 export const Success: Story = {
   args: {
-    label: 'Username',
-    state: 'success',
-    defaultValue: 'available_username',
+    label: "Username",
+    state: "success",
+    defaultValue: "available_username",
   },
 };
 
 export const Small: Story = {
   args: {
-    size: 'sm',
-    placeholder: 'Small input',
+    size: "sm",
+    placeholder: "Small input",
   },
 };
 
 export const Large: Story = {
   args: {
-    size: 'lg',
-    placeholder: 'Large input',
+    size: "lg",
+    placeholder: "Large input",
   },
 };
 
 export const Disabled: Story = {
   args: {
-    label: 'Disabled',
+    label: "Disabled",
     disabled: true,
-    defaultValue: 'Cannot edit',
+    defaultValue: "Cannot edit",
   },
 };
 
 export const WithLeftAddon: Story = {
   args: {
-    label: 'Website',
-    leftAddon: 'https://',
-    placeholder: 'example.com',
+    label: "Website",
+    leftAddon: "https://",
+    placeholder: "example.com",
   },
 };
 
 export const WithRightAddon: Story = {
   args: {
-    label: 'Price',
-    rightAddon: 'USD',
-    type: 'number',
-    placeholder: '0.00',
+    label: "Price",
+    rightAddon: "USD",
+    type: "number",
+    placeholder: "0.00",
   },
 };

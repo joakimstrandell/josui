@@ -7,4 +7,4 @@ export {
   type TabsListProps,
   type TabsTriggerProps,
   type TabsContentProps,
-} from './Tabs';
+} from "./Tabs";

@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { useSyncExternalStore } from 'react';
-import { interactiveState } from '@josui/core-web';
+import { useSyncExternalStore } from "react";
+import { interactiveState } from "@josui/core-web";
 
 /**
  * React hook that subscribes to interactive element state changes
@@ -16,6 +16,6 @@ export function useInteractiveState(): boolean {
     // getSnapshot function (client-side)
     () => interactiveState.getState(),
     // getServerSnapshot function (server-side, always false)
-    () => false
+    () => false,
   );
 }

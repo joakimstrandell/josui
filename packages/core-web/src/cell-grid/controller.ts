@@ -1,6 +1,6 @@
-import type { CellGridController, CellGridControllerConfig } from './types';
-import { createCellManager } from './manager';
-import { drawCellGridLines, drawCells, clearCanvas } from './renderer';
+import type { CellGridController, CellGridControllerConfig } from "./types";
+import { createCellManager } from "./manager";
+import { drawCellGridLines, drawCells, clearCanvas } from "./renderer";
 
 /**
  * Creates the main controller for the cell grid animation
@@ -12,21 +12,21 @@ import { drawCellGridLines, drawCells, clearCanvas } from './renderer';
  */
 export const createCellGridController = (
   canvas: HTMLCanvasElement,
-  config: CellGridControllerConfig = {}
+  config: CellGridControllerConfig = {},
 ): CellGridController => {
   const {
     cellSize = 24,
     fadeRate = 0.015,
     maxCells = 200,
-    gridColor = '#000',
+    gridColor = "#000",
     gridOpacity = 0.1,
-    cellColor = '#000',
+    cellColor = "#000",
     cellOpacity = 0.3,
   } = config;
 
-  const ctx = canvas.getContext('2d');
+  const ctx = canvas.getContext("2d");
   if (!ctx) {
-    throw new Error('Failed to get canvas 2D context');
+    throw new Error("Failed to get canvas 2D context");
   }
 
   // Create cell manager

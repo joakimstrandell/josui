@@ -1,1 +1,1 @@
-export { default } from '@josui/prettier-config/tailwind';
+export { default } from "@josui/prettier-config/tailwind";

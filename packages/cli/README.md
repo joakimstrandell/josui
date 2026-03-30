@@ -1,75 +1,64 @@
 # @josui/cli
 
-CLI tool for linking josui packages and skills to external projects.
+CLI tools and Vite plugin for local development with josui packages.
 
 ## Installation
 
 ```bash
-pnpm add @josui/cli
+pnpm add -D @josui/cli
 ```
 
-## Usage
+## Vite Plugin
 
-```bash
-pnpm josui link packages
-pnpm josui link skills
+Resolve `@josui/*` imports to local source during development. Add to your `vite.config.ts`:
+
+```ts
+import { josuiDev } from "@josui/cli/vite";
+
+export default defineConfig({
+  plugins: [josuiDev()],
+});
 ```
 
-Or with npx:
+The plugin auto-discovers all packages in your local josui repo and creates Vite aliases so imports resolve to the raw TypeScript source. This gives you HMR and avoids the symlink/node_modules pitfalls.
 
-```bash
-npx josui link packages
-```
+It also configures `resolve.dedupe` (React singleton), `server.fs.allow`, `optimizeDeps.exclude`, and `ssr.noExternal` automatically.
 
-### Running from source
+### Path resolution
 
-If you're developing josui locally, you can run the CLI directly:
+The plugin finds your josui repo in this order:
 
-```bash
-node <path-to-josui>/packages/cli/dist/index.js
-```
+1. **Param**: `josuiDev({ josuiPath: '../josui' })`
+2. **Config file**: `josuiPath` in `.josui.json`
+3. **Default**: `../josui`
 
-Replace `<path-to-josui>` with the relative path to your josui checkout (e.g., `../josui`).
+If the path doesn't exist, the plugin silently disables itself (safe for CI/production).
 
-## Commands
-
-### Link packages
-
-Link `@josui/*` packages from your local josui checkout:
-
-```bash
-josui link packages
-```
-
-This replaces npm-installed packages in `node_modules/@josui/` with symlinks to your local josui packages, enabling hot reload during development.
+## CLI
 
 ### Link skills
 
-Link Claude Code skills from josui packages:
+Symlink Claude Code skills from josui packages into your project:
 
 ```bash
-josui link skills
+npx josui link skills
 ```
 
-This creates symlinks in `.claude/skills/` for selected skills from josui packages.
+Creates symlinks in `.claude/skills/` pointing to skill directories in josui packages. Re-running removes deprecated skills and re-links the current selection.
+
+### Running from source
+
+```bash
+node <path-to-josui>/packages/cli/dist/index.mjs link skills
+```
 
 ## Configuration
 
-The CLI saves your settings to `.josui.json` in your project root:
+Settings are saved to `.josui.json` (add to `.gitignore`):
 
 ```json
 {
   "josuiPath": "../josui",
-  "linkedPackages": ["core", "core-web", "react", "tailwind-preset", "eslint-config"],
   "linkedSkills": [{ "source": "react", "skills": ["use-react-components"] }]
 }
 ```
-
-When you run the CLI again, it offers to re-link using the saved config.
-
-## How It Works
-
-1. `pnpm install` creates a clean lockfile with npm versions
-2. The CLI replaces `node_modules/@josui/*` with symlinks to local packages
-3. The lockfile stays unchanged — CI works with the committed lockfile
-4. Config is saved for quick re-linking after future installs

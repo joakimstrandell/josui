@@ -1,7 +1,7 @@
-import fs from 'node:fs/promises';
+import fs from "node:fs/promises";
 
 function parseTokenArray(
-  configContent: string
+  configContent: string,
 ): { entries: string[]; start: number; end: number } | null {
   const match = /tokens\s*:\s*\[(?<entries>[\s\S]*?)\],/m.exec(configContent);
   if (!match || !match.groups) {
@@ -23,20 +23,20 @@ function parseTokenArray(
 }
 
 function formatTokenArray(entries: string[]): string {
-  const formattedEntries = entries.map((entry) => `    '${entry}',`).join('\n');
+  const formattedEntries = entries.map((entry) => `    '${entry}',`).join("\n");
   return `tokens: [\n${formattedEntries}\n  ],`;
 }
 
 export async function syncTerrazzoTokens(
   terrazzoPath: string,
   tokenRelativePath: string,
-  operation: 'add' | 'remove'
+  operation: "add" | "remove",
 ): Promise<void> {
   let configContent: string;
   try {
-    configContent = await fs.readFile(terrazzoPath, 'utf8');
+    configContent = await fs.readFile(terrazzoPath, "utf8");
   } catch (error) {
-    if ((error as NodeJS.ErrnoException).code === 'ENOENT') {
+    if ((error as NodeJS.ErrnoException).code === "ENOENT") {
       return;
     }
     throw error;
@@ -49,7 +49,7 @@ export async function syncTerrazzoTokens(
 
   let nextEntries = parsed.entries;
 
-  if (operation === 'add') {
+  if (operation === "add") {
     if (!nextEntries.includes(tokenRelativePath)) {
       nextEntries = [...nextEntries, tokenRelativePath];
     }
@@ -61,6 +61,6 @@ export async function syncTerrazzoTokens(
   const nextConfig = `${configContent.slice(0, parsed.start)}${replacement}${configContent.slice(parsed.end)}`;
 
   if (nextConfig !== configContent) {
-    await fs.writeFile(terrazzoPath, nextConfig, 'utf8');
+    await fs.writeFile(terrazzoPath, nextConfig, "utf8");
   }
 }

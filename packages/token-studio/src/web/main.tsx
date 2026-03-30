@@ -1,5 +1,5 @@
-import './styles.css';
-import ReactDOM from 'react-dom/client';
+import "./styles.css";
+import ReactDOM from "react-dom/client";
 import {
   Link,
   Navigate,
@@ -8,11 +8,11 @@ import {
   createRootRoute,
   createRoute,
   createRouter,
-} from '@tanstack/react-router';
-import { CategoriesPage } from './routes/categories';
-import { CategoryEditorPage } from './routes/category-editor';
-import { ChangesPage, ChangesProvider } from './routes/changes';
-import { SettingsPage } from './routes/settings';
+} from "@tanstack/react-router";
+import { CategoriesPage } from "./routes/categories";
+import { CategoryEditorPage } from "./routes/category-editor";
+import { ChangesPage, ChangesProvider } from "./routes/changes";
+import { SettingsPage } from "./routes/settings";
 
 function RootLayout() {
   return (
@@ -24,21 +24,21 @@ function RootLayout() {
             <Link
               to="/categories"
               className="rounded px-3 py-2 hover:bg-[var(--paper)]"
-              activeProps={{ className: 'rounded bg-[var(--paper)] px-3 py-2' }}
+              activeProps={{ className: "rounded bg-[var(--paper)] px-3 py-2" }}
             >
               Categories
             </Link>
             <Link
               to="/changes"
               className="rounded px-3 py-2 hover:bg-[var(--paper)]"
-              activeProps={{ className: 'rounded bg-[var(--paper)] px-3 py-2' }}
+              activeProps={{ className: "rounded bg-[var(--paper)] px-3 py-2" }}
             >
               Changes
             </Link>
             <Link
               to="/settings"
               className="rounded px-3 py-2 hover:bg-[var(--paper)]"
-              activeProps={{ className: 'rounded bg-[var(--paper)] px-3 py-2' }}
+              activeProps={{ className: "rounded bg-[var(--paper)] px-3 py-2" }}
             >
               Settings
             </Link>
@@ -58,31 +58,31 @@ const rootRoute = createRootRoute({
 
 const indexRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: '/',
+  path: "/",
   component: () => <Navigate to="/categories" />,
 });
 
 const categoriesRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: '/categories',
+  path: "/categories",
   component: CategoriesPage,
 });
 
 const categoryRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: '/categories/$name',
+  path: "/categories/$name",
   component: CategoryEditorPage,
 });
 
 const changesRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: '/changes',
+  path: "/changes",
   component: ChangesPage,
 });
 
 const settingsRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: '/settings',
+  path: "/settings",
   component: SettingsPage,
 });
 
@@ -98,15 +98,15 @@ const router = createRouter({
   routeTree,
 });
 
-declare module '@tanstack/react-router' {
+declare module "@tanstack/react-router" {
   interface Register {
     router: typeof router;
   }
 }
 
-const rootElement = document.getElementById('app');
+const rootElement = document.getElementById("app");
 if (!rootElement) {
-  throw new Error('Missing #app root element');
+  throw new Error("Missing #app root element");
 }
 
 if (!rootElement.innerHTML) {

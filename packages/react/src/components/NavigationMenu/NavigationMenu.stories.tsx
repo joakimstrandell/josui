@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -7,13 +7,13 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from './NavigationMenu';
+} from "./NavigationMenu";
 
 const meta = {
-  title: 'Components/NavigationMenu',
+  title: "Components/NavigationMenu",
   component: NavigationMenu,
-  parameters: { layout: 'centered' },
-  tags: ['autodocs'],
+  parameters: { layout: "centered" },
+  tags: ["autodocs"],
 } satisfies Meta<typeof NavigationMenu>;
 
 export default meta;

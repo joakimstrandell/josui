@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
-import { AspectRatio } from './AspectRatio';
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { AspectRatio } from "./AspectRatio";
 
 const meta = {
-  title: 'Components/AspectRatio',
+  title: "Components/AspectRatio",
   component: AspectRatio,
-  parameters: { layout: 'centered' },
-  tags: ['autodocs'],
+  parameters: { layout: "centered" },
+  tags: ["autodocs"],
 } satisfies Meta<typeof AspectRatio>;
 
 export default meta;

@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from './Tabs';
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "./Tabs";
 
 const meta = {
-  title: 'Components/Tabs',
+  title: "Components/Tabs",
   component: Tabs,
-  parameters: { layout: 'centered' },
-  tags: ['autodocs'],
+  parameters: { layout: "centered" },
+  tags: ["autodocs"],
 } satisfies Meta<typeof Tabs>;
 
 export default meta;

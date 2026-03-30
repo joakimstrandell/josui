@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import {
   Sidebar,
   SidebarContent,
@@ -14,25 +14,25 @@ import {
   SidebarProvider,
   SidebarRail,
   SidebarTrigger,
-} from './Sidebar';
-import { Calendar, Home, Inbox, Search, Settings } from 'lucide-react';
+} from "./Sidebar";
+import { Calendar, Home, Inbox, Search, Settings } from "lucide-react";
 
 const meta = {
-  title: 'Components/Sidebar',
+  title: "Components/Sidebar",
   component: Sidebar,
-  parameters: { layout: 'fullscreen' },
-  tags: ['autodocs'],
+  parameters: { layout: "fullscreen" },
+  tags: ["autodocs"],
 } satisfies Meta<typeof Sidebar>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 const items = [
-  { title: 'Home', icon: Home },
-  { title: 'Inbox', icon: Inbox },
-  { title: 'Calendar', icon: Calendar },
-  { title: 'Search', icon: Search },
-  { title: 'Settings', icon: Settings },
+  { title: "Home", icon: Home },
+  { title: "Inbox", icon: Inbox },
+  { title: "Calendar", icon: Calendar },
+  { title: "Search", icon: Search },
+  { title: "Settings", icon: Settings },
 ];
 
 export const Default: Story = {

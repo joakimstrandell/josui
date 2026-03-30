@@ -1,13 +1,13 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Typography } from './Typography';
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { Typography } from "./Typography";
 
 const meta = {
-  title: 'Components/Typography',
+  title: "Components/Typography",
   component: Typography,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
 } satisfies Meta<typeof Typography>;
 
 export default meta;
@@ -15,59 +15,59 @@ type Story = StoryObj<typeof meta>;
 
 export const Heading1: Story = {
   args: {
-    variant: 'h1',
-    children: 'Heading 1',
+    variant: "h1",
+    children: "Heading 1",
   },
 };
 
 export const Heading2: Story = {
   args: {
-    variant: 'h2',
-    children: 'Heading 2',
+    variant: "h2",
+    children: "Heading 2",
   },
 };
 
 export const Heading3: Story = {
   args: {
-    variant: 'h3',
-    children: 'Heading 3',
+    variant: "h3",
+    children: "Heading 3",
   },
 };
 
 export const Body: Story = {
   args: {
-    variant: 'body',
-    children: 'This is body text. It is used for most content.',
+    variant: "body",
+    children: "This is body text. It is used for most content.",
   },
 };
 
 export const BodySmall: Story = {
   args: {
-    variant: 'body-sm',
-    children: 'This is small body text.',
+    variant: "body-sm",
+    children: "This is small body text.",
   },
 };
 
 export const Caption: Story = {
   args: {
-    variant: 'caption',
-    children: 'This is caption text.',
+    variant: "caption",
+    children: "This is caption text.",
   },
 };
 
 export const Muted: Story = {
   args: {
-    variant: 'body',
-    color: 'muted',
-    children: 'This text is muted.',
+    variant: "body",
+    color: "muted",
+    children: "This text is muted.",
   },
 };
 
 export const PrimaryColor: Story = {
   args: {
-    variant: 'body',
-    color: 'primary',
-    children: 'This text uses the primary color.',
+    variant: "body",
+    color: "primary",
+    children: "This text uses the primary color.",
   },
 };
 

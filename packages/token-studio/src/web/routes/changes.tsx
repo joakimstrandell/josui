@@ -1,15 +1,15 @@
-import * as React from 'react';
+import * as React from "react";
 
 interface ChangeLogEntry {
   id: string;
   timestamp: string;
-  level: 'info' | 'error';
+  level: "info" | "error";
   message: string;
 }
 
 interface ChangesContextValue {
   log: ChangeLogEntry[];
-  add: (entry: Omit<ChangeLogEntry, 'id' | 'timestamp'>) => void;
+  add: (entry: Omit<ChangeLogEntry, "id" | "timestamp">) => void;
   clear: () => void;
 }
 
@@ -18,7 +18,7 @@ const ChangesContext = React.createContext<ChangesContextValue | null>(null);
 export function ChangesProvider({ children }: { children: React.ReactNode }) {
   const [log, setLog] = React.useState<ChangeLogEntry[]>([]);
 
-  const add = (entry: Omit<ChangeLogEntry, 'id' | 'timestamp'>) => {
+  const add = (entry: Omit<ChangeLogEntry, "id" | "timestamp">) => {
     setLog((current) => [
       {
         id: crypto.randomUUID(),
@@ -37,7 +37,7 @@ export function ChangesProvider({ children }: { children: React.ReactNode }) {
 export function useChanges(): ChangesContextValue {
   const context = React.useContext(ChangesContext);
   if (!context) {
-    throw new Error('useChanges must be used inside ChangesProvider');
+    throw new Error("useChanges must be used inside ChangesProvider");
   }
   return context;
 }
@@ -65,7 +65,7 @@ export function ChangesPage() {
           <li
             key={entry.id}
             className={`rounded border p-3 text-sm ${
-              entry.level === 'error' ? 'border-red-300 bg-red-50' : 'border-[var(--line)] bg-white'
+              entry.level === "error" ? "border-red-300 bg-red-50" : "border-[var(--line)] bg-white"
             }`}
           >
             <p className="font-medium">{entry.message}</p>

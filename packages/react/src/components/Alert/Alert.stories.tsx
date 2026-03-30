@@ -1,16 +1,16 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Alert } from './Alert';
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { Alert } from "./Alert";
 
 const meta: Meta<typeof Alert> = {
-  title: 'Components/Alert',
+  title: "Components/Alert",
   component: Alert,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   decorators: [
     (Story) => (
-      <div style={{ width: '400px' }}>
+      <div style={{ width: "400px" }}>
         <Story />
       </div>
     ),
@@ -22,50 +22,50 @@ type Story = StoryObj<typeof meta>;
 
 export const Info: Story = {
   args: {
-    variant: 'info',
-    title: 'Information',
-    children: 'This is an informational alert message.',
+    variant: "info",
+    title: "Information",
+    children: "This is an informational alert message.",
   },
 };
 
 export const Success: Story = {
   args: {
-    variant: 'success',
-    title: 'Success',
-    children: 'Your changes have been saved successfully.',
+    variant: "success",
+    title: "Success",
+    children: "Your changes have been saved successfully.",
   },
 };
 
 export const Warning: Story = {
   args: {
-    variant: 'warning',
-    title: 'Warning',
-    children: 'Please review the following issues before continuing.',
+    variant: "warning",
+    title: "Warning",
+    children: "Please review the following issues before continuing.",
   },
 };
 
 export const Error: Story = {
   args: {
-    variant: 'error',
-    title: 'Error',
-    children: 'There was a problem processing your request.',
+    variant: "error",
+    title: "Error",
+    children: "There was a problem processing your request.",
   },
 };
 
 export const WithoutTitle: Story = {
   args: {
-    variant: 'info',
-    children: 'This alert has no title, just a message.',
+    variant: "info",
+    children: "This alert has no title, just a message.",
   },
 };
 
 export const Dismissible: Story = {
   args: {
-    variant: 'success',
-    title: 'Dismissible Alert',
-    children: 'Click the X button to dismiss this alert.',
+    variant: "success",
+    title: "Dismissible Alert",
+    children: "Click the X button to dismiss this alert.",
     dismissible: true,
-    onDismiss: () => alert('Dismissed!'),
+    onDismiss: () => alert("Dismissed!"),
   },
 };
 

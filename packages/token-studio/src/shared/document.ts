@@ -1,18 +1,18 @@
-import type { SupportedTokenType, TokenItem } from './types';
+import type { SupportedTokenType, TokenItem } from "./types";
 
 function isObject(value: unknown): value is Record<string, unknown> {
-  return typeof value === 'object' && value !== null && !Array.isArray(value);
+  return typeof value === "object" && value !== null && !Array.isArray(value);
 }
 
 function asSupportedType(value: unknown): SupportedTokenType | undefined {
   if (
-    value === 'color' ||
-    value === 'dimension' ||
-    value === 'duration' ||
-    value === 'cubicBezier' ||
-    value === 'fontFamily' ||
-    value === 'number' ||
-    value === 'string'
+    value === "color" ||
+    value === "dimension" ||
+    value === "duration" ||
+    value === "cubicBezier" ||
+    value === "fontFamily" ||
+    value === "number" ||
+    value === "string"
   ) {
     return value;
   }
@@ -37,15 +37,15 @@ export function flattenTokens(document: Record<string, unknown>): TokenItem[] {
   function walk(
     node: Record<string, unknown>,
     currentPath: string,
-    inheritedType?: SupportedTokenType
+    inheritedType?: SupportedTokenType,
   ): void {
     const localType = asSupportedType(node.$type) ?? inheritedType;
 
-    if (Object.prototype.hasOwnProperty.call(node, '$value') && localType) {
+    if (Object.prototype.hasOwnProperty.call(node, "$value") && localType) {
       const entry: TokenItem = {
         path: currentPath,
         type: localType,
-        description: typeof node.$description === 'string' ? node.$description : undefined,
+        description: typeof node.$description === "string" ? node.$description : undefined,
         value: node.$value,
         hasMode: false,
       };
@@ -62,7 +62,7 @@ export function flattenTokens(document: Record<string, unknown>): TokenItem[] {
     }
 
     for (const [key, value] of Object.entries(node)) {
-      if (key.startsWith('$')) {
+      if (key.startsWith("$")) {
         continue;
       }
       if (!isObject(value)) {
@@ -101,10 +101,10 @@ export interface UpsertTokenInput {
 
 export function upsertToken(
   document: Record<string, unknown>,
-  input: UpsertTokenInput
+  input: UpsertTokenInput,
 ): Record<string, unknown> {
   const cloned = structuredClone(document);
-  const segments = input.path.split('.').filter(Boolean);
+  const segments = input.path.split(".").filter(Boolean);
   if (segments.length < 2) {
     return cloned;
   }
@@ -145,10 +145,10 @@ export function upsertToken(
 
 export function deleteToken(
   document: Record<string, unknown>,
-  tokenPath: string
+  tokenPath: string,
 ): Record<string, unknown> {
   const cloned = structuredClone(document);
-  const segments = tokenPath.split('.').filter(Boolean);
+  const segments = tokenPath.split(".").filter(Boolean);
   if (segments.length < 2) {
     return cloned;
   }
@@ -169,7 +169,7 @@ export function deleteToken(
 
     if (index === segments.length - 1) {
       delete node[key];
-      return Object.keys(node).filter((candidate) => !candidate.startsWith('$')).length === 0;
+      return Object.keys(node).filter((candidate) => !candidate.startsWith("$")).length === 0;
     }
 
     const shouldPrune = removePath(value, index + 1);
@@ -177,7 +177,7 @@ export function deleteToken(
       delete node[key];
     }
 
-    return Object.keys(node).filter((candidate) => !candidate.startsWith('$')).length === 0;
+    return Object.keys(node).filter((candidate) => !candidate.startsWith("$")).length === 0;
   }
 
   removePath(rootNode, 1);

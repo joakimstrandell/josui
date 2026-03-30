@@ -1,6 +1,6 @@
-import { renderHook } from '@testing-library/react';
-import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { useKeyboardShortcut } from './useKeyboardShortcut';
+import { renderHook } from "@testing-library/react";
+import { describe, it, expect, vi, beforeEach } from "vitest";
+import { useKeyboardShortcut } from "./useKeyboardShortcut";
 
 const mockCleanup = vi.fn();
 const mockCreateKeyboardShortcut = vi.fn(() => mockCleanup);
@@ -12,27 +12,27 @@ const mockParseShortcut = vi.fn((s: string) => ({
   meta: false,
 }));
 
-vi.mock('@josui/core-web', async (importOriginal) => ({
-  ...(await importOriginal<typeof import('@josui/core-web')>()),
+vi.mock("@josui/core-web", async (importOriginal) => ({
+  ...(await importOriginal<typeof import("@josui/core-web")>()),
   createKeyboardShortcut: (opts: unknown) => mockCreateKeyboardShortcut(opts),
   parseShortcut: (s: string) => mockParseShortcut(s),
 }));
 
-describe('useKeyboardShortcut', () => {
+describe("useKeyboardShortcut", () => {
   beforeEach(() => {
     vi.clearAllMocks();
   });
 
-  it('creates keyboard shortcut on mount', () => {
+  it("creates keyboard shortcut on mount", () => {
     const onTrigger = vi.fn();
     renderHook(() =>
       useKeyboardShortcut({
-        shortcut: 'ctrl+k',
+        shortcut: "ctrl+k",
         onTrigger,
-      })
+      }),
     );
 
-    expect(mockParseShortcut).toHaveBeenCalledWith('ctrl+k');
+    expect(mockParseShortcut).toHaveBeenCalledWith("ctrl+k");
     expect(mockCreateKeyboardShortcut).toHaveBeenCalledWith({
       shortcut: expect.any(Object),
       onTrigger,
@@ -40,79 +40,79 @@ describe('useKeyboardShortcut', () => {
     });
   });
 
-  it('cleans up on unmount', () => {
+  it("cleans up on unmount", () => {
     const onTrigger = vi.fn();
     const { unmount } = renderHook(() =>
       useKeyboardShortcut({
-        shortcut: 'ctrl+k',
+        shortcut: "ctrl+k",
         onTrigger,
-      })
+      }),
     );
 
     unmount();
     expect(mockCleanup).toHaveBeenCalled();
   });
 
-  it('does not create shortcut when disabled', () => {
+  it("does not create shortcut when disabled", () => {
     const onTrigger = vi.fn();
     renderHook(() =>
       useKeyboardShortcut({
-        shortcut: 'ctrl+k',
+        shortcut: "ctrl+k",
         onTrigger,
         enabled: false,
-      })
+      }),
     );
 
     expect(mockCreateKeyboardShortcut).not.toHaveBeenCalled();
   });
 
-  it('passes preventDefault option', () => {
+  it("passes preventDefault option", () => {
     const onTrigger = vi.fn();
     renderHook(() =>
       useKeyboardShortcut({
-        shortcut: 'ctrl+k',
+        shortcut: "ctrl+k",
         onTrigger,
         preventDefault: false,
-      })
+      }),
     );
 
     expect(mockCreateKeyboardShortcut).toHaveBeenCalledWith(
       expect.objectContaining({
         preventDefault: false,
-      })
+      }),
     );
   });
 
-  it('accepts KeyboardShortcut object directly', () => {
+  it("accepts KeyboardShortcut object directly", () => {
     const onTrigger = vi.fn();
-    const shortcut = { key: 'k', ctrl: true, alt: false, shift: false, meta: false };
+    const shortcut = { key: "k", ctrl: true, alt: false, shift: false, meta: false };
 
     renderHook(() =>
       useKeyboardShortcut({
         shortcut,
         onTrigger,
-      })
+      }),
     );
 
     expect(mockParseShortcut).not.toHaveBeenCalled();
     expect(mockCreateKeyboardShortcut).toHaveBeenCalledWith(
       expect.objectContaining({
         shortcut,
-      })
+      }),
     );
   });
 
-  it('recreates shortcut when dependencies change', () => {
+  it("recreates shortcut when dependencies change", () => {
     const onTrigger1 = vi.fn();
     const onTrigger2 = vi.fn();
 
     const { rerender } = renderHook(
       ({ onTrigger }) =>
         useKeyboardShortcut({
-          shortcut: 'ctrl+k',
+          shortcut: "ctrl+k",
           onTrigger,
         }),
-      { initialProps: { onTrigger: onTrigger1 } }
+      { initialProps: { onTrigger: onTrigger1 } },
     );
 
     expect(mockCreateKeyboardShortcut).toHaveBeenCalledTimes(1);

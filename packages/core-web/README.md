@@ -11,10 +11,10 @@ pnpm add @josui/core-web
 ## Usage
 
 ```ts
-import { cn, createCustomCursor, createCellGridController } from '@josui/core-web';
+import { cn, createCustomCursor, createCellGridController } from "@josui/core-web";
 
 // Merge Tailwind classes with proper precedence
-const className = cn('px-4 py-2', isActive && 'bg-blue-500', className);
+const className = cn("px-4 py-2", isActive && "bg-blue-500", className);
 
 // Create a custom cursor
 const cursor = createCustomCursor(element, { interactiveScale: 2.5 });

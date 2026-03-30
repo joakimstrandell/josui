@@ -1,23 +1,26 @@
 {
   "name": "@josui/react",
   "version": "0.4.0",
-  "type": "module",
-  "main": "./src/index.ts",
-  "types": "./src/index.ts",
-  "exports": {
-    ".": "./src/index.ts"
-  },
   "files": [
     "skills",
     "src",
     "tailwind.css"
   ],
+  "type": "module",
   "sideEffects": [
     "**/*.css"
   ],
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "clean": "rm -rf storybook-static",
-    "lint": "eslint src",
+    "lint": "vp lint src",
     "test": "vitest run",
     "test:watch": "vitest",
     "storybook": "storybook dev -p 6006",
@@ -74,7 +77,6 @@
     "@testing-library/user-event": "^14.6.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
-    "@josui/prettier-config": "workspace:*",
     "jsdom": "^26.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -88,8 +90,5 @@
     "gsap": "^3.12.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
-  },
-  "publishConfig": {
-    "access": "public"
   }
 }

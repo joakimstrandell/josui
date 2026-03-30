@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { isTouchDevice } from '@josui/core-web';
-import { useEffect, useState } from 'react';
+import { isTouchDevice } from "@josui/core-web";
+import { useEffect, useState } from "react";
 
 export function useIsTouchDevice() {
   const [isTouchDeviceState, setIsTouchDeviceState] = useState(false);

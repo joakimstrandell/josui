@@ -9,4 +9,4 @@ export {
   type ChartContainerProps,
   type ChartTooltipContentProps,
   type ChartLegendContentProps,
-} from './Chart';
+} from "./Chart";

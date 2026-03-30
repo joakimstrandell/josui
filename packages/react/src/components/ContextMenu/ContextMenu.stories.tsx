@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import {
   ContextMenu,
   ContextMenuContent,
@@ -6,13 +6,13 @@ import {
   ContextMenuSeparator,
   ContextMenuShortcut,
   ContextMenuTrigger,
-} from './ContextMenu';
+} from "./ContextMenu";
 
 const meta = {
-  title: 'Components/ContextMenu',
+  title: "Components/ContextMenu",
   component: ContextMenu,
-  parameters: { layout: 'centered' },
-  tags: ['autodocs'],
+  parameters: { layout: "centered" },
+  tags: ["autodocs"],
 } satisfies Meta<typeof ContextMenu>;
 
 export default meta;

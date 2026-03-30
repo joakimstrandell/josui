@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './Tooltip';
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./Tooltip";
 
 const meta = {
-  title: 'Components/Tooltip',
+  title: "Components/Tooltip",
   component: Tooltip,
-  parameters: { layout: 'centered' },
-  tags: ['autodocs'],
+  parameters: { layout: "centered" },
+  tags: ["autodocs"],
   decorators: [
     (Story) => (
       <TooltipProvider>

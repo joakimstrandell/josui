@@ -1,13 +1,13 @@
-import { useState } from 'react';
-import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from './Collapsible';
-import { ChevronsUpDown } from 'lucide-react';
+import { useState } from "react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "./Collapsible";
+import { ChevronsUpDown } from "lucide-react";
 
 const meta = {
-  title: 'Components/Collapsible',
+  title: "Components/Collapsible",
   component: Collapsible,
-  parameters: { layout: 'centered' },
-  tags: ['autodocs'],
+  parameters: { layout: "centered" },
+  tags: ["autodocs"],
 } satisfies Meta<typeof Collapsible>;
 
 export default meta;

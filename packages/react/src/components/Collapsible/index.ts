@@ -5,4 +5,4 @@ export {
   type CollapsibleProps,
   type CollapsibleTriggerProps,
   type CollapsibleContentProps,
-} from './Collapsible';
+} from "./Collapsible";

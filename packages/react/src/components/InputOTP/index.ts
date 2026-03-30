@@ -7,4 +7,4 @@ export {
   type InputOTPGroupProps,
   type InputOTPSlotProps,
   type InputOTPSeparatorProps,
-} from './InputOTP';
+} from "./InputOTP";

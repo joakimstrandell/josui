@@ -3,4 +3,4 @@ export {
   ToggleGroupItem,
   type ToggleGroupProps,
   type ToggleGroupItemProps,
-} from './ToggleGroup';
+} from "./ToggleGroup";

@@ -1,1 +1,1 @@
-export { Page, PageSection, type PageProps, type PageSectionProps } from './Page';
+export { Page, PageSection, type PageProps, type PageSectionProps } from "./Page";

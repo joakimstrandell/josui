@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import {
   Drawer,
   DrawerClose,
@@ -8,13 +8,13 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from './Drawer';
+} from "./Drawer";
 
 const meta = {
-  title: 'Components/Drawer',
+  title: "Components/Drawer",
   component: Drawer,
-  parameters: { layout: 'centered' },
-  tags: ['autodocs'],
+  parameters: { layout: "centered" },
+  tags: ["autodocs"],
 } satisfies Meta<typeof Drawer>;
 
 export default meta;

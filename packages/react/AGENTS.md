@@ -28,12 +28,12 @@ ComponentName/
 
 ```tsx
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary';
-  size?: 'sm' | 'md' | 'lg';
+  variant?: "primary" | "secondary";
+  size?: "sm" | "md" | "lg";
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant = 'primary', size = 'md', ...props }, ref) => {
+  ({ className, variant = "primary", size = "md", ...props }, ref) => {
     return (
       <button
         ref={ref}
@@ -41,10 +41,10 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         {...props}
       />
     );
-  }
+  },
 );
 
-Button.displayName = 'Button';
+Button.displayName = "Button";
 ```
 
 ## Styling
@@ -53,14 +53,14 @@ Components use Tailwind CSS classes. Define variant/size styles as objects:
 
 ```tsx
 const variantStyles = {
-  primary: 'bg-primary-500 text-white hover:bg-primary-600',
-  secondary: 'bg-gray-100 text-gray-900 hover:bg-gray-200',
+  primary: "bg-primary-500 text-white hover:bg-primary-600",
+  secondary: "bg-gray-100 text-gray-900 hover:bg-gray-200",
 };
 
 const sizeStyles = {
-  sm: 'h-8 px-3 text-sm',
-  md: 'h-10 px-4 text-sm',
-  lg: 'h-12 px-6 text-base',
+  sm: "h-8 px-3 text-sm",
+  md: "h-10 px-4 text-sm",
+  lg: "h-12 px-6 text-base",
 };
 ```
 

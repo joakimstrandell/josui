@@ -1,5 +1,5 @@
-import type { CellState } from './types';
-import { toRgb } from '@josui/core';
+import type { CellState } from "./types";
+import { toRgb } from "@josui/core";
 
 /**
  * Draws the static cell grid lines on the canvas
@@ -16,7 +16,7 @@ export const drawCellGridLines = (
   height: number,
   cellSize: number,
   color: string,
-  opacity: number = 0.1
+  opacity: number = 0.1,
 ): void => {
   const gridColor = toRgb(color, opacity) ?? color;
   ctx.strokeStyle = gridColor;
@@ -53,7 +53,7 @@ export const drawCells = (
   cells: ReadonlyMap<string, CellState>,
   cellSize: number,
   color: string,
-  maxOpacity: number = 0.3
+  maxOpacity: number = 0.3,
 ): void => {
   const padding = 1;
 
@@ -67,7 +67,7 @@ export const drawCells = (
       cell.x + padding,
       cell.y + padding,
       cellSize - padding * 2,
-      cellSize - padding * 2
+      cellSize - padding * 2,
     );
   });
 };

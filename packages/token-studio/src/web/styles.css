@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 :root {
   --paper: #f4f1ea;
@@ -25,13 +25,13 @@ body {
       transparent 48%
     ),
     var(--paper);
-  font-family: 'IBM Plex Sans', 'Avenir Next', 'Segoe UI', sans-serif;
+  font-family: "IBM Plex Sans", "Avenir Next", "Segoe UI", sans-serif;
 }
 
 h1,
 h2,
 h3 {
-  font-family: 'Fraunces', 'Iowan Old Style', serif;
+  font-family: "Fraunces", "Iowan Old Style", serif;
   letter-spacing: 0.01em;
 }
 

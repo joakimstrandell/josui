@@ -1,6 +1,6 @@
-import { renderHook, act } from '@testing-library/react';
-import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { useTheme } from './useTheme';
+import { renderHook, act } from "@testing-library/react";
+import { describe, it, expect, vi, beforeEach } from "vitest";
+import { useTheme } from "./useTheme";
 
 const mockSubscribe = vi.fn();
 const mockGetState = vi.fn();
@@ -9,8 +9,8 @@ const mockToggle = vi.fn();
 const mockCreateKeyboardShortcut = vi.fn(() => vi.fn());
 const mockParseShortcut = vi.fn((s: string) => ({ key: s }));
 
-vi.mock('@josui/core-web', async (importOriginal) => ({
-  ...(await importOriginal<typeof import('@josui/core-web')>()),
+vi.mock("@josui/core-web", async (importOriginal) => ({
+  ...(await importOriginal<typeof import("@josui/core-web")>()),
   themeState: {
     subscribe: (callback: () => void) => mockSubscribe(callback),
     getState: () => mockGetState(),
@@ -21,32 +21,32 @@ vi.mock('@josui/core-web', async (importOriginal) => ({
   parseShortcut: (s: string) => mockParseShortcut(s),
 }));
 
-describe('useTheme', () => {
+describe("useTheme", () => {
   beforeEach(() => {
     vi.clearAllMocks();
     mockSubscribe.mockReturnValue(() => {});
-    mockGetState.mockReturnValue({ theme: 'system', resolvedTheme: 'light' });
+    mockGetState.mockReturnValue({ theme: "system", resolvedTheme: "light" });
   });
 
-  it('returns current theme state', () => {
-    mockGetState.mockReturnValue({ theme: 'dark', resolvedTheme: 'dark' });
+  it("returns current theme state", () => {
+    mockGetState.mockReturnValue({ theme: "dark", resolvedTheme: "dark" });
     const { result } = renderHook(() => useTheme());
 
-    expect(result.current.theme).toBe('dark');
-    expect(result.current.resolvedTheme).toBe('dark');
+    expect(result.current.theme).toBe("dark");
+    expect(result.current.resolvedTheme).toBe("dark");
   });
 
-  it('provides setTheme function', () => {
+  it("provides setTheme function", () => {
     const { result } = renderHook(() => useTheme());
 
     act(() => {
-      result.current.setTheme('dark');
+      result.current.setTheme("dark");
     });
 
-    expect(mockSetTheme).toHaveBeenCalledWith('dark');
+    expect(mockSetTheme).toHaveBeenCalledWith("dark");
   });
 
-  it('provides toggle function', () => {
+  it("provides toggle function", () => {
     const { result } = renderHook(() => useTheme());
 
     act(() => {
@@ -56,12 +56,12 @@ describe('useTheme', () => {
     expect(mockToggle).toHaveBeenCalled();
   });
 
-  it('subscribes to theme state on mount', () => {
+  it("subscribes to theme state on mount", () => {
     renderHook(() => useTheme());
     expect(mockSubscribe).toHaveBeenCalled();
   });
 
-  it('unsubscribes on unmount', () => {
+  it("unsubscribes on unmount", () => {
     const unsubscribe = vi.fn();
     mockSubscribe.mockReturnValue(unsubscribe);
 
@@ -71,53 +71,53 @@ describe('useTheme', () => {
     expect(unsubscribe).toHaveBeenCalled();
   });
 
-  it('updates when theme state changes', () => {
+  it("updates when theme state changes", () => {
     let subscriber: (() => void) | null = null;
     mockSubscribe.mockImplementation((callback: () => void) => {
       subscriber = callback;
       return () => {};
     });
-    mockGetState.mockReturnValue({ theme: 'system', resolvedTheme: 'light' });
+    mockGetState.mockReturnValue({ theme: "system", resolvedTheme: "light" });
 
     const { result } = renderHook(() => useTheme());
-    expect(result.current.theme).toBe('system');
+    expect(result.current.theme).toBe("system");
 
     // Simulate state change
-    mockGetState.mockReturnValue({ theme: 'dark', resolvedTheme: 'dark' });
+    mockGetState.mockReturnValue({ theme: "dark", resolvedTheme: "dark" });
     act(() => {
       subscriber?.();
     });
 
-    expect(result.current.theme).toBe('dark');
+    expect(result.current.theme).toBe("dark");
   });
 
-  it('sets up keyboard shortcut when toggleShortcut is provided', () => {
-    renderHook(() => useTheme({ toggleShortcut: 'ctrl+shift+t' }));
+  it("sets up keyboard shortcut when toggleShortcut is provided", () => {
+    renderHook(() => useTheme({ toggleShortcut: "ctrl+shift+t" }));
 
-    expect(mockParseShortcut).toHaveBeenCalledWith('ctrl+shift+t');
+    expect(mockParseShortcut).toHaveBeenCalledWith("ctrl+shift+t");
     expect(mockCreateKeyboardShortcut).toHaveBeenCalledWith(
       expect.objectContaining({
         shortcut: expect.any(Object),
         onTrigger: expect.any(Function),
-      })
+      }),
     );
   });
 
-  it('does not set up keyboard shortcut when toggleShortcut is null', () => {
+  it("does not set up keyboard shortcut when toggleShortcut is null", () => {
     renderHook(() => useTheme({ toggleShortcut: null }));
     expect(mockCreateKeyboardShortcut).not.toHaveBeenCalled();
   });
 
-  it('does not set up keyboard shortcut by default', () => {
+  it("does not set up keyboard shortcut by default", () => {
     renderHook(() => useTheme());
     expect(mockCreateKeyboardShortcut).not.toHaveBeenCalled();
   });
 
-  it('cleans up keyboard shortcut on unmount', () => {
+  it("cleans up keyboard shortcut on unmount", () => {
     const cleanup = vi.fn();
     mockCreateKeyboardShortcut.mockReturnValue(cleanup);
 
-    const { unmount } = renderHook(() => useTheme({ toggleShortcut: 'ctrl+t' }));
+    const { unmount } = renderHook(() => useTheme({ toggleShortcut: "ctrl+t" }));
     unmount();
 
     expect(cleanup).toHaveBeenCalled();

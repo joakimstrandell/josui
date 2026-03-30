@@ -31,4 +31,4 @@ export {
   type MenubarGroupProps,
   type MenubarSubProps,
   type MenubarShortcutProps,
-} from './Menubar';
+} from "./Menubar";

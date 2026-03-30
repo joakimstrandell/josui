@@ -1,21 +1,21 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
-import { CellGrid } from './CellGrid';
-import { Button } from '../Button';
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { CellGrid } from "./CellGrid";
+import { Button } from "../Button";
 
 const meta = {
-  title: 'Components/CellGrid',
+  title: "Components/CellGrid",
   component: CellGrid,
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   args: {
     cellSize: 24,
     fadeRate: 0.045,
     maxCells: 200,
-    gridColor: 'color-foreground',
+    gridColor: "color-foreground",
     gridOpacity: 0.1,
-    cellColor: 'color-primary-500',
+    cellColor: "color-primary-500",
     cellOpacity: 0.3,
   },
 } satisfies Meta<typeof CellGrid>;
@@ -48,9 +48,9 @@ export const Default: Story = {
 export const SmallCells: Story = {
   args: {
     cellSize: 12,
-    gridColor: 'red',
+    gridColor: "red",
     gridOpacity: 0.5,
-    cellColor: 'blue',
+    cellColor: "blue",
     cellOpacity: 0.8,
   },
   render: (args) => (
@@ -143,10 +143,10 @@ export const WithInteractiveContent: Story = {
                 This is a link
               </a>
               <p>
-                Regular text with an{' '}
+                Regular text with an{" "}
                 <a href="#" className="text-primary-500 hover:underline">
                   inline link
-                </a>{' '}
+                </a>{" "}
                 inside.
               </p>
             </div>

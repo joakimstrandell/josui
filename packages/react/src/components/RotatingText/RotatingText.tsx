@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { forwardRef, useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { cn } from '@josui/core-web';
+import { forwardRef, useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { cn } from "@josui/core-web";
 
 export interface RotatingTextProps {
   /** Array of words to rotate through */
@@ -21,7 +21,7 @@ export const RotatingText = forwardRef<HTMLSpanElement, RotatingTextProps>(
     // Merge refs
     const setRef = (el: HTMLSpanElement | null) => {
       (containerRef as React.MutableRefObject<HTMLSpanElement | null>).current = el;
-      if (typeof ref === 'function') ref(el);
+      if (typeof ref === "function") ref(el);
       else if (ref) (ref as React.MutableRefObject<HTMLSpanElement | null>).current = el;
     };
 
@@ -29,7 +29,7 @@ export const RotatingText = forwardRef<HTMLSpanElement, RotatingTextProps>(
       const container = containerRef.current;
       if (!container || words.length === 0) return;
 
-      const wordElements = container.querySelectorAll('.rotating-word');
+      const wordElements = container.querySelectorAll(".rotating-word");
 
       // Set initial state — first word visible, others hidden below
       gsap.set(wordElements, { yPercent: 100, opacity: 0 });
@@ -44,13 +44,13 @@ export const RotatingText = forwardRef<HTMLSpanElement, RotatingTextProps>(
           yPercent: -100,
           opacity: 0,
           duration: 0.5,
-          ease: 'power2.inOut',
+          ease: "power2.inOut",
         });
 
         gsap.fromTo(
           next,
           { yPercent: 100, opacity: 0 },
-          { yPercent: 0, opacity: 1, duration: 0.5, ease: 'power2.inOut' }
+          { yPercent: 0, opacity: 1, duration: 0.5, ease: "power2.inOut" },
         );
 
         currentIndex.current = nextIndex;
@@ -61,11 +61,11 @@ export const RotatingText = forwardRef<HTMLSpanElement, RotatingTextProps>(
     }, [words, interval]);
 
     // Use the longest word for sizing
-    const longestWord = words.reduce((a, b) => (a.length > b.length ? a : b), '');
+    const longestWord = words.reduce((a, b) => (a.length > b.length ? a : b), "");
 
     return (
       <span
-        className={cn('relative inline-block overflow-hidden align-bottom', className)}
+        className={cn("relative inline-block overflow-hidden align-bottom", className)}
         ref={setRef}
       >
         {/* Invisible word for sizing */}
@@ -78,7 +78,7 @@ export const RotatingText = forwardRef<HTMLSpanElement, RotatingTextProps>(
         ))}
       </span>
     );
-  }
+  },
 );
 
-RotatingText.displayName = 'RotatingText';
+RotatingText.displayName = "RotatingText";

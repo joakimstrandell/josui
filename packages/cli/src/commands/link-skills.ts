@@ -1,8 +1,8 @@
-import { input, select, checkbox } from '@inquirer/prompts';
-import { existsSync } from 'node:fs';
-import { readdir, rm, symlink, mkdir, lstat } from 'node:fs/promises';
-import { join, relative } from 'node:path';
-import { readConfig, updateConfig, ensureGitignore, type JosuiConfig } from '../utils/config.js';
+import { input, select, checkbox } from "@inquirer/prompts";
+import { existsSync } from "node:fs";
+import { readdir, rm, symlink, mkdir, lstat } from "node:fs/promises";
+import { join, relative } from "node:path";
+import { readConfig, updateConfig, ensureGitignore, type JosuiConfig } from "../utils/config.js";
 
 interface SkillSource {
   path: string;
@@ -16,44 +16,44 @@ export async function linkSkills(): Promise<void> {
   // Check if we have existing config
   if (config?.linkedSkills?.length) {
     const action = await select({
-      message: 'Found existing skill links. What would you like to do?',
+      message: "Found existing skill links. What would you like to do?",
       choices: [
-        { value: 'relink', name: 'Re-link existing skills' },
-        { value: 'modify', name: 'Add or remove skills' },
-        { value: 'fresh', name: 'Start fresh' },
+        { value: "relink", name: "Re-link existing skills" },
+        { value: "modify", name: "Add or remove skills" },
+        { value: "fresh", name: "Start fresh" },
       ],
     });
 
-    if (action === 'relink') {
+    if (action === "relink") {
       await performSkillLink(cwd, config.linkedSkills);
       return;
     }
 
-    if (action === 'modify') {
+    if (action === "modify") {
       // For now, just do fresh - could be enhanced later
-      console.log('Starting fresh configuration...\n');
+      console.log("Starting fresh configuration...\n");
     }
   }
 
   // Fresh setup - ask for source
   const sourceType = await select({
-    message: 'Where are the skills you want to link?',
+    message: "Where are the skills you want to link?",
     choices: [
-      { value: 'josui', name: 'From josui monorepo' },
-      { value: 'package', name: 'From an npm package with skills' },
-      { value: 'custom', name: 'Custom path' },
+      { value: "josui", name: "From josui monorepo" },
+      { value: "package", name: "From an npm package with skills" },
+      { value: "custom", name: "Custom path" },
     ],
   });
 
   let sourcePath: string;
 
-  if (sourceType === 'josui') {
-    const defaultPath = config?.josuiPath || '../josui';
+  if (sourceType === "josui") {
+    const defaultPath = config?.josuiPath || "../josui";
     sourcePath = await input({
-      message: 'Where is your josui monorepo?',
+      message: "Where is your josui monorepo?",
       default: defaultPath,
       validate: (value) => {
-        const packagesPath = join(cwd, value, 'packages');
+        const packagesPath = join(cwd, value, "packages");
         if (!existsSync(packagesPath)) {
           return `Could not find packages at ${packagesPath}`;
         }
@@ -65,7 +65,7 @@ export async function linkSkills(): Promise<void> {
     const skillSources = await findSkillsInJosui(cwd, sourcePath);
 
     if (skillSources.length === 0) {
-      console.log('No packages with skills found in josui.');
+      console.log("No packages with skills found in josui.");
       return;
     }
 
@@ -82,7 +82,7 @@ export async function linkSkills(): Promise<void> {
     }
 
     const selectedSkills = await checkbox({
-      message: 'Select skills to link:',
+      message: "Select skills to link:",
       choices: allSkills.map((s) => ({
         value: s.value,
         name: s.name,
@@ -91,14 +91,14 @@ export async function linkSkills(): Promise<void> {
     });
 
     if (selectedSkills.length === 0) {
-      console.log('No skills selected. Exiting.');
+      console.log("No skills selected. Exiting.");
       return;
     }
 
     // Group selected skills by source
-    const linkedSkills: JosuiConfig['linkedSkills'] = [];
+    const linkedSkills: JosuiConfig["linkedSkills"] = [];
     for (const selected of selectedSkills) {
-      const [sourcePkg, skillName] = selected.split(':');
+      const [sourcePkg, skillName] = selected.split(":");
       const existing = linkedSkills.find((s) => s.source === sourcePkg);
       if (existing) {
         existing.skills.push(skillName);
@@ -112,7 +112,7 @@ export async function linkSkills(): Promise<void> {
   } else {
     // Custom path or package - simplified for now
     sourcePath = await input({
-      message: 'Enter the path to the skills directory:',
+      message: "Enter the path to the skills directory:",
       validate: (value) => {
         if (!existsSync(join(cwd, value))) {
           return `Path does not exist: ${value}`;
@@ -124,12 +124,12 @@ export async function linkSkills(): Promise<void> {
     const skills = await findSkillsInDir(join(cwd, sourcePath));
 
     if (skills.length === 0) {
-      console.log('No skills found at that path.');
+      console.log("No skills found at that path.");
       return;
     }
 
     const selectedSkills = await checkbox({
-      message: 'Select skills to link:',
+      message: "Select skills to link:",
       choices: skills.map((s) => ({
         value: s,
         name: s,
@@ -138,7 +138,7 @@ export async function linkSkills(): Promise<void> {
     });
 
     if (selectedSkills.length === 0) {
-      console.log('No skills selected. Exiting.');
+      console.log("No skills selected. Exiting.");
       return;
     }
 
@@ -149,7 +149,7 @@ export async function linkSkills(): Promise<void> {
 }
 
 async function findSkillsInJosui(cwd: string, josuiPath: string): Promise<SkillSource[]> {
-  const packagesDir = join(cwd, josuiPath, 'packages');
+  const packagesDir = join(cwd, josuiPath, "packages");
   const entries = await readdir(packagesDir, { withFileTypes: true });
 
   const sources: SkillSource[] = [];
@@ -157,7 +157,7 @@ async function findSkillsInJosui(cwd: string, josuiPath: string): Promise<SkillS
   for (const entry of entries) {
     if (!entry.isDirectory()) continue;
 
-    const skillsDir = join(packagesDir, entry.name, 'skills');
+    const skillsDir = join(packagesDir, entry.name, "skills");
     if (!existsSync(skillsDir)) continue;
 
     const skills = await findSkillsInDir(skillsDir);
@@ -178,10 +178,10 @@ async function findSkillsInDir(dir: string): Promise<string[]> {
 
 async function performSkillLink(
   cwd: string,
-  linkedSkills: NonNullable<JosuiConfig['linkedSkills']>,
-  josuiPath?: string
+  linkedSkills: NonNullable<JosuiConfig["linkedSkills"]>,
+  josuiPath?: string,
 ): Promise<void> {
-  const targetDir = join(cwd, '.claude', 'skills');
+  const targetDir = join(cwd, ".claude", "skills");
 
   // Ensure target directory exists
   if (!existsSync(targetDir)) {
@@ -191,7 +191,7 @@ async function performSkillLink(
   // Remove existing josui-linked-* symlinks
   const existing = await readdir(targetDir, { withFileTypes: true });
   for (const entry of existing) {
-    if (entry.name.startsWith('josui-linked-')) {
+    if (entry.name.startsWith("josui-linked-")) {
       const entryPath = join(targetDir, entry.name);
       const stat = await lstat(entryPath);
       if (stat.isSymbolicLink()) {
@@ -200,7 +200,7 @@ async function performSkillLink(
     }
   }
 
-  console.log('');
+  console.log("");
   let linked = 0;
 
   for (const source of linkedSkills) {
@@ -209,7 +209,7 @@ async function performSkillLink(
       let sourcePath: string;
       if (josuiPath) {
         // Skills from josui packages
-        sourcePath = join(cwd, josuiPath, 'packages', source.source, 'skills', skill);
+        sourcePath = join(cwd, josuiPath, "packages", source.source, "skills", skill);
       } else {
         // Direct path
         sourcePath = join(cwd, source.source, skill);
@@ -226,10 +226,10 @@ async function performSkillLink(
   }
 
   console.log(`\n✓ Linked ${linked} skill(s) to .claude/skills/`);
-  console.log('\nConfig saved to .josui.json');
+  console.log("\nConfig saved to .josui.json");
 
   const addedGitignore = await ensureGitignore(cwd);
   if (addedGitignore) {
-    console.log('Added josui entries to .gitignore');
+    console.log("Added josui entries to .gitignore");
   }
 }

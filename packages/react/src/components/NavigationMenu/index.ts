@@ -16,4 +16,4 @@ export {
   type NavigationMenuLinkProps,
   type NavigationMenuIndicatorProps,
   type NavigationMenuViewportProps,
-} from './NavigationMenu';
+} from "./NavigationMenu";

@@ -26,4 +26,4 @@ export {
   type SidebarProps,
   type SidebarProviderProps,
   type SidebarMenuButtonProps,
-} from './Sidebar';
+} from "./Sidebar";

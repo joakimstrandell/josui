@@ -1,27 +1,27 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { ThemeToggle } from './ThemeToggle';
+import type { Meta, StoryObj } from "@storybook/react";
+import { ThemeToggle } from "./ThemeToggle";
 
 const meta: Meta<typeof ThemeToggle> = {
-  title: 'Components/ThemeToggle',
+  title: "Components/ThemeToggle",
   component: ThemeToggle,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   parameters: {
-    layout: 'centered',
+    layout: "centered",
   },
   args: {
-    size: 'md',
+    size: "md",
     showLabel: false,
   },
   argTypes: {
     size: {
-      control: 'select',
-      options: ['sm', 'md', 'lg'],
+      control: "select",
+      options: ["sm", "md", "lg"],
     },
     showLabel: {
-      control: 'boolean',
+      control: "boolean",
     },
     toggleShortcut: {
-      control: 'text',
+      control: "text",
       description: 'Keyboard shortcut to toggle theme (e.g., "ctrl+shift+t")',
     },
   },
@@ -36,14 +36,14 @@ export const Default: Story = {};
 /** Small size variant */
 export const Small: Story = {
   args: {
-    size: 'sm',
+    size: "sm",
   },
 };
 
 /** Large size variant */
 export const Large: Story = {
   args: {
-    size: 'lg',
+    size: "lg",
   },
 };
 
@@ -57,12 +57,12 @@ export const WithLabel: Story = {
 /** With keyboard shortcut (press Ctrl+Shift+T to toggle) */
 export const WithKeyboardShortcut: Story = {
   args: {
-    toggleShortcut: 'ctrl+shift+t',
+    toggleShortcut: "ctrl+shift+t",
   },
   parameters: {
     docs: {
       description: {
-        story: 'Press `Ctrl+Shift+T` to toggle the theme using keyboard.',
+        story: "Press `Ctrl+Shift+T` to toggle the theme using keyboard.",
       },
     },
   },

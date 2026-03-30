@@ -11,4 +11,4 @@ export {
   type CardDescriptionProps,
   type CardContentProps,
   type CardFooterProps,
-} from './Card';
+} from "./Card";

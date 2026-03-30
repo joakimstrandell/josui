@@ -110,11 +110,11 @@
   --color-border: var(--color-gray-200);
   --color-input: var(--color-gray-200);
   --color-ring: var(--color-primary-500);
-  --font-sans: 'Roboto', ui-sans-serif, system-ui, sans-serif;
-  --font-serif: 'Roboto Slab', 'Georgia', 'Cambria', 'Times New Roman', 'Times', serif;
-  --font-mono: 'Roboto Mono', ui-monospace, 'SFMono-Regular', monospace;
-  --font-heading: 'Roboto Mono', ui-monospace, 'SFMono-Regular', monospace;
-  --font-body: 'Roboto', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Roboto", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Roboto Slab", "Georgia", "Cambria", "Times New Roman", "Times", serif;
+  --font-mono: "Roboto Mono", ui-monospace, "SFMono-Regular", monospace;
+  --font-heading: "Roboto Mono", ui-monospace, "SFMono-Regular", monospace;
+  --font-body: "Roboto", ui-sans-serif, system-ui, sans-serif;
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
   --text-default: 1rem;

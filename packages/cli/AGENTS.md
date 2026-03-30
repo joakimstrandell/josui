@@ -1,6 +1,6 @@
 # Agent Instructions — @josui/cli
 
-CLI tools for local development with josui packages.
+CLI tools and Vite plugin for local development with josui packages.
 
 ## Build
 
@@ -8,38 +8,45 @@ CLI tools for local development with josui packages.
 pnpm --filter @josui/cli build
 ```
 
-Uses tsup to bundle to `dist/`. The `bin` entry (`josui`) points to `dist/index.js`.
+Uses vp to bundle to `dist/`. Two entry points: `src/index.ts` (CLI) and `src/vite.ts` (Vite plugin).
 
 ## Structure
 
 ```
 src/
-├── index.ts                  # Entry point, interactive menu
+├── index.ts                  # CLI entry point
+├── vite.ts                   # Vite plugin for local package aliasing
 ├── commands/
-│   ├── watch.ts              # Watch & copy @josui/* src files to consumer node_modules
-│   └── link-skills.ts        # Link Claude Code skills
+│   └── link-skills.ts        # Link Claude Code skills via symlinks
 └── utils/
-    └── config.ts             # Configuration utilities (.josui.json)
+    └── config.ts             # .josui.json read/write utilities
 ```
 
-## Commands
+## CLI Commands
 
-| Command             | Description                                                   |
-| ------------------- | ------------------------------------------------------------- |
-| `josui watch`       | Copy & watch @josui/\* src files into consumer's node_modules |
-| `josui link skills` | Link Claude Code skills from josui                            |
-| `josui`             | Interactive main menu                                         |
+| Command             | Description                |
+| ------------------- | -------------------------- |
+| `josui link skills` | Symlink Claude Code skills |
+| `josui`             | Interactive main menu      |
 
-### Watch
+## Vite Plugin
 
-Reads `.josui.json` in the consumer project for `josuiPath` and `linkedPackages`. On start, does a full copy of each package's `src/` into `node_modules/@josui/<pkg>/src/`, then watches for file changes using `fs.watch` (recursive). Run from the consumer project:
+Consumers add to their `vite.config.ts`:
 
-```bash
-npx ../josui/packages/cli watch
+```ts
+import { josuiDev } from "@josui/cli/vite";
+
+export default defineConfig({
+  plugins: [josuiDev()],
+});
 ```
+
+Resolves `@josui/*` imports to local source via Vite aliases. Also configures `resolve.dedupe`, `server.fs.allow`, `optimizeDeps.exclude`, and `ssr.noExternal`.
+
+Path resolution: `josuiPath` param > `.josui.json` > `../josui` default.
 
 ## Guidelines
 
-- Uses `@inquirer/prompts` for interactive prompts
-- All commands support both direct invocation and interactive selection
+- Uses `@inquirer/prompts` for interactive CLI prompts
 - Handle `ExitPromptError` for graceful Ctrl+C cancellation
+- `link skills` removes all existing `josui-linked-*` symlinks before creating new ones (cleans up deprecated skills)

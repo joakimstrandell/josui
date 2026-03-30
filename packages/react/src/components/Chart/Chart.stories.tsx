@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Bar, BarChart, CartesianGrid, XAxis } from 'recharts';
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
 import {
   ChartContainer,
   ChartTooltip,
@@ -7,30 +7,30 @@ import {
   ChartLegend,
   ChartLegendContent,
   type ChartConfig,
-} from './Chart';
+} from "./Chart";
 
 const meta = {
-  title: 'Components/Chart',
+  title: "Components/Chart",
   component: ChartContainer,
-  parameters: { layout: 'centered' },
-  tags: ['autodocs'],
+  parameters: { layout: "centered" },
+  tags: ["autodocs"],
 } satisfies Meta<typeof ChartContainer>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 const chartData = [
-  { month: 'January', desktop: 186, mobile: 80 },
-  { month: 'February', desktop: 305, mobile: 200 },
-  { month: 'March', desktop: 237, mobile: 120 },
-  { month: 'April', desktop: 73, mobile: 190 },
-  { month: 'May', desktop: 209, mobile: 130 },
-  { month: 'June', desktop: 214, mobile: 140 },
+  { month: "January", desktop: 186, mobile: 80 },
+  { month: "February", desktop: 305, mobile: 200 },
+  { month: "March", desktop: 237, mobile: 120 },
+  { month: "April", desktop: 73, mobile: 190 },
+  { month: "May", desktop: 209, mobile: 130 },
+  { month: "June", desktop: 214, mobile: 140 },
 ];
 
 const chartConfig = {
-  desktop: { label: 'Desktop', color: 'hsl(220 70% 50%)' },
-  mobile: { label: 'Mobile', color: 'hsl(160 60% 45%)' },
+  desktop: { label: "Desktop", color: "hsl(220 70% 50%)" },
+  mobile: { label: "Mobile", color: "hsl(160 60% 45%)" },
 } satisfies ChartConfig;
 
 export const Default: Story = {

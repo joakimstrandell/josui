@@ -1,5 +1,5 @@
-import gsap from 'gsap';
-import { DEFAULT_INTERACTIVE_SELECTORS, isInteractiveElement } from './interactive';
+import gsap from "gsap";
+import { DEFAULT_INTERACTIVE_SELECTORS, isInteractiveElement } from "./interactive";
 
 export interface CustomCursorOptions {
   offset?: number;
@@ -17,23 +17,23 @@ export interface CustomCursorInstance {
 
 const DEFAULTS: Required<CustomCursorOptions> = {
   offset: 0,
-  easing: 'power3.out',
+  easing: "power3.out",
   interactiveSelectors: DEFAULT_INTERACTIVE_SELECTORS,
   interactiveScale: 2.5,
   interactiveBorderRadius: 9999,
-  interactiveBackground: 'none',
+  interactiveBackground: "none",
   interactiveDuration: 0.25,
 };
 
 export function createCustomCursor(
   cursorElement: HTMLDivElement,
-  options?: CustomCursorOptions
+  options?: CustomCursorOptions,
 ): CustomCursorInstance {
-  if (typeof window === 'undefined' || !cursorElement) {
+  if (typeof window === "undefined" || !cursorElement) {
     return { destroy: () => {} };
   }
 
-  const opts = { ...DEFAULTS, ...(options || {}) };
+  const opts = { ...DEFAULTS, ...options };
 
   // state
   let lastX = 0;
@@ -50,19 +50,19 @@ export function createCustomCursor(
   // Centralized show/hide helpers to avoid tween conflicts
   function showCursorAt(x: number, y: number) {
     // Only kill opacity tweens to avoid interrupting hover timeline (scale, radius, bg)
-    gsap.killTweensOf(cursorElement, 'opacity');
+    gsap.killTweensOf(cursorElement, "opacity");
     gsap.set(cursorElement, {
       x: x - opts.offset,
       y: y - opts.offset,
     });
-    gsap.to(cursorElement, { opacity: 1, duration: 0.15, ease: opts.easing, overwrite: 'auto' });
+    gsap.to(cursorElement, { opacity: 1, duration: 0.15, ease: opts.easing, overwrite: "auto" });
     isVisible = true;
   }
 
   function hideCursor() {
     // Only kill opacity tweens
-    gsap.killTweensOf(cursorElement, 'opacity');
-    gsap.to(cursorElement, { opacity: 0, duration: 0.15, ease: opts.easing, overwrite: 'auto' });
+    gsap.killTweensOf(cursorElement, "opacity");
+    gsap.to(cursorElement, { opacity: 0, duration: 0.15, ease: opts.easing, overwrite: "auto" });
     isVisible = false;
   }
 
@@ -73,7 +73,7 @@ export function createCustomCursor(
     duration: opts.interactiveDuration,
     ease: opts.easing,
   };
-  if (opts.interactiveBackground !== 'none') {
+  if (opts.interactiveBackground !== "none") {
     hoverProps.backgroundColor = opts.interactiveBackground;
   }
   const hoverTimeline = gsap.timeline({ paused: true }).to(cursorElement, hoverProps);
@@ -149,7 +149,7 @@ export function createCustomCursor(
       clickTimeline.to(cursorElement, {
         scale: isHovering ? opts.interactiveScale * 0.8 : 0.8,
         duration: 0.05,
-        ease: 'power1.in', // Fast start, slow end
+        ease: "power1.in", // Fast start, slow end
       });
       clickTimeline.play();
     }
@@ -166,36 +166,36 @@ export function createCustomCursor(
   };
 
   // Global listeners
-  window.addEventListener('pointermove', onPointerMove, { passive: true });
-  document.addEventListener('pointerleave', onPointerLeaveDoc);
-  document.addEventListener('pointerdown', onPointerDown);
-  document.addEventListener('pointerup', onPointerUp);
+  window.addEventListener("pointermove", onPointerMove, { passive: true });
+  document.addEventListener("pointerleave", onPointerLeaveDoc);
+  document.addEventListener("pointerdown", onPointerDown);
+  document.addEventListener("pointerup", onPointerUp);
 
   // Keep state consistent when tab visibility changes
   const onVisibilityChange = () => {
-    if (document.visibilityState === 'hidden') {
+    if (document.visibilityState === "hidden") {
       hideCursor();
     } else {
       showCursorAt(lastX, lastY);
     }
   };
-  document.addEventListener('visibilitychange', onVisibilityChange);
+  document.addEventListener("visibilitychange", onVisibilityChange);
 
   // Fallbacks for window focus changes
   const onWindowBlur = () => hideCursor();
   const onWindowFocus = () => showCursorAt(lastX, lastY);
-  window.addEventListener('blur', onWindowBlur);
-  window.addEventListener('focus', onWindowFocus);
+  window.addEventListener("blur", onWindowBlur);
+  window.addEventListener("focus", onWindowFocus);
 
   return {
     destroy: () => {
-      window.removeEventListener('pointermove', onPointerMove);
-      document.removeEventListener('pointerleave', onPointerLeaveDoc);
-      document.removeEventListener('pointerdown', onPointerDown);
-      document.removeEventListener('pointerup', onPointerUp);
-      document.removeEventListener('visibilitychange', onVisibilityChange);
-      window.removeEventListener('blur', onWindowBlur);
-      window.removeEventListener('focus', onWindowFocus);
+      window.removeEventListener("pointermove", onPointerMove);
+      document.removeEventListener("pointerleave", onPointerLeaveDoc);
+      document.removeEventListener("pointerdown", onPointerDown);
+      document.removeEventListener("pointerup", onPointerUp);
+      document.removeEventListener("visibilitychange", onVisibilityChange);
+      window.removeEventListener("blur", onWindowBlur);
+      window.removeEventListener("focus", onWindowFocus);
       if (clickTimeout) {
         clearTimeout(clickTimeout);
       }

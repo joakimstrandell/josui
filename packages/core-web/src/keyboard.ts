@@ -43,14 +43,14 @@ function matchesShortcut(event: KeyboardEvent, shortcut: KeyboardShortcut): bool
 export function createKeyboardShortcut(options: KeyboardShortcutOptions): () => void {
   const { shortcut, onTrigger, enabled = true, preventDefault = true } = options;
 
-  if (typeof document === 'undefined' || !enabled) {
+  if (typeof document === "undefined" || !enabled) {
     return () => {};
   }
 
   const handleKeyDown = (event: KeyboardEvent): void => {
     // Don't trigger when typing in inputs
     const target = event.target as HTMLElement;
-    if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable) {
+    if (target.tagName === "INPUT" || target.tagName === "TEXTAREA" || target.isContentEditable) {
       return;
     }
 
@@ -60,8 +60,8 @@ export function createKeyboardShortcut(options: KeyboardShortcutOptions): () => 
     }
   };
 
-  document.addEventListener('keydown', handleKeyDown);
-  return () => document.removeEventListener('keydown', handleKeyDown);
+  document.addEventListener("keydown", handleKeyDown);
+  return () => document.removeEventListener("keydown", handleKeyDown);
 }
 
 /**
@@ -69,15 +69,15 @@ export function createKeyboardShortcut(options: KeyboardShortcutOptions): () => 
  * Supported modifiers: ctrl, control, alt, option, shift, meta, cmd, command
  */
 export function parseShortcut(shortcutString: string): KeyboardShortcut {
-  const parts = shortcutString.toLowerCase().split('+');
+  const parts = shortcutString.toLowerCase().split("+");
   const key = parts.pop()!;
-  const modifiers: KeyboardShortcut['modifiers'] = {};
+  const modifiers: KeyboardShortcut["modifiers"] = {};
 
   for (const part of parts) {
-    if (part === 'ctrl' || part === 'control') modifiers.ctrl = true;
-    else if (part === 'alt' || part === 'option') modifiers.alt = true;
-    else if (part === 'shift') modifiers.shift = true;
-    else if (part === 'meta' || part === 'cmd' || part === 'command') modifiers.meta = true;
+    if (part === "ctrl" || part === "control") modifiers.ctrl = true;
+    else if (part === "alt" || part === "option") modifiers.alt = true;
+    else if (part === "shift") modifiers.shift = true;
+    else if (part === "meta" || part === "cmd" || part === "command") modifiers.meta = true;
   }
 
   return { key, modifiers };

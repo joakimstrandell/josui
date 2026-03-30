@@ -1,1 +1,1 @@
-export { RotatingText, type RotatingTextProps } from './RotatingText';
+export { RotatingText, type RotatingTextProps } from "./RotatingText";

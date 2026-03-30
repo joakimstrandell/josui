@@ -1,15 +1,15 @@
-import * as React from 'react';
-import { Link, useNavigate } from '@tanstack/react-router';
-import type { SupportedTokenType } from '../../shared/types';
-import { createCategory, getCategories } from '../lib/api';
-import { useChanges } from './changes';
+import * as React from "react";
+import { Link, useNavigate } from "@tanstack/react-router";
+import type { SupportedTokenType } from "../../shared/types";
+import { createCategory, getCategories } from "../lib/api";
+import { useChanges } from "./changes";
 
 export function CategoriesPage() {
   const navigate = useNavigate();
   const { add } = useChanges();
   const [categories, setCategories] = React.useState<Array<{ name: string; fileName: string }>>([]);
-  const [name, setName] = React.useState('');
-  const [type, setType] = React.useState<SupportedTokenType>('color');
+  const [name, setName] = React.useState("");
+  const [type, setType] = React.useState<SupportedTokenType>("color");
   const [error, setError] = React.useState<string | null>(null);
   const [loading, setLoading] = React.useState(false);
 
@@ -42,10 +42,10 @@ export function CategoriesPage() {
               name,
               type,
             });
-            add({ level: 'info', message: `Created category ${created.name}` });
-            setName('');
+            add({ level: "info", message: `Created category ${created.name}` });
+            setName("");
             await load();
-            await navigate({ to: '/categories/$name', params: { name: created.name } });
+            await navigate({ to: "/categories/$name", params: { name: created.name } });
           } catch (reason) {
             setError((reason as Error).message);
           } finally {
@@ -78,7 +78,7 @@ export function CategoriesPage() {
           type="submit"
           disabled={loading}
         >
-          {loading ? 'Creating...' : 'Create'}
+          {loading ? "Creating..." : "Create"}
         </button>
       </form>
 

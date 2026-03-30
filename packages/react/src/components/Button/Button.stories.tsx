@@ -1,13 +1,13 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Button } from './Button';
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { Button } from "./Button";
 
 const meta = {
-  title: 'Components/Button',
+  title: "Components/Button",
   component: Button,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
 } satisfies Meta<typeof Button>;
 
 export default meta;
@@ -15,70 +15,70 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    children: 'Button',
-    variant: 'primary',
+    children: "Button",
+    variant: "primary",
   },
 };
 
 export const Secondary: Story = {
   args: {
-    children: 'Button',
-    variant: 'secondary',
+    children: "Button",
+    variant: "secondary",
   },
 };
 
 export const Outline: Story = {
   args: {
-    children: 'Button',
-    variant: 'outline',
+    children: "Button",
+    variant: "outline",
   },
 };
 
 export const Ghost: Story = {
   args: {
-    children: 'Button',
-    variant: 'ghost',
+    children: "Button",
+    variant: "ghost",
   },
 };
 
 export const Destructive: Story = {
   args: {
-    children: 'Delete',
-    variant: 'destructive',
+    children: "Delete",
+    variant: "destructive",
   },
 };
 
 export const Small: Story = {
   args: {
-    children: 'Small',
-    size: 'sm',
+    children: "Small",
+    size: "sm",
   },
 };
 
 export const Large: Story = {
   args: {
-    children: 'Large',
-    size: 'lg',
+    children: "Large",
+    size: "lg",
   },
 };
 
 export const Loading: Story = {
   args: {
-    children: 'Loading',
+    children: "Loading",
     isLoading: true,
   },
 };
 
 export const Disabled: Story = {
   args: {
-    children: 'Disabled',
+    children: "Disabled",
     disabled: true,
   },
 };
 
 export const WithIcon: Story = {
   args: {
-    children: 'Settings',
+    children: "Settings",
     leftIcon: (
       <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path

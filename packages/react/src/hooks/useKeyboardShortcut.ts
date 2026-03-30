@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { useEffect } from 'react';
-import { createKeyboardShortcut, parseShortcut } from '@josui/core-web';
-import type { KeyboardShortcut } from '@josui/core-web';
+import { useEffect } from "react";
+import { createKeyboardShortcut, parseShortcut } from "@josui/core-web";
+import type { KeyboardShortcut } from "@josui/core-web";
 
 export interface UseKeyboardShortcutOptions {
   /** Shortcut as string (e.g., "ctrl+k") or KeyboardShortcut object */
@@ -31,7 +31,7 @@ export function useKeyboardShortcut(options: UseKeyboardShortcutOptions): void {
   useEffect(() => {
     if (!enabled) return;
 
-    const parsed = typeof shortcut === 'string' ? parseShortcut(shortcut) : shortcut;
+    const parsed = typeof shortcut === "string" ? parseShortcut(shortcut) : shortcut;
 
     return createKeyboardShortcut({
       shortcut: parsed,

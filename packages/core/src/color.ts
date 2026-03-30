@@ -2,7 +2,7 @@
  * Color utilities powered by culori
  * @see https://culorijs.org/
  */
-import { parse, formatRgb, formatHex, type Color } from 'culori';
+import { parse, formatRgb, formatHex, type Color } from "culori";
 
 export { parse, formatRgb, formatHex };
 export type { Color };

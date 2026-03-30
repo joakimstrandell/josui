@@ -2,8 +2,8 @@
  * Theme management utilities for dark/light/system mode
  */
 
-export type Theme = 'light' | 'dark' | 'system';
-export type ResolvedTheme = 'light' | 'dark';
+export type Theme = "light" | "dark" | "system";
+export type ResolvedTheme = "light" | "dark";
 
 export interface ThemeState {
   /** User preference (what's stored) */
@@ -22,37 +22,37 @@ export interface ThemeManager {
   subscribe(callback: ThemeSubscriber): () => void;
 }
 
-const STORAGE_KEY = 'josui-theme';
-const ATTRIBUTE = 'data-theme';
+const STORAGE_KEY = "josui-theme";
+const ATTRIBUTE = "data-theme";
 
 class ThemeStateManager implements ThemeManager {
-  private theme: Theme = 'system';
-  private resolvedTheme: ResolvedTheme = 'light';
+  private theme: Theme = "system";
+  private resolvedTheme: ResolvedTheme = "light";
   private subscribers = new Set<ThemeSubscriber>();
   private mediaQuery: MediaQueryList | null = null;
   private isInitialized = false;
   // Cached state object to prevent useSyncExternalStore infinite loops
-  private cachedState: ThemeState = { theme: 'system', resolvedTheme: 'light' };
+  private cachedState: ThemeState = { theme: "system", resolvedTheme: "light" };
 
   private getSystemTheme(): ResolvedTheme {
-    if (typeof window === 'undefined') return 'light';
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    if (typeof window === "undefined") return "light";
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
   }
 
   private resolveTheme(theme: Theme): ResolvedTheme {
-    return theme === 'system' ? this.getSystemTheme() : theme;
+    return theme === "system" ? this.getSystemTheme() : theme;
   }
 
   private applyTheme(resolved: ResolvedTheme): void {
-    if (typeof document === 'undefined') return;
+    if (typeof document === "undefined") return;
     document.documentElement.setAttribute(ATTRIBUTE, resolved);
     // Also set class for Tailwind dark: variant compatibility
-    document.documentElement.classList.remove('light', 'dark');
+    document.documentElement.classList.remove("light", "dark");
     document.documentElement.classList.add(resolved);
   }
 
   private persist(theme: Theme): void {
-    if (typeof localStorage === 'undefined') return;
+    if (typeof localStorage === "undefined") return;
     try {
       localStorage.setItem(STORAGE_KEY, theme);
     } catch {
@@ -61,20 +61,20 @@ class ThemeStateManager implements ThemeManager {
   }
 
   private loadFromStorage(): Theme {
-    if (typeof localStorage === 'undefined') return 'system';
+    if (typeof localStorage === "undefined") return "system";
     try {
       const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored === 'light' || stored === 'dark' || stored === 'system') {
+      if (stored === "light" || stored === "dark" || stored === "system") {
         return stored;
       }
     } catch {
       // Ignore storage errors
     }
-    return 'system';
+    return "system";
   }
 
   private handleSystemChange = (): void => {
-    if (this.theme === 'system') {
+    if (this.theme === "system") {
       this.resolvedTheme = this.getSystemTheme();
       this.applyTheme(this.resolvedTheme);
       this.notifySubscribers();
@@ -91,7 +91,7 @@ class ThemeStateManager implements ThemeManager {
   }
 
   private initialize(): void {
-    if (this.isInitialized || typeof window === 'undefined') return;
+    if (this.isInitialized || typeof window === "undefined") return;
 
     // Load persisted preference
     this.theme = this.loadFromStorage();
@@ -100,8 +100,8 @@ class ThemeStateManager implements ThemeManager {
     this.updateCachedState();
 
     // Listen for system preference changes
-    this.mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    this.mediaQuery.addEventListener('change', this.handleSystemChange);
+    this.mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    this.mediaQuery.addEventListener("change", this.handleSystemChange);
 
     this.isInitialized = true;
   }
@@ -121,7 +121,7 @@ class ThemeStateManager implements ThemeManager {
   }
 
   public toggle(): void {
-    const order: Theme[] = ['light', 'dark', 'system'];
+    const order: Theme[] = ["light", "dark", "system"];
     const currentIndex = order.indexOf(this.theme);
     const nextTheme = order[(currentIndex + 1) % order.length];
     this.setTheme(nextTheme);

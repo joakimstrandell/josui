@@ -1,14 +1,14 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
-import { CustomCursor } from './CustomCursor';
-import { Button } from '../Button';
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { CustomCursor } from "./CustomCursor";
+import { Button } from "../Button";
 
 const meta = {
-  title: 'Components/CustomCursor',
+  title: "Components/CustomCursor",
   component: CustomCursor,
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   decorators: [
     (Story) => (
       <div className="relative min-h-screen cursor-none bg-gray-50 p-8">
@@ -29,10 +29,10 @@ const meta = {
               This is a link
             </a>
             <p>
-              Regular text with an{' '}
+              Regular text with an{" "}
               <a href="#" className="text-primary-500 hover:underline">
                 inline link
-              </a>{' '}
+              </a>{" "}
               inside.
             </p>
           </div>
@@ -65,7 +65,7 @@ export const CustomScale: Story = {
 export const CustomEasing: Story = {
   args: {
     options: {
-      easing: 'elastic.out(1, 0.3)',
+      easing: "elastic.out(1, 0.3)",
       interactiveDuration: 0.5,
     },
   },

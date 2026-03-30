@@ -1,21 +1,21 @@
-'use client';
+"use client";
 
-import { forwardRef, type ButtonHTMLAttributes } from 'react';
-import { cn } from '@josui/core-web';
-import { useTheme, type UseThemeOptions } from '../../hooks/useTheme';
+import { forwardRef, type ButtonHTMLAttributes } from "react";
+import { cn } from "@josui/core-web";
+import { useTheme, type UseThemeOptions } from "../../hooks/useTheme";
 
 export interface ThemeToggleProps
-  extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'children'>, UseThemeOptions {
+  extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "children">, UseThemeOptions {
   /** Size of the toggle button */
-  size?: 'sm' | 'md' | 'lg';
+  size?: "sm" | "md" | "lg";
   /** Show label text alongside icon */
   showLabel?: boolean;
 }
 
 const sizeStyles = {
-  sm: 'h-8 w-8 text-sm',
-  md: 'h-10 w-10 text-base',
-  lg: 'h-12 w-12 text-lg',
+  sm: "h-8 w-8 text-sm",
+  md: "h-10 w-10 text-base",
+  lg: "h-12 w-12 text-lg",
 };
 
 const icons = {
@@ -57,9 +57,9 @@ const icons = {
 };
 
 const labels = {
-  light: 'Light',
-  dark: 'Dark',
-  system: 'System',
+  light: "Light",
+  dark: "Dark",
+  system: "System",
 };
 
 /**
@@ -77,7 +77,7 @@ const labels = {
  * <ThemeToggle showLabel size="lg" />
  */
 export const ThemeToggle = forwardRef<HTMLButtonElement, ThemeToggleProps>(
-  ({ className, size = 'md', showLabel = false, toggleShortcut, ...props }, ref) => {
+  ({ className, size = "md", showLabel = false, toggleShortcut, ...props }, ref) => {
     const { theme, toggle } = useTheme({ toggleShortcut });
 
     return (
@@ -86,13 +86,13 @@ export const ThemeToggle = forwardRef<HTMLButtonElement, ThemeToggleProps>(
         type="button"
         onClick={toggle}
         className={cn(
-          'inline-flex items-center justify-center rounded-md',
-          'text-foreground hover:bg-muted-background bg-transparent',
-          'transition-colors focus-visible:ring-2 focus-visible:outline-none',
-          'focus-visible:ring-ring focus-visible:ring-offset-2',
+          "inline-flex items-center justify-center rounded-md",
+          "text-foreground hover:bg-muted-background bg-transparent",
+          "transition-colors focus-visible:ring-2 focus-visible:outline-none",
+          "focus-visible:ring-ring focus-visible:ring-offset-2",
           sizeStyles[size],
-          showLabel && 'w-auto gap-2 px-3',
-          className
+          showLabel && "w-auto gap-2 px-3",
+          className,
         )}
         aria-label={`Current theme: ${labels[theme]}. Click to toggle.`}
         {...props}
@@ -101,7 +101,7 @@ export const ThemeToggle = forwardRef<HTMLButtonElement, ThemeToggleProps>(
         {showLabel && <span>{labels[theme]}</span>}
       </button>
     );
-  }
+  },
 );
 
-ThemeToggle.displayName = 'ThemeToggle';
+ThemeToggle.displayName = "ThemeToggle";

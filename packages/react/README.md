@@ -14,7 +14,7 @@ pnpm add @josui/react
 
 ```css
 /* app.css or globals.css */
-@import '@josui/tailwind';
+@import "@josui/tailwind";
 ```
 
 ### 2. Configure Tailwind source scanning
@@ -23,11 +23,11 @@ Add the `@source` directive to your CSS to ensure Tailwind scans the component l
 
 ```css
 /* app.css or globals.css */
-@import '@josui/tailwind';
-@source '../node_modules/@josui/react/dist';
+@import "@josui/tailwind";
+@source '../node_modules/@josui/react/src';
 ```
 
-This tells Tailwind v4 to include the component library's dist folder when scanning for utility classes. Without this, component styles may be purged from your production build.
+This tells Tailwind v4 to include the component library's source folder when scanning for utility classes. Without this, component styles may be purged from your production build.
 
 ## Architecture
 
@@ -68,8 +68,8 @@ export default {
     extend: {
       colors: {
         primary: {
-          500: '#your-color',
-          600: '#your-hover-color',
+          500: "#your-color",
+          600: "#your-hover-color",
         },
       },
     },

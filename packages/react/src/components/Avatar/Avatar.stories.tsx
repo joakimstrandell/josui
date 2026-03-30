@@ -1,13 +1,13 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Avatar } from './Avatar';
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { Avatar } from "./Avatar";
 
 const meta = {
-  title: 'Components/Avatar',
+  title: "Components/Avatar",
   component: Avatar,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
 } satisfies Meta<typeof Avatar>;
 
 export default meta;
@@ -15,53 +15,53 @@ type Story = StoryObj<typeof meta>;
 
 export const WithImage: Story = {
   args: {
-    src: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400',
-    alt: 'John Doe',
+    src: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400",
+    alt: "John Doe",
   },
 };
 
 export const WithFallback: Story = {
   args: {
-    fallback: 'JD',
-    alt: 'John Doe',
+    fallback: "JD",
+    alt: "John Doe",
   },
 };
 
 export const WithAltFallback: Story = {
   args: {
-    alt: 'John Doe',
+    alt: "John Doe",
   },
 };
 
 export const Small: Story = {
   args: {
-    src: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400',
-    alt: 'User',
-    size: 'sm',
+    src: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400",
+    alt: "User",
+    size: "sm",
   },
 };
 
 export const Large: Story = {
   args: {
-    src: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400',
-    alt: 'User',
-    size: 'lg',
+    src: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400",
+    alt: "User",
+    size: "lg",
   },
 };
 
 export const ExtraLarge: Story = {
   args: {
-    src: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400',
-    alt: 'User',
-    size: 'xl',
+    src: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400",
+    alt: "User",
+    size: "xl",
   },
 };
 
 export const BrokenImage: Story = {
   args: {
-    src: 'https://example.com/broken-image.jpg',
-    alt: 'John Doe',
-    fallback: 'JD',
+    src: "https://example.com/broken-image.jpg",
+    alt: "John Doe",
+    fallback: "JD",
   },
 };
 

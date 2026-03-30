@@ -1,4 +1,4 @@
-import type { CellState, CellManager } from './types';
+import type { CellState, CellManager } from "./types";
 
 /**
  * Creates a cell manager that handles the lifecycle of grid cells
@@ -84,7 +84,7 @@ export const createCellManager = (maxCells: number, cellSize: number): CellManag
     x0: number,
     y0: number,
     x1: number,
-    y1: number
+    y1: number,
   ): Array<{ x: number; y: number }> => {
     const cells: Array<{ x: number; y: number }> = [];
 

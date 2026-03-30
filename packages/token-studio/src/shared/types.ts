@@ -1,13 +1,13 @@
 export type SupportedTokenType =
-  | 'color'
-  | 'dimension'
-  | 'duration'
-  | 'cubicBezier'
-  | 'fontFamily'
-  | 'number'
-  | 'string';
+  | "color"
+  | "dimension"
+  | "duration"
+  | "cubicBezier"
+  | "fontFamily"
+  | "number"
+  | "string";
 
-export type TokenValueMode = 'literal' | 'reference';
+export type TokenValueMode = "literal" | "reference";
 
 export interface CategorySummary {
   name: string;

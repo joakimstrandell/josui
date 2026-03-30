@@ -1,5 +1,5 @@
-import { z } from 'zod';
-import { SUPPORTED_TYPES } from './constants';
+import { z } from "zod";
+import { SUPPORTED_TYPES } from "./constants";
 
 const supportedTypes = z.enum(SUPPORTED_TYPES);
 

@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { useState, useEffect, RefObject } from 'react';
+import { useState, useEffect, RefObject } from "react";
 
 /**
  * Returns a 0-1 progress value based on how much of the element is scrolled through.
@@ -49,12 +49,12 @@ export function useScrollProgress(ref: RefObject<HTMLElement | null>): number {
     // Initial calculation
     updateProgress();
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    window.addEventListener('resize', updateProgress, { passive: true });
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", updateProgress, { passive: true });
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', updateProgress);
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", updateProgress);
     };
   }, [ref]);
 

@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
-import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from './Resizable';
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from "./Resizable";
 
 const meta = {
-  title: 'Components/Resizable',
+  title: "Components/Resizable",
   component: ResizablePanelGroup,
-  parameters: { layout: 'centered' },
-  tags: ['autodocs'],
+  parameters: { layout: "centered" },
+  tags: ["autodocs"],
 } satisfies Meta<typeof ResizablePanelGroup>;
 
 export default meta;

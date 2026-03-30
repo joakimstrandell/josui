@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Skeleton } from './Skeleton';
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { Skeleton } from "./Skeleton";
 
 const meta = {
-  title: 'Components/Skeleton',
+  title: "Components/Skeleton",
   component: Skeleton,
-  parameters: { layout: 'centered' },
-  tags: ['autodocs'],
+  parameters: { layout: "centered" },
+  tags: ["autodocs"],
 } satisfies Meta<typeof Skeleton>;
 
 export default meta;

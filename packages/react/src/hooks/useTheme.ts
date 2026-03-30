@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { useSyncExternalStore, useEffect } from 'react';
-import { themeState, createKeyboardShortcut, parseShortcut } from '@josui/core-web';
-import type { Theme, ResolvedTheme, ThemeState, KeyboardShortcut } from '@josui/core-web';
+import { useSyncExternalStore, useEffect } from "react";
+import { themeState, createKeyboardShortcut, parseShortcut } from "@josui/core-web";
+import type { Theme, ResolvedTheme, ThemeState, KeyboardShortcut } from "@josui/core-web";
 
 export type { Theme, ResolvedTheme, ThemeState };
 
@@ -16,7 +16,7 @@ export interface UseThemeReturn extends ThemeState {
   toggle: () => void;
 }
 
-const serverSnapshot: ThemeState = { theme: 'system', resolvedTheme: 'light' };
+const serverSnapshot: ThemeState = { theme: "system", resolvedTheme: "light" };
 
 /**
  * React hook for managing theme state.
@@ -35,7 +35,7 @@ export function useTheme(options: UseThemeOptions = {}): UseThemeReturn {
   const state = useSyncExternalStore(
     (callback) => themeState.subscribe(callback),
     () => themeState.getState(),
-    () => serverSnapshot
+    () => serverSnapshot,
   );
 
   // Set up keyboard shortcut
@@ -43,7 +43,7 @@ export function useTheme(options: UseThemeOptions = {}): UseThemeReturn {
     if (!toggleShortcut) return;
 
     const shortcut =
-      typeof toggleShortcut === 'string' ? parseShortcut(toggleShortcut) : toggleShortcut;
+      typeof toggleShortcut === "string" ? parseShortcut(toggleShortcut) : toggleShortcut;
 
     return createKeyboardShortcut({
       shortcut,

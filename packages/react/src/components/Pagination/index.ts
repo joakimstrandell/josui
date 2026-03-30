@@ -10,4 +10,4 @@ export {
   type PaginationContentProps,
   type PaginationItemProps,
   type PaginationLinkProps,
-} from './Pagination';
+} from "./Pagination";

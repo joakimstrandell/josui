@@ -13,8 +13,8 @@ pnpm add @josui/react @josui/tailwind
 
 ```css
 /* styles.css */
-@import '@josui/tailwind';
-@source '../node_modules/@josui/react/dist';
+@import "@josui/tailwind";
+@source '../node_modules/@josui/react/src';
 ```
 
 ## Button
@@ -50,7 +50,7 @@ import {
   CardDescription,
   CardContent,
   CardFooter,
-} from '@josui/react';
+} from "@josui/react";
 
 <Card>
   <CardHeader>
@@ -65,7 +65,7 @@ import {
 ## Input
 
 ```tsx
-import { Input } from '@josui/react';
+import { Input } from "@josui/react";
 
 <Input type="email" placeholder="Enter email" size="md" disabled={false} />;
 ```
@@ -78,7 +78,7 @@ import { Input } from '@josui/react';
 ## Badge
 
 ```tsx
-import { Badge } from '@josui/react';
+import { Badge } from "@josui/react";
 
 <Badge variant="success" size="md">
   Active
@@ -93,7 +93,7 @@ import { Badge } from '@josui/react';
 ## Avatar
 
 ```tsx
-import { Avatar } from '@josui/react';
+import { Avatar } from "@josui/react";
 
 <Avatar src="/user.jpg" alt="User name" size="md" fallback="JD" />;
 ```
@@ -108,7 +108,7 @@ import { Avatar } from '@josui/react';
 ## Spinner
 
 ```tsx
-import { Spinner } from '@josui/react';
+import { Spinner } from "@josui/react";
 
 <Spinner size="md" />;
 ```
@@ -120,7 +120,7 @@ import { Spinner } from '@josui/react';
 ## Alert
 
 ```tsx
-import { Alert } from '@josui/react';
+import { Alert } from "@josui/react";
 
 <Alert variant="success" title="Success!">
   Your changes have been saved.
@@ -165,7 +165,7 @@ import { CustomCursor } from '@josui/react';
 Interactive canvas background that highlights cells under the cursor.
 
 ```tsx
-import { CellGrid } from '@josui/react';
+import { CellGrid } from "@josui/react";
 
 <CellGrid
   cellSize={24}
@@ -195,7 +195,7 @@ import { CellGrid } from '@josui/react';
 ## Hooks
 
 ```tsx
-import { useIsTouchDevice, useInteractiveState, useScrollDirection } from '@josui/react';
+import { useIsTouchDevice, useInteractiveState, useScrollDirection } from "@josui/react";
 
 // Detect touch device
 const isTouch = useIsTouchDevice();
@@ -207,16 +207,16 @@ const scrollDirection = useScrollDirection(); // 'up' | 'down' | null
 ## TypeScript
 
 ```tsx
-import { Button, type ButtonProps } from '@josui/react';
-import { Card, type CardProps } from '@josui/react';
-import { Input, type InputProps } from '@josui/react';
-import { Badge, type BadgeProps } from '@josui/react';
-import { Avatar, type AvatarProps } from '@josui/react';
-import { Spinner, type SpinnerProps } from '@josui/react';
-import { Alert, type AlertProps } from '@josui/react';
-import { Typography, type TypographyProps } from '@josui/react';
-import { CustomCursor, type CustomCursorProps } from '@josui/react';
-import { CellGrid, type CellGridProps } from '@josui/react';
+import { Button, type ButtonProps } from "@josui/react";
+import { Card, type CardProps } from "@josui/react";
+import { Input, type InputProps } from "@josui/react";
+import { Badge, type BadgeProps } from "@josui/react";
+import { Avatar, type AvatarProps } from "@josui/react";
+import { Spinner, type SpinnerProps } from "@josui/react";
+import { Alert, type AlertProps } from "@josui/react";
+import { Typography, type TypographyProps } from "@josui/react";
+import { CustomCursor, type CustomCursorProps } from "@josui/react";
+import { CellGrid, type CellGridProps } from "@josui/react";
 ```
 
 ## Customization

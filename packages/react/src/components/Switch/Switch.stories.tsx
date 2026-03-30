@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Switch } from './Switch';
+import type { Meta, StoryObj } from "@storybook/react-vite";
+import { Switch } from "./Switch";
 
 const meta = {
-  title: 'Components/Switch',
+  title: "Components/Switch",
   component: Switch,
-  parameters: { layout: 'centered' },
-  tags: ['autodocs'],
+  parameters: { layout: "centered" },
+  tags: ["autodocs"],
 } satisfies Meta<typeof Switch>;
 
 export default meta;

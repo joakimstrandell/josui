@@ -1,1 +1,1 @@
-export { AnimateContent, type AnimateContentProps } from './AnimateContent';
+export { AnimateContent, type AnimateContentProps } from "./AnimateContent";

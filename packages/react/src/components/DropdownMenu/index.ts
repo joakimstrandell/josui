@@ -29,4 +29,4 @@ export {
   type DropdownMenuSubContentProps,
   type DropdownMenuSubTriggerProps,
   type DropdownMenuRadioGroupProps,
-} from './DropdownMenu';
+} from "./DropdownMenu";

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react-vite';
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import {
   Sheet,
   SheetContent,
@@ -6,13 +6,13 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from './Sheet';
+} from "./Sheet";
 
 const meta = {
-  title: 'Components/Sheet',
+  title: "Components/Sheet",
   component: Sheet,
-  parameters: { layout: 'centered' },
-  tags: ['autodocs'],
+  parameters: { layout: "centered" },
+  tags: ["autodocs"],
 } satisfies Meta<typeof Sheet>;
 
 export default meta;
