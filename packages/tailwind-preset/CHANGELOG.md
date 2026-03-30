@@ -1,5 +1,11 @@
 # @josui/tailwind
 
+## 1.0.1
+
+### Patch Changes
+
+- Initial release under new package name (previously `@josui/tailwind`). Provides Tailwind CSS v4 preset with design tokens, base styles, and animations.
+
 ## 1.0.0
 
 ### Major Changes

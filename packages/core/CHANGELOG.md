@@ -1,5 +1,11 @@
 # @josui/core
 
+## 0.2.1
+
+### Patch Changes
+
+- Switch toolchain from ESLint/Prettier to Vite+ (oxlint/oxfmt). Documentation updates.
+
 ## 0.2.0
 
 ### Minor Changes

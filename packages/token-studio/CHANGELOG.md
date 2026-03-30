@@ -1,5 +1,11 @@
 # @josui/token-studio
 
+## 0.2.2
+
+### Patch Changes
+
+- Fix missing package exports. Switch toolchain to Vite+.
+
 ## 0.2.1
 
 ### Patch Changes

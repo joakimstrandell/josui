@@ -1,5 +1,13 @@
 # @josui/core-web
 
+## 0.2.1
+
+### Patch Changes
+
+- Refactor to use direct source imports instead of tsup-bundled dist output. Switch toolchain from ESLint/Prettier to Vite+ (oxlint/oxfmt).
+- Updated dependencies
+  - @josui/core@0.2.1
+
 ## 0.2.0
 
 ### Minor Changes
