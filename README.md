@@ -13,24 +13,22 @@ AI-native design system built on DTCG tokens.
 
 ## Packages (published to npm)
 
-| Package                                              | Description              |
-| ---------------------------------------------------- | ------------------------ |
-| [@josui/react](./packages/react)                     | React component library  |
-| [@josui/tailwind-preset](./packages/tailwind-preset) | Tailwind CSS v4 preset   |
-| [@josui/token-studio](./packages/token-studio)       | Token editor CLI         |
-| [@josui/core](./packages/core)                       | Pure JS utilities        |
-| [@josui/core-web](./packages/core-web)               | Shared web utilities     |
-| [@josui/cli](./packages/cli)                         | CLI for linking packages |
+| Package                                              | Description                        |
+| ---------------------------------------------------- | ---------------------------------- |
+| [@josui/react](./packages/react)                     | React component library            |
+| [@josui/tailwind-preset](./packages/tailwind-preset) | Tailwind CSS v4 preset             |
+| [@josui/token-studio](./packages/token-studio)       | Token editor CLI                   |
+| [@josui/core](./packages/core)                       | Pure JS utilities                  |
+| [@josui/core-web](./packages/core-web)               | Shared web utilities               |
+| [@josui/cli](./packages/cli)                         | CLI for linking Claude Code skills |
 
 ## Config Packages (published to npm)
 
 Shared tooling configs:
 
-| Package                                                | Description             |
-| ------------------------------------------------------ | ----------------------- |
-| [@josui/eslint-config](./config/eslint-config)         | Shared ESLint configs   |
-| [@josui/prettier-config](./config/prettier-config)     | Shared Prettier configs |
-| [@josui/typescript-config](./config/typescript-config) | Shared tsconfig files   |
+| Package                                                | Description           |
+| ------------------------------------------------------ | --------------------- |
+| [@josui/typescript-config](./config/typescript-config) | Shared tsconfig files |
 
 ## Apps
 
@@ -44,8 +42,10 @@ Shared tooling configs:
 ```bash
 pnpm build      # Build all packages
 pnpm dev        # Start all dev servers
+pnpm check      # Lint + format + typecheck
 pnpm lint       # Lint all packages
 pnpm test       # Run all tests
+pnpm clean      # Delete all build artifacts and node_modules
 ```
 
 ## Releasing
