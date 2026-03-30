@@ -3,7 +3,6 @@ node_modules/
 
 # Build outputs
 dist/
-.turbo/
 .next/
 .nuxt/
 .output/
@@ -35,6 +34,9 @@ coverage/
 
 # Generated skills (symlinks)
 .claude/skills/josui-linked-*
+
+# Vite+
+.vite-hooks/
 
 # Misc
 *.tsbuildinfo

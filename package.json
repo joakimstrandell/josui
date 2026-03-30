@@ -1,44 +1,31 @@
 {
   "name": "josui",
-  "private": true,
   "version": "0.0.0",
+  "private": true,
   "type": "module",
   "scripts": {
-    "build": "turbo build",
-    "dev": "turbo dev",
-    "lint": "turbo lint",
+    "build": "vp run -r build",
+    "dev": "vp run -r dev",
+    "lint": "vp run -r lint",
+    "check": "vp check",
+    "format": "vp fmt --write",
     "knip": "knip",
-    "test": "turbo test",
-    "clean": "turbo clean && rm -rf node_modules",
-    "format": "prettier --write \"**/*.{ts,tsx,md,json}\"",
+    "test": "vp run -r test",
+    "clean": "vp run -r clean && rm -rf node_modules",
     "changeset": "changeset",
     "version-packages": "changeset version",
-    "release": "turbo build --filter=./packages/* && changeset publish",
-    "prepare": "husky"
+    "release": "vp run --filter './packages/*' build && changeset publish",
+    "prepare": "vp config"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.0",
-    "@josui/eslint-config": "workspace:*",
     "@types/node": "^20.0.0",
-    "eslint": "^9.39.2",
-    "husky": "^9.1.7",
     "knip": "^5.82.1",
-    "lint-staged": "^16.2.7",
-    "prettier": "^3.4.0",
-    "turbo": "^2.7.0",
-    "typescript": "^5.7.0"
+    "typescript": "^5.7.0",
+    "vite-plus": "^0.1.14"
   },
-  "packageManager": "pnpm@9.15.0",
   "engines": {
     "node": ">=20"
   },
-  "lint-staged": {
-    "*.{ts,tsx}": [
-      "eslint --fix",
-      "prettier --write"
-    ],
-    "*.{json,md,css}": [
-      "prettier --write"
-    ]
-  }
+  "packageManager": "pnpm@9.15.0"
 }

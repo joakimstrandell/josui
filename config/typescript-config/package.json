@@ -1,6 +1,9 @@
 {
   "name": "@josui/typescript-config",
   "version": "0.2.0",
+  "files": [
+    "src"
+  ],
   "type": "module",
   "exports": {
     "./base.json": "./src/base.json",
@@ -8,9 +11,6 @@
     "./node.json": "./src/node.json",
     "./react.json": "./src/react.json"
   },
-  "files": [
-    "src"
-  ],
   "publishConfig": {
     "access": "public"
   }
