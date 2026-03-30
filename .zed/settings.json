@@ -1,0 +1,14 @@
+{
+  "languages": {
+    "CSS": {
+      "language_servers": ["tailwindcss-language-server", "!css-language-server", "..."]
+    }
+  },
+  "lsp": {
+    "tailwindcss-language-server": {
+      "settings": {
+        "classFunctions": ["cn"]
+      }
+    }
+  }
+}
