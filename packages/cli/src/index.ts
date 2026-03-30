@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { select } from '@inquirer/prompts';
-import { linkPackages } from './commands/link-packages.js';
+import { watchPackages } from './commands/watch.js';
 import { linkSkills } from './commands/link-skills.js';
 
 const args = process.argv.slice(2);
@@ -9,64 +9,45 @@ const args = process.argv.slice(2);
 async function main(): Promise<void> {
   console.log('\n  josui cli\n');
 
-  // Parse command
   const command = args[0];
-  const subcommand = args[1];
+
+  if (command === 'watch') {
+    await watchPackages();
+    return;
+  }
 
   if (command === 'link') {
-    if (subcommand === 'packages') {
-      await linkPackages();
-      return;
-    }
+    const subcommand = args[1];
 
     if (subcommand === 'skills') {
       await linkSkills();
       return;
     }
 
-    // Interactive link menu
-    const linkType = await select({
-      message: 'What would you like to link?',
-      choices: [
-        { value: 'packages', name: 'Packages - Link @josui/* packages for local development' },
-        { value: 'skills', name: 'Skills - Link Claude Code skills from josui' },
-      ],
-    });
-
-    if (linkType === 'packages') {
-      await linkPackages();
-    } else {
-      await linkSkills();
-    }
+    // "link" without subcommand or "link packages" -> point to watch
+    console.log('  `josui link packages` has been replaced by `josui watch`.\n');
+    console.log('  Run `josui watch` to copy and watch packages instead of symlinking.\n');
     return;
   }
 
   // No command - show main menu
   const action = await select({
     message: 'What would you like to do?',
-    choices: [{ value: 'link', name: 'Link packages or skills for local development' }],
+    choices: [
+      { value: 'watch', name: 'Watch packages - Copy & watch @josui/* src files' },
+      { value: 'link-skills', name: 'Link skills - Link Claude Code skills' },
+    ],
   });
 
-  if (action === 'link') {
-    const linkType = await select({
-      message: 'What would you like to link?',
-      choices: [
-        { value: 'packages', name: 'Packages - Link @josui/* packages for local development' },
-        { value: 'skills', name: 'Skills - Link Claude Code skills from josui' },
-      ],
-    });
-
-    if (linkType === 'packages') {
-      await linkPackages();
-    } else {
-      await linkSkills();
-    }
+  if (action === 'watch') {
+    await watchPackages();
+  } else {
+    await linkSkills();
   }
 }
 
 main().catch((err) => {
   if (err.name === 'ExitPromptError') {
-    // User cancelled with Ctrl+C
     console.log('\nCancelled.');
     process.exit(0);
   }

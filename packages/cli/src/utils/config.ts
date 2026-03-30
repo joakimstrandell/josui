@@ -6,7 +6,7 @@ const GITIGNORE_ENTRIES = ['# josui local linking config', '.josui.json', 'josui
 
 export interface JosuiConfig {
   josuiPath?: string;
-  linkedPackages?: string[];
+  watchPackages?: string[];
   linkedSkills?: {
     source: string; // path to josui or package with skills
     skills: string[]; // skill names
