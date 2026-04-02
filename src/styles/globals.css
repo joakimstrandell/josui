@@ -1,0 +1,14 @@
+@import 'tw-animate-css';
+@import '@josui/tailwind';
+@plugin "@tailwindcss/typography";
+@source "../../node_modules/@josui/react/**/*.{ts,tsx}";
+
+body * {
+  cursor: none !important;
+}
+
+@layer components {
+  .footer-link {
+    @apply hover:text-foreground block py-1 text-gray-600 underline-offset-4 hover:underline;
+  }
+}
