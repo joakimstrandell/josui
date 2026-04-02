@@ -7,5 +7,5 @@
   "access": "public",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
-  "ignore": ["@josui/docs", "@josui/playground"]
+  "ignore": ["@josui/docs", "@josui/playground", "@josui/portfolio", "@josui/awkwardgroup"]
 }

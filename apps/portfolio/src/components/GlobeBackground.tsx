@@ -1,15 +1,15 @@
-'use client';
+"use client";
 
-import { useRef, useMemo, useState, useEffect, useCallback, type RefObject } from 'react';
-import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { cn, getCssVariable } from '@josui/core-web/src';
+import { useRef, useMemo, useState, useEffect, useCallback, type RefObject } from "react";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { cn, getCssVariable } from "@josui/core-web";
 
 // Import types only (no runtime cost) for TypeScript
-import type { ShaderMaterial, Group } from 'three';
+import type { ShaderMaterial, Group } from "three";
 
 // Dynamically import THREE to avoid blocking module load
-let THREE: typeof import('three') | null = null;
-const threePromise = import('three').then((mod) => {
+let THREE: typeof import("three") | null = null;
+const threePromise = import("three").then((mod) => {
   THREE = mod;
   return mod;
 });
@@ -94,7 +94,7 @@ const DEFAULT_CONFIG: Required<GlobeConfig> = {
   // Dots
   dotCount: 100,
   dotSize: 0.0055,
-  dotColor: '#ffb92f',
+  dotColor: "#ffb92f",
   dotOpacity: 0.5,
   dotBlur: 0.3,
   dotOffset: 0.05,
@@ -102,13 +102,13 @@ const DEFAULT_CONFIG: Required<GlobeConfig> = {
 
   // Dot shadows
   dotShadows: true,
-  dotShadowColor: '#ffb92f',
+  dotShadowColor: "#ffb92f",
   dotShadowOpacity: 0.4,
   dotShadowSize: 0.05,
   dotShadowBlur: 1,
 
   // Trails
-  trailColor: '#ffb92f',
+  trailColor: "#ffb92f",
   trailOpacity: 1,
   trailWidth: 0.008,
   trailBlur: 0.3,
@@ -116,28 +116,28 @@ const DEFAULT_CONFIG: Required<GlobeConfig> = {
   // Sphere
   sphereRadius: 5.85,
   sphereSegments: 32,
-  sphereColor: '#ffb92f',
+  sphereColor: "#ffb92f",
   sphereOpacity: 0.01,
 
   // Atmosphere
-  atmosphereColor: '#ffb92f',
+  atmosphereColor: "#ffb92f",
   atmosphereOpacity: 0.15,
   atmosphereScale: 1.1,
 
   // Fresnel rim
-  fresnelColor: '#ffffff',
+  fresnelColor: "#ffffff",
   fresnelOpacity: 0.8,
   fresnelPower: 3.0,
 
   // Noise texture
   noise: true,
-  noiseColor: '#2076ff',
+  noiseColor: "#2076ff",
   noiseOpacity: 0.3,
   noiseScale: 3.0,
 
   // City lights
   cityLights: false,
-  cityLightColor: '#F5B82E',
+  cityLightColor: "#F5B82E",
   cityLightOpacity: 0.3,
   cityLightDensity: 30.0,
   cityLightSize: 0.05,
@@ -169,8 +169,8 @@ function computeGlobeData(count: number, radius: number, minDistance: number): P
   }
 
   const promise = new Promise<GlobeData>((resolve) => {
-    const worker = new Worker(new URL('../workers/globeWorker.ts', import.meta.url), {
-      type: 'module',
+    const worker = new Worker(new URL("../workers/globeWorker.ts", import.meta.url), {
+      type: "module",
     });
 
     worker.onmessage = (e: MessageEvent<GlobeData>) => {
@@ -178,7 +178,7 @@ function computeGlobeData(count: number, radius: number, minDistance: number): P
       worker.terminate();
     };
 
-    worker.postMessage({ type: 'compute', count, radius, minDistance });
+    worker.postMessage({ type: "compute", count, radius, minDistance });
   });
 
   workerCache.set(cacheKey, promise);
@@ -186,8 +186,12 @@ function computeGlobeData(count: number, radius: number, minDistance: number): P
 }
 
 // Pre-compute with defaults for fast initial load (browser only)
-if (typeof window !== 'undefined') {
-  computeGlobeData(DEFAULT_CONFIG.dotCount, DEFAULT_CONFIG.sphereRadius + 0.15, DEFAULT_CONFIG.minDotDistance);
+if (typeof window !== "undefined") {
+  computeGlobeData(
+    DEFAULT_CONFIG.dotCount,
+    DEFAULT_CONFIG.sphereRadius + 0.15,
+    DEFAULT_CONFIG.minDotDistance,
+  );
 }
 
 // ============================================================================
@@ -751,7 +755,10 @@ function PointsDots({
   renderOrder?: number;
 }) {
   const materialRef = useRef<ShaderMaterial>(null);
-  const shader = useMemo(() => createPointsShader(takeoffThreshold, liftDistance), [takeoffThreshold, liftDistance]);
+  const shader = useMemo(
+    () => createPointsShader(takeoffThreshold, liftDistance),
+    [takeoffThreshold, liftDistance],
+  );
 
   const uniforms = useMemo(() => {
     if (!THREE) return null;
@@ -768,9 +775,9 @@ function PointsDots({
   const geometry = useMemo(() => {
     if (!THREE) return null;
     const geo = new THREE.BufferGeometry();
-    geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-    geo.setAttribute('liftSpeed', new THREE.BufferAttribute(liftSpeeds, 1));
-    geo.setAttribute('liftDirection', new THREE.BufferAttribute(liftDirections, 3));
+    geo.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+    geo.setAttribute("liftSpeed", new THREE.BufferAttribute(liftSpeeds, 1));
+    geo.setAttribute("liftDirection", new THREE.BufferAttribute(liftDirections, 3));
     return geo;
   }, [positions, liftSpeeds, liftDirections]);
 
@@ -819,7 +826,7 @@ function DotShadows({
     const geo = new THREE.CircleGeometry(1, 16);
 
     // Add instance attribute for positions
-    geo.setAttribute('instancePosition', new THREE.InstancedBufferAttribute(positions, 3));
+    geo.setAttribute("instancePosition", new THREE.InstancedBufferAttribute(positions, 3));
 
     return geo;
   }, [positions]);
@@ -947,14 +954,14 @@ function useScrollInvalidate(
       }, 150);
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     if (updateScroll()) {
       invalidate();
     }
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
       if (rafId) cancelAnimationFrame(rafId);
       if (timeoutId) clearTimeout(timeoutId);
     };
@@ -1035,9 +1042,9 @@ function Trails({
     if (!THREE) return null;
     const geo = new THREE.CylinderGeometry(1, 1, 1, 4, 1);
 
-    geo.setAttribute('basePosition', new THREE.InstancedBufferAttribute(positions, 3));
-    geo.setAttribute('liftSpeed', new THREE.InstancedBufferAttribute(liftSpeeds, 1));
-    geo.setAttribute('liftDirection', new THREE.InstancedBufferAttribute(liftDirections, 3));
+    geo.setAttribute("basePosition", new THREE.InstancedBufferAttribute(positions, 3));
+    geo.setAttribute("liftSpeed", new THREE.InstancedBufferAttribute(liftSpeeds, 1));
+    geo.setAttribute("liftDirection", new THREE.InstancedBufferAttribute(liftDirections, 3));
 
     return geo;
   }, [positions, liftSpeeds, liftDirections]);
@@ -1045,7 +1052,11 @@ function Trails({
   if (!THREE || !geometry || !uniforms) return null;
 
   return (
-    <instancedMesh args={[geometry, undefined, count]} frustumCulled={false} renderOrder={renderOrder}>
+    <instancedMesh
+      args={[geometry, undefined, count]}
+      frustumCulled={false}
+      renderOrder={renderOrder}
+    >
       <shaderMaterial
         ref={materialRef}
         transparent
@@ -1061,7 +1072,7 @@ function Trails({
 function Globe({ containerRef, data, config }: GlobeProps) {
   const groupRef = useRef<Group>(null);
   const scrollProgressRef = useRef(0);
-  console.log('--color-foreground', getCssVariable('--color-foreground'));
+  console.log("--color-foreground", getCssVariable("--color-foreground"));
   const { positions, liftSpeeds, liftDirections } = data;
 
   const { positionGroupRef } = useScrollInvalidate(containerRef, scrollProgressRef, config.idleFps);
@@ -1092,8 +1103,14 @@ function Globe({ containerRef, data, config }: GlobeProps) {
           segments={config.sphereSegments}
         />
         <mesh>
-          <sphereGeometry args={[config.sphereRadius, config.sphereSegments, config.sphereSegments]} />
-          <meshBasicMaterial color={config.sphereColor} transparent opacity={config.sphereOpacity} />
+          <sphereGeometry
+            args={[config.sphereRadius, config.sphereSegments, config.sphereSegments]}
+          />
+          <meshBasicMaterial
+            color={config.sphereColor}
+            transparent
+            opacity={config.sphereOpacity}
+          />
         </mesh>
         <FresnelSphere
           radius={config.sphereRadius + 0.01}
@@ -1167,7 +1184,10 @@ function Globe({ containerRef, data, config }: GlobeProps) {
   );
 }
 
-export function GlobeBackground({ className, ...configOverrides }: { className?: string } & GlobeConfig) {
+export function GlobeBackground({
+  className,
+  ...configOverrides
+}: { className?: string } & GlobeConfig) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isReady, setIsReady] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
@@ -1178,28 +1198,32 @@ export function GlobeBackground({ className, ...configOverrides }: { className?:
       ...DEFAULT_CONFIG,
       ...configOverrides,
       // Ensure trailColor defaults to dotColor if not specified
-      trailColor: configOverrides.trailColor ?? configOverrides.dotColor ?? DEFAULT_CONFIG.trailColor,
+      trailColor:
+        configOverrides.trailColor ?? configOverrides.dotColor ?? DEFAULT_CONFIG.trailColor,
     }),
     [JSON.stringify(configOverrides)],
   );
 
   useEffect(() => {
     const workerRadius = config.sphereRadius + 0.15;
-    Promise.all([threePromise, computeGlobeData(config.dotCount, workerRadius, config.minDotDistance)]).then(
-      ([, data]) => {
-        const scheduleMount = window.requestIdleCallback || ((cb: () => void) => setTimeout(cb, 1));
-        scheduleMount(() => {
-          setGlobeData(data);
-          setIsReady(true);
-        });
-      },
-    );
+    Promise.all([
+      threePromise,
+      computeGlobeData(config.dotCount, workerRadius, config.minDotDistance),
+    ]).then(([, data]) => {
+      const scheduleMount = window.requestIdleCallback || ((cb: () => void) => setTimeout(cb, 1));
+      scheduleMount(() => {
+        setGlobeData(data);
+        setIsReady(true);
+      });
+    });
   }, [config.dotCount, config.sphereRadius, config.minDotDistance]);
 
   useEffect(() => {
     if (!containerRef.current) return;
 
-    const observer = new IntersectionObserver(([entry]) => setIsVisible(entry.isIntersecting), { threshold: 0.01 });
+    const observer = new IntersectionObserver(([entry]) => setIsVisible(entry.isIntersecting), {
+      threshold: 0.01,
+    });
 
     observer.observe(containerRef.current);
     return () => observer.disconnect();
@@ -1218,16 +1242,16 @@ export function GlobeBackground({ className, ...configOverrides }: { className?:
     <div
       ref={containerRef}
       className={cn(
-        'pointer-events-none absolute left-1/2 hidden h-250 w-full -translate-x-1/2 mask-[linear-gradient(to_bottom,background_0%,background_50%,transparent_100%)] transition-opacity duration-1000 ease-out md:block',
-        hasBeenVisible ? 'opacity-100' : 'opacity-0',
+        "pointer-events-none absolute left-1/2 hidden h-250 w-full -translate-x-1/2 mask-[linear-gradient(to_bottom,background_0%,background_50%,transparent_100%)] transition-opacity duration-1000 ease-out md:block",
+        hasBeenVisible ? "opacity-100" : "opacity-0",
         className,
       )}
     >
       {isReady && globeData && hasBeenVisible && (
         <Canvas
           camera={{ position: [0, -5, 10], fov: 45 }}
-          gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
-          style={{ background: 'transparent' }}
+          gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
+          style={{ background: "transparent" }}
           frameloop="demand"
           dpr={[1, 1.5]}
         >

@@ -1,15 +1,22 @@
-'use client';
+"use client";
 
-import { useEffect, useRef, ReactNode } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { cn } from '@josui/core-web/src';
+import { useEffect, useRef, ReactNode } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { cn } from "@josui/core-web";
 
 interface AnimateContentProps {
   id?: string;
   children: ReactNode;
   className?: string;
-  animationType?: 'fadeUp' | 'fadeIn' | 'fadeLeft' | 'fadeRight' | 'slideUp' | 'slideLeft' | 'slideRight';
+  animationType?:
+    | "fadeUp"
+    | "fadeIn"
+    | "fadeLeft"
+    | "fadeRight"
+    | "slideUp"
+    | "slideLeft"
+    | "slideRight";
   delay?: number;
   duration?: number;
   start?: string;
@@ -21,12 +28,12 @@ interface AnimateContentProps {
 export default function AnimateContent({
   id,
   children,
-  className = '',
-  animationType = 'fadeUp',
+  className = "",
+  animationType = "fadeUp",
   delay = 0,
   duration = 1,
-  start = 'top bottom',
-  end = 'top center',
+  start = "top bottom",
+  end = "top center",
   scrub = true,
   sequenceDelay = 0.1,
 }: AnimateContentProps) {
@@ -50,7 +57,7 @@ export default function AnimateContent({
     // If element is already visible, animate it with sequence delay
     if (isInViewport) {
       // Find all AnimateContent elements in viewport and sort by position
-      const allElements = document.querySelectorAll('[data-animate-content]');
+      const allElements = document.querySelectorAll("[data-animate-content]");
       const visibleElements = Array.from(allElements)
         .filter((el) => {
           const elRect = el.getBoundingClientRect();
@@ -110,27 +117,32 @@ export default function AnimateContent({
   // Define initial CSS classes based on animation type
   const getInitialClass = () => {
     switch (animationType) {
-      case 'fadeUp':
-        return 'opacity-0 translate-y-[40px]';
-      case 'fadeIn':
-        return 'opacity-0';
-      case 'fadeLeft':
-        return 'opacity-0 translate-x-[40px]';
-      case 'fadeRight':
-        return 'opacity-0 -translate-x-[40px]';
-      case 'slideUp':
-        return 'translate-y-[100px]';
-      case 'slideLeft':
-        return 'translate-x-[100px]';
-      case 'slideRight':
-        return '-translate-x-[100px]';
+      case "fadeUp":
+        return "opacity-0 translate-y-[40px]";
+      case "fadeIn":
+        return "opacity-0";
+      case "fadeLeft":
+        return "opacity-0 translate-x-[40px]";
+      case "fadeRight":
+        return "opacity-0 -translate-x-[40px]";
+      case "slideUp":
+        return "translate-y-[100px]";
+      case "slideLeft":
+        return "translate-x-[100px]";
+      case "slideRight":
+        return "-translate-x-[100px]";
       default:
-        return 'opacity-0 translate-y-[50px]';
+        return "opacity-0 translate-y-[50px]";
     }
   };
 
   return (
-    <div ref={sectionRef} className={cn('block w-full', className, getInitialClass())} data-animate-content id={id}>
+    <div
+      ref={sectionRef}
+      className={cn("block w-full", className, getInitialClass())}
+      data-animate-content
+      id={id}
+    >
       {children}
     </div>
   );

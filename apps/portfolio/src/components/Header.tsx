@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import { useCallback, useLayoutEffect, useRef, useState } from 'react';
-import { Link } from '@tanstack/react-router';
-import { Menu } from 'lucide-react';
-import Signature from '@/components/Signature';
-import { Navigation } from '@/components/Navigation';
-import { useScrollDirection } from '@/hooks/useScrollDirection';
-import { cn } from '@josui/core-web/src';
+import { useCallback, useLayoutEffect, useRef, useState } from "react";
+import { Link } from "@tanstack/react-router";
+import { Menu } from "lucide-react";
+import Signature from "@/components/Signature";
+import { Navigation } from "@/components/Navigation";
+import { useScrollDirection } from "@/hooks/useScrollDirection";
+import { cn } from "@josui/core-web";
 
 const THRESHOLD = 30;
 
@@ -25,7 +25,8 @@ export function Header() {
   scrollYRef.current = scrollY;
 
   const updateMenuState = useCallback(() => {
-    const shouldShowFullNav = isAtTopRef.current || scrollYRef.current < THRESHOLD || isHoveredRef.current;
+    const shouldShowFullNav =
+      isAtTopRef.current || scrollYRef.current < THRESHOLD || isHoveredRef.current;
     setIsMenuOpen(shouldShowFullNav);
   }, []);
 
@@ -72,13 +73,16 @@ export function Header() {
         >
           {/* Menu Icon that slides in */}
           <div
-            className={cn('absolute right-0 p-2 transition-all duration-300 ease-in-out', {
-              'translate-x-16 opacity-0': isMenuOpen,
-              'translate-x-0 opacity-100': !isMenuOpen,
+            className={cn("absolute right-0 p-2 transition-all duration-300 ease-in-out", {
+              "translate-x-16 opacity-0": isMenuOpen,
+              "translate-x-0 opacity-100": !isMenuOpen,
             })}
           >
             <button
-              className={cn('text-foreground pointer-events-auto bg-white/90 p-2', isMenuOpen && 'hidden')}
+              className={cn(
+                "text-foreground pointer-events-auto bg-white/90 p-2",
+                isMenuOpen && "hidden",
+              )}
               aria-label="Menu"
             >
               <Menu className="h-8 w-8" />
@@ -88,12 +92,12 @@ export function Header() {
           {/* Full Navigation that slides out */}
           <div
             className={cn(
-              'pointer-events-auto flex items-center rounded px-4 mix-blend-difference',
-              '-mr-2 rounded transition-all duration-300 ease-in-out',
+              "pointer-events-auto flex items-center rounded px-4 mix-blend-difference",
+              "-mr-2 rounded transition-all duration-300 ease-in-out",
               {
-                'translate-x-0 opacity-100': isMenuOpen,
-                'translate-x-full opacity-0': !isMenuOpen,
-                'bg-white/90': isMenuOpen && !isAtTop,
+                "translate-x-0 opacity-100": isMenuOpen,
+                "translate-x-full opacity-0": !isMenuOpen,
+                "bg-white/90": isMenuOpen && !isAtTop,
               },
             )}
           >

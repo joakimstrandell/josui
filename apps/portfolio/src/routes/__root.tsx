@@ -1,30 +1,33 @@
-import { createRootRoute, HeadContent, Outlet, Scripts } from '@tanstack/react-router';
-import { Analytics } from '@vercel/analytics/react';
-import { Header } from '@/components/Header';
-import { CellGrid, CustomCursor } from '@josui/react/src';
+import { createRootRoute, HeadContent, Outlet, Scripts } from "@tanstack/react-router";
+import { Analytics } from "@vercel/analytics/react";
+import { Header } from "@/components/Header";
+import { CellGrid, CustomCursor } from "@josui/react";
 
-import '@fontsource-variable/roboto-mono';
-import '@/styles/globals.css';
-import { Footer } from '@/components/Footer';
+import "@fontsource-variable/roboto-mono";
+import "@/styles/globals.css";
+import { Footer } from "@/components/Footer";
 
 export const Route = createRootRoute({
   head: () => ({
     meta: [
-      { charSet: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' },
-      { name: 'theme-color', content: '#000000' },
-      { title: 'Joakim Strandell - Product Engineer' },
+      { charSet: "utf-8" },
       {
-        name: 'description',
+        name: "viewport",
+        content: "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no",
+      },
+      { name: "theme-color", content: "#000000" },
+      { title: "Joakim Strandell - Product Engineer" },
+      {
+        name: "description",
         content:
-          'Joakim Strandell is a product engineer with a passion for building scalable, user-centered web applications.',
+          "Joakim Strandell is a product engineer with a passion for building scalable, user-centered web applications.",
       },
     ],
     links: [
-      { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
-      { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
-      { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' },
-      { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
+      { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
+      { rel: "icon", type: "image/png", sizes: "32x32", href: "/favicon-32x32.png" },
+      { rel: "icon", type: "image/png", sizes: "16x16", href: "/favicon-16x16.png" },
+      { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
     ],
   }),
   component: RootComponent,

@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { Link, useLocation } from '@tanstack/react-router';
-import { cn } from '@josui/core-web/src';
-import { Button } from './ui/button';
+import { Link, useLocation } from "@tanstack/react-router";
+import { cn } from "@josui/core-web";
+import { Button } from "./ui/button";
 
 export function Navigation() {
   return (
@@ -16,15 +16,21 @@ export function Navigation() {
   );
 }
 
-Navigation.Item = function NavigationItem({ href, children }: { href: string; children: React.ReactNode }) {
+Navigation.Item = function NavigationItem({
+  href,
+  children,
+}: {
+  href: string;
+  children: React.ReactNode;
+}) {
   const location = useLocation();
   const isActive = location.pathname === href;
 
   return (
     <li
-      className={cn('hover:underline hover:underline-offset-4', {
-        'text-foreground': isActive,
-        'text-muted-foreground': !isActive,
+      className={cn("hover:underline hover:underline-offset-4", {
+        "text-foreground": isActive,
+        "text-muted-foreground": !isActive,
       })}
     >
       <Link to={href}>

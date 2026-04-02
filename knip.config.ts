@@ -18,6 +18,12 @@ export default {
     "apps/docs": {
       ignore: ["**/*"],
     },
+    "apps/portfolio": {
+      ignore: ["**/*"],
+    },
+    "apps/awkwardgroup": {
+      ignore: ["**/*"],
+    },
     "packages/*": {},
     "apps/*": {},
   },
