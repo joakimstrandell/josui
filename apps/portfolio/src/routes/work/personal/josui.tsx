@@ -19,7 +19,7 @@ function JosuiCase() {
   return (
     <Page>
       <PageSection width="narrow">
-        <AnimateContent className="prose">
+        <AnimateContent className="copy">
           <h1 className="mb-6 text-4xl font-bold">JOSUI Design System</h1>
           <p className="text-primary-700 -mt-4">Work in progress</p>
           <p className="text-muted-foreground">
@@ -32,7 +32,7 @@ function JosuiCase() {
             <br />
           </p>
         </AnimateContent>
-        <AnimateContent className="prose">
+        <AnimateContent className="copy">
           <h2>Overview</h2>
           <p>
             JOSUI is a personal design system monorepo created to demonstrate how I approach
@@ -51,7 +51,7 @@ function JosuiCase() {
           </p>
         </AnimateContent>
 
-        <AnimateContent className="prose">
+        <AnimateContent className="copy">
           <h2>The Challenge</h2>
           <p>
             I wanted a single system that could scale across multiple frameworks while keeping API
@@ -68,7 +68,7 @@ function JosuiCase() {
           />
         </AnimateContent>
 
-        <AnimateContent className="prose">
+        <AnimateContent className="copy">
           <h2>The Approach</h2>
           <p>
             I’m building the system as a layered monorepo: tokens → core → web utilities → framework
@@ -87,7 +87,7 @@ function JosuiCase() {
           />
         </AnimateContent>
 
-        <AnimateContent className="prose">
+        <AnimateContent className="copy">
           <h2>Implementation Highlights</h2>
           <p>
             <strong>Token pipeline</strong>
@@ -113,7 +113,7 @@ function JosuiCase() {
           </p>
         </AnimateContent>
 
-        <AnimateContent className="prose">
+        <AnimateContent className="copy">
           <h2>Results</h2>
           <p className="text-muted-foreground">
             This system is in active development, so the outcomes below reflect the current state
@@ -130,7 +130,7 @@ function JosuiCase() {
           />
         </AnimateContent>
 
-        <AnimateContent className="prose">
+        <AnimateContent className="copy">
           <h2>Learnings</h2>
           <p>
             <strong>Tokens are the real product.</strong>
@@ -146,7 +146,7 @@ function JosuiCase() {
           </p>
         </AnimateContent>
 
-        <AnimateContent className="prose">
+        <AnimateContent className="copy">
           <h2>Technical Summary</h2>
           <p>
             <strong>Stack:</strong> pnpm, Turborepo, TypeScript, Vite, tsup, Terrazzo, React, Vue,
@@ -161,7 +161,7 @@ function JosuiCase() {
             <a href="https://github.com/joakimstrandell/josui">github.com/joakimstrandell/josui</a>
           </p>
         </AnimateContent>
-        <AnimateContent className="prose">
+        <AnimateContent className="copy">
           <p>
             Lets <Link to="/connect">connect</Link> if you want to talk design systems or token
             pipelines.

@@ -44,7 +44,7 @@ function Home() {
             "flex h-full flex-1 flex-col justify-center",
           )}
         >
-          <AnimateContent className="prose prose-sm md:prose-base md:max-w-[62ch] lg:max-w-[78ch]">
+          <AnimateContent className="copy copy-sm md:text-base md:max-w-[62ch] lg:max-w-[78ch]">
             <h1 className="pointer-events-auto leading-9 md:leading-12">
               I help teams ship{" "}
               <span className="text-primary-950 bg-primary-100 inline-block pb-1 leading-none">
@@ -61,8 +61,8 @@ function Home() {
               .
             </h1>
           </AnimateContent>
-          <AnimateContent className="prose pointer-events-auto md:max-w-[67ch]">
-            <p className="prose-lg pointer-events-auto">
+          <AnimateContent className="copy pointer-events-auto md:max-w-[67ch]">
+            <p className="copy-lg pointer-events-auto">
               With 20+ years of experience, I eliminate the friction between concept and code. I
               build scalable design systems and robust fullstack architectures that allow teams to
               go from idea to production without the translation loss.
@@ -86,7 +86,7 @@ function Home() {
         <GlobeBackground className="-mt-72" />
         <PageSection className="relative z-10 max-w-6xl pt-48">
           <AnimateContent animationType="slideUp" className="-mt-32">
-            <div className="prose prose-xl md:prose-2xl prose-a mx-auto text-center">
+            <div className="copy copy-xl md:copy-2xl mx-auto text-center">
               <h2 className="mb-4">
                 How I Help You{" "}
                 <RotatingText

@@ -1,6 +1,5 @@
 @import "tw-animate-css";
 @import "@josui/tailwind-preset";
-@plugin "@tailwindcss/typography";
 @source "../../node_modules/@josui/react/**/*.{ts,tsx}";
 
 body * {

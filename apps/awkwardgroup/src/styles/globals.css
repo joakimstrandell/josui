@@ -1,4 +1,7 @@
-@import 'tw-animate-css';
-@import '@josui/tailwind-preset';
-@plugin "@tailwindcss/typography";
+@import "tw-animate-css";
+@import "@josui/tailwind-preset";
 @source "../../node_modules/@josui/react/**/*.{ts,tsx}";
+
+body * {
+  cursor: none !important;
+}

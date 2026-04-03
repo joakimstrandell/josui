@@ -19,7 +19,7 @@ function ContractFirstApisCase() {
   return (
     <Page>
       <PageSection width="narrow">
-        <AnimateContent className="prose">
+        <AnimateContent className="copy">
           <h1 className="mb-6 text-4xl font-bold">Contract-First APIs</h1>
           <p className="text-muted-foreground">
             <strong>Role:</strong> Frontend Engineer, leading architecture for frontend
@@ -32,7 +32,7 @@ function ContractFirstApisCase() {
             <br />
           </p>
         </AnimateContent>
-        <AnimateContent className="prose">
+        <AnimateContent className="copy">
           <h2>Overview</h2>
           <p>
             Stockholm Exergi’s product suite depends on consistent data and reliable integrations
@@ -47,7 +47,7 @@ function ContractFirstApisCase() {
           </p>
         </AnimateContent>
 
-        <AnimateContent className="prose">
+        <AnimateContent className="copy">
           <h2>The Challenge</h2>
           <p>
             We needed to reduce integration risk while increasing delivery speed across multiple
@@ -64,7 +64,7 @@ function ContractFirstApisCase() {
           />
         </AnimateContent>
 
-        <AnimateContent className="prose">
+        <AnimateContent className="copy">
           <h2>The Approach</h2>
           <p>
             We aligned on contract-first API design. The contract defined the shape of every
@@ -94,7 +94,7 @@ function ContractFirstApisCase() {
           />
         </AnimateContent>
 
-        <AnimateContent className="prose">
+        <AnimateContent className="copy">
           <h2>Implementation Highlights</h2>
           <p>
             We rolled the system across more than four services, with additional services in the
@@ -124,7 +124,7 @@ function ContractFirstApisCase() {
           </p>
         </AnimateContent>
 
-        <AnimateContent className="prose">
+        <AnimateContent className="copy">
           <h2>Results</h2>
           <p>
             The system reduced integration friction across teams, made API changes safer to roll
@@ -140,7 +140,7 @@ function ContractFirstApisCase() {
           />
         </AnimateContent>
 
-        <AnimateContent className="prose">
+        <AnimateContent className="copy">
           <h2>Learnings</h2>
           <p>
             <strong>Contracts are collaboration tools.</strong>
@@ -156,7 +156,7 @@ function ContractFirstApisCase() {
           </p>
         </AnimateContent>
 
-        <AnimateContent className="prose">
+        <AnimateContent className="copy">
           <h2>Technical Summary</h2>
           <p>
             <strong>Stack:</strong> TypeScript, OpenAPI, Kubb, TanStack Query, Zod, React, Vite
@@ -167,7 +167,7 @@ function ContractFirstApisCase() {
           </p>
         </AnimateContent>
 
-        <AnimateContent className="prose">
+        <AnimateContent className="copy">
           <p>
             Lets <Link to="/connect">connect</Link> if you want to build reliable, scalable API
             contracts and type-safe frontend integrations that reduce bug tickets and increase

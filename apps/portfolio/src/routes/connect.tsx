@@ -19,7 +19,7 @@ function Connect() {
   return (
     <Page>
       <PageSection width="narrow">
-        <AnimateContent className="prose">
+        <AnimateContent className="copy">
           <h1>Connect</h1>
           <p>
             Ready to ship? Whether you need a specific design system audit or a fullstack product

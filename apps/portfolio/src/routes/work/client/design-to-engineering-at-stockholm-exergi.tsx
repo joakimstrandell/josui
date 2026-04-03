@@ -19,7 +19,7 @@ function StockholmExergiCase() {
   return (
     <Page>
       <PageSection width="narrow">
-        <AnimateContent className="prose">
+        <AnimateContent className="copy">
           <h1>Unifying Design and Engineering</h1>
           <p className="text-muted-foreground">
             <strong>Role:</strong> Product Designer & Frontend Engineer
@@ -31,7 +31,7 @@ function StockholmExergiCase() {
           </p>
         </AnimateContent>
 
-        <AnimateContent className="prose">
+        <AnimateContent className="copy">
           <h2>Overview</h2>
           <p>
             A 3-year effort to remove handoffs and deliver a single system for internal operations
@@ -49,7 +49,7 @@ function StockholmExergiCase() {
           </p>
         </AnimateContent>
 
-        <AnimateContent className="prose">
+        <AnimateContent className="copy">
           <h2>The Challenge</h2>
           <p>
             The platform had grown organically. Multiple products, independent codebases,
@@ -68,7 +68,7 @@ function StockholmExergiCase() {
           <p>This wasn't a design problem or an engineering problem. It was both.</p>
         </AnimateContent>
 
-        <AnimateContent className="prose">
+        <AnimateContent className="copy">
           <h2>The Unification (2022–2025)</h2>
           <p>My scope shifted from product delivery to platform-wide systems and enablement.</p>
         </AnimateContent>
@@ -103,7 +103,7 @@ function StockholmExergiCase() {
           </AnimateContent>
         </div>
 
-        <AnimateContent className="prose">
+        <AnimateContent className="copy">
           <h2>The Work</h2>
           <p>
             The unification work focused on internal applications used by operations teams. I worked
@@ -128,7 +128,7 @@ function StockholmExergiCase() {
           />
         </AnimateContent>
 
-        <AnimateContent className="prose">
+        <AnimateContent className="copy">
           <h3>Systems Built</h3>
           <p>
             Built the foundation that made consistency and speed possible across internal products —
@@ -173,7 +173,7 @@ function StockholmExergiCase() {
           </p>
         </AnimateContent>
 
-        <AnimateContent className="prose">
+        <AnimateContent className="copy">
           <h2>Why This Worked</h2>
           <p>
             Owning both design and engineering removed handoffs and kept decisions consistent from
@@ -182,7 +182,7 @@ function StockholmExergiCase() {
           </p>
         </AnimateContent>
 
-        <AnimateContent className="prose">
+        <AnimateContent className="copy">
           <h2>Results</h2>
           <p>
             <strong>Adoption:</strong> Unified design language across internal products — 4 migrated
@@ -206,7 +206,7 @@ function StockholmExergiCase() {
           </p>
         </AnimateContent>
 
-        <AnimateContent className="prose">
+        <AnimateContent className="copy">
           <h2>Learnings</h2>
           <p>
             <strong>The gap between design and engineering is where quality dies.</strong>
@@ -222,7 +222,7 @@ function StockholmExergiCase() {
           </p>
         </AnimateContent>
 
-        <AnimateContent className="prose">
+        <AnimateContent className="copy">
           <h2>Technical Summary</h2>
           <p>
             <strong>Stack:</strong> React 18, TypeScript, TanStack Query, TanStack Router, Radix UI,
@@ -245,7 +245,7 @@ function StockholmExergiCase() {
             </footer>
           </blockquote>
         </AnimateContent>
-        <AnimateContent className="prose">
+        <AnimateContent className="copy">
           <p>
             See some of the patterns in action in the{" "}
             <Link to="/work/personal/josui" className="underline underline-offset-4">
@@ -274,7 +274,7 @@ function TimelineItem({
       <div className="bg-primary-500 absolute top-1 -left-9.25 h-2 w-2 rounded-full" />
       <p className="text-muted-foreground font-mono text-sm">{period}</p>
       <h3 className="mt-1 text-lg font-semibold">{title}</h3>
-      <p className="text-muted-foreground prose mt-1">{children}</p>
+      <p className="text-muted-foreground copy mt-1">{children}</p>
     </div>
   );
 }

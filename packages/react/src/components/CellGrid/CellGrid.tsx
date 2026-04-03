@@ -203,13 +203,13 @@ export function CellGrid({
   }, []);
 
   return (
-    <div ref={containerRef} className={cn("relative h-full w-full", className)}>
+    <div ref={containerRef} className={cn("relative h-full w-full flex flex-col", className)}>
       <canvas
         ref={canvasRef}
         className="pointer-events-none absolute inset-0 z-0 h-full w-full"
         aria-hidden="true"
       />
-      <div className="relative z-10">{children}</div>
+      <div className="relative z-10 flex-1">{children}</div>
     </div>
   );
 }

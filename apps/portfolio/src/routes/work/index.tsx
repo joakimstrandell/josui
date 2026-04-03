@@ -20,7 +20,7 @@ function Work() {
   return (
     <Page>
       <PageSection>
-        <AnimateContent className="prose">
+        <AnimateContent className="copy">
           <h1 className="mb-2 font-bold">Work</h1>
           <p className="text-xl">A collection of client work, personal projects and concepts.</p>
         </AnimateContent>

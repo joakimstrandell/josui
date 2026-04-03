@@ -1,10 +1,10 @@
-import { cn } from '@josui/core-web';
-import { Link } from '@tanstack/react-router';
-import { Pin } from 'lucide-react';
+import { cn } from "@josui/core-web";
+import { Link } from "@tanstack/react-router";
+import { Pin } from "lucide-react";
 
 interface ProjectCardProps {
   to: string;
-  type: 'client' | 'personal';
+  type: "client" | "personal";
   pinned?: boolean;
   title: string;
   extract: string;
@@ -18,7 +18,15 @@ interface ProjectCardProps {
   };
 }
 
-export function ProjectCard({ to, type, pinned = false, title, extract, thumbnail, logo }: ProjectCardProps) {
+export function ProjectCard({
+  to,
+  type,
+  pinned = false,
+  title,
+  extract,
+  thumbnail,
+  logo,
+}: ProjectCardProps) {
   return (
     <Link to={to} className="group block">
       <article className="flex flex-col items-center space-x-8 md:flex-row">
@@ -31,20 +39,20 @@ export function ProjectCard({ to, type, pinned = false, title, extract, thumbnai
           />
           <img src={thumbnail.src} alt={thumbnail.alt} className="h-full w-full object-cover" />
         </div>
-        <div className="prose transition-transform duration-300 group-hover:translate-x-2">
+        <div className="copy transition-transform duration-300 group-hover:translate-x-2">
           <h1 className="mb-0 flex items-center gap-x-3 text-2xl font-bold">{title}</h1>
           <p className="mt-2 mb-2 group-hover:underline">{extract}</p>
           <span
             className={cn(
-              'bg-secondary-200 text-secondary-900 inline-flex items-center gap-x-1 rounded px-2 py-1 text-sm',
+              "bg-secondary-200 text-secondary-900 inline-flex items-center gap-x-1 rounded px-2 py-1 text-sm",
               {
-                'bg-secondary-200 text-secondary-900': type === 'client',
-                'bg-primary-200 text-primary-900': type === 'personal',
+                "bg-secondary-200 text-secondary-900": type === "client",
+                "bg-primary-200 text-primary-900": type === "personal",
               },
             )}
           >
             {pinned && <Pin className="size-3" />}
-            {type === 'client' ? 'Client Work' : 'Personal Project'}
+            {type === "client" ? "Client Work" : "Personal Project"}
           </span>
         </div>
       </article>

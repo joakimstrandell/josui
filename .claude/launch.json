@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "portfolio",
+      "runtimeExecutable": "/bin/zsh",
+      "runtimeArgs": ["-l", "-c", "pnpm --filter @josui/portfolio dev"],
+      "port": 3000
+    },
+    {
+      "name": "awkwardgroup",
+      "runtimeExecutable": "/bin/zsh",
+      "runtimeArgs": ["-l", "-c", "pnpm --filter @josui/awkwardgroup dev"],
+      "port": 3002
+    }
+  ]
+}

@@ -17,5 +17,16 @@
   h5,
   h6 {
     font-family: var(--font-heading);
+    font-weight: var(--font-weight-extrabold);
+    letter-spacing: -0.025em;
+    color: var(--color-foreground-hc);
+  }
+
+  a {
+    color: var(--color-link);
+  }
+
+  a:hover {
+    color: var(--color-link-hover);
   }
 }

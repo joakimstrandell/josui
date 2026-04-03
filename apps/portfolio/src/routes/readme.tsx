@@ -23,10 +23,10 @@ function Readme() {
           <div className="space-y-6">
             <AnimateContent>
               <div className="flex items-center justify-between gap-2">
-                <div className="prose">
+                <div className="copy">
                   <h1>Joakim Strandell</h1>
 
-                  <p className="text-muted-foreground -mt-6 text-sm">
+                  <p className="text-muted-foreground mt-1 text-sm">
                     20+ years in UX/UI Design and Fullstack Engineering
                   </p>
                 </div>
@@ -40,7 +40,7 @@ function Readme() {
                 </div>
               </div>
             </AnimateContent>
-            <AnimateContent className="prose">
+            <AnimateContent className="copy">
               <h2>From Soapbox Cars to Enterprise Products</h2>
               <p>
                 I've always liked building things. As a kid it was boats, soapbox cars, and
@@ -91,7 +91,7 @@ function Readme() {
         id="philosophy"
         className="border-border/50 bg-background/50 relative border-t-8 border-b-8"
       >
-        <PageSection width="narrow" className="prose">
+        <PageSection width="narrow" className="copy">
           <h2>My Philosophy</h2>
           <p className="text-lg font-bold">Great products are built in the overlap.</p>
           <p>
@@ -121,7 +121,7 @@ function Readme() {
         <div id="stack" className="border-border relative">
           <PageSection width="wide">
             <AnimateContent>
-              <div className="prose">
+              <div className="copy">
                 <h2>My Work Stack</h2>
                 <p>
                   As both a designer and developer, I try to stick to what is considered the best

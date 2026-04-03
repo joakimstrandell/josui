@@ -10,11 +10,7 @@ import {
 export type PageProps = HTMLAttributes<HTMLElement>;
 
 export const Page = forwardRef<HTMLElement, PageProps>(({ className, ...props }, ref) => (
-  <main
-    ref={ref}
-    className={cn("relative z-10 flex min-h-screen flex-col", className)}
-    {...props}
-  />
+  <main ref={ref} className={cn("relative z-10 flex flex-1 flex-col", className)} {...props} />
 ));
 
 Page.displayName = "Page";
