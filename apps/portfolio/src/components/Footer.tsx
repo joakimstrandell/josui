@@ -1,5 +1,5 @@
-import { Container } from './Container';
-import { Link } from '@tanstack/react-router';
+import { Container } from "@josui/react";
+import { Link } from "@tanstack/react-router";
 
 export function Footer() {
   return (
@@ -18,7 +18,7 @@ export function Footer() {
           </p>
           <div>
             <h4 className="mb-2 font-bold">
-              <Link className="footer-link" to="/work" search={{ category: 'projects' }}>
+              <Link className="footer-link" to="/work" search={{ category: "projects" }}>
                 Work
               </Link>
             </h4>
@@ -58,7 +58,10 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a className="footer-link" href="/Joakim_Strandell_Fullstack_Designer_Consultant_CV.pdf">
+                <a
+                  className="footer-link"
+                  href="/Joakim_Strandell_Fullstack_Designer_Consultant_CV.pdf"
+                >
                   Consultant CV
                 </a>
               </li>

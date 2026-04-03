@@ -1,12 +1,15 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import AnimateContent from "@/components/AnimateContent";
-import { Checklist } from "@/components/Checklist";
-import { Page, PageSection } from "@/components/Page";
 import StackedPanes from "@/components/StackedPanes";
 import { cn } from "@josui/core-web";
-import { RotatingText } from "@/components/RotatingText";
-import { Button } from "@/components/ui/button";
-import { Card } from "@josui/react";
+import {
+  AnimateContent,
+  BracketButton as Button,
+  Card,
+  Checklist,
+  Page,
+  PageSection,
+  RotatingText,
+} from "@josui/react";
 import DesignProcessAnimation from "@/components/DesignProcessAnimation";
 import FullstackAnimation from "@/components/FullstackAnimation";
 import ArchitectureAnimation from "@/components/ArchitectureAnimation";

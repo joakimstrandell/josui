@@ -2,7 +2,7 @@
 
 import { Link, useLocation } from "@tanstack/react-router";
 import { cn } from "@josui/core-web";
-import { Button } from "./ui/button";
+import { BracketButton as Button } from "@josui/react";
 
 export function Navigation() {
   return (
