@@ -8,12 +8,12 @@ description: Use @josui/react components. Use when asked to add, use, or impleme
 ## Setup
 
 ```bash
-pnpm add @josui/react @josui/tailwind
+pnpm add @josui/react @josui/tailwind-preset
 ```
 
 ```css
 /* styles.css */
-@import "@josui/tailwind";
+@import "@josui/tailwind-preset";
 @source '../node_modules/@josui/react/src';
 ```
 

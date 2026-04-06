@@ -31,6 +31,15 @@ For package registry consistency (README table, changeset config), use `package-
 - `AGENTS.md` = **How** to work with the code (build commands, file structure, testing)
 - `ARCHITECTURE.md` = **Why** decisions were made (constraints, tradeoffs, principles)
 
+## Ownership Principle
+
+Each package/app documents **only its own** concerns. An app's AGENTS.md should NOT document components, classes, or APIs from its dependencies — that belongs in the dependency's own docs.
+
+- `packages/react/AGENTS.md` → documents @josui/react components
+- `packages/tailwind-preset/AGENTS.md` → documents copy system, tokens, CSS files
+- `apps/portfolio/AGENTS.md` → documents routing, deployment, app-specific config
+- `apps/portfolio/AGENTS.md` → does NOT document how to use `copy` classes or `<Button>`
+
 ## Audit Process
 
 ### 1. Gather Documentation Files
@@ -49,19 +58,19 @@ Every package in `packages/` and app in `apps/` must have:
 
 ### 3. AGENTS.md Content Audit
 
-**Header format:**
-
-```markdown
-# Agent Instructions — {package-name}
-```
-
 **Required sections:**
 
 - [ ] Build instructions with correct filter: `pnpm --filter {package} build`
-- [ ] Structure section describing key directories
+- [ ] Structure section describing key directories and files
 - [ ] Testing instructions (if package has tests)
 
-**For component libraries (@josui/react):**
+**Scope check — flag if an AGENTS.md documents things that belong elsewhere:**
+
+- App AGENTS.md listing component props/variants from a dependency package
+- App AGENTS.md documenting CSS classes from the tailwind preset
+- Duplicated instructions that already exist in a dependency's docs
+
+**For packages that export code (e.g. @josui/react):**
 
 ```bash
 grep -E "^export" packages/{package}/src/index.ts
@@ -104,12 +113,12 @@ description: What it does. When to use (triggers).
 ---
 ```
 
-**For component skills:**
+**For component/package skills:**
 
-- [ ] All components have usage examples
 - [ ] Props tables match actual component interfaces
-- [ ] Import statements are correct
+- [ ] Import statements are correct (package names, paths)
 - [ ] No deprecated APIs documented
+- [ ] No removed exports still referenced
 
 ### 6. README.md Content Audit
 
@@ -121,6 +130,7 @@ description: What it does. When to use (triggers).
 
 - AGENTS.md component tables ↔ Skill component coverage
 - AGENTS.md build commands ↔ package.json scripts
+- AGENTS.md file structure ↔ Actual files on disk
 - README.md features list ↔ Actual exports
 
 ### 8. Storybook Audit (@josui/react)
@@ -185,6 +195,10 @@ grep -E "^export const" packages/react/src/components/Button/Button.stories.tsx
 - [ ] `packages/react/AGENTS.md:45` — Component table missing `Typography`
 - [ ] `packages/react/skills/use-react-components/SKILL.md:12` — Setup imports outdated
 
+### Ownership Violations
+
+- [ ] `apps/portfolio/AGENTS.md:20` — Documents `copy` classes (belongs in tailwind-preset)
+
 ### Inconsistencies
 
 - [ ] `@josui/react` exports 10 components, AGENTS.md lists 8
@@ -211,7 +225,6 @@ grep -E "^export \{|^export type" packages/react/src/index.ts
 
 # Check skill frontmatter
 head -5 .claude/skills/*/SKILL.md packages/*/skills/*/SKILL.md 2>/dev/null
-
 
 # List all story files
 find packages/react/src/components -name "*.stories.tsx"

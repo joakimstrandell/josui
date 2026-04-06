@@ -27,7 +27,7 @@ export function CustomCursor({ options, className }: CustomCursorProps) {
     <div
       ref={cursorRef}
       className={cn(
-        "border-primary-500 pointer-events-none fixed top-0 left-0 z-9999 size-4 border-2 opacity-5 mix-blend-multiply",
+        "border-primary-500 border pointer-events-none fixed top-0 left-0 z-9999 size-4 rounded-sm opacity-5 mix-blend-multiply overflow-hidden",
         className,
       )}
     />

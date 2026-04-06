@@ -1,6 +1,20 @@
 import gsap from "gsap";
 import { DEFAULT_INTERACTIVE_SELECTORS, isInteractiveElement } from "./interactive";
 
+/** Check if an element contains selectable text content */
+function isSelectableText(element: Element): boolean {
+  const style = window.getComputedStyle(element);
+  if (style.userSelect === "none") return false;
+
+  // Check if the element itself has direct text nodes with content
+  for (const node of element.childNodes) {
+    if (node.nodeType === Node.TEXT_NODE && node.textContent?.trim()) {
+      return true;
+    }
+  }
+  return false;
+}
+
 export interface CustomCursorOptions {
   offset?: number;
   easing?: string;
@@ -41,11 +55,21 @@ export function createCustomCursor(
   let firstMove = true;
   let isHovering = false;
   let isClicking = false;
+  let isText = false;
   let clickTimeout: number | null = null;
   let isVisible = false;
 
+  // Sync data attributes with internal state
+  function syncState() {
+    cursorElement.toggleAttribute("data-hovering", isHovering);
+    cursorElement.toggleAttribute("data-clicking", isClicking);
+    cursorElement.toggleAttribute("data-text", isText);
+    cursorElement.toggleAttribute("data-visible", isVisible);
+  }
+
   // initial hidden, centered on cursor position
   gsap.set(cursorElement, { opacity: 0, xPercent: -50, yPercent: -50 });
+  syncState();
 
   // Centralized show/hide helpers to avoid tween conflicts
   function showCursorAt(x: number, y: number) {
@@ -57,6 +81,7 @@ export function createCustomCursor(
     });
     gsap.to(cursorElement, { opacity: 1, duration: 0.15, ease: opts.easing, overwrite: "auto" });
     isVisible = true;
+    syncState();
   }
 
   function hideCursor() {
@@ -64,6 +89,7 @@ export function createCustomCursor(
     gsap.killTweensOf(cursorElement, "opacity");
     gsap.to(cursorElement, { opacity: 0, duration: 0.15, ease: opts.easing, overwrite: "auto" });
     isVisible = false;
+    syncState();
   }
 
   // Hover activation timeline
@@ -89,13 +115,22 @@ export function createCustomCursor(
     const target = e.target as Element;
     const isInteractiveTarget = isInteractiveElement(target, opts.interactiveSelectors);
 
+    // Update text state
+    const overText = !isInteractiveTarget && isSelectableText(target);
+    if (overText !== isText) {
+      isText = overText;
+      syncState();
+    }
+
     // Update hover state
     if (isInteractiveTarget && !isHovering) {
       isHovering = true;
       hoverTimeline.play();
+      syncState();
     } else if (!isInteractiveTarget && isHovering) {
       isHovering = false;
       hoverTimeline.reverse();
+      syncState();
     }
 
     if (firstMove) {
@@ -125,6 +160,11 @@ export function createCustomCursor(
       hoverTimeline.reverse();
     }
 
+    // Reset text state
+    if (isText) {
+      isText = false;
+    }
+
     // Reset click state if needed
     if (isClicking) {
       isClicking = false;
@@ -134,6 +174,8 @@ export function createCustomCursor(
       }
       clickTimeline.reverse();
     }
+
+    syncState();
   };
 
   // Pointer down/up handlers for click effect
@@ -143,6 +185,7 @@ export function createCustomCursor(
 
     if (isInteractiveTarget) {
       isClicking = true;
+      syncState();
       // Update the scale target based on current hover state
       clickTimeline.kill();
       clickTimeline.clear();
@@ -158,6 +201,7 @@ export function createCustomCursor(
   const onPointerUp = () => {
     if (isClicking) {
       isClicking = false;
+      syncState();
       // Add a small delay to ensure the animation has time to play
       clickTimeout = window.setTimeout(() => {
         clickTimeline.reverse();
