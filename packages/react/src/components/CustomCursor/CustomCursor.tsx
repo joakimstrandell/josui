@@ -34,8 +34,8 @@ export function CustomCursor({ options, className, fillClassName }: CustomCursor
     "size-3.5 rounded-sm",
     "transition-transform duration-150 ease-out",
     "data-interactive:scale-[2.5] data-interactive:rounded-full",
-    "data-interactive:data-clicking:not([data-text]):scale-200",
-    "data-text:origin-center data-text:scale-y-[calc(16/14)] data-text:rounded-none",
+    "[&[data-interactive][data-clicking]:not([data-text])]:scale-200",
+    "data-text:origin-center data-text:scale-y-[calc(20/14)] data-text:rounded-none",
   );
 
   return (
@@ -45,7 +45,7 @@ export function CustomCursor({ options, className, fillClassName }: CustomCursor
         ref={fillRef}
         className={cn(
           sharedShape,
-          "data-interactive:bg-primary-500 border-2 border-primary-500 mix-blend-multiply data-text:scale-x-[calc(2/14)]",
+          "data-interactive:bg-primary-500 mix-blend-multiply data-text:scale-x-[calc(2/14)]",
           fillClassName,
         )}
       />
@@ -54,7 +54,7 @@ export function CustomCursor({ options, className, fillClassName }: CustomCursor
         ref={cursorRef}
         className={cn(
           sharedShape,
-          "data-interactive:border-[0.5px] border-background/80 border data-text:scale-x-[calc(3/14)] data-text:border-3 data-text:border-y-0",
+          "data-interactive:border-[0.5px] border-primary-500 border data-text:scale-x-[calc(3/14)] data-text:border-3 data-text:border-y-0",
           className,
         )}
       />
