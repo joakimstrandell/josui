@@ -509,7 +509,7 @@ export { Checklist, type ChecklistProps } from "./components/Checklist";
 
 // Hooks
 export { useIsTouchDevice } from "./hooks/useIsTouchDevice";
-export { useInteractiveState } from "./hooks/useInteractiveState";
+export { useElementState } from "./hooks/useElementState";
 export { useScrollDirection } from "./hooks/useScrollDirection";
 export { useTheme, type UseThemeOptions, type UseThemeReturn } from "./hooks/useTheme";
 export { useKeyboardShortcut, type UseKeyboardShortcutOptions } from "./hooks/useKeyboardShortcut";

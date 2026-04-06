@@ -3,7 +3,7 @@
 import { useEffect, useRef, useCallback } from "react";
 import { createCellGridController, cn, isTouchDevice, resolveColor } from "@josui/core-web";
 import type { CellGridController } from "@josui/core-web";
-import { useInteractiveState } from "../../hooks/useInteractiveState";
+import { useElementState } from "../../hooks/useElementState";
 
 export interface CellGridProps {
   cellSize?: number;
@@ -37,22 +37,22 @@ export function CellGrid({
   const controllerRef = useRef<CellGridController | null>(null);
   const lastMousePosRef = useRef<{ x: number; y: number } | null>(null);
 
-  // Subscribe to interactive state changes (stored in ref to avoid re-renders)
-  const isOverInteractive = useInteractiveState();
-  const isOverInteractiveRef = useRef(isOverInteractive);
-  const prevIsOverInteractiveRef = useRef(isOverInteractive);
+  // Subscribe to element state changes (stored in ref to avoid re-renders)
+  const { interactive } = useElementState();
+  const isInteractiveRef = useRef(interactive);
+  const prevIsInteractiveRef = useRef(interactive);
 
   // Keep ref in sync with hook value and trigger fast fade when entering interactive element
   useEffect(() => {
-    isOverInteractiveRef.current = isOverInteractive;
+    isInteractiveRef.current = interactive;
 
     // Trigger fast fade when cursor enters an interactive element
-    if (isOverInteractive && !prevIsOverInteractiveRef.current && controllerRef.current) {
+    if (interactive && !prevIsInteractiveRef.current && controllerRef.current) {
       controllerRef.current.triggerFastFade();
     }
 
-    prevIsOverInteractiveRef.current = isOverInteractive;
-  }, [isOverInteractive]);
+    prevIsInteractiveRef.current = interactive;
+  }, [interactive]);
 
   // Update grid based on current mouse position relative to container
   // Memoized to prevent recreation on every render
@@ -73,7 +73,7 @@ export function CellGrid({
       const y = clientY - rect.top;
 
       // Pass interactive state to controller (using ref to avoid function call overhead)
-      controllerRef.current.handleMouseMove(x, y, isOverInteractiveRef.current);
+      controllerRef.current.handleMouseMove(x, y, isInteractiveRef.current);
       lastMousePosRef.current = { x: clientX, y: clientY };
     }
   }, []);

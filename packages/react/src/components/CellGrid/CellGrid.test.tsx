@@ -30,8 +30,8 @@ vi.mock("@josui/core-web", async (importOriginal) => ({
 }));
 
 // Mock the hook
-vi.mock("../../hooks/useInteractiveState", () => ({
-  useInteractiveState: vi.fn(() => false),
+vi.mock("../../hooks/useElementState", () => ({
+  useElementState: vi.fn(() => ({ type: "idle", interactive: false })),
 }));
 
 // Mock ResizeObserver

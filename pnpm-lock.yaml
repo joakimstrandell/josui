@@ -347,9 +347,6 @@ importers:
       clsx:
         specifier: ^2.1.0
         version: 2.1.1
-      gsap:
-        specifier: ^3.12.0
-        version: 3.14.2
       tailwind-merge:
         specifier: ^3.0.0
         version: 3.5.0

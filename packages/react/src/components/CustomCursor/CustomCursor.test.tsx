@@ -30,14 +30,14 @@ describe("CustomCursor", () => {
 
   it("renders cursor element on non-touch devices", () => {
     render(<CustomCursor />);
-    const cursor = document.querySelector('div[class*="pointer-events-none"]');
+    const cursor = document.querySelector('div[class*="mix-blend-multiply"]');
     expect(cursor).toBeInTheDocument();
   });
 
   it("does not render on touch devices", () => {
     vi.mocked(useIsTouchDevice).mockReturnValue(true);
     render(<CustomCursor />);
-    const cursor = document.querySelector('div[class*="pointer-events-none"]');
+    const cursor = document.querySelector('div[class*="mix-blend-multiply"]');
     expect(cursor).not.toBeInTheDocument();
   });
 
@@ -56,9 +56,12 @@ describe("CustomCursor", () => {
 
   it("passes options to createCustomCursor", () => {
     vi.mocked(useIsTouchDevice).mockReturnValue(false);
-    const options = { activateScale: 3, easing: "linear" };
+    const options = { offset: 5 };
     render(<CustomCursor options={options} />);
-    expect(mockCreateCustomCursor).toHaveBeenCalledWith(expect.any(HTMLElement), options);
+    expect(mockCreateCustomCursor).toHaveBeenCalledWith(
+      expect.any(HTMLElement),
+      expect.objectContaining({ offset: 5 }),
+    );
   });
 
   it("applies custom className", () => {
@@ -68,13 +71,15 @@ describe("CustomCursor", () => {
     expect(cursor).toBeInTheDocument();
   });
 
-  it("applies default classes when no className provided", () => {
+  it("renders both fill and border elements", () => {
     vi.mocked(useIsTouchDevice).mockReturnValue(false);
     render(<CustomCursor />);
-    const cursor = document.querySelector('div[class*="fixed"]');
-    expect(cursor).toBeInTheDocument();
-    expect(cursor).toHaveClass("pointer-events-none");
-    expect(cursor).toHaveClass("z-9999");
+    const fill = document.querySelector('div[class*="mix-blend-multiply"]');
+    const border = document.querySelector('div[class*="border-primary-500"]');
+    expect(fill).toBeInTheDocument();
+    expect(border).toBeInTheDocument();
+    expect(fill).toHaveClass("bg-primary-500");
+    expect(border).toHaveClass("rounded-sm");
   });
 
   it("does not call createCustomCursor on touch devices", () => {

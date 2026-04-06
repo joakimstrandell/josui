@@ -6,12 +6,17 @@ export { isTouchDevice, getCssVariable, resolveColor } from "./utils";
 export {
   createCustomCursor,
   type CustomCursorOptions,
+  type CustomCursorState,
   type CustomCursorInstance,
 } from "./custom-cursor";
 export {
-  DEFAULT_INTERACTIVE_SELECTORS,
-  isInteractiveElement,
-  interactiveState,
+  DEFAULT_CLICKABLE_SELECTORS,
+  isClickableElement,
+  isSelectableText,
+  classifyElement,
+  elementState,
+  type ElementType,
+  type ElementState,
 } from "./interactive";
 export {
   createCellGridController,

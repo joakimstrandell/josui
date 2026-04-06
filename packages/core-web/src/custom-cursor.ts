@@ -1,50 +1,48 @@
-import gsap from "gsap";
-import { DEFAULT_INTERACTIVE_SELECTORS, isInteractiveElement } from "./interactive";
-
-/** Check if an element contains selectable text content */
-function isSelectableText(element: Element): boolean {
-  const style = window.getComputedStyle(element);
-  if (style.userSelect === "none") return false;
-
-  // Check if the element itself has direct text nodes with content
-  for (const node of element.childNodes) {
-    if (node.nodeType === Node.TEXT_NODE && node.textContent?.trim()) {
-      return true;
-    }
-  }
-  return false;
-}
+import { classifyElement, DEFAULT_CLICKABLE_SELECTORS } from "./interactive";
+import type { ElementType } from "./interactive";
 
 export interface CustomCursorOptions {
   offset?: number;
-  easing?: string;
-  interactiveSelectors?: string;
-  interactiveScale?: number;
-  interactiveBorderRadius?: number;
-  interactiveBackground?: string;
-  interactiveDuration?: number;
+  clickableSelectors?: string;
+  /** Additional elements positioned and synced alongside the cursor */
+  extraElements?: HTMLElement[];
+}
+
+export interface CustomCursorState {
+  readonly type: ElementType;
+  readonly interactive: boolean;
+  readonly clicking: boolean;
+  readonly visible: boolean;
+  readonly x: number;
+  readonly y: number;
 }
 
 export interface CustomCursorInstance {
+  readonly state: CustomCursorState;
   destroy: () => void;
 }
 
-const DEFAULTS: Required<CustomCursorOptions> = {
+const DEFAULTS = {
   offset: 0,
-  easing: "power3.out",
-  interactiveSelectors: DEFAULT_INTERACTIVE_SELECTORS,
-  interactiveScale: 2.5,
-  interactiveBorderRadius: 9999,
-  interactiveBackground: "none",
-  interactiveDuration: 0.25,
-};
+  clickableSelectors: DEFAULT_CLICKABLE_SELECTORS,
+  extraElements: [] as HTMLElement[],
+} satisfies Required<CustomCursorOptions>;
 
 export function createCustomCursor(
-  cursorElement: HTMLDivElement,
+  cursorElement: HTMLElement,
   options?: CustomCursorOptions,
 ): CustomCursorInstance {
+  const noopState: CustomCursorState = {
+    type: "idle",
+    interactive: false,
+    clicking: false,
+    visible: false,
+    x: 0,
+    y: 0,
+  };
+
   if (typeof window === "undefined" || !cursorElement) {
-    return { destroy: () => {} };
+    return { state: noopState, destroy: () => {} };
   }
 
   const opts = { ...DEFAULTS, ...options };
@@ -53,185 +51,145 @@ export function createCustomCursor(
   let lastX = 0;
   let lastY = 0;
   let firstMove = true;
-  let isHovering = false;
+  let elementType: ElementType = "idle";
   let isClicking = false;
-  let isText = false;
   let clickTimeout: number | null = null;
   let isVisible = false;
 
-  // Sync data attributes with internal state
+  const allElements = [cursorElement, ...opts.extraElements];
+
   function syncState() {
-    cursorElement.toggleAttribute("data-hovering", isHovering);
-    cursorElement.toggleAttribute("data-clicking", isClicking);
-    cursorElement.toggleAttribute("data-text", isText);
-    cursorElement.toggleAttribute("data-visible", isVisible);
+    for (const el of allElements) {
+      el.toggleAttribute("data-interactive", elementType !== "idle");
+      el.toggleAttribute("data-clickable", elementType === "clickable");
+      el.toggleAttribute("data-text", elementType === "text");
+      el.toggleAttribute("data-clicking", isClicking);
+      el.toggleAttribute("data-visible", isVisible);
+    }
   }
 
-  // initial hidden, centered on cursor position
-  gsap.set(cursorElement, { opacity: 0, xPercent: -50, yPercent: -50 });
+  // Functional styles required for cursor behavior
+  for (const el of allElements) {
+    Object.assign(el.style, {
+      position: "fixed",
+      pointerEvents: "none",
+      zIndex: "9999",
+      translate: "-50% -50%",
+      opacity: "0",
+    });
+  }
   syncState();
 
-  // Centralized show/hide helpers to avoid tween conflicts
-  function showCursorAt(x: number, y: number) {
-    // Only kill opacity tweens to avoid interrupting hover timeline (scale, radius, bg)
-    gsap.killTweensOf(cursorElement, "opacity");
-    gsap.set(cursorElement, {
-      x: x - opts.offset,
-      y: y - opts.offset,
-    });
-    gsap.to(cursorElement, { opacity: 1, duration: 0.15, ease: opts.easing, overwrite: "auto" });
+  function showCursor(x: number, y: number) {
+    for (const el of allElements) {
+      el.style.left = `${x - opts.offset}px`;
+      el.style.top = `${y - opts.offset}px`;
+      el.style.opacity = "1";
+    }
     isVisible = true;
     syncState();
   }
 
   function hideCursor() {
-    // Only kill opacity tweens
-    gsap.killTweensOf(cursorElement, "opacity");
-    gsap.to(cursorElement, { opacity: 0, duration: 0.15, ease: opts.easing, overwrite: "auto" });
+    for (const el of allElements) {
+      el.style.opacity = "0";
+    }
     isVisible = false;
     syncState();
   }
-
-  // Hover activation timeline
-  const hoverProps: gsap.TweenVars = {
-    scale: opts.interactiveScale,
-    borderRadius: opts.interactiveBorderRadius,
-    duration: opts.interactiveDuration,
-    ease: opts.easing,
-  };
-  if (opts.interactiveBackground !== "none") {
-    hoverProps.backgroundColor = opts.interactiveBackground;
-  }
-  const hoverTimeline = gsap.timeline({ paused: true }).to(cursorElement, hoverProps);
-
-  // Click squeeze timeline (created empty, populated on pointerdown)
-  const clickTimeline = gsap.timeline({ paused: true });
 
   const onPointerMove = (e: PointerEvent) => {
     lastX = e.clientX;
     lastY = e.clientY;
 
-    // Check if target is interactive
     const target = e.target as Element;
-    const isInteractiveTarget = isInteractiveElement(target, opts.interactiveSelectors);
+    const classified = classifyElement(target, opts.clickableSelectors);
 
-    // Update text state
-    const overText = !isInteractiveTarget && isSelectableText(target);
-    if (overText !== isText) {
-      isText = overText;
-      syncState();
-    }
-
-    // Update hover state
-    if (isInteractiveTarget && !isHovering) {
-      isHovering = true;
-      hoverTimeline.play();
-      syncState();
-    } else if (!isInteractiveTarget && isHovering) {
-      isHovering = false;
-      hoverTimeline.reverse();
+    if (classified.type !== elementType) {
+      elementType = classified.type;
       syncState();
     }
 
     if (firstMove) {
       firstMove = false;
-      showCursorAt(lastX, lastY);
+      showCursor(lastX, lastY);
       return;
     }
 
-    gsap.set(cursorElement, {
-      x: lastX - opts.offset,
-      y: lastY - opts.offset,
-    });
+    for (const el of allElements) {
+      el.style.left = `${lastX - opts.offset}px`;
+      el.style.top = `${lastY - opts.offset}px`;
+    }
 
-    // If for any reason we are hidden but the pointer is moving inside, reshow
     if (!isVisible) {
-      showCursorAt(lastX, lastY);
+      showCursor(lastX, lastY);
     }
   };
 
-  // Boundary aware leave using document-level pointerleave
   const onPointerLeaveDoc = () => {
     hideCursor();
 
-    // Reset hover state when pointer leaves window
-    if (isHovering) {
-      isHovering = false;
-      hoverTimeline.reverse();
-    }
+    if (elementType !== "idle") elementType = "idle";
 
-    // Reset text state
-    if (isText) {
-      isText = false;
-    }
-
-    // Reset click state if needed
     if (isClicking) {
       isClicking = false;
       if (clickTimeout) {
         clearTimeout(clickTimeout);
         clickTimeout = null;
       }
-      clickTimeline.reverse();
     }
 
     syncState();
   };
 
-  // Pointer down/up handlers for click effect
   const onPointerDown = (e: PointerEvent) => {
     const target = e.target as Element;
-    const isInteractiveTarget = isInteractiveElement(target, opts.interactiveSelectors);
-
-    if (isInteractiveTarget) {
+    const classified = classifyElement(target, opts.clickableSelectors);
+    if (classified.interactive) {
       isClicking = true;
       syncState();
-      // Update the scale target based on current hover state
-      clickTimeline.kill();
-      clickTimeline.clear();
-      clickTimeline.to(cursorElement, {
-        scale: isHovering ? opts.interactiveScale * 0.8 : 0.8,
-        duration: 0.05,
-        ease: "power1.in", // Fast start, slow end
-      });
-      clickTimeline.play();
     }
   };
 
   const onPointerUp = () => {
     if (isClicking) {
       isClicking = false;
-      syncState();
-      // Add a small delay to ensure the animation has time to play
       clickTimeout = window.setTimeout(() => {
-        clickTimeline.reverse();
-      }, 50); // 50ms delay
+        syncState();
+      }, 50);
     }
   };
 
-  // Global listeners
   window.addEventListener("pointermove", onPointerMove, { passive: true });
   document.addEventListener("pointerleave", onPointerLeaveDoc);
   document.addEventListener("pointerdown", onPointerDown);
   document.addEventListener("pointerup", onPointerUp);
 
-  // Keep state consistent when tab visibility changes
   const onVisibilityChange = () => {
     if (document.visibilityState === "hidden") {
       hideCursor();
     } else {
-      showCursorAt(lastX, lastY);
+      showCursor(lastX, lastY);
     }
   };
   document.addEventListener("visibilitychange", onVisibilityChange);
 
-  // Fallbacks for window focus changes
   const onWindowBlur = () => hideCursor();
-  const onWindowFocus = () => showCursorAt(lastX, lastY);
+  const onWindowFocus = () => showCursor(lastX, lastY);
   window.addEventListener("blur", onWindowBlur);
   window.addEventListener("focus", onWindowFocus);
 
   return {
+    get state(): CustomCursorState {
+      return {
+        type: elementType,
+        interactive: elementType !== "idle",
+        clicking: isClicking,
+        visible: isVisible,
+        x: lastX,
+        y: lastY,
+      };
+    },
     destroy: () => {
       window.removeEventListener("pointermove", onPointerMove);
       document.removeEventListener("pointerleave", onPointerLeaveDoc);
@@ -243,8 +201,6 @@ export function createCustomCursor(
       if (clickTimeout) {
         clearTimeout(clickTimeout);
       }
-      hoverTimeline.kill();
-      clickTimeline.kill();
     },
   };
 }

@@ -56,17 +56,12 @@ export const Default: Story = {};
 
 export const CustomScale: Story = {
   args: {
-    options: {
-      interactiveScale: 4,
-    },
+    interactiveScale: 4,
   },
 };
 
-export const CustomEasing: Story = {
+export const SlowTransition: Story = {
   args: {
-    options: {
-      easing: "elastic.out(1, 0.3)",
-      interactiveDuration: 0.5,
-    },
+    interactiveDuration: 0.5,
   },
 };

@@ -5,31 +5,59 @@ import { useIsTouchDevice } from "../../hooks/useIsTouchDevice";
 import { cn } from "@josui/core-web";
 
 export interface CustomCursorProps {
+  /** Options for cursor behavior (offset, selectors) */
   options?: CustomCursorOptions;
   className?: string;
+  /** Additional class for the fill layer (has mix-blend-multiply) */
+  fillClassName?: string;
 }
 
-export function CustomCursor({ options, className }: CustomCursorProps) {
+export function CustomCursor({ options, className, fillClassName }: CustomCursorProps) {
   const cursorRef = useRef<HTMLDivElement>(null);
+  const fillRef = useRef<HTMLDivElement>(null);
   const isTouch = useIsTouchDevice();
 
   useEffect(() => {
     if (isTouch) return;
     const cursorElement = cursorRef.current;
+    const fillElement = fillRef.current;
     if (!cursorElement) return;
-    const instance = createCustomCursor(cursorElement, options);
+
+    const extraElements = fillElement ? [fillElement] : [];
+    const instance = createCustomCursor(cursorElement, { ...options, extraElements });
     return () => instance.destroy();
   }, [isTouch, options]);
 
   if (isTouch) return null;
 
+  const sharedShape = cn(
+    "size-3.5 rounded-sm",
+    "transition-transform duration-150 ease-out",
+    "data-interactive:scale-[2.5] data-interactive:rounded-full",
+    "data-interactive:data-clicking:not([data-text]):scale-200",
+    "data-text:origin-center data-text:scale-y-[calc(16/14)] data-text:rounded-none",
+  );
+
   return (
-    <div
-      ref={cursorRef}
-      className={cn(
-        "border-primary-500 border pointer-events-none fixed top-0 left-0 z-9999 size-4 rounded-sm opacity-5 mix-blend-multiply overflow-hidden",
-        className,
-      )}
-    />
+    <>
+      {/* Fill — independent stacking context, blends with page */}
+      <div
+        ref={fillRef}
+        className={cn(
+          sharedShape,
+          "data-interactive:bg-primary-500 border-2 border-primary-500 mix-blend-multiply data-text:scale-x-[calc(2/14)]",
+          fillClassName,
+        )}
+      />
+      {/* Border — solid, no blend */}
+      <div
+        ref={cursorRef}
+        className={cn(
+          sharedShape,
+          "data-interactive:border-[0.5px] border-background/80 border data-text:scale-x-[calc(3/14)] data-text:border-3 data-text:border-y-0",
+          className,
+        )}
+      />
+    </>
   );
 }
