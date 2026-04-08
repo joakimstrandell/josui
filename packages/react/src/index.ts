@@ -227,6 +227,7 @@ export {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuShortcut,
+  DropdownMenuActionItem,
   DropdownMenuGroup,
   DropdownMenuPortal,
   DropdownMenuSub,
@@ -242,6 +243,7 @@ export {
   type DropdownMenuLabelProps,
   type DropdownMenuSeparatorProps,
   type DropdownMenuShortcutProps,
+  type DropdownMenuActionItemProps,
   type DropdownMenuGroupProps,
   type DropdownMenuPortalProps,
   type DropdownMenuSubProps,
@@ -259,6 +261,7 @@ export {
   ContextMenuLabel,
   ContextMenuSeparator,
   ContextMenuShortcut,
+  ContextMenuActionItem,
   ContextMenuGroup,
   ContextMenuPortal,
   ContextMenuSub,
@@ -274,6 +277,7 @@ export {
   type ContextMenuLabelProps,
   type ContextMenuSeparatorProps,
   type ContextMenuShortcutProps,
+  type ContextMenuActionItemProps,
   type ContextMenuGroupProps,
   type ContextMenuPortalProps,
   type ContextMenuSubProps,
@@ -509,6 +513,8 @@ export { Checklist, type ChecklistProps } from "./components/Checklist";
 
 // Hooks
 export { useIsTouchDevice } from "./hooks/useIsTouchDevice";
+export { Shortcut, type ShortcutProps } from "./components/Shortcut";
+
 export { useElementState } from "./hooks/useElementState";
 export { useScrollDirection } from "./hooks/useScrollDirection";
 export { useTheme, type UseThemeOptions, type UseThemeReturn } from "./hooks/useTheme";

@@ -1,7 +1,8 @@
-import { forwardRef, type ComponentPropsWithoutRef } from "react";
+import { forwardRef, type ComponentPropsWithoutRef, type ReactNode } from "react";
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
 import { Check, ChevronRight, Circle } from "lucide-react";
-import { cn } from "@josui/core-web";
+import { cn, getAriaKeyShortcuts } from "@josui/core-web";
+import { Shortcut, type ShortcutProps } from "../Shortcut";
 
 export type DropdownMenuProps = DropdownMenuPrimitive.DropdownMenuProps;
 export const DropdownMenu = DropdownMenuPrimitive.Root;
@@ -204,6 +205,52 @@ export const DropdownMenuSeparator = forwardRef<HTMLDivElement, DropdownMenuSepa
   ),
 );
 DropdownMenuSeparator.displayName = "DropdownMenuSeparator";
+
+export type DropdownMenuActionItemProps = Omit<
+  ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Item>,
+  "children"
+> & {
+  icon?: ReactNode;
+  label: string;
+  hotkey?: ShortcutProps["hotkey"];
+  variant?: "default" | "destructive";
+};
+
+export const DropdownMenuActionItem = forwardRef<HTMLDivElement, DropdownMenuActionItemProps>(
+  (
+    {
+      icon,
+      label,
+      hotkey,
+      variant = "default",
+      className,
+      "aria-keyshortcuts": ariaKeyShortcuts,
+      ...props
+    },
+    ref,
+  ) => {
+    const derivedAriaKeyShortcuts = getAriaKeyShortcuts(hotkey);
+
+    return (
+      <DropdownMenuItem
+        ref={ref}
+        className={cn(
+          "gap-2",
+          variant === "destructive" &&
+            "text-destructive-background focus:bg-destructive-background focus:text-destructive-foreground",
+          className,
+        )}
+        aria-keyshortcuts={ariaKeyShortcuts ?? derivedAriaKeyShortcuts}
+        {...props}
+      >
+        {icon ? icon : <span className="size-4 shrink-0" aria-hidden />}
+        <span className="min-w-0 flex-1 truncate">{label}</span>
+        {hotkey ? <Shortcut hotkey={hotkey} className="ml-auto pl-4" /> : null}
+      </DropdownMenuItem>
+    );
+  },
+);
+DropdownMenuActionItem.displayName = "DropdownMenuActionItem";
 
 export type DropdownMenuShortcutProps = React.HTMLAttributes<HTMLSpanElement>;
 
