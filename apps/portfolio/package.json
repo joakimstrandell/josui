@@ -8,8 +8,7 @@
     "build": "vite build",
     "start": "vite preview",
     "lint": "vp lint src",
-    "clean": "rm -rf .output dist .vinxi",
-    "generate:favicons": "node scripts/generate-favicons.mjs"
+    "clean": "rm -rf .output dist .vinxi"
   },
   "dependencies": {
     "@fontsource-variable/roboto-mono": "^5.2.5",
