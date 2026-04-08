@@ -39,3 +39,22 @@
     opacity: 0;
   }
 }
+
+/* Theme transition */
+html.vt-theme::view-transition-old(root) {
+  animation: none;
+  z-index: -1;
+}
+
+html.vt-theme::view-transition-new(root) {
+  animation: theme-circle 0.5s ease-in-out forwards;
+}
+
+@keyframes theme-circle {
+  from {
+    clip-path: circle(0% at top right);
+  }
+  to {
+    clip-path: circle(150% at top right);
+  }
+}
