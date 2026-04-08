@@ -84,7 +84,7 @@ importers:
     devDependencies:
       '@josui/typescript-config':
         specifier: workspace:*
-        version: link:../../config/typescript-config
+        version: link:../../packages/typescript-config
       '@tailwindcss/postcss':
         specifier: ^4
         version: 4.2.2
@@ -124,7 +124,7 @@ importers:
     devDependencies:
       '@josui/typescript-config':
         specifier: workspace:*
-        version: link:../../config/typescript-config
+        version: link:../../packages/typescript-config
       '@tailwindcss/vite':
         specifier: ^4.0.0
         version: 4.2.2(vite@6.4.1(@types/node@20.19.37)(jiti@2.6.1)(lightningcss@1.32.0)(tsx@4.21.0)(yaml@2.8.3))
@@ -158,7 +158,7 @@ importers:
     devDependencies:
       '@josui/typescript-config':
         specifier: workspace:*
-        version: link:../../config/typescript-config
+        version: link:../../packages/typescript-config
       '@tailwindcss/vite':
         specifier: ^4.0.0
         version: 4.2.2(vite@6.4.1(@types/node@20.19.37)(jiti@2.6.1)(lightningcss@1.32.0)(tsx@4.21.0)(yaml@2.8.3))
@@ -264,7 +264,7 @@ importers:
     devDependencies:
       '@josui/typescript-config':
         specifier: workspace:*
-        version: link:../../config/typescript-config
+        version: link:../../packages/typescript-config
       '@resvg/resvg-js':
         specifier: ^2.6.2
         version: 2.6.2
@@ -302,8 +302,6 @@ importers:
         specifier: ^7.0.0
         version: 7.3.1(@types/node@20.19.37)(jiti@2.6.1)(lightningcss@1.32.0)(tsx@4.21.0)(yaml@2.8.3)
 
-  config/typescript-config: {}
-
   packages/cli:
     dependencies:
       '@inquirer/prompts':
@@ -312,7 +310,7 @@ importers:
     devDependencies:
       '@josui/typescript-config':
         specifier: workspace:*
-        version: link:../../config/typescript-config
+        version: link:../typescript-config
       '@types/node':
         specifier: ^20.0.0
         version: 20.19.37
@@ -331,7 +329,7 @@ importers:
     devDependencies:
       '@josui/typescript-config':
         specifier: workspace:*
-        version: link:../../config/typescript-config
+        version: link:../typescript-config
       '@types/culori':
         specifier: ^4.0.0
         version: 4.0.1
@@ -353,7 +351,7 @@ importers:
     devDependencies:
       '@josui/typescript-config':
         specifier: workspace:*
-        version: link:../../config/typescript-config
+        version: link:../typescript-config
       typescript:
         specifier: ^5.7.0
         version: 5.9.3
@@ -477,7 +475,7 @@ importers:
         version: link:../tailwind-preset
       '@josui/typescript-config':
         specifier: workspace:*
-        version: link:../../config/typescript-config
+        version: link:../typescript-config
       '@storybook/addon-a11y':
         specifier: ^10.2.0
         version: 10.3.3(storybook@10.3.3(@testing-library/dom@10.4.1)(prettier@3.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))
@@ -572,7 +570,7 @@ importers:
     devDependencies:
       '@josui/typescript-config':
         specifier: workspace:*
-        version: link:../../config/typescript-config
+        version: link:../typescript-config
       '@playwright/test':
         specifier: ^1.55.0
         version: 1.58.2
@@ -609,6 +607,8 @@ importers:
       vitest:
         specifier: ^3.0.0
         version: 3.2.4(@types/node@20.19.37)(jiti@2.6.1)(jsdom@26.1.0)(lightningcss@1.32.0)(tsx@4.21.0)(yaml@2.8.3)
+
+  packages/typescript-config: {}
 
 packages:
 
