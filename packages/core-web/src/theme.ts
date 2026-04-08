@@ -113,11 +113,24 @@ class ThemeStateManager implements ThemeManager {
 
   public setTheme(theme: Theme): void {
     this.initialize();
-    this.theme = theme;
-    this.resolvedTheme = this.resolveTheme(theme);
-    this.applyTheme(this.resolvedTheme);
-    this.persist(theme);
-    this.notifySubscribers();
+
+    const apply = () => {
+      this.theme = theme;
+      this.resolvedTheme = this.resolveTheme(theme);
+      this.applyTheme(this.resolvedTheme);
+      this.persist(theme);
+      this.notifySubscribers();
+    };
+
+    if (typeof document !== "undefined" && document.startViewTransition) {
+      document.documentElement.classList.add("vt-theme");
+      const transition = document.startViewTransition(() => apply());
+      transition.finished
+        .then(() => document.documentElement.classList.remove("vt-theme"))
+        .catch(() => document.documentElement.classList.remove("vt-theme"));
+    } else {
+      apply();
+    }
   }
 
   public toggle(): void {

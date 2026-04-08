@@ -32,8 +32,12 @@ export {
 export {
   createKeyboardShortcut,
   parseShortcut,
+  getShortcutParts,
+  getAriaKeyShortcuts,
   type KeyboardShortcut,
   type KeyboardShortcutOptions,
+  detectPlatform,
+  type Hotkey,
 } from "./keyboard";
 export {
   themeState,
