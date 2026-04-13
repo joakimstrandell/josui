@@ -57,7 +57,8 @@ When you push to main with changesets, CI automatically creates a "Version Packa
 
 This project uses three documentation layers:
 
-- **README.md** (per package) — Single source of truth for both humans and AI. What it is, structure, constraints, usage.
+- **README.md** (per package) — Single source of truth for both humans and AI. What it is, structure, constraints, usage. See the `write-docs` skill for structure guidelines.
+- **ARCHITECTURE.md** (optional, per package) — Design decisions, tradeoffs, and constraints that aren't obvious from the code. Referenced from README.md when present.
 - **AGENTS.md** (root only) — Non-discoverable operational info: build order, commit conventions, tooling quirks. If it can be inferred from code, it doesn't belong here.
 - **Skills** — Teachable knowledge for AI assistants, loaded on demand. Lives in `packages/{name}/skills/`.
 
