@@ -1,6 +1,6 @@
 ---
 name: docs-audit
-description: Audit documentation content for accuracy. Use when asked to check if documentation matches code (README.md, AGENTS.md, skills, ARCHITECTURE.md). For Storybook coverage, use storybook-audit instead.
+description: Audit documentation content for accuracy. Use when asked to check if documentation matches code (README.md, AGENTS.md, ARCHITECTURE.md). For Storybook coverage, use storybook-audit. For skill accuracy against source code, use skill-audit.
 ---
 
 # Documentation Audit
@@ -80,22 +80,9 @@ Flag if it contains:
 - Content discoverable from code (package.json scripts, file structure)
 - Rules a linter would catch
 
-### 6. Skill Content Audit
+### 6. Skill Structure Check
 
-**Frontmatter required:**
-
-```yaml
----
-name: skill-name
-description: What it does. When to use (triggers).
----
-```
-
-**For component/package skills:**
-
-- [ ] Props tables match actual component interfaces
-- [ ] Import statements are correct
-- [ ] No deprecated APIs documented
+Verify skill files have valid frontmatter (`name` + `description`). For deep accuracy auditing of skill content against source code, use `skill-audit` instead.
 
 ## Output Format
 
