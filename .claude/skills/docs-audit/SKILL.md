@@ -16,7 +16,7 @@ Verify that documentation content matches current code.
 | `AGENTS.md`       | Root only              | Build order, commit format, tooling, pre-commit        |
 | `SKILL.md`        | Per skill              | Teachable knowledge for AI assistants                  |
 
-Per-package AGENTS.md files should not exist. All package-level documentation belongs in README.md.
+Per-package AGENTS.md files should not exist. Package-level documentation belongs in README.md, with ARCHITECTURE.md for extended design decisions.
 
 ## Audit Process
 

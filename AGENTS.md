@@ -53,3 +53,7 @@ Staged files are processed by file type:
 - `*.{json,md,css}` → `vp fmt --write` (format only)
 
 Only staged files are checked — not the entire repo.
+
+## Documentation
+
+After changing documentation (README.md, ARCHITECTURE.md, skills), run `docs-audit` to verify consistency across the repo. Documentation rules live in the `write-docs` skill.
