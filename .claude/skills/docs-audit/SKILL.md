@@ -55,6 +55,14 @@ Verify:
 - [ ] Key exports mentioned (doesn't need to be exhaustive)
 - [ ] No removed exports still documented
 
+**Check against `write-docs` anti-patterns:**
+
+- [ ] No exhaustive per-function/component export lists (use category-level summaries instead)
+- [ ] No component props documented (that's what TypeScript and Storybook are for)
+- [ ] No Installation section on apps (they aren't published)
+- [ ] No duplicate of root AGENTS.md content (commit conventions, tooling, code style)
+- [ ] README stays under ~80 lines; if exceeding, content should move to ARCHITECTURE.md
+
 ### 4. ARCHITECTURE.md Content Audit
 
 If a package has an ARCHITECTURE.md:
@@ -86,23 +94,4 @@ Verify skill files have valid frontmatter (`name` + `description`). For deep acc
 
 ## Output Format
 
-```markdown
-## Docs Audit Report
-
-### Missing Files
-
-- [ ] `apps/foo/README.md` — missing
-
-### Violations
-
-- [ ] `packages/bar/AGENTS.md` — per-package AGENTS.md should not exist
-
-### Outdated Content
-
-- [ ] `packages/react/README.md:20` — references removed export `Foo`
-
-### Suggested Fixes
-
-1. Remove stale export reference
-2. Add ARCHITECTURE.md link to README
-```
+Report findings grouped by: Missing Files, Violations, Outdated Content, Anti-pattern Violations, Suggested Fixes. Use checklist format with file paths and brief descriptions.
