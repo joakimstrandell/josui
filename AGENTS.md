@@ -11,6 +11,11 @@ Design system monorepo.
 
 ## Commits
 
+Run `pnpm test` before committing. A pre-commit hook (`vp staged`) runs automatically on `git commit`:
+
+- `*.{ts,tsx,js,jsx}` → `vp check --fix` (lint + format + typecheck, with auto-fix)
+- `*.{json,md,css}` → `vp fmt --write` (format only)
+
 Use [Conventional Commits](https://www.conventionalcommits.org/): `<type>(<scope>): <description>`
 
 **Types:** `feat`, `fix`, `refactor`, `docs`, `chore`, `test`
@@ -40,18 +45,8 @@ Uses [Vite+](https://viteplus.dev/) as unified toolchain:
 - **Building:** `vp build` for apps, `vp pack` for libraries
 - **Testing:** Vitest via `vp test`
 - **Task orchestration:** `vp run`
-- **Pre-commit:** `vp staged` — runs automatically on `git commit` via a git hook installed by `pnpm install` (`prepare` script runs `vp config`)
 
-Config is in root `vite.config.ts`.
-
-### Pre-commit behaviour
-
-Staged files are processed by file type:
-
-- `*.{ts,tsx,js,jsx}` → `vp check --fix` (lint + format + typecheck, with auto-fix)
-- `*.{json,md,css}` → `vp fmt --write` (format only)
-
-Only staged files are checked — not the entire repo.
+Config is in root `vite.config.ts`. The pre-commit hook is installed by `pnpm install` (`prepare` script runs `vp config`).
 
 ## Documentation
 
