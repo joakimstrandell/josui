@@ -28,3 +28,9 @@ pnpm add -D @josui/typescript-config
   "extends": "@josui/typescript-config/node.json"
 }
 ```
+
+## Key Settings
+
+- `strict: true` in base config
+- `noEmit: true` — type-checking only (bundlers handle emit)
+- `allowImportingTsExtensions: true` in node config

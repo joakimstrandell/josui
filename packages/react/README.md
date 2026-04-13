@@ -31,6 +31,20 @@ This tells Tailwind v4 to include the component library's source folder when sca
 
 ## Architecture
 
+No build step — consumers import TypeScript source directly via `main: "./src/index.ts"`.
+
+### Component Structure
+
+Components live in `src/components/ComponentName/`:
+
+```
+ComponentName/
+├── ComponentName.tsx        # Implementation
+├── ComponentName.test.tsx   # Vitest tests
+├── ComponentName.stories.tsx # Storybook stories
+└── index.ts                 # Barrel export
+```
+
 ### Tailwind CSS Styling
 
 Components use Tailwind CSS classes with the `cn()` utility from `@josui/core-web` for class merging. All components support the `className` prop for customization:
@@ -110,3 +124,12 @@ cp -r node_modules/@josui/react/skills/use-react-components .claude/skills/
 The skill helps AI assistants correctly use components with proper props and patterns.
 
 See Storybook for interactive examples and full API documentation.
+
+## Constraints
+
+- Named exports only (no default exports)
+- Use `forwardRef` for ref forwarding
+- Extend `React.ComponentPropsWithoutRef<'element'>` for HTML props
+- All components support `className` prop; use `cn()` from `@josui/core-web` for class merging
+- Define variant/size styles as objects, not inline conditionals
+- When modifying components, update `skills/use-react-components/SKILL.md` with usage docs

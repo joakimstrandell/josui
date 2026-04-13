@@ -38,3 +38,27 @@ controller.start();
 - **getThemeScript** — Blocking script to prevent theme flash on SSR
 - **createKeyboardShortcut** — Keyboard shortcut listener with cleanup
 - **parseShortcut** — Parse shortcut strings (e.g., "ctrl+shift+t") into objects
+- **getShortcutParts** — Platform-aware display formatting (e.g., `Mod+C` → `['⌘', 'C']` on Mac)
+- **getAriaKeyShortcuts** — ARIA-compliant shortcut strings for accessibility
+- **detectPlatform** — Detect current platform (`mac`, `windows`, `linux`)
+
+No build step — consumers import TypeScript source directly via `main: "./src/index.ts"`.
+
+## Structure
+
+```
+src/
+├── cn.ts              # Tailwind class merging
+├── utils.ts           # isTouchDevice, getCssVariable, resolveColor
+├── keyboard.ts        # Keyboard shortcuts (on @tanstack/react-hotkeys)
+├── theme.ts           # Theme singleton, SSR script, view transitions
+├── custom-cursor.ts   # GSAP-powered custom cursor
+├── interactive.ts     # Interactive element detection
+└── cell-grid/         # Canvas cell grid (controller, manager, renderer)
+```
+
+## Constraints
+
+- Framework-agnostic — no React/Vue imports
+- Browser environment assumed (DOM APIs are fine)
+- Workspace dependency of `@josui/react`

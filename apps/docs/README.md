@@ -1,6 +1,6 @@
 # @josui/docs
 
-Landing page and documentation site for Josui.
+Landing page and documentation site for Josui. Static HTML/CSS — no framework.
 
 ## Development
 

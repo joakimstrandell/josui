@@ -13,29 +13,24 @@ AI-native design system built on DTCG tokens.
 
 ## Packages (published to npm)
 
-| Package                                              | Description                        |
-| ---------------------------------------------------- | ---------------------------------- |
-| [@josui/react](./packages/react)                     | React component library            |
-| [@josui/tailwind-preset](./packages/tailwind-preset) | Tailwind CSS v4 preset             |
-| [@josui/token-studio](./packages/token-studio)       | Token editor CLI                   |
-| [@josui/core](./packages/core)                       | Pure JS utilities                  |
-| [@josui/core-web](./packages/core-web)               | Shared web utilities               |
-| [@josui/cli](./packages/cli)                         | CLI for linking Claude Code skills |
-
-## Config Packages (published to npm)
-
-Shared tooling configs:
-
-| Package                                                | Description           |
-| ------------------------------------------------------ | --------------------- |
-| [@josui/typescript-config](./config/typescript-config) | Shared tsconfig files |
+| Package                                                  | Description                        |
+| -------------------------------------------------------- | ---------------------------------- |
+| [@josui/react](./packages/react)                         | React component library            |
+| [@josui/tailwind-preset](./packages/tailwind-preset)     | Tailwind CSS v4 preset             |
+| [@josui/token-studio](./packages/token-studio)           | Token editor CLI                   |
+| [@josui/core](./packages/core)                           | Pure JS utilities                  |
+| [@josui/core-web](./packages/core-web)                   | Shared web utilities               |
+| [@josui/cli](./packages/cli)                             | CLI for linking Claude Code skills |
+| [@josui/typescript-config](./packages/typescript-config) | Shared tsconfig files              |
 
 ## Apps
 
-| App                                    | Description  |
-| -------------------------------------- | ------------ |
-| [@josui/docs](./apps/docs)             | Landing page |
-| [@josui/playground](./apps/playground) | Dev sandbox  |
+| App                                    | Description        |
+| -------------------------------------- | ------------------ |
+| [@josui/docs](./apps/docs)             | Landing page       |
+| [@josui/playground](./apps/playground) | Dev sandbox        |
+| [portfolio](./apps/portfolio)          | Personal portfolio |
+| [awkwardgroup](./apps/awkwardgroup)    | Company website    |
 
 ## Development
 
@@ -57,6 +52,16 @@ pnpm changeset  # Create a changeset after making releasable changes
 ```
 
 When you push to main with changesets, CI automatically creates a "Version Packages" PR. Merging that PR publishes to npm.
+
+## Documentation
+
+This project uses three documentation layers:
+
+- **README.md** (per package) — Single source of truth for both humans and AI. What it is, structure, constraints, usage.
+- **AGENTS.md** (root only) — Non-discoverable operational info: build order, commit conventions, tooling quirks. If it can be inferred from code, it doesn't belong here.
+- **Skills** — Teachable knowledge for AI assistants, loaded on demand. Lives in `packages/{name}/skills/`.
+
+Per-package AGENTS.md files are an anti-pattern — they duplicate README content, drift from reality, and inflate context windows. All package-level documentation belongs in README.md.
 
 ## License
 

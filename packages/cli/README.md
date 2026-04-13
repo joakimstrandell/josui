@@ -62,3 +62,9 @@ Settings are saved to `.josui.json` (add to `.gitignore`):
   "linkedSkills": [{ "source": "react", "skills": ["use-react-components"] }]
 }
 ```
+
+## Constraints
+
+- Uses `@inquirer/prompts` for interactive CLI prompts
+- Handle `ExitPromptError` for graceful Ctrl+C cancellation
+- `link skills` removes all existing `josui-linked-*` symlinks before creating new ones
