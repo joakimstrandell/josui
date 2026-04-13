@@ -24,12 +24,12 @@ AI-native design system built on DTCG tokens.
 
 ## Apps
 
-| App                                    | Description        |
-| -------------------------------------- | ------------------ |
-| [@josui/docs](./apps/docs)             | Landing page       |
-| [@josui/playground](./apps/playground) | Dev sandbox        |
-| [portfolio](./apps/portfolio)          | Personal portfolio |
-| [awkwardgroup](./apps/awkwardgroup)    | Company website    |
+| App                                        | Description        |
+| ------------------------------------------ | ------------------ |
+| [@josui/docs](./apps/docs)                 | Landing page       |
+| [@josui/playground](./apps/playground)     | Dev sandbox        |
+| [@josui/portfolio](./apps/portfolio)       | Personal portfolio |
+| [@josui/awkwardgroup](./apps/awkwardgroup) | Company website    |
 
 ## Development
 
