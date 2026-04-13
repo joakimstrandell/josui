@@ -9,10 +9,10 @@ export default {
     "packages/tokens": {
       entry: ["terrazzo.config.mjs"],
     },
-    "packages/tailwind": {
+    "packages/tailwind-preset": {
       ignore: ["**/*"],
     },
-    "config/typescript-config": {
+    "packages/typescript-config": {
       ignore: ["**/*"],
     },
     "apps/docs": {
