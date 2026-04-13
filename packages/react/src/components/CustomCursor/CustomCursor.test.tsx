@@ -78,7 +78,7 @@ describe("CustomCursor", () => {
     const border = document.querySelector('div[class*="border-primary-500"]');
     expect(fill).toBeInTheDocument();
     expect(border).toBeInTheDocument();
-    expect(fill).toHaveClass("bg-primary-500");
+    expect(fill).toHaveClass("data-interactive:bg-primary-500");
     expect(border).toHaveClass("rounded-sm");
   });
 
