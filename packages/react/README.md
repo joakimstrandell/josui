@@ -14,7 +14,7 @@ pnpm add @josui/react
 
 ```css
 /* app.css or globals.css */
-@import "@josui/tailwind";
+@import "@josui/tailwind-preset";
 ```
 
 ### 2. Configure Tailwind source scanning
@@ -23,7 +23,7 @@ Add the `@source` directive to your CSS to ensure Tailwind scans the component l
 
 ```css
 /* app.css or globals.css */
-@import "@josui/tailwind";
+@import "@josui/tailwind-preset";
 @source '../node_modules/@josui/react/src';
 ```
 
@@ -59,59 +59,11 @@ Components use Tailwind CSS classes with the `cn()` utility from `@josui/core-we
 
 Components follow WAI-ARIA patterns with proper roles, labels, and keyboard navigation.
 
-## Customizing Styles
-
-### Override with className
-
-All components accept a `className` prop that merges with default styles:
-
-```tsx
-<Button className="rounded-full" variant="primary">
-  Rounded Button
-</Button>
-```
-
-### Tailwind Configuration
-
-Extend your Tailwind config to customize the design tokens:
-
-```js
-// tailwind.config.js
-export default {
-  theme: {
-    extend: {
-      colors: {
-        primary: {
-          500: "#your-color",
-          600: "#your-hover-color",
-        },
-      },
-    },
-  },
-};
-```
-
 ## Components
 
-- **Button** — Primary actions with variants, sizes, loading state
-- **Card** — Container with header, content, footer sections
-- **Input** — Form input field
-- **Badge** — Status indicators and labels
-- **Typography** — Text styling component
-- **Avatar** — User profile images
-- **Spinner** — Loading indicator
-- **Alert** — Notification messages
-- **CustomCursor** — GSAP-powered custom cursor (auto-hidden on touch)
-- **CellGrid** — Interactive canvas background with cell highlighting
-- **ThemeToggle** — Dark/light/system theme toggle button
+Core UI (Button, Card, Input, Badge, etc.), form controls (Checkbox, RadioGroup, Slider, Switch), overlays (Dialog, Popover, Tooltip, Sheet, DropdownMenu), layout (Container, Page), and animation (RotatingText, AnimateContent). Many built on Radix primitives.
 
-## Hooks
-
-- **useIsTouchDevice** — Detect touch-capable devices
-- **useInteractiveState** — Subscribe to cursor over interactive element state
-- **useScrollDirection** — Track scroll direction (up/down)
-- **useTheme** — Manage theme state (light/dark/system) with optional keyboard shortcut
-- **useKeyboardShortcut** — Add keyboard shortcuts with auto-cleanup
+See Storybook for the full catalog with interactive examples.
 
 ## AI-Assisted Development
 
@@ -122,8 +74,6 @@ cp -r node_modules/@josui/react/skills/use-react-components .claude/skills/
 ```
 
 The skill helps AI assistants correctly use components with proper props and patterns.
-
-See Storybook for interactive examples and full API documentation.
 
 ## Constraints
 

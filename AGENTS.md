@@ -6,7 +6,6 @@ Design system monorepo. Build order: `core → core-web → tailwind-preset → 
 
 - TypeScript only (never `.js` files)
 - Named exports (no default exports) — promotes tree shaking
-- `const` over `let`, single quotes, semicolons
 - Prefer functional and composable patterns
 - Avoid side effects in module scope
 

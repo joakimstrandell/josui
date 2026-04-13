@@ -34,6 +34,7 @@ src/
 ├── theme.css       # Tailwind theme overrides (typography, spacing, etc.)
 ├── tokens.css      # CSS custom property tokens
 ├── base.css        # Body defaults (font, color, background)
+├── copy.css        # Copy/typography utility classes
 └── animations.css  # Keyframes and animation utilities
 ```
 
