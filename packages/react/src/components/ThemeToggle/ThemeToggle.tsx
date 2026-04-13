@@ -78,7 +78,7 @@ const labels = {
  */
 export const ThemeToggle = forwardRef<HTMLButtonElement, ThemeToggleProps>(
   ({ className, size = "md", showLabel = false, toggleShortcut, ...props }, ref) => {
-    const { theme, toggle } = useTheme({ toggleShortcut });
+    const { resolvedTheme, toggle } = useTheme({ toggleShortcut });
 
     return (
       <button
@@ -94,11 +94,11 @@ export const ThemeToggle = forwardRef<HTMLButtonElement, ThemeToggleProps>(
           showLabel && "w-auto gap-2 px-3",
           className,
         )}
-        aria-label={`Current theme: ${labels[theme]}. Click to toggle.`}
+        aria-label={`Switch to ${resolvedTheme === "dark" ? "light" : "dark"} mode`}
         {...props}
       >
-        {icons[theme]}
-        {showLabel && <span>{labels[theme]}</span>}
+        {icons[resolvedTheme]}
+        {showLabel && <span>{labels[resolvedTheme]}</span>}
       </button>
     );
   },

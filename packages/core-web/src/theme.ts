@@ -134,10 +134,15 @@ class ThemeStateManager implements ThemeManager {
   }
 
   public toggle(): void {
-    const order: Theme[] = ["light", "dark", "system"];
-    const currentIndex = order.indexOf(this.theme);
-    const nextTheme = order[(currentIndex + 1) % order.length];
-    this.setTheme(nextTheme);
+    const systemTheme = this.getSystemTheme();
+
+    if (this.theme === "system") {
+      // Currently following system — switch to the opposite
+      this.setTheme(systemTheme === "dark" ? "light" : "dark");
+    } else {
+      // Currently overriding — go back to system
+      this.setTheme("system");
+    }
   }
 
   public subscribe(callback: ThemeSubscriber): () => void {
