@@ -26,7 +26,7 @@ pnpm version-packages   # Apply changesets and bump package versions
 pnpm release            # Build all packages and publish to npm
 ```
 
-**Published:** `@josui/core`, `@josui/core-web`, `@josui/react`, `@josui/tailwind-preset`, `@josui/token-studio`, `@josui/cli`, `@josui/typescript-config`
+**Published:** `@josui/core`, `@josui/core-web`, `@josui/react`, `@josui/tailwind-preset`, `@josui/token-studio`, `@josui/typescript-config`
 **Ignored:** Apps (`docs`, `playground`, `portfolio`, `awkwardgroup`)
 
 When adding packages, update `.changeset/config.json` (`linked` or `ignore`).

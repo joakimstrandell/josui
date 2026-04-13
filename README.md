@@ -13,15 +13,14 @@ AI-native design system built on DTCG tokens.
 
 ## Packages (published to npm)
 
-| Package                                                  | Description                        |
-| -------------------------------------------------------- | ---------------------------------- |
-| [@josui/react](./packages/react)                         | React component library            |
-| [@josui/tailwind-preset](./packages/tailwind-preset)     | Tailwind CSS v4 preset             |
-| [@josui/token-studio](./packages/token-studio)           | Token editor CLI                   |
-| [@josui/core](./packages/core)                           | Pure JS utilities                  |
-| [@josui/core-web](./packages/core-web)                   | Shared web utilities               |
-| [@josui/cli](./packages/cli)                             | CLI for linking Claude Code skills |
-| [@josui/typescript-config](./packages/typescript-config) | Shared tsconfig files              |
+| Package                                                  | Description             |
+| -------------------------------------------------------- | ----------------------- |
+| [@josui/react](./packages/react)                         | React component library |
+| [@josui/tailwind-preset](./packages/tailwind-preset)     | Tailwind CSS v4 preset  |
+| [@josui/token-studio](./packages/token-studio)           | Token editor CLI        |
+| [@josui/core](./packages/core)                           | Pure JS utilities       |
+| [@josui/core-web](./packages/core-web)                   | Shared web utilities    |
+| [@josui/typescript-config](./packages/typescript-config) | Shared tsconfig files   |
 
 ## Apps
 
