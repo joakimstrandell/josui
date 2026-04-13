@@ -13,7 +13,7 @@ pnpm add @josui/tailwind-preset
 Import in your CSS entry point:
 
 ```css
-@import "@josui/tailwind";
+@import "@josui/tailwind-preset";
 ```
 
 This provides Tailwind CSS v4, design tokens, and sensible body defaults.
