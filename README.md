@@ -9,7 +9,7 @@
 
 [![CI](https://github.com/joakimstrandell/josui/actions/workflows/ci.yml/badge.svg)](https://github.com/joakimstrandell/josui/actions/workflows/ci.yml)
 
-AI-native design system built on DTCG tokens.
+AI-native design system and build tooling for shipping applications with speed and consistency.
 
 ## Packages (published to npm)
 
