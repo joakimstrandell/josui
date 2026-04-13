@@ -1,6 +1,6 @@
 # Agent Instructions
 
-Design system monorepo. Build order: `core → core-web → tailwind-preset → react → apps`
+Design system monorepo.
 
 ## Code Style
 
