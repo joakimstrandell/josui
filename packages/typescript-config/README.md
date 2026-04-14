@@ -8,12 +8,12 @@ Shared TypeScript configurations for josui projects.
 pnpm add -D @josui/typescript-config
 ```
 
-## Configs
+## What's included
 
-- `base.json` — Shared strict settings
-- `browser.json` — Browser/bundler projects (DOM libs)
-- `node.json` — Node.js projects (NodeNext)
-- `react.json` — React projects (extends browser)
+- `base.json` – Shared strict settings
+- `browser.json` – Browser/bundler projects (DOM libs)
+- `node.json` – Node.js projects (NodeNext)
+- `react.json` – React projects (extends browser)
 
 ## Usage
 
@@ -23,14 +23,6 @@ pnpm add -D @josui/typescript-config
 }
 ```
 
-```json
-{
-  "extends": "@josui/typescript-config/node.json"
-}
-```
+## Development
 
-## Key Settings
-
-- `strict: true` in base config
-- `noEmit: true` — type-checking only (bundlers handle emit)
-- `allowImportingTsExtensions: true` in node config
+See [DEVELOPMENT.md](DEVELOPMENT.md) for key settings and constraints.

@@ -1,11 +1,9 @@
-# Agent Instructions
-
-Design system monorepo.
+# Development
 
 ## Code Style
 
 - TypeScript only (never `.js` files)
-- Named exports (no default exports) — promotes tree shaking
+- Named exports (no default exports) – promotes tree shaking
 - Prefer functional and composable patterns
 - Avoid side effects in module scope
 
@@ -23,7 +21,7 @@ Use [Conventional Commits](https://www.conventionalcommits.org/): `<type>(<scope
 
 ## Releasing
 
-Uses [Changesets](https://github.com/changesets/changesets). **Do NOT create changesets automatically** — only when the user asks.
+Uses [Changesets](https://github.com/changesets/changesets).
 
 ```bash
 pnpm changeset          # Select packages, bump type, write summary
@@ -50,4 +48,4 @@ Config is in root `vite.config.ts`. The pre-commit hook is installed by `pnpm in
 
 ## Documentation
 
-After changing documentation (README.md, ARCHITECTURE.md, skills), run `docs-audit` to verify consistency across the repo. Documentation rules live in the `write-docs` skill.
+After changing documentation, run `docs-audit` to verify consistency across the repo. Documentation rules are in `.claude/rules/documentation.md`.
