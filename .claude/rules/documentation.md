@@ -7,9 +7,9 @@ paths:
 
 ## Layers
 
-1. **README.md** – Landing page. What it is, installation, what's included, short example, accessibility notes, links
-2. **USAGE.md** (optional) – Comprehensive reference. Full API docs (every hook, component patterns, composition). For large packages, consider a `docs/` folder instead
-3. **DEVELOPMENT.md** – For people changing the code. Structure, constraints, patterns
+1. **README.md** – The way in. What it is, what's inside, how to use it, links
+2. **USAGE.md** (optional) – Comprehensive reference. Full API docs, setup guides, composition patterns
+3. **DEVELOPMENT.md** – For contributors. Structure, constraints, patterns
 4. **CLAUDE.md** – References DEVELOPMENT.md (and USAGE.md if it exists). Agent-specific rules if any
 
 README gets you started. USAGE is the full reference. DEVELOPMENT is for contributors.
@@ -20,7 +20,7 @@ README gets you started. USAGE is the full reference. DEVELOPMENT is for contrib
 - Multiple hooks or utilities that need documenting
 - Component composition patterns worth explaining
 
-Skip when usage is a single import line (e.g. `@josui/core`, `@josui/typescript-config`).
+Skip when usage is a single import line.
 
 ## Templates
 
@@ -29,24 +29,21 @@ Skip when usage is a single import line (e.g. `@josui/core`, `@josui/typescript-
 ```markdown
 # @josui/{name}
 
-One-line description.
+{What it is – one or two sentences}
 
-## Installation
+## What's inside
 
 pnpm add @josui/{name}
 
-## What's included
+{Category-level overview of exports}
 
-{Category-level summary of exports}
+{Short usage example – 2-3 lines}
 
-## Usage
+{Links to USAGE.md, Storybook, docs/ if applicable}
 
-{Short example – 2-3 lines}
+## Development
 
-## Links
-
-- [Usage guide](./USAGE.md) (if it exists)
-- [Development](./DEVELOPMENT.md)
+See [DEVELOPMENT.md](DEVELOPMENT.md).
 ```
 
 ### README: Apps
@@ -54,7 +51,7 @@ pnpm add @josui/{name}
 ```markdown
 # {Name}
 
-One-line description.
+{What it is}
 
 ## Stack
 
@@ -62,7 +59,27 @@ One-line description.
 
 ## Development
 
-See [DEVELOPMENT.md](DEVELOPMENT.md) for dev commands, deployment, and constraints.
+See [DEVELOPMENT.md](DEVELOPMENT.md).
+```
+
+### README: Root
+
+```markdown
+# {Name}
+
+{What it is}
+
+## What's inside
+
+{Overview of packages and apps}
+
+{Short dev commands overview}
+
+See [DEVELOPMENT.md](DEVELOPMENT.md).
+
+## Documentation
+
+{How documentation is structured in this repo}
 ```
 
 ### USAGE.md

@@ -8,4 +8,4 @@ TanStack Start (Vite + TanStack Router), Tailwind CSS v4, @josui/react, GSAP wit
 
 ## Development
 
-See [DEVELOPMENT.md](DEVELOPMENT.md) for dev commands, deployment, and constraints.
+See [DEVELOPMENT.md](./DEVELOPMENT.md).

@@ -8,4 +8,4 @@ React 19, TanStack Router (file-based routing), Tailwind CSS v4 via `@josui/tail
 
 ## Development
 
-See [DEVELOPMENT.md](DEVELOPMENT.md) for dev commands, structure, and constraints.
+See [DEVELOPMENT.md](./DEVELOPMENT.md).

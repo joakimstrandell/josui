@@ -2,13 +2,11 @@
 
 Shared Tailwind CSS v4 configuration for Josui components.
 
-## Installation
+## What's inside
 
 ```bash
 pnpm add @josui/tailwind-preset
 ```
-
-## What's Included
 
 - Tailwind CSS v4 (including Preflight reset)
 - Design token CSS variables
@@ -16,15 +14,12 @@ pnpm add @josui/tailwind-preset
 - Dark mode via `.dark` class and `prefers-color-scheme`
 - Theme view transition animation (iris wipe)
 
-CSS-only package – no build step required.
-
-## Usage
-
 ```css
 @import "@josui/tailwind-preset";
 ```
 
-## Further Reading
+CSS-only package – no build step required. See [USAGE.md](./USAGE.md) for dark mode configuration and what each layer provides.
 
-- [USAGE.md](./USAGE.md) – Detailed setup, dark mode configuration, and what each layer provides
-- [DEVELOPMENT.md](./DEVELOPMENT.md) – Package structure
+## Development
+
+See [DEVELOPMENT.md](./DEVELOPMENT.md).

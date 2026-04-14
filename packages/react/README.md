@@ -2,15 +2,11 @@
 
 React components and hooks for the Josui design system. Built on Radix primitives.
 
-## Installation
+## What's inside
 
 ```bash
 pnpm add @josui/react
 ```
-
-Requires `@josui/tailwind-preset` for styling. See [Usage guide](./USAGE.md) for setup.
-
-## What's included
 
 - **Core UI** – Button, Card, Input, Badge, Typography, Avatar, Alert, Spinner
 - **Layout** – Container, Page, Sidebar, Resizable
@@ -21,19 +17,14 @@ Requires `@josui/tailwind-preset` for styling. See [Usage guide](./USAGE.md) for
 - **Interactive** – RotatingText, AnimateContent, CustomCursor, CellGrid, Carousel, Calendar, Chart
 - **Hooks** – useTheme, useKeyboardShortcut, useScrollDirection, useScrollProgress, useElementState, useIsTouchDevice
 
-## Usage
-
 ```tsx
 import { Button } from "@josui/react";
 
 <Button variant="primary">Click me</Button>;
 ```
 
-Components follow WAI-ARIA patterns with proper roles, labels, and keyboard navigation.
+Components follow WAI-ARIA patterns. See [USAGE.md](./USAGE.md) for setup, hooks reference, and component patterns. Run `pnpm storybook` for interactive docs.
 
-## Links
+## Development
 
-- [Usage guide](./USAGE.md) – setup, hooks reference, and component patterns
-- [Development](./DEVELOPMENT.md) – structure, constraints, and patterns
-
-Run `pnpm storybook` for interactive component docs.
+See [DEVELOPMENT.md](./DEVELOPMENT.md).

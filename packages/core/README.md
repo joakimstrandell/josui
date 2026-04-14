@@ -2,24 +2,20 @@
 
 Pure JavaScript utilities for the Josui design system. Works anywhere – Node.js, browser, SSR.
 
-## Installation
+## What's inside
 
 ```bash
 pnpm add @josui/core
 ```
 
-## What's included
-
 - **Color** – `toRgb`, `toHex`, `parse`, `formatRgb`, `formatHex` (powered by [culori](https://culorijs.org/))
-
-## Usage
 
 ```ts
 import { toRgb, toHex } from "@josui/core";
 ```
 
-No build step – consumers import TypeScript source directly via `main: "./src/index.ts"`.
+No build step – consumers import TypeScript source directly.
 
 ## Development
 
-See [DEVELOPMENT.md](DEVELOPMENT.md) for adding utilities and constraints.
+See [DEVELOPMENT.md](./DEVELOPMENT.md).

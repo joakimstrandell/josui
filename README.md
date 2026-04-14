@@ -11,7 +11,7 @@
 
 AI-native design system and build tooling for shipping applications with speed and consistency.
 
-## Packages (published to npm)
+## What's inside
 
 | Package                                                  | Description             |
 | -------------------------------------------------------- | ----------------------- |
@@ -22,8 +22,6 @@ AI-native design system and build tooling for shipping applications with speed a
 | [@josui/core-web](./packages/core-web)                   | Shared web utilities    |
 | [@josui/typescript-config](./packages/typescript-config) | Shared tsconfig files   |
 
-## Apps
-
 | App                                        | Description        |
 | ------------------------------------------ | ------------------ |
 | [@josui/docs](./apps/docs)                 | Landing page       |
@@ -31,34 +29,22 @@ AI-native design system and build tooling for shipping applications with speed a
 | [@josui/portfolio](./apps/portfolio)       | Personal portfolio |
 | [@josui/awkwardgroup](./apps/awkwardgroup) | Company website    |
 
-## Development
-
 ```bash
 pnpm build      # Build all packages
 pnpm dev        # Start all dev servers
 pnpm check      # Lint + format + typecheck
-pnpm lint       # Lint all packages
 pnpm test       # Run all tests
-pnpm clean      # Delete all build artifacts and node_modules
 ```
 
-## Releasing
-
-This project uses [Changesets](https://github.com/changesets/changesets) for versioning.
-
-```bash
-pnpm changeset  # Create a changeset after making releasable changes
-```
-
-When you push to main with changesets, CI automatically creates a "Version Packages" PR. Merging that PR publishes to npm.
+See [DEVELOPMENT.md](DEVELOPMENT.md) for code style, commits, releasing, and tooling.
 
 ## Documentation
 
-- **README.md** – Landing page. What it is, install, exports, links
-- **USAGE.md** (optional) – Setup guides, configuration, extended examples
+- **README.md** – The way in. What it is, what's inside, how to use it, links
+- **USAGE.md** (optional) – Setup guides, API reference, extended examples
 - **DEVELOPMENT.md** – Structure, constraints, patterns. Root: code style, commits, tooling
 - **CLAUDE.md** – References for AI assistants. Points to DEVELOPMENT.md
-- **Skills** – Teachable knowledge for AI assistants. Lives in `.claude/skills/`. Package-level skills in `packages/{name}/skills/` are for symlinking into consumer projects
+- **Skills** – Teachable knowledge for AI assistants in `.claude/skills/`
 
 ## License
 
