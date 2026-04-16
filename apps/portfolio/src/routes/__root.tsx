@@ -49,11 +49,11 @@ export const Route = createRootRoute({
 
 function RootComponent() {
   return (
-    <html lang="en" suppressHydrationWarning className="dark">
+    <html lang="en" suppressHydrationWarning className="light">
       <head>
         <HeadContent />
       </head>
-      <body className="antialiased">
+      <body className="antialiased light">
         <CellGrid
           className="min-h-screen"
           gridColor="color-foreground"
