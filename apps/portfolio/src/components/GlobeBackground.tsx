@@ -1072,7 +1072,6 @@ function Trails({
 function Globe({ containerRef, data, config }: GlobeProps) {
   const groupRef = useRef<Group>(null);
   const scrollProgressRef = useRef(0);
-  console.log("--color-foreground", getCssVariable("--color-foreground"));
   const { positions, liftSpeeds, liftDirections } = data;
 
   const { positionGroupRef } = useScrollInvalidate(containerRef, scrollProgressRef, config.idleFps);
@@ -1250,7 +1249,11 @@ export function GlobeBackground({
       {isReady && globeData && hasBeenVisible && (
         <Canvas
           camera={{ position: [0, -5, 10], fov: 45 }}
-          gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
+          gl={{
+            antialias: true,
+            alpha: true,
+            powerPreference: "high-performance",
+          }}
           style={{ background: "transparent" }}
           frameloop="demand"
           dpr={[1, 1.5]}
