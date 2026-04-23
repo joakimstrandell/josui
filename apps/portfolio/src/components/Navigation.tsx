@@ -27,14 +27,17 @@ Navigation.Item = function NavigationItem({
   const isActive = location.pathname === href;
 
   return (
-    <li
-      className={cn("hover:underline hover:underline-offset-4", {
-        "text-foreground": isActive,
-        "text-muted-foreground": !isActive,
-      })}
-    >
+    <li>
       <Link to={href}>
-        <Button variant="ghost">{children}</Button>
+        <Button
+          variant="ghost"
+          className={cn({
+            "text-foreground-hc": isActive,
+            "text-foreground-lc": !isActive,
+          })}
+        >
+          {children}
+        </Button>
       </Link>
     </li>
   );

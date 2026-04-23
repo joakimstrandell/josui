@@ -41,7 +41,7 @@ function Readme() {
               </div>
             </AnimateContent>
             <AnimateContent className="copy">
-              <h2>From Soapbox Cars to Enterprise Products</h2>
+              <h2 className="copy-heading-3">From Soapbox Cars to Enterprise Products</h2>
               <p>
                 I've always liked building things. As a kid it was boats, soapbox cars, and
                 questionable DIY cigarettes. Later it became websites, apps, and digital products.

@@ -44,41 +44,43 @@ function Home() {
             "flex h-full flex-1 flex-col justify-center",
           )}
         >
-          <AnimateContent className="copy copy-sm md:text-base md:max-w-[62ch] lg:max-w-[78ch]">
-            <h1 className="pointer-events-auto leading-9 md:leading-12">
-              I help teams ship{" "}
-              <span className="text-primary-950 bg-primary-100 inline-block pb-1 leading-none">
-                ideas
-              </span>{" "}
-              faster by unifying{" "}
-              <span className="bg-tertiary-100 text-tertiary-900 inline-block pb-1 leading-none">
-                design
-              </span>{" "}
-              and{" "}
-              <span className="bg-secondary-500/20 text-secondary-900 inline-block pb-1 leading-none">
-                engineering
-              </span>
-              .
-            </h1>
-          </AnimateContent>
-          <AnimateContent className="copy pointer-events-auto md:max-w-[67ch]">
-            <p className="copy-lg pointer-events-auto">
-              With 20+ years of experience, I eliminate the friction between concept and code. I
-              build scalable design systems and robust fullstack architectures that allow teams to
-              go from idea to production without the translation loss.
-            </p>
-          </AnimateContent>
-          <AnimateContent className="mt-2">
-            <div className="flex items-center gap-8">
-              <Button size="lg" variant="primary" asChild className="pointer-events-auto">
-                <Link to="/work">View work</Link>
-              </Button>
+          <div className="space-y-8">
+            <AnimateContent className="copy-fluid copy-sm lg:copy-md md:text-base">
+              <h1 className="pointer-events-auto leading-10 lg:leading-12 md:max-w-[34ch]">
+                I help teams ship{" "}
+                <span className="text-primary-950 bg-primary-100 inline-block pb-1 leading-none">
+                  ideas
+                </span>{" "}
+                faster by unifying{" "}
+                <span className="bg-tertiary-100 text-tertiary-900 inline-block pb-1 leading-none">
+                  design
+                </span>{" "}
+                and{" "}
+                <span className="bg-secondary-500/20 text-secondary-900 inline-block pb-1 leading-none">
+                  engineering
+                </span>
+                .
+              </h1>
+            </AnimateContent>
+            <AnimateContent className="copy pointer-events-auto md:max-w-[67ch]">
+              <p className="copy-lg pointer-events-auto">
+                With 20+ years of experience, I eliminate the friction between concept and code. I
+                build scalable design systems and robust fullstack architectures that allow teams to
+                go from idea to production without the translation loss.
+              </p>
+            </AnimateContent>
+            <AnimateContent className="mt-2">
+              <div className="flex items-center gap-8">
+                <Button size="lg" variant="primary" asChild className="pointer-events-auto">
+                  <Link to="/work">View work</Link>
+                </Button>
 
-              <Button size="lg" asChild className="pointer-events-auto">
-                <Link to="/readme">Readme</Link>
-              </Button>
-            </div>
-          </AnimateContent>
+                <Button size="lg" asChild className="pointer-events-auto">
+                  <Link to="/readme">Readme</Link>
+                </Button>
+              </div>
+            </AnimateContent>
+          </div>
         </PageSection>
       </div>
 
