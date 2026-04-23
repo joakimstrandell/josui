@@ -111,9 +111,6 @@
   --color-destructive-foreground: var(--color-gray-50);
   --color-link: var(--color-foreground-hc);
   --color-link-hover: var(--color-primary-600);
-  --copy-max-width: 66ch;
-  --copy-line-height: 1.75;
-  --copy-spacing: 1.5em;
   --color-border: var(--color-gray-200);
   --color-input: var(--color-gray-200);
   --color-ring: var(--color-primary-500);
@@ -135,6 +132,13 @@
   --text-7xl: 4.5rem;
   --text-8xl: 6rem;
   --text-9xl: 8rem;
+  --copy-max-width: 66ch;
+  --copy-line-height: 1.75;
+  --copy-spacing: 1em;
+  --copy-heading-1: var(--text-4xl);
+  --copy-heading-2: var(--text-3xl);
+  --copy-heading-3: var(--text-2xl);
+  --copy-heading-4: var(--text-xl);
   --font-weight-thin: 100;
   --font-weight-extralight: 200;
   --font-weight-light: 300;
