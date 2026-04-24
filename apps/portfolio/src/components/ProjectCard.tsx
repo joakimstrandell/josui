@@ -39,7 +39,7 @@ export function ProjectCard({
           />
           <img src={thumbnail.src} alt={thumbnail.alt} className="h-full w-full object-cover" />
         </div>
-        <div className="copy transition-transform duration-300 group-hover:translate-x-2">
+        <div className="copy-fluid transition-transform duration-300 group-hover:translate-x-2">
           <h1 className="mb-0 flex items-center gap-x-3 copy-heading-3">{title}</h1>
           <p className="mt-2 group-hover:underline">{extract}</p>
           <span
