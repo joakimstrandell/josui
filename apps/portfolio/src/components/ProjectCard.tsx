@@ -40,8 +40,8 @@ export function ProjectCard({
           <img src={thumbnail.src} alt={thumbnail.alt} className="h-full w-full object-cover" />
         </div>
         <div className="copy transition-transform duration-300 group-hover:translate-x-2">
-          <h1 className="mb-0 flex items-center gap-x-3 text-2xl font-bold">{title}</h1>
-          <p className="mt-2 mb-2 group-hover:underline">{extract}</p>
+          <h1 className="mb-0 flex items-center gap-x-3 copy-heading-3">{title}</h1>
+          <p className="mt-2 group-hover:underline">{extract}</p>
           <span
             className={cn(
               "bg-secondary-200 text-secondary-900 inline-flex items-center gap-x-1 rounded px-2 py-1 text-sm",
