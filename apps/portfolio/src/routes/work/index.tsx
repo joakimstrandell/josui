@@ -28,9 +28,12 @@ function Work() {
           <ProjectCard
             to="/work/client/design-to-engineering-at-stockholm-exergi"
             type="client"
-            title="Unifying Design and Engineering"
-            extract="A 3-year unification effort: one design system and frontend architecture that made internal operations products consistent and faster to ship."
-            thumbnail={{ src: "/exergi-plant.png", alt: "Stockholm Exergi Plant in Lego blocks" }}
+            title="Frontend Architecture for a Multi-Product Platform"
+            extract="7 years owning frontend architecture at Stockholm Exergi – a React/TypeScript monorepo, 60+ component design system, and type-safe API layer that shipped features ~3x faster."
+            thumbnail={{
+              src: "/exergi-plant.png",
+              alt: "Stockholm Exergi Plant in Lego blocks",
+            }}
             logo={{ src: "/exergi-logo.png", alt: "Stockholm Exergi Logo" }}
           />
           <ProjectCard
@@ -49,7 +52,10 @@ function Work() {
             type="personal"
             title="JOSUI Design System"
             extract="An evolving design system monorepo with a token pipeline, core utilities, and React/Vue component libraries."
-            thumbnail={{ src: "/josui-thumbnail.png", alt: "Abstract design system diagram" }}
+            thumbnail={{
+              src: "/josui-thumbnail.png",
+              alt: "Abstract design system diagram",
+            }}
             logo={{ src: "/josui-logo.png", alt: "JOSUI logo" }}
           />
         </AnimateContent>
