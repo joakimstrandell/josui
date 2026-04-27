@@ -17,7 +17,6 @@ AI-native design system and build tooling for shipping applications with speed a
 | -------------------------------------------------------- | ----------------------- |
 | [@josui/react](./packages/react)                         | React component library |
 | [@josui/tailwind-preset](./packages/tailwind-preset)     | Tailwind CSS v4 preset  |
-| [@josui/token-studio](./packages/token-studio)           | Token editor CLI        |
 | [@josui/core](./packages/core)                           | Pure JS utilities       |
 | [@josui/core-web](./packages/core-web)                   | Shared web utilities    |
 | [@josui/typescript-config](./packages/typescript-config) | Shared tsconfig files   |

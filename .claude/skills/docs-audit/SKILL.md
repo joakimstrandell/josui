@@ -45,7 +45,7 @@ Flag violations:
 
 - [ ] No AGENTS.md files exist anywhere (replaced by DEVELOPMENT.md)
 - [ ] No ARCHITECTURE.md files exist (merged into DEVELOPMENT.md)
-- [ ] USAGE.md exists for complex packages (react, core-web, tailwind-preset, token-studio)
+- [ ] USAGE.md exists for complex packages (react, core-web, tailwind-preset)
 
 ### 3. README.md Content Audit
 
