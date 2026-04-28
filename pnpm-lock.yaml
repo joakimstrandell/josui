@@ -116,28 +116,6 @@ importers:
         specifier: ^7.0.0
         version: 7.3.1(@types/node@20.19.37)(jiti@2.6.1)(lightningcss@1.32.0)(tsx@4.21.0)(yaml@2.8.3)
 
-  apps/docs:
-    dependencies:
-      '@josui/tailwind-preset':
-        specifier: workspace:*
-        version: link:../../packages/tailwind-preset
-    devDependencies:
-      '@josui/typescript-config':
-        specifier: workspace:*
-        version: link:../../packages/typescript-config
-      '@tailwindcss/vite':
-        specifier: ^4.0.0
-        version: 4.2.2(vite@6.4.1(@types/node@20.19.37)(jiti@2.6.1)(lightningcss@1.32.0)(tsx@4.21.0)(yaml@2.8.3))
-      tailwindcss:
-        specifier: ^4.0.0
-        version: 4.2.2
-      typescript:
-        specifier: ^5.7.0
-        version: 5.9.3
-      vite:
-        specifier: ^6.0.0
-        version: 6.4.1(@types/node@20.19.37)(jiti@2.6.1)(lightningcss@1.32.0)(tsx@4.21.0)(yaml@2.8.3)
-
   apps/playground:
     dependencies:
       '@josui/react':

@@ -12,9 +12,6 @@ export default {
     "packages/typescript-config": {
       ignore: ["**/*"],
     },
-    "apps/docs": {
-      ignore: ["**/*"],
-    },
     "apps/portfolio": {
       ignore: ["**/*"],
     },

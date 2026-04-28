@@ -15,7 +15,7 @@ Token tooling is intentionally out of scope for this repository.
 ## Monorepo Layout
 
 - `packages/` shared libraries (for example `react`, `core`, `core-web`, `tailwind-preset`, `typescript-config`)
-- `apps/` web applications (`docs`, `playground`, `portfolio`, `awkwardgroup`)
+- `apps/` web applications (`playground`, `portfolio`, `awkwardgroup`)
 - Root configuration for workspace tooling and quality gates
 
 ## Core Workflow

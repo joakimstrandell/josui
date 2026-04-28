@@ -33,4 +33,4 @@ pnpm release           # Publish to npm
 ## What Gets Published
 
 - ✅ `@josui/core`, `@josui/core-web`, `@josui/tailwind-preset`, `@josui/react`, `@josui/typescript-config`
-- ❌ Apps (`docs`, `playground`, `portfolio`, `awkwardgroup`) are ignored
+- ❌ Apps (`playground`, `portfolio`, `awkwardgroup`) are ignored

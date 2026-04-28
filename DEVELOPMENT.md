@@ -17,7 +17,7 @@ Run `pnpm test` before committing. A pre-commit hook (`vp staged`) runs automati
 Use [Conventional Commits](https://www.conventionalcommits.org/): `<type>(<scope>): <description>`
 
 **Types:** `feat`, `fix`, `refactor`, `docs`, `chore`, `test`
-**Scopes:** Package or app name without `@josui/` (e.g., `react`, `core-web`, `docs`)
+**Scopes:** Package or app name without `@josui/` (e.g., `react`, `core-web`, `playground`)
 
 ## Releasing
 
@@ -30,7 +30,7 @@ pnpm release            # Build all packages and publish to npm
 ```
 
 **Published:** `@josui/core`, `@josui/core-web`, `@josui/react`, `@josui/tailwind-preset`, `@josui/typescript-config`
-**Ignored:** Apps (`docs`, `playground`, `portfolio`, `awkwardgroup`)
+**Ignored:** Apps (`playground`, `portfolio`, `awkwardgroup`)
 
 When adding packages, update `.changeset/config.json` (`linked` or `ignore`).
 

@@ -23,7 +23,6 @@ AI-native design system and build tooling for shipping applications with speed a
 
 | App                                        | Description        |
 | ------------------------------------------ | ------------------ |
-| [@josui/docs](./apps/docs)                 | Landing page       |
 | [@josui/playground](./apps/playground)     | Dev sandbox        |
 | [@josui/portfolio](./apps/portfolio)       | Personal portfolio |
 | [@josui/awkwardgroup](./apps/awkwardgroup) | Company website    |
