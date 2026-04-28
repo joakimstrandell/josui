@@ -6,9 +6,6 @@ export default {
       entry: ["scripts/*.ts"],
       project: ["scripts/**/*.ts"],
     },
-    "packages/tokens": {
-      entry: ["terrazzo.config.mjs"],
-    },
     "packages/tailwind-preset": {
       ignore: ["**/*"],
     },

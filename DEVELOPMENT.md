@@ -17,7 +17,7 @@ Run `pnpm test` before committing. A pre-commit hook (`vp staged`) runs automati
 Use [Conventional Commits](https://www.conventionalcommits.org/): `<type>(<scope>): <description>`
 
 **Types:** `feat`, `fix`, `refactor`, `docs`, `chore`, `test`
-**Scopes:** Package name without `@josui/` (e.g., `react`, `tokens`, `core-web`)
+**Scopes:** Package or app name without `@josui/` (e.g., `react`, `core-web`, `docs`)
 
 ## Releasing
 
@@ -29,7 +29,7 @@ pnpm version-packages   # Apply changesets and bump package versions
 pnpm release            # Build all packages and publish to npm
 ```
 
-**Published:** `@josui/core`, `@josui/core-web`, `@josui/react`, `@josui/tailwind-preset`, `@josui/token-studio`, `@josui/typescript-config`
+**Published:** `@josui/core`, `@josui/core-web`, `@josui/react`, `@josui/tailwind-preset`, `@josui/typescript-config`
 **Ignored:** Apps (`docs`, `playground`, `portfolio`, `awkwardgroup`)
 
 When adding packages, update `.changeset/config.json` (`linked` or `ignore`).
@@ -49,3 +49,8 @@ Config is in root `vite.config.ts`. The pre-commit hook is installed by `pnpm in
 ## Documentation
 
 After changing documentation, run `docs-audit` to verify consistency across the repo. Documentation rules are in `.claude/rules/documentation.md`.
+
+## Repository Direction
+
+- This repository focuses on shared design system libraries and web applications.
+- Token tooling/projects are intentionally out of scope and are maintained in a separate repository.

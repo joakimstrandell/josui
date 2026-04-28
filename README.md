@@ -17,7 +17,6 @@ AI-native design system and build tooling for shipping applications with speed a
 | -------------------------------------------------------- | ----------------------- |
 | [@josui/react](./packages/react)                         | React component library |
 | [@josui/tailwind-preset](./packages/tailwind-preset)     | Tailwind CSS v4 preset  |
-| [@josui/token-studio](./packages/token-studio)           | Token editor CLI        |
 | [@josui/core](./packages/core)                           | Pure JS utilities       |
 | [@josui/core-web](./packages/core-web)                   | Shared web utilities    |
 | [@josui/typescript-config](./packages/typescript-config) | Shared tsconfig files   |
@@ -36,14 +35,15 @@ pnpm check      # Lint + format + typecheck
 pnpm test       # Run all tests
 ```
 
-See [DEVELOPMENT.md](DEVELOPMENT.md) for code style, commits, releasing, and tooling.
+See [AGENTS.md](AGENTS.md) for agent workflow and [DEVELOPMENT.md](DEVELOPMENT.md) for engineering conventions.
 
 ## Documentation
 
 - **README.md** – The way in. What it is, what's inside, how to use it, links
 - **USAGE.md** (optional) – Setup guides, API reference, extended examples
-- **DEVELOPMENT.md** – Structure, constraints, patterns. Root: code style, commits, tooling
-- **CLAUDE.md** – References for AI assistants. Points to DEVELOPMENT.md
+- **AGENTS.md** – Agent-agnostic workflow for working in this monorepo
+- **DEVELOPMENT.md** – Engineering conventions, code style, commits, tooling
+- **CLAUDE.md** – Thin compatibility shim that points to AGENTS.md + DEVELOPMENT.md
 - **Skills** – Teachable knowledge for AI assistants in `.claude/skills/`
 
 ## License
