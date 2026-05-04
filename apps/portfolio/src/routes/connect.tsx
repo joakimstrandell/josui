@@ -30,12 +30,9 @@ function Connect() {
             <a href="mailto:joakim@joakimstrandell.com">joakim@joakimstrandell.com</a>.
           </p>
           <p>
-            You can also find me on <a href="https://linkedin.com/in/joakimstrandell">LinkedIn</a>{" "}
-            and <a href="https://x.com/joakimstrandell">X (Twitter)</a>.
-          </p>
-          <p>
-            Or check out my <a href="https://github.com/joakimstrandell">GitHub</a> or{" "}
-            <a href="https://dribbble.com/joakimstrandell">Dribbble</a>.
+            You can also find me on <a href="https://linkedin.com/in/joakimstrandell">LinkedIn</a>,{" "}
+            <a href="https://x.com/joakimstrandell">X (Twitter)</a> and{" "}
+            <a href="https://github.com/joakimstrandell">GitHub</a>.
           </p>
           <p>I am based in Stockholm, Sweden.</p>
         </AnimateContent>

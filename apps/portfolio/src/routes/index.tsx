@@ -65,7 +65,7 @@ function Home() {
             <AnimateContent className="copy pointer-events-auto md:max-w-[67ch]">
               <p className="copy-lg pointer-events-auto">
                 With 20+ years of experience, I eliminate the friction between concept and code. I
-                build scalable design systems and robust fullstack architectures that allow teams to
+                build scalable design systems and robust frontend architectures that allow teams to
                 go from idea to production without the translation loss.
               </p>
             </AnimateContent>
@@ -88,7 +88,7 @@ function Home() {
         <GlobeBackground className="-mt-72" />
         <PageSection className="relative z-10 max-w-6xl pt-48">
           <AnimateContent animationType="slideUp" className="-mt-32">
-            <div className="copy copy-xl md:copy-2xl mx-auto text-center">
+            <div className="copy copy-lg md:copy-xl mx-auto text-center">
               <h2 className="mb-4">
                 How I Help You{" "}
                 <RotatingText
@@ -102,7 +102,6 @@ function Home() {
               </p>
             </div>
           </AnimateContent>
-          {/* Product Design */}
           <div className="mt-12 space-y-8 md:mt-24 md:space-y-12">
             <AnimateContent animationType="slideUp">
               <Card
@@ -112,14 +111,14 @@ function Home() {
                 <div className="flex-1 p-6 md:p-12">
                   <h3 className="text-2xl font-semibold md:text-3xl">Product Design</h3>
                   <p className="mt-1 text-base text-gray-600 md:text-lg">
-                    Designing for implementation, not just presentation.
+                    Interfaces designed in code, ready to ship.
                   </p>
                   <Checklist
                     className="mt-4"
                     items={[
                       "Prototype complex flows directly in code",
                       "Design systems built in the codebase, not just Figma",
-                      "No handoff — I ship production-ready components",
+                      "No handoff – I ship production-ready components",
                     ]}
                   />
                 </div>
@@ -129,23 +128,22 @@ function Home() {
               </Card>
             </AnimateContent>
 
-            {/* Fullstack Engineering */}
             <AnimateContent>
               <Card
                 shadow="none"
                 className="border-border/40 flex flex-col items-center border p-0 md:min-h-96 md:flex-row"
               >
                 <div className="flex-1 p-6 md:pl-12">
-                  <h3 className="text-2xl font-semibold md:text-3xl">Fullstack Engineering</h3>
+                  <h3 className="text-2xl font-semibold md:text-3xl">Frontend Engineering</h3>
                   <p className="mt-1 text-base text-gray-600 md:text-lg">
-                    Vertical ownership from database to UI.
+                    Production-grade React, with fullstack instincts.
                   </p>
                   <Checklist
                     className="mt-4"
                     items={[
-                      "Component-driven, accessible frontends in React/TypeScript",
-                      "Scalable backend architecture with clean API design",
-                      "End-to-end type safety — contracts generated, not assumed",
+                      "Component-driven UIs in React/TypeScript",
+                      "Accessible and performant by default",
+                      "End-to-end type safety – contracts generated, not assumed",
                     ]}
                   />
                 </div>
@@ -155,7 +153,6 @@ function Home() {
               </Card>
             </AnimateContent>
 
-            {/* Architecture & DX */}
             <AnimateContent>
               <Card
                 shadow="none"
@@ -164,7 +161,7 @@ function Home() {
                 <div className="flex-1 p-6 md:pl-12">
                   <h3 className="text-2xl font-semibold md:text-3xl">Architecture & DX</h3>
                   <p className="mt-1 text-sm text-gray-600 md:text-base">
-                    Building the systems that build the product.
+                    The systems that ship the interface.
                   </p>
                   <Checklist
                     className="mt-4"

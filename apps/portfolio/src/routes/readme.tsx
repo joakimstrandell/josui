@@ -62,16 +62,6 @@ function Readme() {
                 architecture and API layer.
               </p>
             </AnimateContent>
-            <AnimateContent className="mt-12">
-              <div className="flex items-center gap-8">
-                <Button size="lg" asChild variant="primary">
-                  <a href="/Joakim_Strandell_Fullstack_Designer_CV.pdf">Employment CV</a>
-                </Button>
-                <Button size="lg" asChild>
-                  <a href="/Joakim_Strandell_Fullstack_Designer_Consultant_CV.pdf">Consultant CV</a>
-                </Button>
-              </div>
-            </AnimateContent>
           </div>
           <AnimateContent
             animationType="fadeLeft"
@@ -91,29 +81,31 @@ function Readme() {
         id="philosophy"
         className="border-border/50 bg-background/50 relative border-t-8 border-b-8"
       >
-        <PageSection width="narrow" className="copy">
-          <h2>My Philosophy</h2>
-          <p className="text-lg font-bold">Great products are built in the overlap.</p>
-          <p>
-            For too long, design and engineering have lived in separate realities. Designers perfect
-            static images that are impossible to maintain, and developers are left to interpret the
-            intent. The result is &quot;drift&quot;—a gap between what was approved and what
-            actually ships.
-          </p>
+        <PageSection width="narrow">
+          <div className="copy">
+            <h2>My Philosophy</h2>
+            <p className="text-lg font-bold">Great products are built in the overlap.</p>
+            <p>
+              For too long, design and engineering have lived in separate realities. Designers
+              perfect static images that are impossible to maintain, and developers are left to
+              interpret the intent. The result is &quot;drift&quot; – a gap between what was
+              approved and what actually ships.
+            </p>
 
-          <p>
-            I believe the best work happens when we remove that friction. I treat Code as the Source
-            of Truth. Instead of maintaining heavy, static design libraries, I architect systems
-            where design tokens and variables map 1:1 to production code.
-          </p>
+            <p>
+              I believe the best work happens when we remove that friction. I treat Code as the
+              Source of Truth. Instead of maintaining heavy, static design libraries, I architect
+              systems where design tokens and variables map 1:1 to production code.
+            </p>
 
-          <p>
-            This &quot;Code-First&quot; approach eliminates the traditional &quot;hand-off.&quot; We
-            don&apos;t just hope for the best; we prototype in the browser to validate logic,
-            physics, and accessibility immediately. This ensures a Zero-Loss process where the
-            product you design is exactly the product you build—cohesive, scalable, and shipped on
-            time.
-          </p>
+            <p>
+              This &quot;Code-First&quot; approach eliminates the traditional &quot;hand-off.&quot;
+              We don&apos;t just hope for the best; we prototype in the browser to validate logic,
+              physics, and accessibility immediately. This ensures a Zero-Loss process where the
+              product you design is exactly the product you build – cohesive, scalable, and shipped
+              on time.
+            </p>
+          </div>
         </PageSection>
       </AnimateContent>
 
@@ -137,7 +129,7 @@ function Readme() {
                 </p>
               </div>
             </AnimateContent>
-            <AnimateContent className="mt-12">
+            <AnimateContent>
               <div className="[&>a]:bg-primary-500/20 [&>a]:text-primary-950 space-y-2 space-x-2 [&>a]:inline-block [&>a]:rounded-md [&>a]:p-2">
                 <a href="https://www.ideou.com/blogs/inspiration/what-is-human-centered-design">
                   Human-Centered Design
@@ -165,6 +157,7 @@ function Readme() {
                 <a href="https://www.django.com/">Django</a>
                 <a href="https://www.openapis.org/">OpenAPI</a>
                 <a href="https://www.postgresql.org/">PostgreSQL</a>
+                <a href="https://www.convex.dev/">Convex</a>
                 <a href="https://www.mysql.com/">MySQL</a>
                 <a href="https://www.mongodb.com/">MongoDB</a>
                 <a href="https://www.docker.com/">Docker</a>
@@ -173,9 +166,10 @@ function Readme() {
                 <a href="https://www.gitlab.com/">GitLab</a>
                 <a href="https://www.cursor.com/">Cursor</a>
                 <a href="https://www.claude.ai/">Claude</a>
-                <a href="https://gemini.google.com">Gemini</a>
+                <a href="https://www.openai.com/codex">Codex</a>
                 <a href="https://www.atlassian.com/software/jira">Jira</a>
-                <a href="https://www.microsoft.com/en-us/microsoft-365">Microsoft 365</a>
+                <a href="https://www.slack.com/">Slack</a>
+                <a href="https://linear.app/">Linear</a>
                 <a href="https://www.notion.com/">Notion</a>
               </div>
             </AnimateContent>

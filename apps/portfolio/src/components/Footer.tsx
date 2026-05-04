@@ -9,10 +9,7 @@ export function Footer() {
           <p className="leading-7">
             © {new Date().getFullYear()}
             <br /> Joakim Strandell <br />
-            <a
-              className="footer-link"
-              href="https://www.allabolag.se/foretag/awkward-group-ab/stockholm/konsulter/2K39PE4I5YF3I"
-            >
+            <a className="footer-link" href="https://awkwardgroup.com">
               Awkward Group AB
             </a>
           </p>
@@ -52,19 +49,6 @@ export function Footer() {
                   Work Stack
                 </Link>
               </li>
-              <li>
-                <a className="footer-link" href="/Joakim_Strandell_Fullstack_Designer_CV.pdf">
-                  Employment CV
-                </a>
-              </li>
-              <li>
-                <a
-                  className="footer-link"
-                  href="/Joakim_Strandell_Fullstack_Designer_Consultant_CV.pdf"
-                >
-                  Consultant CV
-                </a>
-              </li>
             </ul>
           </div>
           <div>
@@ -74,16 +58,6 @@ export function Footer() {
               </Link>
             </h4>
             <ul>
-              <li>
-                <a className="footer-link" href="mailto:joakim@joakimstrandell.com">
-                  joakim@joakimstrandell.com
-                </a>
-              </li>
-              <li>
-                <a className="footer-link" href="tel:+46707294379">
-                  +46 70 729 43 79
-                </a>
-              </li>
               <li>
                 <a className="footer-link" href="https://linkedin.com/in/joakimstrandell">
                   LinkedIn
