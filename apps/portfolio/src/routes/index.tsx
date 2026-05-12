@@ -62,7 +62,7 @@ function Home() {
                 .
               </h1>
             </AnimateContent>
-            <AnimateContent className="copy pointer-events-auto md:max-w-[67ch]">
+            <AnimateContent className="copy pointer-events-auto md:max-w-[57ch] lg:max-w-[67ch]">
               <p className="copy-lg pointer-events-auto">
                 With 20+ years of experience, I eliminate the friction between concept and code. I
                 build scalable design systems and robust frontend architectures that allow teams to
