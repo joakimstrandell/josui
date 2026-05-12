@@ -20,17 +20,22 @@ function ContractFirstApisCase() {
     <Page>
       <PageSection width="narrow">
         <AnimateContent className="copy">
-          <h1 className="mb-6 text-4xl font-bold">Contract-First APIs</h1>
-          <p className="text-muted-foreground">
-            <strong>Role:</strong> Frontend Engineer, leading architecture for frontend
-            infrastructure and applications
-            <br />
-            <strong>Outcome:</strong> Shared API contracts and generated SDKs adopted across
-            multiple services
-            <br />
-            <strong>Focus period:</strong> 2024–2025
-            <br />
+          <h1>An API Contract Both Teams Owned</h1>
+          <p className="copy copy-lg">
+            Shared API contracts and generated SDKs adopted across multiple services
           </p>
+          <div className="flex items-center gap-x-8 flex-wrap gap-y-2">
+            <div className="flex flex-col">
+              <strong>Role:</strong> Lead Frontend Engineer
+            </div>
+            <div className="flex flex-col">
+              <strong>Client:</strong> Stockholm Exergi
+            </div>
+
+            <div className="flex flex-col">
+              <strong>Focus period:</strong> 2024–2025
+            </div>
+          </div>
         </AnimateContent>
         <AnimateContent className="copy">
           <h2>Overview</h2>

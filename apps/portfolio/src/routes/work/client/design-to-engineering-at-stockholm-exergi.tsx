@@ -5,7 +5,9 @@ export const Route = createFileRoute("/work/client/design-to-engineering-at-stoc
   component: StockholmExergiCase,
   head: () => ({
     meta: [
-      { title: "Frontend Architecture for a Multi-Product Platform – Joakim Strandell" },
+      {
+        title: "Frontend Architecture for a Multi-Product Platform – Joakim Strandell",
+      },
       {
         name: "description",
         content:
@@ -21,14 +23,20 @@ function StockholmExergiCase() {
       <PageSection width="narrow">
         <AnimateContent className="copy">
           <h1>Frontend Architecture for a Multi-Product Platform</h1>
-          <p className="text-muted-foreground">
-            <strong>Role:</strong> Frontend Engineer & Product Designer (staff-level)
-            <br />
-            <strong>Contract:</strong> 2018–2025 (7 years)
-            <br />
-            <strong>Outcome:</strong> React/TypeScript platform and design system adopted across 9+
-            products
+          <p className="copy copy-lg">
+            React/TypeScript platform and design system across 9+ products
           </p>
+          <div className="flex flex-col">
+            <strong>Role:</strong> Lead Frontend Engineer & Product Designer
+          </div>
+          <div className="flex items-center gap-x-8 flex-wrap gap-y-2">
+            <div className="flex flex-col">
+              <strong>Client:</strong> Stockholm Exergi
+            </div>
+            <div className="flex flex-col">
+              <strong>Contract:</strong> 2018–2025 (7 years)
+            </div>
+          </div>
         </AnimateContent>
 
         <AnimateContent className="copy">
