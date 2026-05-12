@@ -22,8 +22,8 @@ function Connect() {
         <AnimateContent className="copy">
           <h1>Connect</h1>
           <p>
-            Ready to ship? Whether you need a specific design system audit or a fullstack product
-            engineer, let's discuss how we can build scalable software together.
+            Whether you need a specific design system audit or a fullstack product engineer, let's
+            discuss how we can build scalable software together.
           </p>
           <p>
             Give me a call at <a href="tel:+46707294379">+46 70 729 43 79</a> or send me an email at{" "}
