@@ -9,8 +9,7 @@ export const Route = createFileRoute("/work/")({
       { title: "Work - Joakim Strandell" },
       {
         name: "description",
-        content:
-          "A collection of client work, personal projects, concepts, and thoughts from Joakim Strandell.",
+        content: "A collection of professional work and personal projects from Joakim Strandell.",
       },
     ],
   }),
@@ -22,7 +21,7 @@ function Work() {
       <PageSection>
         <AnimateContent className="copy">
           <h1 className="mb-2 font-bold">Work</h1>
-          <p className="text-xl">A collection of client work, personal projects and concepts.</p>
+          <p className="text-xl">A collection of professional work and personal projects.</p>
         </AnimateContent>
         <AnimateContent className="space-y-8">
           <ProjectCard
@@ -50,8 +49,8 @@ function Work() {
           <ProjectCard
             to="/work/personal/josui"
             type="personal"
-            title="JOSUI Design System"
-            extract="An evolving design system monorepo with a token pipeline, core utilities, and React/Vue component libraries."
+            title="A Design System That Ships Alongside Its Apps"
+            extract="An AI-native design system and build tooling monorepo that powers multiple production apps from one workspace."
             thumbnail={{
               src: "/josui-thumbnail.png",
               alt: "Abstract design system diagram",
