@@ -1,5 +1,5 @@
-import { createFileRoute, Navigate } from '@tanstack/react-router';
+import { createFileRoute, Navigate } from "@tanstack/react-router";
 
-export const Route = createFileRoute('/work/personal/')({
-  component: () => <Navigate to="/work" />,
+export const Route = createFileRoute("/work/personal/")({
+  component: () => <Navigate to="/work" search={{ category: "personal" }} />,
 });

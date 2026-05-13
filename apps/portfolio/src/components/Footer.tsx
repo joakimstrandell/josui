@@ -15,18 +15,18 @@ export function Footer() {
           </p>
           <div>
             <h4 className="mb-2 font-bold">
-              <Link className="footer-link" to="/work" search={{ category: "projects" }}>
+              <Link className="footer-link" to="/work">
                 Work
               </Link>
             </h4>
             <ul>
               <li>
-                <Link className="footer-link" to="/work/client">
+                <Link className="footer-link" to="/work" search={{ category: "professional" }}>
                   Client Work
                 </Link>
               </li>
               <li>
-                <Link className="footer-link" to="/work">
+                <Link className="footer-link" to="/work" search={{ category: "personal" }}>
                   Personal Projects
                 </Link>
               </li>
