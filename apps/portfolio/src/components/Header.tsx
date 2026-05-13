@@ -66,7 +66,7 @@ export function Header() {
         </Link>
 
         <div
-          className="relative flex items-center overflow-hidden"
+          className="relative flex items-center"
           onMouseEnter={() => handleHover(true)}
           onMouseLeave={() => handleHover(false)}
           onTouchStart={() => handleHover(true)}
