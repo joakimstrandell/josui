@@ -28,17 +28,16 @@ Navigation.Item = function NavigationItem({
 
   return (
     <li>
-      <Link to={href}>
-        <Button
-          variant="ghost"
-          className={cn({
-            "text-foreground-hc": isActive,
-            "text-foreground-lc": !isActive,
-          })}
-        >
-          {children}
-        </Button>
-      </Link>
+      <Button
+        variant="ghost"
+        className={cn({
+          "text-foreground-hc": isActive,
+          "text-foreground-lc": !isActive,
+        })}
+        asChild
+      >
+        <Link to={href}>{children}</Link>
+      </Button>
     </li>
   );
 };
