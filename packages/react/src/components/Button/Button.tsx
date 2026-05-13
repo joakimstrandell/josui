@@ -1,4 +1,5 @@
 import { forwardRef, type ButtonHTMLAttributes, type ReactNode } from "react";
+import { Slot } from "@radix-ui/react-slot";
 import { cn } from "@josui/core-web";
 import { Spinner } from "../Spinner";
 
@@ -13,6 +14,8 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   leftIcon?: ReactNode;
   /** Icon to show on the right */
   rightIcon?: ReactNode;
+  /** Render as child element using Radix Slot */
+  asChild?: boolean;
 }
 
 const variantStyles = {
@@ -44,13 +47,15 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       leftIcon,
       rightIcon,
       disabled,
+      asChild = false,
       children,
       ...props
     },
     ref,
   ) => {
+    const Comp = asChild ? Slot : "button";
     return (
-      <button
+      <Comp
         ref={ref}
         className={cn(
           "inline-flex items-center justify-center rounded-md font-medium transition-colors",
@@ -70,7 +75,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         )}
         {children}
         {rightIcon && !isLoading && <span className="shrink-0">{rightIcon}</span>}
-      </button>
+      </Comp>
     );
   },
 );
